@@ -1,0 +1,51 @@
+{
+  "dataflowName": "HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v2",
+  "dataflowId": "9ea17989-6e31-43e2-9f34-a4ed516d7461",
+  "dataFlowRunId": 329920,
+  "runDate": "2026-08-13T11:29:01.941877",
+  "container": "DevContainer",
+  "folder": "Dataflow",
+  "engine": "168_AN",
+  "status": "Failed",
+  "componentStatuses": [
+    {"name": "startComponent", "status": "Completed", "message": "Component executed successfully"},
+    {"name": "JDBC 1", "status": "Completed", "message": "Read 9 rows"},
+    {"name": "JDBC 2", "status": "Completed", "message": "Read 10 rows"},
+    {"name": "DataCompare 3", "status": "Failed", "message": "Only In B : 1(10%); Difference : 9(A:100% ,B:90%);"}
+  ],
+  "Summary": [
+    ["DataflowName : HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v2"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    [""],
+    ["RunDate: 2026-08-13 11:29:01.941877"],
+    ["Dataset A Count : 9"],
+    ["Dataset B Count : 10"],
+    ["Data difference in A : JDBC_1 and B : JDBC_2 : 9"],
+    ["Matched Data : 0"],
+    ["Name", "Count", "Percentage(%)", "Status"],
+    ["Only In A Count", "0", "0.0%", "Pass"],
+    ["Duplicates In A Count", "0", "0.0%", "Pass"],
+    ["Only In B Count", "1", "10.0%", "Failed"],
+    ["Duplicates In B Count", "0", "0.0%", "Pass"]
+  ],
+  "MismatchedRows": [
+    {"CCID": "10001", "JE_HEADER_ID": "5001", "JE_LINE_NUM": "1", "PERIOD_NUM": "9", "PERIOD_YEAR": "2026", "SET_OF_BOOKS_ID": "2021", "JE_SOURCE": "MANUAL", "JE_CATEGORY": "ACCRUAL", "FUND_VALUE": "75-1234-2026", "ACCOUNT_NUMBER": "461000", "D_C_INDICATOR": "D", "AMOUNT": "1500000.00", "CREATED_ON_DT": "2026-06-15 00:00:00", "DATASOURCE_NUM_ID": "A : 12.0000000000 B : 0E-10", "PROVIDER_RECIPNT_ID": "A : 1200 B : ", "PROVIDER_RECIPNT_NAME": "A : DEPARTMENT OF ENERGY B : "},
+    {"CCID": "10002", "JE_HEADER_ID": "5002", "JE_LINE_NUM": "1", "PERIOD_NUM": "9", "PERIOD_YEAR": "2026", "SET_OF_BOOKS_ID": "2021", "JE_SOURCE": "PAYABLES", "JE_CATEGORY": "PURCHASE INVOICES", "FUND_VALUE": "75-1234-2026", "ACCOUNT_NUMBER": "610000", "D_C_INDICATOR": "C", "AMOUNT": "275500.50", "CREATED_ON_DT": "2026-06-20 00:00:00", "DATASOURCE_NUM_ID": "A : 12.0000000000 B : 0E-10", "PROVIDER_RECIPNT_ID": "A : 1400 B : ", "PROVIDER_RECIPNT_NAME": "A : DEPARTMENT OF JUSTICE B : "},
+    {"CCID": "10003", "JE_HEADER_ID": "5003", "JE_LINE_NUM": "1", "PERIOD_NUM": "9", "PERIOD_YEAR": "2026", "SET_OF_BOOKS_ID": "2021", "JE_SOURCE": "MANUAL", "JE_CATEGORY": "ADJUSTMENT", "FUND_VALUE": "75-1234-2026", "ACCOUNT_NUMBER": "462000", "D_C_INDICATOR": "D", "AMOUNT": "98000.00", "CREATED_ON_DT": "2026-06-25 00:00:00", "DATASOURCE_NUM_ID": "A : 12.0000000000 B : 0E-10", "PROVIDER_RECIPNT_ID": "A : 1900 B : ", "PROVIDER_RECIPNT_NAME": "A : DEPARTMENT OF STATE B : "},
+    {"CCID": "10004", "JE_HEADER_ID": "5004", "JE_LINE_NUM": "1", "PERIOD_NUM": "9", "PERIOD_YEAR": "2026", "SET_OF_BOOKS_ID": "2021", "JE_SOURCE": "MANUAL", "JE_CATEGORY": "ACCRUAL", "FUND_VALUE": "75-0350-2026", "ACCOUNT_NUMBER": "101000", "D_C_INDICATOR": "D", "AMOUNT": "640000.00", "CREATED_ON_DT": "2026-07-01 00:00:00", "DATASOURCE_NUM_ID": "A : 12.0000000000 B : 0E-10", "PROVIDER_RECIPNT_ID": "A : 0751234 B : ", "PROVIDER_RECIPNT_NAME": "A : CDC B : "},
+    {"CCID": "10005", "JE_HEADER_ID": "5005", "JE_LINE_NUM": "1", "PERIOD_NUM": "13", "PERIOD_YEAR": "2026", "SET_OF_BOOKS_ID": "2021", "JE_SOURCE": "YEAR END CLOSE", "JE_CATEGORY": "CLOSE JOURNALS", "FUND_VALUE": "75-1234-2026", "ACCOUNT_NUMBER": "331000", "D_C_INDICATOR": "C", "AMOUNT": "12250.75", "CREATED_ON_DT": "2026-07-05 00:00:00", "DATASOURCE_NUM_ID": "A : 12.0000000000 B : 0E-10", "PROVIDER_RECIPNT_ID": "A : 0121500 B : ", "PROVIDER_RECIPNT_NAME": "A : DEPARTMENT OF AGRICULTURE B : "},
+    {"CCID": "10006", "JE_HEADER_ID": "5006", "JE_LINE_NUM": "1", "PERIOD_NUM": "9", "PERIOD_YEAR": "2026", "SET_OF_BOOKS_ID": "2021", "JE_SOURCE": "MANUAL", "JE_CATEGORY": "ACCRUAL", "FUND_VALUE": "75-0350-2026", "ACCOUNT_NUMBER": "419000", "D_C_INDICATOR": "D", "AMOUNT": "3300000.00", "CREATED_ON_DT": "2026-07-08 00:00:00", "DATASOURCE_NUM_ID": "A : 12.0000000000 B : 0E-10", "PROVIDER_RECIPNT_ID": "0750350 (matched)", "PROVIDER_RECIPNT_NAME": "FDA (matched)"},
+    {"CCID": "10007", "JE_HEADER_ID": "5007", "JE_LINE_NUM": "1", "PERIOD_NUM": "9", "PERIOD_YEAR": "2026", "SET_OF_BOOKS_ID": "2021", "JE_SOURCE": "MANUAL", "JE_CATEGORY": "ADJUSTMENT", "FUND_VALUE": "75-1234-2026", "ACCOUNT_NUMBER": "570000", "D_C_INDICATOR": "C", "AMOUNT": "45000.00", "CREATED_ON_DT": "2026-07-10 00:00:00", "DATASOURCE_NUM_ID": "A : 12.0000000000 B : 0E-10", "PROVIDER_RECIPNT_ID": "(blank on both, matched)", "PROVIDER_RECIPNT_NAME": "(blank on both, matched)"},
+    {"CCID": "10008", "JE_HEADER_ID": "5008", "JE_LINE_NUM": "1", "PERIOD_NUM": "9", "PERIOD_YEAR": "2026", "SET_OF_BOOKS_ID": "2021", "JE_SOURCE": "RECEIVABLES", "JE_CATEGORY": "SALES INVOICES", "FUND_VALUE": "75-1234-2026", "ACCOUNT_NUMBER": "131000", "D_C_INDICATOR": "D", "AMOUNT": "8750.25", "CREATED_ON_DT": "2026-07-12 00:00:00", "DATASOURCE_NUM_ID": "A : 12.0000000000 B : 0E-10", "PROVIDER_RECIPNT_ID": "(blank on both, matched)", "PROVIDER_RECIPNT_NAME": "(blank on both, matched)"},
+    {"CCID": "10009", "JE_HEADER_ID": "5009", "JE_LINE_NUM": "1", "PERIOD_NUM": "9", "PERIOD_YEAR": "2026", "SET_OF_BOOKS_ID": "2021", "JE_SOURCE": "MANUAL", "JE_CATEGORY": "ACCRUAL", "FUND_VALUE": "75-1234-2026", "ACCOUNT_NUMBER": "640000", "D_C_INDICATOR": "C", "AMOUNT": "999.99", "CREATED_ON_DT": "2026-07-15 00:00:00", "DATASOURCE_NUM_ID": "A : 12.0000000000 B : 0E-10", "PROVIDER_RECIPNT_ID": "(blank on both, matched)", "PROVIDER_RECIPNT_NAME": "(blank on both, matched)"}
+  ],
+  "OnlyInJDBC_1": "No data available",
+  "OnlyInJDBC_2": [
+    {"CCID_tgt": "10010", "JE_HEADER_ID_tgt": "5010", "JE_LINE_NUM_tgt": "1", "PERIOD_NUM_tgt": "9", "PERIOD_YEAR_tgt": "2024", "SET_OF_BOOKS_ID_tgt": "2021", "JE_SOURCE_tgt": "MANUAL", "JE_CATEGORY_tgt": "ACCRUAL", "FUND_VALUE_tgt": "75-0350-2024", "ACCOUNT_NUMBER_tgt": "101000", "D_C_INDICATOR_tgt": "D", "AMOUNT_tgt": "500000.00", "CREATED_ON_DT_tgt": "2026-07-20T00:00:00.000Z", "DATASOURCE_NUM_ID_tgt": "0E-10", "PROVIDER_RECIPNT_ID_tgt": "", "PROVIDER_RECIPNT_NAME_tgt": ""}
+  ],
+  "ColumnWiseMismatchCounts": {
+    "DATASOURCE_NUM_ID": 9,
+    "PROVIDER_RECIPNT_ID": 5,
+    "PROVIDER_RECIPNT_NAME": 5
+  }
+}
