@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Analysis: HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v2 — Run 329920</title>
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --card-bg: #ffffff;
+    --text: #1c2128;
+    --muted: #5b6470;
+    --border: #e2e5ea;
+    --accent: #2563eb;
+    --red: #dc2626;
+    --red-bg: #fdecec;
+    --amber: #b45309;
+    --amber-bg: #fef3e2;
+    --blue: #1d4ed8;
+    --blue-bg: #e8f0fe;
+    --purple: #7c3aed;
+    --purple-bg: #f1e9fe;
+    --green: #15803d;
+    --green-bg: #e6f6ea;
+    --bar-track: #eceff3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14161a;
+      --card-bg: #1d2025;
+      --text: #e6e8eb;
+      --muted: #9aa3ad;
+      --border: #2b2f36;
+      --accent: #5b8def;
+      --red: #f87171;
+      --red-bg: #3a1a1a;
+      --amber: #f2b355;
+      --amber-bg: #3a2c12;
+      --blue: #7fa8f5;
+      --blue-bg: #182338;
+      --purple: #b794f6;
+      --purple-bg: #271a3a;
+      --green: #6fd18c;
+      --green-bg: #123420;
+      --bar-track: #2a2e35;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 2rem 1.5rem 4rem;
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  h1 { font-size: 1.35rem; margin: 0 0 .25rem; }
+  h2 { font-size: 1.05rem; margin: 0 0 .75rem; }
+  .subtitle { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
+  .card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem;
+  }
+  .badge {
+    display: inline-block; padding: .2rem .6rem; border-radius: 999px;
+    font-size: .78rem; font-weight: 600; letter-spacing: .01em;
+  }
+  .badge-failed { background: var(--red-bg); color: var(--red); }
+  .badge-passed { background: var(--green-bg); color: var(--green); }
+  .badge-testcase { background: var(--blue-bg); color: var(--blue); }
+  .badge-env { background: var(--amber-bg); color: var(--amber); }
+  .badge-etlbug { background: var(--purple-bg); color: var(--purple); }
+  table { border-collapse: collapse; width: 100%; font-size: .85rem; margin-top: .5rem; }
+  th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .03em; }
+  .bar-row { display: flex; align-items: center; gap: .75rem; margin: .4rem 0; }
+  .bar-label { flex: 0 0 150px; font-size: .82rem; color: var(--muted); }
+  .bar-track { flex: 1; background: var(--bar-track); border-radius: 5px; height: 16px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 5px 0 0 5px; }
+  .bar-value { flex: 0 0 32px; font-size: .82rem; font-weight: 600; text-align: right; }
+  .finding { margin-bottom: 1.5rem; }
+  .finding:last-child { margin-bottom: 0; }
+  .finding h3 { font-size: .95rem; margin: 0 0 .4rem; }
+  .kv { font-size: .82rem; color: var(--muted); margin: 0 0 .75rem; }
+  code { background: var(--bar-track); padding: .1rem .35rem; border-radius: 4px; font-size: .85em; }
+  ul.gaps { margin: 0; padding-left: 1.2rem; font-size: .9rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Analysis: HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v2 — Run 329920</h1>
+  <div class="subtitle">DevContainer / Dataflow / engine 168_AN &nbsp;·&nbsp; run date 2026-08-13 11:29:01</div>
+
+  <div class="card">
+    <h2>Scope</h2>
+    <p>Dataflow <code>HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v2</code> (guid <code>9ea17989-6e31-43e2-9f34-a4ed516d7461</code>), built from <code>HRD/HHS_SDE_ORA_GTASActivityBalanceFact_TestCase.json</code> against the <code>HHS_SDE_ORA_GTASActivityBalanceFact</code> Informatica workflow logic. Run executed via <code>run_dataflow</code> (run id 329920); DataCompare report pulled via <code>download_data_compare_report</code> and saved alongside this file as <code>HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v2_run329920_report.json</code>.</p>
+  </div>
+
+  <div class="card">
+    <h2>Summary &nbsp;<span class="badge badge-failed">Failed</span></h2>
+    <div class="bar-row"><div class="bar-label">Dataset A (JDBC_1)</div><div class="bar-track"><div class="bar-fill" style="width:90%;background:var(--accent)"></div></div><div class="bar-value">9</div></div>
+    <div class="bar-row"><div class="bar-label">Dataset B (JDBC_2)</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--accent)"></div></div><div class="bar-value">10</div></div>
+    <div class="bar-row"><div class="bar-label">Matched</div><div class="bar-track"><div class="bar-fill" style="width:0%;background:var(--green)"></div></div><div class="bar-value">0</div></div>
+    <div class="bar-row"><div class="bar-label">Differing</div><div class="bar-track"><div class="bar-fill" style="width:90%;background:var(--red)"></div></div><div class="bar-value">9</div></div>
+    <div class="bar-row"><div class="bar-label">Only in B</div><div class="bar-track"><div class="bar-fill" style="width:10%;background:var(--amber)"></div></div><div class="bar-value">1</div></div>
+    <p class="kv">Matched rows: 0 &nbsp;·&nbsp; Differing: 9 (100% of A, 90% of B) &nbsp;·&nbsp; Only-in-B: 1 (10%)</p>
+  </div>
+
+  <div class="card">
+    <h2>Findings</h2>
+
+    <div class="finding">
+      <h3>1. DATASOURCE_NUM_ID mismatch on all 9 rows — known artifact, not a real defect</h3>
+      <p class="kv">Every compared row shows <code>A: 12.0000000000</code> vs <code>B: 0E-10</code>.</p>
+      <p>Caused by an unresolved Informatica mapping variable: the source workflow XML (<code>Workflows/HHS_SDE_ORA_GTASActivityBalanceFact.XML:403</code>) declares <code>$$DATASOURCE_NUM_ID</code> with no default value. The dataflow parameterized it as <code>$[DATASOURCE_NUM_ID]</code> set to a placeholder value of <code>0</code>; the real fact table has <code>12</code>.</p>
+    </div>
+
+    <div class="finding">
+      <h3>2. PROVIDER_RECIPNT_ID / PROVIDER_RECIPNT_NAME blank for 5 rows — genuine data gap</h3>
+      <table>
+        <tr><th>CCID</th><th>Expected (A)</th><th>Got (B)</th></tr>
+        <tr><td>10001</td><td>1200 / DEPARTMENT OF ENERGY</td><td><em>(blank)</em></td></tr>
+        <tr><td>10002</td><td>1400 / DEPARTMENT OF JUSTICE</td><td><em>(blank)</em></td></tr>
+        <tr><td>10003</td><td>1900 / DEPARTMENT OF STATE</td><td><em>(blank)</em></td></tr>
+        <tr><td>10004</td><td>0751234 / CDC</td><td><em>(blank)</em></td></tr>
+        <tr><td>10005</td><td>0121500 / DEPARTMENT OF AGRICULTURE</td><td><em>(blank)</em></td></tr>
+      </table>
+      <p style="margin-top:.75rem">Root cause: the JDBC_2 query's <code>PROVIDER_RECIPNT_ID</code> CASE logic depends on LEFT JOINs into <code>apps.HZ_CUST_ACCOUNTS</code>, <code>apps.AP_SUPPLIERS</code>, and <code>apps.GL_JE_LINES</code> — all empty stub tables in this environment, so every join returns NULL. Rows 10006–10009 were unaffected: 10006 uses a direct concatenation needing no lookup and matched; 10007–10009 are legitimately NULL on both sides.</p>
+      <h3 style="margin-top:1rem">Column-wise mismatch counts</h3>
+      <div class="bar-row"><div class="bar-label">DATASOURCE_NUM_ID</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:var(--red)"></div></div><div class="bar-value">9</div></div>
+      <div class="bar-row"><div class="bar-label">PROVIDER_RECIPNT_ID</div><div class="bar-track"><div class="bar-fill" style="width:56%;background:var(--amber)"></div></div><div class="bar-value">5</div></div>
+      <div class="bar-row"><div class="bar-label">PROVIDER_RECIPNT_NAME</div><div class="bar-track"><div class="bar-fill" style="width:56%;background:var(--amber)"></div></div><div class="bar-value">5</div></div>
+    </div>
+
+    <div class="finding">
+      <h3>3. Row only in dataset B: CCID 10010, PERIOD_YEAR 2024 — possible ETL load gap</h3>
+      <p>Derivable from the raw source (<code>FV_GTAS_ACTIVITY_BALANCES</code>) but absent from the already-loaded fact table (<code>W_GTAS_ACTIVITY_BALANCES_FS</code>). Candidate real ETL gap — the row may not have been processed yet, or a filter (e.g. on <code>PERIOD_YEAR</code>) is excluding 2024 data from this fact load. Needs confirmation against scope/requirements.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Recommended Actions</h2>
+
+    <div class="finding">
+      <span class="badge badge-env">Environment/data defect</span>
+      <p style="margin-top:.5rem"><strong>Finding 1 (DATASOURCE_NUM_ID):</strong> set dataflow parameter <code>DATASOURCE_NUM_ID</code> to its real value (from the Informatica session parameter file) via <code>update_data_flow</code>, then re-run. Test case and dataflow logic are not at fault.</p>
+    </div>
+
+    <div class="finding">
+      <span class="badge badge-env">Environment/data defect</span>
+      <p style="margin-top:.5rem"><strong>Finding 2 (PROVIDER_RECIPNT_ID/NAME):</strong> populate <code>apps.HZ_CUST_ACCOUNTS</code>, <code>apps.AP_SUPPLIERS</code>, and <code>apps.GL_JE_LINES</code> with reference rows whose keys match the <code>TRADING_PARTNER_ID</code>/<code>JE_HEADER_ID</code>/<code>JE_LINE_NUM</code> values used by rows 10001–10005, then re-run to confirm the lookup logic itself is correct.</p>
+    </div>
+
+    <div class="finding">
+      <span class="badge badge-etlbug">Genuine workflow/ETL bug (unconfirmed)</span>
+      <p style="margin-top:.5rem"><strong>Finding 3 (CCID 10010):</strong> not yet classified with confidence — needs confirmation of whether PERIOD_YEAR 2024 rows are in scope for this fact load before treating it as a defect.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Gaps</h2>
+    <ul class="gaps">
+      <li>No live DataOps job history beyond this single run was queried — only run 329920 was analyzed.</li>
+      <li>Whether <code>PERIOD_YEAR = 2024</code> should be in scope for this fact table load was not verified against any spec/requirements doc — flagged as a question, not a confirmed defect.</li>
+      <li>The correct real value for <code>DATASOURCE_NUM_ID</code> was not available in this repo (checked <code>Workflows/</code> and <code>HRD/</code>); it must come from an external Informatica session parameter file.</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>
