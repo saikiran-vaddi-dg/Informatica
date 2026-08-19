@@ -1,38 +1,161 @@
 {
   "dataflowName": "HHS_SDE_ORA_GTASActivityBalanceFact_TestCase",
-  "engineName": "",
+  "engineName": "168_AN",
   "environment": "",
-  "folderName": "",
+  "folderName": "Dataflow",
   "type": "dataflow",
   "sources": [
-    {"componentName": "JDBC 1", "type": "JDBC", "dataSourceName": "W_GTAS_ACTIVITY_BALANCES_FS", "format": "QUERY", "datasetName": "JDBC_1",
+    {
+      "componentName": "JDBC 1",
+      "type": "JDBC",
+      "dataSourceName": "W_GTAS_ACTIVITY_BALANCES_FS",
+      "format": "QUERY",
+      "datasetName": "JDBC_1",
       "query": "SELECT CCID, JE_HEADER_ID, JE_LINE_NUM, PERIOD_NUM, PERIOD_YEAR, SET_OF_BOOKS_ID, JE_SOURCE, JE_CATEGORY, FUND_VALUE, ACCOUNT_NUMBER, D_C_INDICATOR, AMOUNT, CREATED_ON_DT, DATASOURCE_NUM_ID, PROVIDER_RECIPNT_ID, PROVIDER_RECIPNT_NAME FROM W_GTAS_ACTIVITY_BALANCES_FS",
-      "dependencies": [], "dataSourceLogicalName": "", "excludeInNotificationIfCompletedOrPassed": "ENABLED", "autoRepartition": "ENABLED", "enableTrim": "ENABLED"},
-
-    {"componentName": "JDBC 2", "type": "JDBC", "dataSourceName": "FV_GTAS_ACTIVITY_BALANCES", "format": "QUERY", "datasetName": "JDBC_2",
-      "query": "/* NOTE: $[DATASOURCE_NUM_ID] is a DataOps dataflow parameter substituting for the Informatica mapping variable $$DATASOURCE_NUM_ID; it is currently set to a placeholder value (0) and must be corrected with the real DATASOURCE_NUM_ID before results are trusted. */\nWITH base AS (\n  SELECT F.CCID, F.JE_HEADER_ID, F.JE_LINE_NUM, F.PERIOD_NUM, F.PERIOD_YEAR, F.SET_OF_BOOKS_ID, F.JE_SOURCE, F.JE_CATEGORY, F.FUND_VALUE, F.ACCOUNT_NUMBER, F.D_C_INDICATOR, F.AMOUNT, F.CREATION_DATE AS CREATED_ON_DT, $[DATASOURCE_NUM_ID] AS DATASOURCE_NUM_ID,\n    CASE\n      WHEN F.TRADING_PARTNER_TYPE = 'C' THEN NVL(HCA.ATTRIBUTE1, CASE WHEN F.FED_NON_FED = 'F' AND F.TRADING_PARTNER_ID IS NULL AND F.TRADING_PARTNER_AGENCY_ID IS NOT NULL AND LENGTH(GJL.ATTRIBUTE4) = 7 AND LENGTH(GJL.ATTRIBUTE1) = 4 THEN GJL.ATTRIBUTE1 ELSE NULL END)\n      WHEN F.TRADING_PARTNER_TYPE = 'S' THEN NVL(APS.ATTRIBUTE1, CASE WHEN F.FED_NON_FED = 'F' AND F.TRADING_PARTNER_ID IS NULL AND F.TRADING_PARTNER_AGENCY_ID IS NOT NULL AND LENGTH(GJL.ATTRIBUTE4) = 7 AND LENGTH(GJL.ATTRIBUTE1) = 4 THEN GJL.ATTRIBUTE1 ELSE NULL END)\n      WHEN F.TRADING_PARTNER_TYPE = 'M' THEN GJL.ATTRIBUTE1\n      WHEN F.TRADING_PARTNER_TYPE = 'O' AND (LENGTH(GJL.ATTRIBUTE1) = 4 OR (F.JE_SOURCE = 'Year End Close' AND LENGTH(GJL.ATTRIBUTE1) = 7)) THEN GJL.ATTRIBUTE1\n      WHEN F.TRADING_PARTNER_TYPE = 'B' THEN F.TRADING_PARTNER_AGENCY_ID || F.TRADING_PARTNER_MAIN_ACCOUNT\n      ELSE NULL\n    END AS PROVIDER_RECIPNT_ID\n  FROM FV_GTAS_ACTIVITY_BALANCES F\n  LEFT JOIN (SELECT ATTRIBUTE1, CUST_ACCOUNT_ID FROM apps.HZ_CUST_ACCOUNTS WHERE LENGTH(ATTRIBUTE1) = 4) HCA ON F.TRADING_PARTNER_ID = HCA.CUST_ACCOUNT_ID\n  LEFT JOIN (SELECT ATTRIBUTE1, VENDOR_ID FROM apps.AP_SUPPLIERS WHERE LENGTH(ATTRIBUTE1) = 4) APS ON F.TRADING_PARTNER_ID = APS.VENDOR_ID\n  LEFT JOIN (SELECT JE_HEADER_ID, JE_LINE_NUM, ATTRIBUTE1, ATTRIBUTE4 FROM apps.GL_JE_LINES WHERE LENGTH(ATTRIBUTE1) IN (4, 7)) GJL ON F.JE_HEADER_ID = GJL.JE_HEADER_ID AND F.JE_LINE_NUM = GJL.JE_LINE_NUM\n)\nSELECT B.CCID, B.JE_HEADER_ID, B.JE_LINE_NUM, B.PERIOD_NUM, B.PERIOD_YEAR, B.SET_OF_BOOKS_ID, B.JE_SOURCE, B.JE_CATEGORY, B.FUND_VALUE, B.ACCOUNT_NUMBER, B.D_C_INDICATOR, B.AMOUNT, B.CREATED_ON_DT, B.DATASOURCE_NUM_ID, B.PROVIDER_RECIPNT_ID,\n  CASE\n    WHEN LENGTH(B.PROVIDER_RECIPNT_ID) = 7 AND SUBSTR(B.PROVIDER_RECIPNT_ID, 1, 3) <> '075' THEN (SELECT FFV.DESCRIPTION FROM FND_FLEX_VALUES_VL FFV WHERE FFV.VALUE_CATEGORY = 'HHS_TP_ELIMINATION_CODE' AND FFV.FLEX_VALUE = SUBSTR(B.PROVIDER_RECIPNT_ID, 2, 2))\n    WHEN SUBSTR(B.PROVIDER_RECIPNT_ID, 1, 3) = '075' THEN (SELECT IHS.OPDIV FROM W_GTAS_INTRAHHS_D IHS WHERE IHS.TP_MAIN_ACT = SUBSTR(B.PROVIDER_RECIPNT_ID, 4, 4))\n    ELSE (SELECT FFV.DESCRIPTION FROM FND_FLEX_VALUES_VL FFV WHERE FFV.VALUE_CATEGORY = 'HHS_TP_ELIMINATION_CODE' AND FFV.FLEX_VALUE = B.PROVIDER_RECIPNT_ID)\n  END AS PROVIDER_RECIPNT_NAME\nFROM base B",
-      "dependencies": [], "dataSourceLogicalName": "", "excludeInNotificationIfCompletedOrPassed": "ENABLED", "autoRepartition": "ENABLED", "enableTrim": "ENABLED"},
-
-    {"componentName": "DataCompare 3", "sourceDatasetName": "JDBC_1", "targetDatasetName": "JDBC_2", "autoMap": "ENABLED", "applyTargetDatatypeToSource": "DISABLED", "datasetName": "DataCompare_3", "excludeInNotificationIfCompletedOrPassed": "ENABLED", "type": "Mapping",
-      "config": {"onlyInA": "ENABLED", "onlyInB": "ENABLED", "differences": "ENABLED", "enableTrim": "ENABLED", "considerNullAndEmptySpaceEqual": "ENABLED", "automaticDataTypeConversion": "ENABLED", "columnWiseMismatches": "ENABLED", "compareIgnoreCase": "ENABLED", "passComponentIfDuplicatesExist": "ENABLED", "onlyInAThresholdUnit": "number", "onlyInAThreshold": "0", "onlyInBThresholdUnit": "number", "onlyInBThreshold": "0", "differencesSourceThresholdUnit": "number", "differencesSourceThreshold": "0", "differencesTargetThresholdUnit": "number", "differencesTargetThreshold": "0"},
-      "columnMappings": [
-        {"sourceColumnName": "CCID", "targetColumnName": "CCID", "uniqueKeyColumn": true},
-        {"sourceColumnName": "JE_HEADER_ID", "targetColumnName": "JE_HEADER_ID", "uniqueKeyColumn": true},
-        {"sourceColumnName": "JE_LINE_NUM", "targetColumnName": "JE_LINE_NUM", "uniqueKeyColumn": true},
-        {"sourceColumnName": "PERIOD_NUM", "targetColumnName": "PERIOD_NUM", "uniqueKeyColumn": true},
-        {"sourceColumnName": "PERIOD_YEAR", "targetColumnName": "PERIOD_YEAR", "uniqueKeyColumn": false},
-        {"sourceColumnName": "SET_OF_BOOKS_ID", "targetColumnName": "SET_OF_BOOKS_ID", "uniqueKeyColumn": false},
-        {"sourceColumnName": "JE_SOURCE", "targetColumnName": "JE_SOURCE", "uniqueKeyColumn": false},
-        {"sourceColumnName": "JE_CATEGORY", "targetColumnName": "JE_CATEGORY", "uniqueKeyColumn": false},
-        {"sourceColumnName": "FUND_VALUE", "targetColumnName": "FUND_VALUE", "uniqueKeyColumn": false},
-        {"sourceColumnName": "ACCOUNT_NUMBER", "targetColumnName": "ACCOUNT_NUMBER", "uniqueKeyColumn": false},
-        {"sourceColumnName": "D_C_INDICATOR", "targetColumnName": "D_C_INDICATOR", "uniqueKeyColumn": false},
-        {"sourceColumnName": "AMOUNT", "targetColumnName": "AMOUNT", "uniqueKeyColumn": false},
-        {"sourceColumnName": "CREATED_ON_DT", "targetColumnName": "CREATED_ON_DT", "uniqueKeyColumn": false},
-        {"sourceColumnName": "DATASOURCE_NUM_ID", "targetColumnName": "DATASOURCE_NUM_ID", "uniqueKeyColumn": false},
-        {"sourceColumnName": "PROVIDER_RECIPNT_ID", "targetColumnName": "PROVIDER_RECIPNT_ID", "uniqueKeyColumn": false},
-        {"sourceColumnName": "PROVIDER_RECIPNT_NAME", "targetColumnName": "PROVIDER_RECIPNT_NAME", "uniqueKeyColumn": false}
-      ], "dependencies": ["JDBC 1", "JDBC 2"]}
+      "dependencies": [],
+      "dataSourceLogicalName": "",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "autoRepartition": "ENABLED",
+      "enableTrim": "ENABLED"
+    },
+    {
+      "componentName": "JDBC 2",
+      "type": "JDBC",
+      "dataSourceName": "FV_GTAS_ACTIVITY_BALANCES",
+      "format": "QUERY",
+      "datasetName": "JDBC_2",
+      "query": "/* NOTE: This workflow runs the SAME mapping across FOUR reusable session tasks (HHS_SDE_ORA_GTASActivityBalanceFact_FDA/_PSC/_CDC/_IHS), each reading a DIFFERENT physical partition of FV_GTAS_ACTIVITY_BALANCES (P2/P23/P1/P43) filtered by its own $$GTAS_FISCAL_YR_<LEDGER>_EXT mapping variable, all loading into the SAME target W_GTAS_ACTIVITY_BALANCES_FS. $[GTAS_FISCAL_YR_FDA_EXT], $[GTAS_FISCAL_YR_PSC_EXT], $[GTAS_FISCAL_YR_CDC_EXT], $[GTAS_FISCAL_YR_IHS_EXT] are DataOps dataflow parameters substituting for those four Informatica mapping variables; they are currently PLACEHOLDERS (default 0, matching no real PERIOD_YEAR) and must be corrected with the real per-ledger fiscal-year lists before results are trusted — same caveat pattern as $[DATASOURCE_NUM_ID] below. */\n/* NOTE: $[DATASOURCE_NUM_ID] is a DataOps dataflow parameter substituting for the Informatica mapping variable $$DATASOURCE_NUM_ID; it is currently set to a placeholder value (0) and must be corrected with the real DATASOURCE_NUM_ID before results are trusted. */\n/* NOTE: Oracle PARTITION(P2/P23/P1/P43) hints were REMOVED from the four CTEs below. The DevContainer's FV_GTAS_ACTIVITY_BALANCES is an unpartitioned 10-row stub table (confirmed via ORA-14501 'object is not partitioned' on first build attempt, 2026-08-19) - it does not mirror production's physical partition scheme. Each CTE now reads the full stub table filtered only by its fiscal-year parameter, so in THIS environment the four CTEs cannot actually distinguish which ledger a row belongs to the way production's partitions would; this is an environment-fidelity gap, not a logic change, and must be revisited once a properly partitioned or ledger-tagged source is available. */\nWITH fda AS (\n  SELECT F.CCID, F.JE_HEADER_ID, F.JE_LINE_NUM, F.PERIOD_NUM, F.PERIOD_YEAR, F.SET_OF_BOOKS_ID, F.JE_SOURCE, F.JE_CATEGORY, F.FUND_VALUE, F.ACCOUNT_NUMBER, F.D_C_INDICATOR, F.AMOUNT, F.CREATION_DATE AS CREATED_ON_DT, $[DATASOURCE_NUM_ID] AS DATASOURCE_NUM_ID,\n    CASE\n      WHEN F.TRADING_PARTNER_TYPE = 'C' THEN NVL(HCA.ATTRIBUTE1, CASE WHEN F.FED_NON_FED = 'F' AND F.TRADING_PARTNER_ID IS NULL AND F.TRADING_PARTNER_AGENCY_ID IS NOT NULL AND LENGTH(GJL.ATTRIBUTE4) = 7 AND LENGTH(GJL.ATTRIBUTE1) = 4 THEN GJL.ATTRIBUTE1 ELSE NULL END)\n      WHEN F.TRADING_PARTNER_TYPE = 'S' THEN NVL(APS.ATTRIBUTE1, CASE WHEN F.FED_NON_FED = 'F' AND F.TRADING_PARTNER_ID IS NULL AND F.TRADING_PARTNER_AGENCY_ID IS NOT NULL AND LENGTH(GJL.ATTRIBUTE4) = 7 AND LENGTH(GJL.ATTRIBUTE1) = 4 THEN GJL.ATTRIBUTE1 ELSE NULL END)\n      WHEN F.TRADING_PARTNER_TYPE = 'M' THEN GJL.ATTRIBUTE1\n      WHEN F.TRADING_PARTNER_TYPE = 'O' AND (LENGTH(GJL.ATTRIBUTE1) = 4 OR (F.JE_SOURCE = 'Year End Close' AND LENGTH(GJL.ATTRIBUTE1) = 7)) THEN GJL.ATTRIBUTE1\n      WHEN F.TRADING_PARTNER_TYPE = 'B' THEN F.TRADING_PARTNER_AGENCY_ID || F.TRADING_PARTNER_MAIN_ACCOUNT\n      ELSE NULL\n    END AS PROVIDER_RECIPNT_ID\n  FROM FV_GTAS_ACTIVITY_BALANCES F\n  LEFT JOIN (SELECT ATTRIBUTE1, CUST_ACCOUNT_ID FROM apps.HZ_CUST_ACCOUNTS WHERE LENGTH(ATTRIBUTE1) = 4) HCA ON F.TRADING_PARTNER_TYPE = 'C' AND F.TRADING_PARTNER_ID IS NOT NULL AND F.TRADING_PARTNER_ID = HCA.CUST_ACCOUNT_ID\n  LEFT JOIN (SELECT ATTRIBUTE1, VENDOR_ID FROM apps.AP_SUPPLIERS WHERE LENGTH(ATTRIBUTE1) = 4) APS ON F.TRADING_PARTNER_TYPE = 'S' AND F.TRADING_PARTNER_ID IS NOT NULL AND F.TRADING_PARTNER_ID = APS.VENDOR_ID\n  LEFT JOIN (SELECT JE_HEADER_ID, JE_LINE_NUM, ATTRIBUTE1, ATTRIBUTE4 FROM apps.GL_JE_LINES WHERE LENGTH(ATTRIBUTE1) IN (4, 7)) GJL ON F.JE_HEADER_ID = GJL.JE_HEADER_ID AND F.JE_LINE_NUM = GJL.JE_LINE_NUM\n  WHERE F.PERIOD_YEAR IN ($[GTAS_FISCAL_YR_FDA_EXT])\n),\npsc AS (\n  SELECT F.CCID, F.JE_HEADER_ID, F.JE_LINE_NUM, F.PERIOD_NUM, F.PERIOD_YEAR, F.SET_OF_BOOKS_ID, F.JE_SOURCE, F.JE_CATEGORY, F.FUND_VALUE, F.ACCOUNT_NUMBER, F.D_C_INDICATOR, F.AMOUNT, F.CREATION_DATE AS CREATED_ON_DT, $[DATASOURCE_NUM_ID] AS DATASOURCE_NUM_ID,\n    CASE\n      WHEN F.TRADING_PARTNER_TYPE = 'C' THEN NVL(HCA.ATTRIBUTE1, CASE WHEN F.FED_NON_FED = 'F' AND F.TRADING_PARTNER_ID IS NULL AND F.TRADING_PARTNER_AGENCY_ID IS NOT NULL AND LENGTH(GJL.ATTRIBUTE4) = 7 AND LENGTH(GJL.ATTRIBUTE1) = 4 THEN GJL.ATTRIBUTE1 ELSE NULL END)\n      WHEN F.TRADING_PARTNER_TYPE = 'S' THEN NVL(APS.ATTRIBUTE1, CASE WHEN F.FED_NON_FED = 'F' AND F.TRADING_PARTNER_ID IS NULL AND F.TRADING_PARTNER_AGENCY_ID IS NOT NULL AND LENGTH(GJL.ATTRIBUTE4) = 7 AND LENGTH(GJL.ATTRIBUTE1) = 4 THEN GJL.ATTRIBUTE1 ELSE NULL END)\n      WHEN F.TRADING_PARTNER_TYPE = 'M' THEN GJL.ATTRIBUTE1\n      WHEN F.TRADING_PARTNER_TYPE = 'O' AND (LENGTH(GJL.ATTRIBUTE1) = 4 OR (F.JE_SOURCE = 'Year End Close' AND LENGTH(GJL.ATTRIBUTE1) = 7)) THEN GJL.ATTRIBUTE1\n      WHEN F.TRADING_PARTNER_TYPE = 'B' THEN F.TRADING_PARTNER_AGENCY_ID || F.TRADING_PARTNER_MAIN_ACCOUNT\n      ELSE NULL\n    END AS PROVIDER_RECIPNT_ID\n  FROM FV_GTAS_ACTIVITY_BALANCES F\n  LEFT JOIN (SELECT ATTRIBUTE1, CUST_ACCOUNT_ID FROM apps.HZ_CUST_ACCOUNTS WHERE LENGTH(ATTRIBUTE1) = 4) HCA ON F.TRADING_PARTNER_TYPE = 'C' AND F.TRADING_PARTNER_ID IS NOT NULL AND F.TRADING_PARTNER_ID = HCA.CUST_ACCOUNT_ID\n  LEFT JOIN (SELECT ATTRIBUTE1, VENDOR_ID FROM apps.AP_SUPPLIERS WHERE LENGTH(ATTRIBUTE1) = 4) APS ON F.TRADING_PARTNER_TYPE = 'S' AND F.TRADING_PARTNER_ID IS NOT NULL AND F.TRADING_PARTNER_ID = APS.VENDOR_ID\n  LEFT JOIN (SELECT JE_HEADER_ID, JE_LINE_NUM, ATTRIBUTE1, ATTRIBUTE4 FROM apps.GL_JE_LINES WHERE LENGTH(ATTRIBUTE1) IN (4, 7)) GJL ON F.JE_HEADER_ID = GJL.JE_HEADER_ID AND F.JE_LINE_NUM = GJL.JE_LINE_NUM\n  WHERE F.PERIOD_YEAR IN ($[GTAS_FISCAL_YR_PSC_EXT])\n),\ncdc AS (\n  SELECT F.CCID, F.JE_HEADER_ID, F.JE_LINE_NUM, F.PERIOD_NUM, F.PERIOD_YEAR, F.SET_OF_BOOKS_ID, F.JE_SOURCE, F.JE_CATEGORY, F.FUND_VALUE, F.ACCOUNT_NUMBER, F.D_C_INDICATOR, F.AMOUNT, F.CREATION_DATE AS CREATED_ON_DT, $[DATASOURCE_NUM_ID] AS DATASOURCE_NUM_ID,\n    CASE\n      WHEN F.TRADING_PARTNER_TYPE = 'C' THEN NVL(HCA.ATTRIBUTE1, CASE WHEN F.FED_NON_FED = 'F' AND F.TRADING_PARTNER_ID IS NULL AND F.TRADING_PARTNER_AGENCY_ID IS NOT NULL AND LENGTH(GJL.ATTRIBUTE4) = 7 AND LENGTH(GJL.ATTRIBUTE1) = 4 THEN GJL.ATTRIBUTE1 ELSE NULL END)\n      WHEN F.TRADING_PARTNER_TYPE = 'S' THEN NVL(APS.ATTRIBUTE1, CASE WHEN F.FED_NON_FED = 'F' AND F.TRADING_PARTNER_ID IS NULL AND F.TRADING_PARTNER_AGENCY_ID IS NOT NULL AND LENGTH(GJL.ATTRIBUTE4) = 7 AND LENGTH(GJL.ATTRIBUTE1) = 4 THEN GJL.ATTRIBUTE1 ELSE NULL END)\n      WHEN F.TRADING_PARTNER_TYPE = 'M' THEN GJL.ATTRIBUTE1\n      WHEN F.TRADING_PARTNER_TYPE = 'O' AND (LENGTH(GJL.ATTRIBUTE1) = 4 OR (F.JE_SOURCE = 'Year End Close' AND LENGTH(GJL.ATTRIBUTE1) = 7)) THEN GJL.ATTRIBUTE1\n      WHEN F.TRADING_PARTNER_TYPE = 'B' THEN F.TRADING_PARTNER_AGENCY_ID || F.TRADING_PARTNER_MAIN_ACCOUNT\n      ELSE NULL\n    END AS PROVIDER_RECIPNT_ID\n  FROM FV_GTAS_ACTIVITY_BALANCES F\n  LEFT JOIN (SELECT ATTRIBUTE1, CUST_ACCOUNT_ID FROM apps.HZ_CUST_ACCOUNTS WHERE LENGTH(ATTRIBUTE1) = 4) HCA ON F.TRADING_PARTNER_TYPE = 'C' AND F.TRADING_PARTNER_ID IS NOT NULL AND F.TRADING_PARTNER_ID = HCA.CUST_ACCOUNT_ID\n  LEFT JOIN (SELECT ATTRIBUTE1, VENDOR_ID FROM apps.AP_SUPPLIERS WHERE LENGTH(ATTRIBUTE1) = 4) APS ON F.TRADING_PARTNER_TYPE = 'S' AND F.TRADING_PARTNER_ID IS NOT NULL AND F.TRADING_PARTNER_ID = APS.VENDOR_ID\n  LEFT JOIN (SELECT JE_HEADER_ID, JE_LINE_NUM, ATTRIBUTE1, ATTRIBUTE4 FROM apps.GL_JE_LINES WHERE LENGTH(ATTRIBUTE1) IN (4, 7)) GJL ON F.JE_HEADER_ID = GJL.JE_HEADER_ID AND F.JE_LINE_NUM = GJL.JE_LINE_NUM\n  WHERE F.PERIOD_YEAR IN ($[GTAS_FISCAL_YR_CDC_EXT])\n),\nihs AS (\n  SELECT F.CCID, F.JE_HEADER_ID, F.JE_LINE_NUM, F.PERIOD_NUM, F.PERIOD_YEAR, F.SET_OF_BOOKS_ID, F.JE_SOURCE, F.JE_CATEGORY, F.FUND_VALUE, F.ACCOUNT_NUMBER, F.D_C_INDICATOR, F.AMOUNT, F.CREATION_DATE AS CREATED_ON_DT, $[DATASOURCE_NUM_ID] AS DATASOURCE_NUM_ID,\n    CASE\n      WHEN F.TRADING_PARTNER_TYPE = 'C' THEN NVL(HCA.ATTRIBUTE1, CASE WHEN F.FED_NON_FED = 'F' AND F.TRADING_PARTNER_ID IS NULL AND F.TRADING_PARTNER_AGENCY_ID IS NOT NULL AND LENGTH(GJL.ATTRIBUTE4) = 7 AND LENGTH(GJL.ATTRIBUTE1) = 4 THEN GJL.ATTRIBUTE1 ELSE NULL END)\n      WHEN F.TRADING_PARTNER_TYPE = 'S' THEN NVL(APS.ATTRIBUTE1, CASE WHEN F.FED_NON_FED = 'F' AND F.TRADING_PARTNER_ID IS NULL AND F.TRADING_PARTNER_AGENCY_ID IS NOT NULL AND LENGTH(GJL.ATTRIBUTE4) = 7 AND LENGTH(GJL.ATTRIBUTE1) = 4 THEN GJL.ATTRIBUTE1 ELSE NULL END)\n      WHEN F.TRADING_PARTNER_TYPE = 'M' THEN GJL.ATTRIBUTE1\n      WHEN F.TRADING_PARTNER_TYPE = 'O' AND (LENGTH(GJL.ATTRIBUTE1) = 4 OR (F.JE_SOURCE = 'Year End Close' AND LENGTH(GJL.ATTRIBUTE1) = 7)) THEN GJL.ATTRIBUTE1\n      WHEN F.TRADING_PARTNER_TYPE = 'B' THEN F.TRADING_PARTNER_AGENCY_ID || F.TRADING_PARTNER_MAIN_ACCOUNT\n      ELSE NULL\n    END AS PROVIDER_RECIPNT_ID\n  FROM FV_GTAS_ACTIVITY_BALANCES F\n  LEFT JOIN (SELECT ATTRIBUTE1, CUST_ACCOUNT_ID FROM apps.HZ_CUST_ACCOUNTS WHERE LENGTH(ATTRIBUTE1) = 4) HCA ON F.TRADING_PARTNER_TYPE = 'C' AND F.TRADING_PARTNER_ID IS NOT NULL AND F.TRADING_PARTNER_ID = HCA.CUST_ACCOUNT_ID\n  LEFT JOIN (SELECT ATTRIBUTE1, VENDOR_ID FROM apps.AP_SUPPLIERS WHERE LENGTH(ATTRIBUTE1) = 4) APS ON F.TRADING_PARTNER_TYPE = 'S' AND F.TRADING_PARTNER_ID IS NOT NULL AND F.TRADING_PARTNER_ID = APS.VENDOR_ID\n  LEFT JOIN (SELECT JE_HEADER_ID, JE_LINE_NUM, ATTRIBUTE1, ATTRIBUTE4 FROM apps.GL_JE_LINES WHERE LENGTH(ATTRIBUTE1) IN (4, 7)) GJL ON F.JE_HEADER_ID = GJL.JE_HEADER_ID AND F.JE_LINE_NUM = GJL.JE_LINE_NUM\n  WHERE F.PERIOD_YEAR IN ($[GTAS_FISCAL_YR_IHS_EXT])\n),\nbase AS (\n  SELECT * FROM fda\n  UNION ALL\n  SELECT * FROM psc\n  UNION ALL\n  SELECT * FROM cdc\n  UNION ALL\n  SELECT * FROM ihs\n)\nSELECT B.CCID, B.JE_HEADER_ID, B.JE_LINE_NUM, B.PERIOD_NUM, B.PERIOD_YEAR, B.SET_OF_BOOKS_ID, B.JE_SOURCE, B.JE_CATEGORY, B.FUND_VALUE, B.ACCOUNT_NUMBER, B.D_C_INDICATOR, B.AMOUNT, B.CREATED_ON_DT, B.DATASOURCE_NUM_ID, B.PROVIDER_RECIPNT_ID,\n  CASE\n    WHEN LENGTH(B.PROVIDER_RECIPNT_ID) = 7 AND SUBSTR(B.PROVIDER_RECIPNT_ID, 1, 3) <> '075' THEN (SELECT FFV.DESCRIPTION FROM FND_FLEX_VALUES_VL FFV WHERE FFV.VALUE_CATEGORY = 'HHS_TP_ELIMINATION_CODE' AND FFV.FLEX_VALUE = SUBSTR(B.PROVIDER_RECIPNT_ID, 2, 2))\n    WHEN SUBSTR(B.PROVIDER_RECIPNT_ID, 1, 3) = '075' THEN (SELECT IHS.OPDIV FROM W_GTAS_INTRAHHS_D IHS WHERE IHS.TP_MAIN_ACT = SUBSTR(B.PROVIDER_RECIPNT_ID, 4, 4))\n    ELSE (SELECT FFV.DESCRIPTION FROM FND_FLEX_VALUES_VL FFV WHERE FFV.VALUE_CATEGORY = 'HHS_TP_ELIMINATION_CODE' AND FFV.FLEX_VALUE = B.PROVIDER_RECIPNT_ID)\n  END AS PROVIDER_RECIPNT_NAME\nFROM base B",
+      "dependencies": [],
+      "dataSourceLogicalName": "",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "autoRepartition": "ENABLED",
+      "enableTrim": "ENABLED"
+    }
   ],
-  "tags": ["GTAS", "HHS_SDE_ORA_GTASActivityBalanceFact", "ProviderRecipnt", "ProviderRecipntNameLookup", "DataCompare"]
+  "mappings": [
+    {
+      "componentName": "DataCompare 3",
+      "sourceDatasetName": "JDBC_1",
+      "targetDatasetName": "JDBC_2",
+      "autoMap": "ENABLED",
+      "applyTargetDatatypeToSource": "DISABLED",
+      "datasetName": "DataCompare_3",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "type": "Mapping",
+      "config": {
+        "onlyInA": "ENABLED",
+        "onlyInB": "ENABLED",
+        "differences": "ENABLED",
+        "enableTrim": "ENABLED",
+        "considerNullAndEmptySpaceEqual": "ENABLED",
+        "automaticDataTypeConversion": "ENABLED",
+        "columnWiseMismatches": "ENABLED",
+        "compareIgnoreCase": "ENABLED",
+        "passComponentIfDuplicatesExist": "ENABLED",
+        "onlyInAThresholdUnit": "number",
+        "onlyInAThreshold": "0",
+        "onlyInBThresholdUnit": "number",
+        "onlyInBThreshold": "0",
+        "differencesSourceThresholdUnit": "number",
+        "differencesSourceThreshold": "0",
+        "differencesTargetThresholdUnit": "number",
+        "differencesTargetThreshold": "0"
+      },
+      "columnMappings": [
+        {
+          "sourceColumnName": "CCID",
+          "targetColumnName": "CCID",
+          "uniqueKeyColumn": true
+        },
+        {
+          "sourceColumnName": "JE_HEADER_ID",
+          "targetColumnName": "JE_HEADER_ID",
+          "uniqueKeyColumn": true
+        },
+        {
+          "sourceColumnName": "JE_LINE_NUM",
+          "targetColumnName": "JE_LINE_NUM",
+          "uniqueKeyColumn": true
+        },
+        {
+          "sourceColumnName": "PERIOD_NUM",
+          "targetColumnName": "PERIOD_NUM",
+          "uniqueKeyColumn": true
+        },
+        {
+          "sourceColumnName": "PERIOD_YEAR",
+          "targetColumnName": "PERIOD_YEAR",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SET_OF_BOOKS_ID",
+          "targetColumnName": "SET_OF_BOOKS_ID",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "JE_SOURCE",
+          "targetColumnName": "JE_SOURCE",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "JE_CATEGORY",
+          "targetColumnName": "JE_CATEGORY",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "FUND_VALUE",
+          "targetColumnName": "FUND_VALUE",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "ACCOUNT_NUMBER",
+          "targetColumnName": "ACCOUNT_NUMBER",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "D_C_INDICATOR",
+          "targetColumnName": "D_C_INDICATOR",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "AMOUNT",
+          "targetColumnName": "AMOUNT",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "CREATED_ON_DT",
+          "targetColumnName": "CREATED_ON_DT",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "DATASOURCE_NUM_ID",
+          "targetColumnName": "DATASOURCE_NUM_ID",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PROVIDER_RECIPNT_ID",
+          "targetColumnName": "PROVIDER_RECIPNT_ID",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PROVIDER_RECIPNT_NAME",
+          "targetColumnName": "PROVIDER_RECIPNT_NAME",
+          "uniqueKeyColumn": false
+        }
+      ],
+      "dependencies": [
+        "JDBC 1",
+        "JDBC 2"
+      ]
+    }
+  ],
+  "tags": [
+    "GTAS",
+    "HHS_SDE_ORA_GTASActivityBalanceFact",
+    "ProviderRecipnt",
+    "ProviderRecipntNameLookup",
+    "MultiLedgerUnion",
+    "FDA-PSC-CDC-IHS",
+    "DataCompare"
+  ]
 }

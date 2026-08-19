@@ -1,0 +1,90 @@
+{
+  "Summary": [
+    ["DataflowName : HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v3"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    [""],
+    ["RunDate: 2026-08-19 06:55:12.341167"],
+    ["Dataset A Count : 9"],
+    ["Dataset B Count : 0"],
+    ["Data difference in A : JDBC_1 and B : JDBC_2 : 0"],
+    ["Matched Data : 0"],
+    ["Name", "Count", "Percentage(%)", "Status"],
+    ["Only In A Count", "9", "100.0%", "Failed"],
+    ["Duplicates In A Count", "0", "0.0%", "Pass"],
+    ["Only In B Count", "0", "0.0%", "Pass"],
+    ["Duplicates In B Count", "0", "0.0%", "Pass"]
+  ],
+  "Only In JDBC_1": [
+    ["DataflowName : HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v3"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Data Only In JDBC_1"],
+    ["CCID", "JE_HEADER_ID", "JE_LINE_NUM", "PERIOD_NUM", "PERIOD_YEAR", "SET_OF_BOOKS_ID", "JE_SOURCE", "JE_CATEGORY", "FUND_VALUE", "ACCOUNT_NUMBER", "D_C_INDICATOR", "AMOUNT", "CREATED_ON_DT", "DATASOURCE_NUM_ID", "PROVIDER_RECIPNT_ID", "PROVIDER_RECIPNT_NAME"],
+    ["10001", "5001", "1", "9", "2026", "2021", "MANUAL", "ACCRUAL", "75-1234-2026", "461000", "D", "1500000.00", "2026-06-15T00:00:00.000Z", "12.0000000000", "1200", "DEPARTMENT OF ENERGY"],
+    ["10002", "5002", "1", "9", "2026", "2021", "PAYABLES", "PURCHASE INVOICES", "75-1234-2026", "610000", "C", "275500.50", "2026-06-20T00:00:00.000Z", "12.0000000000", "1400", "DEPARTMENT OF JUSTICE"],
+    ["10003", "5003", "1", "9", "2026", "2021", "MANUAL", "ADJUSTMENT", "75-1234-2026", "462000", "D", "98000.00", "2026-06-25T00:00:00.000Z", "12.0000000000", "1900", "DEPARTMENT OF STATE"],
+    ["10004", "5004", "1", "9", "2026", "2021", "MANUAL", "ACCRUAL", "75-0350-2026", "101000", "D", "640000.00", "2026-07-01T00:00:00.000Z", "12.0000000000", "0751234", "CDC"],
+    ["10005", "5005", "1", "13", "2026", "2021", "YEAR END CLOSE", "CLOSE JOURNALS", "75-1234-2026", "331000", "C", "12250.75", "2026-07-05T00:00:00.000Z", "12.0000000000", "0121500", "DEPARTMENT OF AGRICULTURE"],
+    ["10006", "5006", "1", "9", "2026", "2021", "MANUAL", "ACCRUAL", "75-0350-2026", "419000", "D", "3300000.00", "2026-07-08T00:00:00.000Z", "12.0000000000", "0750350", "FDA"],
+    ["10007", "5007", "1", "9", "2026", "2021", "MANUAL", "ADJUSTMENT", "75-1234-2026", "570000", "C", "45000.00", "2026-07-10T00:00:00.000Z", "12.0000000000", "", ""],
+    ["10008", "5008", "1", "9", "2026", "2021", "RECEIVABLES", "SALES INVOICES", "75-1234-2026", "131000", "D", "8750.25", "2026-07-12T00:00:00.000Z", "12.0000000000", "", ""],
+    ["10009", "5009", "1", "9", "2026", "2021", "MANUAL", "ACCRUAL", "75-1234-2026", "640000", "C", "999.99", "2026-07-15T00:00:00.000Z", "12.0000000000", "", ""]
+  ],
+  "Only In JDBC_2": [
+    ["DataflowName : HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v3"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Data Only In JDBC_2"],
+    ["Note :No data available for Only In JDBC_2"]
+  ],
+  "Mismatched Rows": [
+    ["DataflowName : HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v3"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Mismatched Rows Between JDBC_1 and JDBC_2"],
+    ["Note :No data available for Mismatched Rows"]
+  ],
+  "Matched Rows": [
+    ["DataflowName : HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v3"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Matched Rows Between JDBC_1 and JDBC_2"],
+    ["Note :No data available for Matched Rows"]
+  ],
+  "Duplicates In JDBC_1": [
+    ["DataflowName : HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v3"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Data Duplicates In JDBC_1"],
+    ["Note :No data available for Duplicates In JDBC_1"]
+  ],
+  "Duplicates In JDBC_2": [
+    ["DataflowName : HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v3"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Data Duplicates In JDBC_2"],
+    ["Note :No data available for Duplicates In JDBC_2"]
+  ],
+  "Column Wise Mismatches": [
+    ["DataflowName : HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v3"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Column Wise Mismatches Between JDBC_1 and JDBC_2"],
+    ["Note :No data available for Column Wise Mismatches"]
+  ],
+  "Mapped Columns": [
+    ["DataflowName : HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v3"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    [""],
+    ["sourceColumn", "sourceType", "targetColumn", "targetType", "unique"],
+    ["CCID", "decimal(15,0)", "CCID", "decimal(15,0)", "Y"],
+    ["JE_HEADER_ID", "decimal(15,0)", "JE_HEADER_ID", "decimal(15,0)", "Y"],
+    ["JE_LINE_NUM", "decimal(15,0)", "JE_LINE_NUM", "decimal(15,0)", "Y"],
+    ["PERIOD_NUM", "decimal(15,0)", "PERIOD_NUM", "decimal(15,0)", "Y"],
+    ["PERIOD_YEAR", "decimal(15,0)", "PERIOD_YEAR", "decimal(15,0)", "N"],
+    ["SET_OF_BOOKS_ID", "decimal(15,0)", "SET_OF_BOOKS_ID", "decimal(15,0)", "N"],
+    ["JE_SOURCE", "string", "JE_SOURCE", "string", "N"],
+    ["JE_CATEGORY", "string", "JE_CATEGORY", "string", "N"],
+    ["FUND_VALUE", "string", "FUND_VALUE", "string", "N"],
+    ["ACCOUNT_NUMBER", "string", "ACCOUNT_NUMBER", "string", "N"],
+    ["D_C_INDICATOR", "string", "D_C_INDICATOR", "string", "N"],
+    ["AMOUNT", "decimal(28,2)", "AMOUNT", "decimal(28,2)", "N"],
+    ["CREATED_ON_DT", "timestamp", "CREATED_ON_DT", "timestamp", "N"],
+    ["DATASOURCE_NUM_ID", "decimal(10,0)", "DATASOURCE_NUM_ID", "decimal(38,10)", "N"],
+    ["PROVIDER_RECIPNT_ID", "string", "PROVIDER_RECIPNT_ID", "string", "N"],
+    ["PROVIDER_RECIPNT_NAME", "string", "PROVIDER_RECIPNT_NAME", "string", "N"]
+  ]
+}
