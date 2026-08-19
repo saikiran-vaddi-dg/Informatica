@@ -5,16 +5,78 @@
   "folderName": "",
   "type": "dataflow",
   "sources": [
-    {"componentName": "JDBC 1", "type": "JDBC", "dataSourceName": "W_GTAS_ACTIVITY_BALANCES_FS", "format": "QUERY", "datasetName": "JDBC_1",
+    {
+      "componentName": "JDBC 1",
+      "type": "JDBC",
+      "dataSourceName": "W_GTAS_ACTIVITY_BALANCES_FS",
+      "format": "QUERY",
+      "datasetName": "JDBC_1",
       "query": "SELECT GL_ACCOUNT_WID, MCAL_PERIOD_WID, LEDGER_WID, GL_JE_SOURCE_WID, GL_JE_CATEGORY_WID, POSTED_DATE, FUND_VALUE, ACCOUNT_NUMBER, AUTHORITY_TYPE_CODE, FED_NON_FED, TRADING_PARTNER_TYPE, TRADING_PARTNER_NAME, TRADING_PARTNER_AGENCY_ID, TRADING_PARTNER_MAIN_ACCOUNT, BUDGET_IMPACT_IND, D_C_INDICATOR, AMOUNT, JE_HEADER_ID, JE_LINE_NUM, RECORD_CATEGORY, GL_PERIOD, BALANCE_TYPE, TRADING_PARTNER_ID, PERIOD_NAME, EXCEPTION_CATEGORY, DOLLAR_AMOUNT, REDUCTION_TYPE_CODE, DACT_REPORT_IND, PIID, PARENT_AWARD_ID, FAIN, URI, DOC_NUM, DEFAULT_EFFECTIVE_DATE, AE_HEADER_ID, AE_LINE_NUM, PROVIDER_RECIPNT_ID, PROVIDER_RECIPNT_NAME, INTEGRATION_ID, CREATED_ON_DT, DATASOURCE_NUM_ID, EVENT_ID, DELETE_FLG, TP_OPDIV, TP_LEDGER_WID FROM POC.W_GTAS_ACTIVITY_BALANCES_F",
-      "dependencies": [], "dataSourceLogicalName": "", "excludeInNotificationIfCompletedOrPassed": "ENABLED", "autoRepartition": "ENABLED", "enableTrim": "ENABLED"},
-
-    {"componentName": "JDBC 2", "type": "JDBC", "dataSourceName": "W_GTAS_ACTIVITY_BALANCES_FS", "format": "QUERY", "datasetName": "JDBC_2",
-      "query": "/* NOTE 1: This recompute models the INTENDED SIL mapping logic (column-name join, not the SQ's literal column order). The SQ_W_GTAS_ACTIVITY_BALANCES_FS override in the workflow SELECTs 40 columns into 46 output ports; the override also injects two extra derived columns (W_MCAL_DAY_D.ROW_WID AS POSTED_DT_WID, W_FV_TP_TREASURY_SYMBOLS_D.ROW_WID AS TRADING_PARTNER_WID) with no matching ports, which shifts every port from POSTED_DATE onward by two positions (PowerCenter binds SQL-override columns positionally). This test is expected to surface that defect as mismatches on POSTED_DATE and every passthrough column after it until the mapping's SQL override / port list is corrected.\n   NOTE 2: TP_OPDIV / TP_LEDGER_WID depend on AID/ATA/MAIN_ACCOUNT/SUB_ACCOUNT ports that the same SQ override never selects (they are the last 4 of the 6 unmapped trailing ports). As implemented, HHS_mplt_SIL_GTAS_Get_TP_Ledger_WID's cascading OPDIV lookups always run against NULL inputs, so these two columns are expected to be NULL for all rows; they are modeled as NULL here rather than replicating the (unreachable) crosswalk-table logic.\n   NOTE 3: ETL_PROC_WID, W_INSERT_DT, W_UPDATE_DT are deliberately excluded below -- they are driven by the $$ETL_PROC_WID session parameter and SESSSTARTTIME respectively and are not deterministic data-transformation outputs. */\nWITH base AS (\n  SELECT FS.CCID, FS.SET_OF_BOOKS_ID, FS.PERIOD_YEAR, FS.PERIOD_NUM, FS.JE_SOURCE, FS.JE_CATEGORY, FS.POSTED_DATE, FS.FUND_VALUE, FS.ACCOUNT_NUMBER, FS.AUTHORITY_TYPE_CODE, FS.FED_NON_FED, FS.TRADING_PARTNER_TYPE, FS.TRADING_PARTNER_NAME, FS.TRADING_PARTNER_AGENCY_ID, FS.TRADING_PARTNER_MAIN_ACCOUNT, FS.BUDGET_IMPACT_IND, FS.D_C_INDICATOR, FS.AMOUNT, FS.JE_HEADER_ID, FS.JE_LINE_NUM, FS.RECORD_CATEGORY, FS.GL_PERIOD, FS.BALANCE_TYPE, FS.TRADING_PARTNER_ID, FS.PERIOD_NAME, FS.EXCEPTION_CATEGORY, FS.DOLLAR_AMOUNT, FS.REDUCTION_TYPE_CODE, FS.DACT_REPORT_IND, FS.PIID, FS.PARENT_AWARD_ID, FS.FAIN, FS.URI, FS.DOC_NUM, FS.DEFAULT_EFFECTIVE_DATE, FS.AE_HEADER_ID, FS.AE_LINE_NUM, FS.PROVIDER_RECIPNT_ID, FS.PROVIDER_RECIPNT_NAME, FS.INTEGRATION_ID, FS.CREATED_ON_DT, FS.DATASOURCE_NUM_ID, FS.EVENT_ID\n  FROM POC.W_GTAS_ACTIVITY_BALANCES_FS FS\n)\nSELECT\n  GLACC.ROW_WID AS GL_ACCOUNT_WID,\n  MCAL.ROW_WID AS MCAL_PERIOD_WID,\n  LGR.ROW_WID AS LEDGER_WID,\n  JES.ROW_WID AS GL_JE_SOURCE_WID,\n  JEC.ROW_WID AS GL_JE_CATEGORY_WID,\n  B.POSTED_DATE,\n  B.FUND_VALUE,\n  B.ACCOUNT_NUMBER,\n  B.AUTHORITY_TYPE_CODE,\n  B.FED_NON_FED,\n  B.TRADING_PARTNER_TYPE,\n  B.TRADING_PARTNER_NAME,\n  B.TRADING_PARTNER_AGENCY_ID,\n  B.TRADING_PARTNER_MAIN_ACCOUNT,\n  B.BUDGET_IMPACT_IND,\n  B.D_C_INDICATOR,\n  B.AMOUNT,\n  B.JE_HEADER_ID,\n  B.JE_LINE_NUM,\n  B.RECORD_CATEGORY,\n  B.GL_PERIOD,\n  B.BALANCE_TYPE,\n  B.TRADING_PARTNER_ID,\n  B.PERIOD_NAME,\n  B.EXCEPTION_CATEGORY,\n  B.DOLLAR_AMOUNT,\n  B.REDUCTION_TYPE_CODE,\n  B.DACT_REPORT_IND,\n  B.PIID,\n  B.PARENT_AWARD_ID,\n  B.FAIN,\n  B.URI,\n  B.DOC_NUM,\n  B.DEFAULT_EFFECTIVE_DATE,\n  B.AE_HEADER_ID,\n  B.AE_LINE_NUM,\n  B.PROVIDER_RECIPNT_ID,\n  B.PROVIDER_RECIPNT_NAME,\n  B.INTEGRATION_ID,\n  B.CREATED_ON_DT,\n  B.DATASOURCE_NUM_ID,\n  B.EVENT_ID,\n  'N' AS DELETE_FLG,\n  CAST(NULL AS VARCHAR2(30)) AS TP_OPDIV,\n  CAST(NULL AS NUMBER(15,0)) AS TP_LEDGER_WID\nFROM base B\nLEFT JOIN POC.W_GL_ACCOUNT_D GLACC ON B.CCID = GLACC.INTEGRATION_ID AND B.DATASOURCE_NUM_ID = GLACC.DATASOURCE_NUM_ID AND GLACC.CURRENT_FLG = 'Y'\nLEFT JOIN POC.W_LEDGER_D LGR ON B.SET_OF_BOOKS_ID = LGR.INTEGRATION_ID AND B.DATASOURCE_NUM_ID = LGR.DATASOURCE_NUM_ID\nLEFT JOIN POC.W_MCAL_PERIOD_D MCAL ON B.PERIOD_YEAR = MCAL.MCAL_PERIOD AND B.PERIOD_NUM = MCAL.MCAL_YEAR AND B.DATASOURCE_NUM_ID = MCAL.DATASOURCE_NUM_ID\nLEFT JOIN POC.W_GL_JE_SOURCES_D JES ON B.JE_SOURCE = JES.INTEGRATION_ID\nLEFT JOIN POC.W_GL_JE_CATEGORIES_D JEC ON B.JE_CATEGORY = JEC.INTEGRATION_ID",
-      "dependencies": [], "dataSourceLogicalName": "", "excludeInNotificationIfCompletedOrPassed": "ENABLED", "autoRepartition": "ENABLED", "enableTrim": "ENABLED"},
-
-    {"componentName": "DataCompare 3", "sourceDatasetName": "JDBC_1", "targetDatasetName": "JDBC_2", "autoMap": "ENABLED", "applyTargetDatatypeToSource": "DISABLED", "datasetName": "DataCompare_3", "excludeInNotificationIfCompletedOrPassed": "ENABLED", "type": "Mapping",
-      "config": {"onlyInA": "ENABLED", "onlyInB": "ENABLED", "differences": "ENABLED", "enableTrim": "ENABLED", "considerNullAndEmptySpaceEqual": "ENABLED", "automaticDataTypeConversion": "ENABLED", "columnWiseMismatches": "ENABLED", "compareIgnoreCase": "ENABLED", "passComponentIfDuplicatesExist": "ENABLED", "onlyInAThresholdUnit": "number", "onlyInAThreshold": "0", "onlyInBThresholdUnit": "number", "onlyInBThreshold": "0", "differencesSourceThresholdUnit": "number", "differencesSourceThreshold": "0", "differencesTargetThresholdUnit": "number", "differencesTargetThreshold": "0"},
+      "dependencies": [],
+      "dataSourceLogicalName": "",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "autoRepartition": "ENABLED",
+      "enableTrim": "ENABLED"
+    },
+    {
+      "componentName": "JDBC 2",
+      "type": "JDBC",
+      "dataSourceName": "W_GTAS_ACTIVITY_BALANCES_FS",
+      "format": "QUERY",
+      "datasetName": "JDBC_2",
+      "query": "/* CORRECTED expected recompute -- supersedes the prior draft's NOTE 1/NOTE 2. The prior draft assumed the mapping-level (design-time) 'Sql Query' override on SQ_W_GTAS_ACTIVITY_BALANCES_FS -- which injects W_MCAL_DAY_D.ROW_WID AS POSTED_DT_WID and W_FV_TP_TREASURY_SYMBOLS_D.ROW_WID AS TRADING_PARTNER_WID ahead of POSTED_DATE, shifting every port from POSTED_DATE onward by 2 -- was what actually executes. It is NOT: all four sessions carry a SESSION-level per-partition SQL Query override (Partition #1 of each; partitions 2-4 are dummy 'WHERE 1=2') that replaces the mapping-level override at runtime. That override selects exactly 46 columns 1:1 aligned with the SQ's 46 ports (no shift) and derives AID/ATA/MAIN_ACCOUNT/SUB_ACCOUNT from a real join through W_GL_ACCOUNT_D.TREASURY_SYMBOL_WID -> W_TREASURY_SYMBOL_D (CURRENT_FLG='Y'), not NULLs. PowerCenter uses the partition-level override in preference to the mapping-level one, so there is no live column-shift defect -- all passthrough/WID columns below are expected to match exactly (0 differences). TP_OPDIV / TP_LEDGER_WID are modeled as NULL placeholders here and marked ignoreColumn in DataCompare 3: HHS_mplt_SIL_GTAS_Get_TP_Ledger_WID's v_TP_OPDIV is NULL unless AID='075' AND TRADING_PARTNER_AGENCY_ID='075' (outer IIF has no else-branch); when that gate is true the value comes from a 4-way cascading fallback (LKP_TP_MAIN_ACCT_OPDIV_MAPPING / LKP_MAIN_ACC_OPDIV / LKP_MAIN_ACC_OPDIV_CNT / LKP_MAIN_ACC_OPDIV_CNT_LST), each configured 'Lookup policy on multiple match = Use Any Value' (non-deterministic on ties) against W_GTAS_TREASURY_XWALK_D / W_CFRS_ORG_XWALK_D. That branch isn't safely reproducible as a deterministic recompute and is instead exercised by DataCompare 6, which asserts only the deterministic NULL branch (gate = false). */\nWITH base AS (\n  SELECT FS.CCID, FS.SET_OF_BOOKS_ID, FS.PERIOD_YEAR, FS.PERIOD_NUM, FS.JE_SOURCE, FS.JE_CATEGORY, FS.POSTED_DATE, FS.FUND_VALUE, FS.ACCOUNT_NUMBER, FS.AUTHORITY_TYPE_CODE, FS.FED_NON_FED, FS.TRADING_PARTNER_TYPE, FS.TRADING_PARTNER_NAME, FS.TRADING_PARTNER_AGENCY_ID, FS.TRADING_PARTNER_MAIN_ACCOUNT, FS.BUDGET_IMPACT_IND, FS.D_C_INDICATOR, FS.AMOUNT, FS.JE_HEADER_ID, FS.JE_LINE_NUM, FS.RECORD_CATEGORY, FS.GL_PERIOD, FS.BALANCE_TYPE, FS.TRADING_PARTNER_ID, FS.PERIOD_NAME, FS.EXCEPTION_CATEGORY, FS.DOLLAR_AMOUNT, FS.REDUCTION_TYPE_CODE, FS.DACT_REPORT_IND, FS.PIID, FS.PARENT_AWARD_ID, FS.FAIN, FS.URI, FS.DOC_NUM, FS.DEFAULT_EFFECTIVE_DATE, FS.AE_HEADER_ID, FS.AE_LINE_NUM, FS.PROVIDER_RECIPNT_ID, FS.PROVIDER_RECIPNT_NAME, FS.INTEGRATION_ID, FS.CREATED_ON_DT, FS.DATASOURCE_NUM_ID, FS.EVENT_ID\n  FROM POC.W_GTAS_ACTIVITY_BALANCES_FS FS\n)\nSELECT\n  GLACC.ROW_WID AS GL_ACCOUNT_WID,\n  MCAL.ROW_WID AS MCAL_PERIOD_WID,\n  LGR.ROW_WID AS LEDGER_WID,\n  JES.ROW_WID AS GL_JE_SOURCE_WID,\n  JEC.ROW_WID AS GL_JE_CATEGORY_WID,\n  B.POSTED_DATE,\n  B.FUND_VALUE,\n  B.ACCOUNT_NUMBER,\n  B.AUTHORITY_TYPE_CODE,\n  B.FED_NON_FED,\n  B.TRADING_PARTNER_TYPE,\n  B.TRADING_PARTNER_NAME,\n  B.TRADING_PARTNER_AGENCY_ID,\n  B.TRADING_PARTNER_MAIN_ACCOUNT,\n  B.BUDGET_IMPACT_IND,\n  B.D_C_INDICATOR,\n  B.AMOUNT,\n  B.JE_HEADER_ID,\n  B.JE_LINE_NUM,\n  B.RECORD_CATEGORY,\n  B.GL_PERIOD,\n  B.BALANCE_TYPE,\n  B.TRADING_PARTNER_ID,\n  B.PERIOD_NAME,\n  B.EXCEPTION_CATEGORY,\n  B.DOLLAR_AMOUNT,\n  B.REDUCTION_TYPE_CODE,\n  B.DACT_REPORT_IND,\n  B.PIID,\n  B.PARENT_AWARD_ID,\n  B.FAIN,\n  B.URI,\n  B.DOC_NUM,\n  B.DEFAULT_EFFECTIVE_DATE,\n  B.AE_HEADER_ID,\n  B.AE_LINE_NUM,\n  B.PROVIDER_RECIPNT_ID,\n  B.PROVIDER_RECIPNT_NAME,\n  B.INTEGRATION_ID,\n  B.CREATED_ON_DT,\n  B.DATASOURCE_NUM_ID,\n  B.EVENT_ID,\n  'N' AS DELETE_FLG,\n  CAST(NULL AS VARCHAR2(30)) AS TP_OPDIV,\n  CAST(NULL AS NUMBER(15,0)) AS TP_LEDGER_WID\nFROM base B\nLEFT JOIN POC.W_GL_ACCOUNT_D GLACC ON B.CCID = GLACC.INTEGRATION_ID AND B.DATASOURCE_NUM_ID = GLACC.DATASOURCE_NUM_ID AND GLACC.CURRENT_FLG = 'Y'\nLEFT JOIN POC.W_LEDGER_D LGR ON B.SET_OF_BOOKS_ID = LGR.INTEGRATION_ID AND B.DATASOURCE_NUM_ID = LGR.DATASOURCE_NUM_ID\nLEFT JOIN POC.W_MCAL_PERIOD_D MCAL ON B.PERIOD_YEAR = MCAL.MCAL_PERIOD AND B.PERIOD_NUM = MCAL.MCAL_YEAR AND B.DATASOURCE_NUM_ID = MCAL.DATASOURCE_NUM_ID\nLEFT JOIN POC.W_GL_JE_SOURCES_D JES ON B.JE_SOURCE = JES.INTEGRATION_ID\nLEFT JOIN POC.W_GL_JE_CATEGORIES_D JEC ON B.JE_CATEGORY = JEC.INTEGRATION_ID",
+      "dependencies": [],
+      "dataSourceLogicalName": "",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "autoRepartition": "ENABLED",
+      "enableTrim": "ENABLED"
+    },
+    {
+      "componentName": "JDBC 4",
+      "type": "JDBC",
+      "dataSourceName": "W_GTAS_ACTIVITY_BALANCES_FS",
+      "format": "QUERY",
+      "datasetName": "JDBC_4",
+      "query": "/* Scenario 2 (actual): rows scoped to the DETERMINISTIC branch of the TP_OPDIV gate -- i.e. NOT (AID='075' AND TRADING_PARTNER_AGENCY_ID='075') -- where v_TP_OPDIV's outer IIF has no else-branch and must be NULL, independent of the non-deterministic 4-way crosswalk fallback used only on the '075' branch. */\nSELECT F.JE_HEADER_ID, F.JE_LINE_NUM, F.DATASOURCE_NUM_ID, F.TP_OPDIV, F.TP_LEDGER_WID\nFROM POC.W_GTAS_ACTIVITY_BALANCES_F F\nJOIN POC.W_GTAS_ACTIVITY_BALANCES_FS FS\n  ON F.JE_HEADER_ID = FS.JE_HEADER_ID AND F.JE_LINE_NUM = FS.JE_LINE_NUM AND F.DATASOURCE_NUM_ID = FS.DATASOURCE_NUM_ID\nLEFT JOIN POC.W_GL_ACCOUNT_D GLACC ON FS.CCID = GLACC.INTEGRATION_ID AND FS.DATASOURCE_NUM_ID = GLACC.DATASOURCE_NUM_ID AND GLACC.CURRENT_FLG = 'Y'\nLEFT JOIN POC.W_TREASURY_SYMBOL_D TSD ON GLACC.TREASURY_SYMBOL_WID = TSD.ROW_WID AND TSD.CURRENT_FLG = 'Y'\nWHERE NOT (NVL(TSD.TREASURY_DEPT_CODE,'~') = '075' AND NVL(FS.TRADING_PARTNER_AGENCY_ID,'~') = '075')",
+      "dependencies": [],
+      "dataSourceLogicalName": "",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "autoRepartition": "ENABLED",
+      "enableTrim": "ENABLED"
+    },
+    {
+      "componentName": "JDBC 5",
+      "type": "JDBC",
+      "dataSourceName": "W_GTAS_ACTIVITY_BALANCES_FS",
+      "format": "QUERY",
+      "datasetName": "JDBC_5",
+      "query": "/* Scenario 2 (expected): same population as JDBC 4, independently re-derived from source+dimension data (not the target table), asserting TP_OPDIV/TP_LEDGER_WID = NULL. */\nSELECT FS.JE_HEADER_ID, FS.JE_LINE_NUM, FS.DATASOURCE_NUM_ID, CAST(NULL AS VARCHAR2(30)) AS TP_OPDIV, CAST(NULL AS NUMBER(15,0)) AS TP_LEDGER_WID\nFROM POC.W_GTAS_ACTIVITY_BALANCES_FS FS\nLEFT JOIN POC.W_GL_ACCOUNT_D GLACC ON FS.CCID = GLACC.INTEGRATION_ID AND FS.DATASOURCE_NUM_ID = GLACC.DATASOURCE_NUM_ID AND GLACC.CURRENT_FLG = 'Y'\nLEFT JOIN POC.W_TREASURY_SYMBOL_D TSD ON GLACC.TREASURY_SYMBOL_WID = TSD.ROW_WID AND TSD.CURRENT_FLG = 'Y'\nWHERE NOT (NVL(TSD.TREASURY_DEPT_CODE,'~') = '075' AND NVL(FS.TRADING_PARTNER_AGENCY_ID,'~') = '075')",
+      "dependencies": [],
+      "dataSourceLogicalName": "",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "autoRepartition": "ENABLED",
+      "enableTrim": "ENABLED"
+    }
+  ],
+  "mappings": [
+    {
+      "componentName": "DataCompare 3",
+      "sourceDatasetName": "JDBC_1",
+      "targetDatasetName": "JDBC_2",
+      "autoMap": "ENABLED",
+      "applyTargetDatatypeToSource": "DISABLED",
+      "datasetName": "DataCompare_3",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "type": "Mapping",
+      "config": {
+        "onlyInA": "ENABLED", "onlyInB": "ENABLED", "differences": "ENABLED", "enableTrim": "ENABLED",
+        "considerNullAndEmptySpaceEqual": "ENABLED", "automaticDataTypeConversion": "ENABLED",
+        "columnWiseMismatches": "ENABLED", "compareIgnoreCase": "ENABLED", "passComponentIfDuplicatesExist": "ENABLED",
+        "onlyInAThresholdUnit": "number", "onlyInAThreshold": "0",
+        "onlyInBThresholdUnit": "number", "onlyInBThreshold": "0",
+        "differencesSourceThresholdUnit": "number", "differencesSourceThreshold": "0",
+        "differencesTargetThresholdUnit": "number", "differencesTargetThreshold": "0"
+      },
       "columnMappings": [
         {"sourceColumnName": "GL_ACCOUNT_WID", "targetColumnName": "GL_ACCOUNT_WID", "uniqueKeyColumn": false},
         {"sourceColumnName": "MCAL_PERIOD_WID", "targetColumnName": "MCAL_PERIOD_WID", "uniqueKeyColumn": false},
@@ -23,7 +85,7 @@
         {"sourceColumnName": "GL_JE_CATEGORY_WID", "targetColumnName": "GL_JE_CATEGORY_WID", "uniqueKeyColumn": false},
         {"sourceColumnName": "POSTED_DATE", "targetColumnName": "POSTED_DATE", "uniqueKeyColumn": false},
         {"sourceColumnName": "FUND_VALUE", "targetColumnName": "FUND_VALUE", "uniqueKeyColumn": false},
-        {"sourceColumnName": "ACCOUNT_NUMBER", "targetColumnName": "ACCOUNT_NUMBER", "uniqueKeyColumn": true},
+        {"sourceColumnName": "ACCOUNT_NUMBER", "targetColumnName": "ACCOUNT_NUMBER", "uniqueKeyColumn": false},
         {"sourceColumnName": "AUTHORITY_TYPE_CODE", "targetColumnName": "AUTHORITY_TYPE_CODE", "uniqueKeyColumn": false},
         {"sourceColumnName": "FED_NON_FED", "targetColumnName": "FED_NON_FED", "uniqueKeyColumn": false},
         {"sourceColumnName": "TRADING_PARTNER_TYPE", "targetColumnName": "TRADING_PARTNER_TYPE", "uniqueKeyColumn": false},
@@ -59,9 +121,38 @@
         {"sourceColumnName": "DATASOURCE_NUM_ID", "targetColumnName": "DATASOURCE_NUM_ID", "uniqueKeyColumn": true},
         {"sourceColumnName": "EVENT_ID", "targetColumnName": "EVENT_ID", "uniqueKeyColumn": false},
         {"sourceColumnName": "DELETE_FLG", "targetColumnName": "DELETE_FLG", "uniqueKeyColumn": false},
+        {"sourceColumnName": "TP_OPDIV", "targetColumnName": "TP_OPDIV", "uniqueKeyColumn": false, "ignoreColumn": true},
+        {"sourceColumnName": "TP_LEDGER_WID", "targetColumnName": "TP_LEDGER_WID", "uniqueKeyColumn": false, "ignoreColumn": true}
+      ],
+      "dependencies": ["JDBC 1", "JDBC 2"]
+    },
+    {
+      "componentName": "DataCompare 6",
+      "sourceDatasetName": "JDBC_4",
+      "targetDatasetName": "JDBC_5",
+      "autoMap": "ENABLED",
+      "applyTargetDatatypeToSource": "DISABLED",
+      "datasetName": "DataCompare_6",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "type": "Mapping",
+      "config": {
+        "onlyInA": "ENABLED", "onlyInB": "ENABLED", "differences": "ENABLED", "enableTrim": "ENABLED",
+        "considerNullAndEmptySpaceEqual": "ENABLED", "automaticDataTypeConversion": "ENABLED",
+        "columnWiseMismatches": "ENABLED", "compareIgnoreCase": "ENABLED", "passComponentIfDuplicatesExist": "ENABLED",
+        "onlyInAThresholdUnit": "number", "onlyInAThreshold": "0",
+        "onlyInBThresholdUnit": "number", "onlyInBThreshold": "0",
+        "differencesSourceThresholdUnit": "number", "differencesSourceThreshold": "0",
+        "differencesTargetThresholdUnit": "number", "differencesTargetThreshold": "0"
+      },
+      "columnMappings": [
+        {"sourceColumnName": "JE_HEADER_ID", "targetColumnName": "JE_HEADER_ID", "uniqueKeyColumn": true},
+        {"sourceColumnName": "JE_LINE_NUM", "targetColumnName": "JE_LINE_NUM", "uniqueKeyColumn": true},
+        {"sourceColumnName": "DATASOURCE_NUM_ID", "targetColumnName": "DATASOURCE_NUM_ID", "uniqueKeyColumn": true},
         {"sourceColumnName": "TP_OPDIV", "targetColumnName": "TP_OPDIV", "uniqueKeyColumn": false},
         {"sourceColumnName": "TP_LEDGER_WID", "targetColumnName": "TP_LEDGER_WID", "uniqueKeyColumn": false}
-      ], "dependencies": ["JDBC 1", "JDBC 2"]}
+      ],
+      "dependencies": ["JDBC 4", "JDBC 5"]
+    }
   ],
-  "tags": ["GTAS", "HHS_SIL_GTASActivityBalanceFact", "WID Lookups", "TP_OPDIV", "SQ Override Defect", "DataCompare"]
+  "tags": ["GTAS", "HHS_SIL_GTASActivityBalanceFact", "WID Lookups", "Session-Level SQL Override", "TP_OPDIV Nondeterministic Crosswalk", "DataCompare"]
 }
