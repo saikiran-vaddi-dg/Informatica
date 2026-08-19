@@ -2,20 +2,11 @@
 okf_version: "0.2"
 ---
 
-# Workflows
+# Informatica DataOps Knowledge Bundle
 
-Each entry is a concept file summarizing an Informatica workflow: what it does, its key columns, and every test case/dataflow/run built for it (see [Test Cases & Dataflows](workflows/HHS_SDE_ORA_GTASActivityBalanceFact.md) for the table shape). Check the concept file's `generated.at` against the workflow XML's last commit time before trusting it — if the XML changed since, treat the concept file as stale and regenerate it rather than reading it as current.
+This bundle holds AI-consumable context for this project's Informatica workflows, so agents can work from a cheap summary instead of re-reading raw workflow XML on every pass.
 
-## SDE (Source Dependent Extract)
+* [workflows/](workflows/index.md) - one folder per Informatica workflow, grouped by SDE/SIL, holding up to three concept files (extraction, HRD mapping, computation contract) cross-linked to its test case(s) and dataflow(s)
+* [log.md](log.md) - chronological history of what changed in this bundle and why
 
-- [HHS_SDE_ORA_GTASActivityBalanceFact](workflows/HHS_SDE_ORA_GTASActivityBalanceFact.md) — has a generated test case, dataflow, and run
-- HHS_SDE_ORA_ProgramActivity_Dimension — *not yet generated, read `/Workflows/HHS_SDE_ORA_ProgramActivity_Dimension.XML` directly*
-- HHS_SDE_ORA_BankDimension — *not yet generated, read `/Workflows/HHS_SDE_ORA_BankDimension.XML` directly*
-- HHS_SDE_ORA_PurchaseRequisitionLinesFact — *not yet generated, read `/Workflows/HHS_SDE_ORA_PurchaseRequisitionLinesFact.XML` directly*
-
-## SIL (Source Independent Load)
-
-- HHS_SIL_BankDimension — *not yet generated, read `/Workflows/HHS_SIL_BankDimension.XML` directly*
-- HHS_SIL_GTASActivityBalanceFact — *not yet generated, read `/Workflows/HHS_SIL_GTASActivityBalanceFact.XML` directly*
-- HHS_SIL_ProgramActivity_Dimension — *not yet generated, read `/Workflows/HHS_SIL_ProgramActivity_Dimension.XML` directly*
-- HHS_SIL_PurchaseRequisitionLinesFact — *not yet generated, read `/Workflows/HHS_SIL_PurchaseRequisitionLinesFact.XML` directly*
+**Path convention**: this bundle lives inside a larger repository (per OKF §3), and its concept files link out to sibling directories that sit outside `OKF/` — `Workflows/` (source XML), `HRD/` (test case definitions), `Results/` (run reports). A bundle-relative path beginning with `/` normally resolves from this bundle's own root per OKF §6.2, but `/Workflows/...`, `/HRD/...`, and `/Results/...` references in this bundle are an intentional producer extension: they resolve from the repository root instead, since those directories are not children of `OKF/`. Paths beginning with `/references/` or `/workflows/` (lowercase) follow the standard bundle-root-relative rule.
