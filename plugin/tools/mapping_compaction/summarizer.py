@@ -1,21 +1,20 @@
 """
-stage2_state_summarizer.py
-=============================
-Vendored from etl_mapping_compaction_api/stage2_state_summarizer.py.
+summarizer.py
+=============
+Originally vendored from etl_mapping_compaction_api/stage2_state_summarizer.py.
 
-Assembly point: combines the compact IR (stage2_build_intermediate_representation),
-the complexity score (stage2_complexity_classifier), and the shared-object
-references (stage2_shared_object_dedup_cache) into one `MappingSummary`,
-archives the raw XML bytes to a local content-addressed cache directory, and
-returns the compact summary.
+Assembly point: combines the compact IR (mapping_ir), the complexity score
+(complexity_scorer), and the shared-object references (mapplet_cache) into
+one `MappingSummary`, archives the raw XML bytes to a local content-addressed
+cache directory, and returns the compact summary.
 
 The persisted summary JSON is written next to the source workflow XML (see
 `write_summary_json`'s `output_dir`/`file_stem` args, set by the caller in
 compact_mapping.py) so it travels with the file in git — any clone or
 teammate gets the benefit without reprocessing. Only the raw-XML archive
 below stays under `.cache/`, rooted at `os.getcwd()` (the calling project,
-not `os.path.dirname(__file__)`) — see stage1_hash_ledger_check.py's note on
-why — since that's a machine-local optimization, not a shareable artifact.
+not `os.path.dirname(__file__)`) — see file_hash.py's note on why — since
+that's a machine-local optimization, not a shareable artifact.
 """
 
 from __future__ import annotations
@@ -35,9 +34,9 @@ from common import (
     TransformationLogicInfo,
     to_json,
 )
-from stage2_build_intermediate_representation import build_intermediate_representation
-from stage2_complexity_classifier import score_mapping
-from stage2_shared_object_dedup_cache import SharedObjectCache
+from mapping_ir import build_intermediate_representation
+from complexity_scorer import score_mapping
+from mapplet_cache import SharedObjectCache
 
 BLOB_CACHE_DIR = os.path.join(os.getcwd(), ".cache", "blob_cache")
 

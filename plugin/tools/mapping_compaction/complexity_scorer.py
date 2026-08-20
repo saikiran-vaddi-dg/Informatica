@@ -1,7 +1,7 @@
 """
-stage2_complexity_classifier.py
-==================================
-Vendored from etl_mapping_compaction_api/stage2_complexity_classifier.py.
+complexity_scorer.py
+=====================
+Originally vendored from etl_mapping_compaction_api/stage2_complexity_classifier.py.
 
 Deterministic, rule-based — no LLM call. Scores a parsed mapping on
 concrete, countable signals (transformation count, connector count, lookup/
@@ -42,10 +42,10 @@ def score_mapping(mapping: MappingInfo, mapplets: Dict[str, MappletInfo]) -> Com
     score.connector_count = len(mapping.connectors)
     score.reusable_mapplet_count = len(mapping.mapplet_refs)
 
-    # Mapplets are a reference, not re-embedded (Stage 2c) — but for scoring
-    # purposes we still need to look INSIDE them once, otherwise a mapping
-    # whose real logic lives entirely inside a referenced mapplet would be
-    # mis-scored as "simple". This does NOT count toward
+    # Mapplets are a reference, not re-embedded (see mapplet_cache.py) — but
+    # for scoring purposes we still need to look INSIDE them once, otherwise
+    # a mapping whose real logic lives entirely inside a referenced mapplet
+    # would be mis-scored as "simple". This does NOT count toward
     # `transformation_count` — it only feeds the qualitative signals below.
     mapplet_transforms: List = []
     for ref in mapping.mapplet_refs:
@@ -103,22 +103,3 @@ def score_mapping(mapping: MappingInfo, mapplets: Dict[str, MappletInfo]) -> Com
         score.recommended_model = "large-reasoning-model"
 
     return score
-
-
-def explain(score: ComplexityScore) -> str:
-    reasons = []
-    if score.sql_override_present:
-        reasons.append(f"SQL override with ~{score.sql_override_join_count} joined tables")
-    if score.router_group_count:
-        reasons.append(f"Router with {score.router_group_count} conditional output group(s)")
-    if score.lookup_count:
-        reasons.append(f"{score.lookup_count} lookup(s)")
-    if score.update_strategy_present:
-        reasons.append("Update Strategy insert/update split")
-    if score.reusable_mapplet_count > 1:
-        reasons.append(f"{score.reusable_mapplet_count} chained reusable mapplets")
-    if score.nested_expression_functions:
-        reasons.append(f"nested functions: {', '.join(score.nested_expression_functions)}")
-    if not reasons:
-        reasons.append(f"{score.transformation_count} straightforward transformation(s), no branching logic")
-    return "; ".join(reasons)

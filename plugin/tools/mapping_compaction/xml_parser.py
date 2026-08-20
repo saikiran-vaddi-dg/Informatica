@@ -1,7 +1,7 @@
 """
-stage2_xml_parser.py
-======================
-Vendored from etl_mapping_compaction_api/stage2_xml_parser.py.
+xml_parser.py
+=============
+Originally vendored from etl_mapping_compaction_api/stage2_xml_parser.py.
 
 Deterministic, stdlib-only (xml.etree.ElementTree). Parses a raw PowerCenter
 POWERMART export into the structured dataclasses from `common.py`, dropping

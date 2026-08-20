@@ -1,9 +1,9 @@
 """
-stage2_build_intermediate_representation.py
-==============================================
-Vendored from etl_mapping_compaction_api/stage2_build_intermediate_representation.py.
+mapping_ir.py
+=============
+Originally vendored from etl_mapping_compaction_api/stage2_build_intermediate_representation.py.
 
-Takes the structured `MappingInfo` produced by `stage2_xml_parser.py` and
+Takes the structured `MappingInfo` produced by `xml_parser.py` and
 reduces it to a compact, LLM-ready IR: an ordered pipeline `flow`, a
 target-field lineage table, and field counts.
 
