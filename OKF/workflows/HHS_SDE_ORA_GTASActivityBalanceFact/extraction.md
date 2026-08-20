@@ -1,3 +1,10 @@
+---
+generated:
+  by: developer-agent
+  at: "2026-08-20T13:57:15+05:30"
+  commit: 92ab9366f12458bbbde0af53538b3269c0ee0940
+---
+
 # HHS_SDE_ORA_GTASActivityBalanceFact — Workflow Logic
 
 ## Description

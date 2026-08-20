@@ -18,14 +18,14 @@ Review workflow logic and test case coverage, and draft or correct the test case
 ## Inputs
 
 1. List the actual current contents of `Workflows/` and `HRD/` — don't assume what exists. If this is a git checkout at review time, use `git status`/`git diff` to see what actually changed rather than guessing from conversation history.
-2. Before reading a workflow's full XML, check `OKF/workflows/<WorkflowName>/index.md` (see developer-agent.md's "Maintain the OKF concept files" step for the folder's shape). Compare its `generated.at` against `git log -1 --format=%cI -- Workflows/<WorkflowName>.XML`: if the XML is newer, the concept folder is stale. If it's current, the folder's `extraction.md` (Description/Key Columns) and `hrd_mapping.md` (Test Cases table) can stand in for a first pass, but Pass 1 below still requires reading the actual workflow logic before drafting or correcting a test case — never draft off the OKF summary alone. If it's stale, don't fall back to a full re-read yet — go to Pass 1's diff-scoped review first.
+2. Before reading a workflow's full XML, check `OKF/workflows/<WorkflowName>/extraction.md`'s `generated.at` frontmatter (see developer-agent.md's "Maintain the OKF concept files" step for the folder's shape — the per-workflow `index.md` carries no frontmatter per §8 of the OKF spec, so `extraction.md` is the staleness marker). Compare it against `git log -1 --format=%cI -- Workflows/<WorkflowName>.XML`: if the XML is newer, the concept folder is stale. If it's current, `extraction.md` (Description/Key Columns) and `hrd_mapping.md` (Test Cases table) can stand in for a first pass, but Pass 1 below still requires reading the actual workflow logic before drafting or correcting a test case — never draft off the OKF summary alone. If it's stale, don't fall back to a full re-read yet — go to Pass 1's diff-scoped review first.
 3. Call `ToolSearch` at runtime for relevant MCP tools before reviewing by eye alone — check what's actually available in this session and use whatever applies to inspect the workflow or existing test case metadata, instead of only doing a manual file read-through.
 
 ## Process
 
 ### Pass 1 — review the workflow
 
-**If `OKF/workflows/<WorkflowName>/index.md` exists and recorded a `generated.commit`** (even a stale one), scope the review to what actually changed before treating this as a from-scratch analysis:
+**If `OKF/workflows/<WorkflowName>/extraction.md` exists and its frontmatter recorded a `generated.commit`** (even a stale one), scope the review to what actually changed before treating this as a from-scratch analysis:
 1. Run `git diff <recorded-commit>..HEAD -- Workflows/<WorkflowName>.XML`.
 2. From the diff's `@@` hunks and any `<TRANSFORMATION NAME="...">`/`<SOURCE NAME="...">`/`<TARGET NAME="...">`/`<MAPPINGVARIABLE NAME="...">` lines inside the changed regions, identify exactly which named element(s) changed.
 3. Run `python ${CLAUDE_PLUGIN_ROOT}/tools/compact_mapping.py Workflows/<WorkflowName>.XML` for the full current structure (still cheap — typically 95-99% smaller than the raw XML), but concentrate your reasoning on the diff-identified element(s) only. Treat everything else in the output as already-reviewed and unchanged — don't re-derive the whole Description/Key Columns from zero, just amend them for the delta.

@@ -24,7 +24,7 @@ If `$ARGUMENTS` is non-empty, treat it as a workflow name (with or without the `
 For each file found in step 2, run this pipeline for that single file:
 
 0. **Skip check.** Before invoking any agent, check `OKF/workflows/<WorkflowName>/` for this file:
-   - Does `index.md` exist, and is it *not* stale (its `generated.at` is not older than `git log -1 --format=%cI` on the workflow XML)?
+   - Does `extraction.md` exist, and is its `generated.at` frontmatter *not* stale (not older than `git log -1 --format=%cI` on the workflow XML)?
    - Does `hrd_mapping.md`'s Test Cases & Dataflows table have a row for this workflow with Status = `Passed`?
    - Does that row's `Fingerprint` still match the live dataflow (same drift check developer-agent uses in its "Apply confirmed fixes" step — call `get_data_flow_definition` and hash it)?
 

@@ -11,13 +11,15 @@ driving.
 - `HRD/` — Human Readable Definition test cases, one `<WorkflowName>_TestCase.json`
   per workflow (DataCompare-shaped dataflow definitions — schema below).
 - `Results/` — dataflow run reports (`*_report.json`) and analysis writeups (`*_analysis.html`).
-- `OKF/` — per-workflow context summaries: `OKF/index.md` (bundle root),
-  `OKF/workflows/index.md` (category index), and one folder per workflow,
-  `OKF/workflows/<WorkflowName>/`, containing `index.md` (frontmatter +
-  summary + links), `extraction.md` (Description/Key Columns from reading the
-  workflow logic), and `hrd_mapping.md` (Test Cases & Dataflows table + Known
-  Caveats) — persisted notes so the full XML doesn't need re-reading every
-  time a workflow is revisited.
+- `OKF/` — per-workflow context summaries: `OKF/index.md` (bundle root, the
+  only place frontmatter belongs on an `index.md` per §8 of the OKF spec),
+  `OKF/workflows/index.md` (category index, no frontmatter), and one folder
+  per workflow, `OKF/workflows/<WorkflowName>/`, containing `index.md` (no
+  frontmatter — just a short summary + links), `extraction.md` (the concept
+  file: `generated: {by,at,commit}` frontmatter plus Description/Key Columns
+  from reading the workflow logic), and `hrd_mapping.md` (Test Cases &
+  Dataflows table + Known Caveats) — persisted notes so the full XML doesn't
+  need re-reading every time a workflow is revisited.
 
 ## Tools this pipeline needs
 
@@ -38,7 +40,10 @@ driving.
 
 ### Phase 1 — Review
 Read the workflow XML (or its compacted summary / an existing, non-stale
-`OKF/workflows/<Name>/extraction.md`) and identify what needs testing: the
+`OKF/workflows/<Name>/extraction.md` — its `generated.at` frontmatter is the
+staleness marker, per §8 of the OKF spec only a bundle-root `index.md` may
+carry frontmatter, so the per-workflow `index.md` stays frontmatter-free)
+and identify what needs testing: the
 source query and any session-level overrides, every transformation branch
 (CASE/IIF/lookup) that produces materially different output, and the target
 table/load strategy.
