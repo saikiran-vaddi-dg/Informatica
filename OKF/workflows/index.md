@@ -8,6 +8,7 @@ okf_version: "0.2"
 
 - [HHS_SDE_ORA_GTASActivityBalanceFact](HHS_SDE_ORA_GTASActivityBalanceFact/index.md)
 - [HHS_SDE_ORA_QuickDemoFact](HHS_SDE_ORA_QuickDemoFact/index.md)
+- [HHS_SIL_ProgramActivity_Dimension](HHS_SIL_ProgramActivity_Dimension/index.md)
 
 ## Procurement
 

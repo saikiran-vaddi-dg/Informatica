@@ -55,6 +55,7 @@
   "raw_archive_ref": "blob://mapping-cache/HHS_SDE_ORA_QuickDemoFact/f3afcad930fe.xml",
   "mapping_variables": [],
   "session_partition_overrides": [],
+  "transformation_logic": [],
   "source_file_hash": "f3afcad930fe9d3434677ce5a896497abf0079c5383fa844e0f9c5100f9deedb",
-  "schema_version": 2
+  "schema_version": 3
 }

@@ -983,6 +983,7 @@
     }
   ],
   "session_partition_overrides": [],
+  "transformation_logic": [],
   "source_file_hash": "c0b318eb5da79f45882bb327cc4fd4766167ae12bc818781026a7ccf86319eac",
-  "schema_version": 2
+  "schema_version": 3
 }

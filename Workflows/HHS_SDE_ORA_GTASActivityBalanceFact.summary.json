@@ -250,5 +250,156 @@
     "recommended_model": "large-reasoning-model"
   },
   "raw_archive_ref": "blob://mapping-cache/HHS_SDE_ORA_GTASActivityBalanceFact/31b954f2368f.xml",
-  "source_file_hash": "31b954f2368f5e159ee2fef6c1dc6e3ee6cd1ca61ad688c514627d2aca622446"
+  "mapping_variables": [
+    {
+      "name": "$$LAST_EXTRACT_DATE",
+      "datatype": "string",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$DATASOURCE_NUM_ID",
+      "datatype": "decimal",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_CDC_LEDGER",
+      "datatype": "integer",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_FDA_LEDGER",
+      "datatype": "integer",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_PSC_LEDGER",
+      "datatype": "integer",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_IHS_LEDGER",
+      "datatype": "integer",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_FISCAL_YR_CDC_EXT",
+      "datatype": "string",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_FISCAL_YR_FDA_EXT",
+      "datatype": "string",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_FISCAL_YR_IHS_EXT",
+      "datatype": "string",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_FISCAL_YR_PSC_EXT",
+      "datatype": "string",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_ACTBAL_CDC_EXT_DT",
+      "datatype": "date/time",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_ACTBAL_FDA_EXT_DT",
+      "datatype": "date/time",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_ACTBAL_IHS_EXT_DT",
+      "datatype": "date/time",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_ACTBAL_PSC_EXT_DT",
+      "datatype": "date/time",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    }
+  ],
+  "session_partition_overrides": [],
+  "transformation_logic": [
+    {
+      "transformation": "LKP_INTRA_HHS_ELI",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_GTAS_INTRAHHS_D",
+        "Lookup condition": "TP_MAIN_ACT = INP_ACT",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": []
+    },
+    {
+      "transformation": "LKP_PROVD_RECP",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup Sql Override": "SELECT DISTINCT FND_FLEX_VALUES_VL.FLEX_VALUE AS FLEX_VALUE, FND_FLEX_VALUES_VL.DESCRIPTION AS DESCRIPTION FROM FND_FLEX_VALUES_VL WHERE VALUE_CATEGORY = 'HHS_TP_ELIMINATION_CODE' --",
+        "Lookup table name": "FND_FLEX_VALUES_VL",
+        "Lookup condition": "FLEX_VALUE = INP_PROVIDER_RECIPNT",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": []
+    },
+    {
+      "transformation": "SQ_FV_GTAS_ACTIVITY_BALANCES",
+      "type": "Source Qualifier",
+      "attributes": {
+        "Sql Query": "SELECT FV_GTAS_ACTIVITY_BALANCES.CCID, FV_GTAS_ACTIVITY_BALANCES.PERIOD_NUM, FV_GTAS_ACTIVITY_BALANCES.SET_OF_BOOKS_ID, FV_GTAS_ACTIVITY_BALANCES.PERIOD_YEAR, FV_GTAS_ACTIVITY_BALANCES.JE_SOURCE, FV_GTAS_ACTIVITY_BALANCES.JE_CATEGORY, FV_GTAS_ACTIVITY_BALANCES.FUND_VALUE, FV_GTAS_ACTIVITY_BALANCES.ACCOUNT_NUMBER, FV_GTAS_ACTIVITY_BALANCES.AUTHORITY_TYPE_CODE, FV_GTAS_ACTIVITY_BALANCES.FED_NON_FED, FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_TYPE, FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_NAME, FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_AGENCY_ID, FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_MAIN_ACCOUNT, FV_GTAS_ACTIVITY_BALANCES.BUDGET_IMPACT_IND, FV_GTAS_ACTIVITY_BALANCES.D_C_INDICATOR, FV_GTAS_ACTIVITY_BALANCES.AMOUNT, FV_GTAS_ACTIVITY_BALANCES.JE_HEADER_ID, FV_GTAS_ACTIVITY_BALANCES.JE_LINE_NUM, FV_GTAS_ACTIVITY_BALANCES.RECORD_CATEGORY, FV_GTAS_ACTIVITY_BALANCES.CREATION_DATE, FV_GTAS_ACTIVITY_BALANCES.GL_PERIOD, FV_GTAS_ACTIVITY_BALANCES.BALANCE_TYPE, FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_ID, FV_GTAS_ACTIVITY_BALANCES.PERIOD_NAME, FV_GTAS_ACTIVITY_BALANCES.EXCEPTION_CATEGORY, FV_GTAS_ACTIVITY_BALANCES.DOLLAR_AMOUNT, FV_GTAS_ACTIVITY_BALANCES.REDUCTION_TYPE_CODE, FV_GTAS_ACTIVITY_BALANCES.DACT_REPORT_IND, FV_GTAS_ACTIVITY_BALANCES.PIID, FV_GTAS_ACTIVITY_BALANCES.PARENT_AWARD_ID, FV_GTAS_ACTIVITY_BALANCES.FAIN, FV_GTAS_ACTIVITY_BALANCES.URI, FV_GTAS_ACTIVITY_BALANCES.DOC_NUM, FV_GTAS_ACTIVITY_BALANCES.POSTED_DATE, FV_GTAS_ACTIVITY_BALANCES.DEFAULT_EFFECTIVE_DATE, FV_GTAS_ACTIVITY_BALANCES.AE_HEADER_ID, FV_GTAS_ACTIVITY_BALANCES.AE_LINE_NUM \r\nFROM\r\n FV_GTAS_ACTIVITY_BALANCES\r\n   WHERE   FV_GTAS_ACTIVITY_BALANCES.CREATION_DATE >= \r\n         TO_DATE('$$LAST_EXTRACT_DATE', 'MM/DD/YYYY HH24:MI:SS')"
+      },
+      "group_conditions": []
+    }
+  ],
+  "source_file_hash": "31b954f2368f5e159ee2fef6c1dc6e3ee6cd1ca61ad688c514627d2aca622446",
+  "schema_version": 3
 }
