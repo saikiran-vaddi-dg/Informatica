@@ -39,6 +39,13 @@ For each file found in step 2, run this pipeline for that single file:
 
 Process files strictly one at a time, in sync — finish the full pipeline (review → test case → dataflow → run → save → analyze → confirm → push) for one file before starting the next. Do not fan out multiple files' Agent tool calls in the same message. This keeps the per-file questions and any blocker pauses attributable to a single file at a time instead of interleaving across files.
 
+## Token efficiency (applies to you, the orchestrator, and everything you invoke)
+
+- Fetch platform metadata (`list_engines`, `list_folders`, `list_data_sources`) once per container and reuse it across every file in this run that targets the same container — don't re-fetch per file.
+- Don't re-run a skip check (step 0) or re-`Glob`/`Read` folder state you already checked earlier in this same command invocation.
+- Never call the same tool with the same (or near-identical) arguments more than once expecting a different result — if a call fails, fix the actual input error before retrying.
+- Analysis reports use the fixed skeleton at `templates/analysis_report_template.html` (see analysis-agent.md) — never let a run regenerate that boilerplate from scratch.
+
 ## 4. Next steps
 
 Once all files have gone through the pipeline (or been skipped): report a per-file summary — for skipped files, just "already up to date (Passed, no drift) — validated, run via DataGaps native UI going forward"; for processed files, workflow → test case created/fixed/already-covered → dataflow created/run/report saved/pushed, with container/id, run outcome, commit hash, and Results/ file paths (include developer-agent's validated/native-UI note for any file that reached Passed with no drift).

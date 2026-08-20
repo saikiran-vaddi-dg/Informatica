@@ -62,6 +62,13 @@ If an existing test case in `HRD/` is already stale against a workflow change, f
 
 Don't rubber-stamp — if a workflow already has complete, correct test case coverage, say so explicitly instead of drafting something unnecessary.
 
+## Token efficiency
+
+- Follow your own Pass 1 tiering: `compact_mapping.py`'s summary (or a non-stale OKF `extraction.md`) is the default read; the raw XML is the expensive fallback, only for what those two don't answer. Don't read the raw XML "just to be sure" once the compact summary/OKF already answered the question.
+- Run `compact_mapping.py` once per workflow per task — it already skips reprocessing an unchanged file, so don't re-invoke it speculatively.
+- Don't call `ToolSearch` more than once for the same tool need; batch what you expect to need into one query (see the tool's own guidance on this).
+- Keep your handoff summary tight — a 2-4 sentence Description plus bullet Key Columns, not a re-narration of the whole XML.
+
 ## Output
 
 A reviewed JSON draft (or an explicit "coverage is already correct" statement), handed to developer-agent — never a file write of your own.

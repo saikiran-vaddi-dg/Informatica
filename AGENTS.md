@@ -11,10 +11,15 @@ driving.
 - `HRD/` — Human Readable Definition test cases, one `<WorkflowName>_TestCase.json`
   per workflow (DataCompare-shaped dataflow definitions — schema below).
 - `Results/` — dataflow run reports (`*_report.json`) and analysis writeups (`*_analysis.html`).
-- `OKF/` — per-workflow context summaries: `OKF/index.md` (bundle root),
-  `OKF/workflows/index.md`, and `OKF/workflows/<WorkflowName>.md` (one concept
-  file per workflow — persisted notes so the full XML doesn't need re-reading
-  every time a workflow is revisited).
+- `OKF/` — per-workflow context summaries: `OKF/index.md` (bundle root, the
+  only place frontmatter belongs on an `index.md` per §8 of the OKF spec),
+  `OKF/workflows/index.md` (category index, no frontmatter), and one folder
+  per workflow, `OKF/workflows/<WorkflowName>/`, containing `index.md` (no
+  frontmatter — just a short summary + links), `extraction.md` (the concept
+  file: `generated: {by,at,commit}` frontmatter plus Description/Key Columns
+  from reading the workflow logic), and `hrd_mapping.md` (Test Cases &
+  Dataflows table + Known Caveats) — persisted notes so the full XML doesn't
+  need re-reading every time a workflow is revisited.
 
 ## Tools this pipeline needs
 
@@ -35,7 +40,10 @@ driving.
 
 ### Phase 1 — Review
 Read the workflow XML (or its compacted summary / an existing, non-stale
-`OKF/workflows/<Name>.md` concept file) and identify what needs testing: the
+`OKF/workflows/<Name>/extraction.md` — its `generated.at` frontmatter is the
+staleness marker, per §8 of the OKF spec only a bundle-root `index.md` may
+carry frontmatter, so the per-workflow `index.md` stays frontmatter-free)
+and identify what needs testing: the
 source query and any session-level overrides, every transformation branch
 (CASE/IIF/lookup) that produces materially different output, and the target
 table/load strategy.
@@ -59,7 +67,10 @@ unresolved parameter with no known value, or a missing prerequisite.
 
 Once created: run it, poll to a terminal state, download the DataCompare
 report to `Results/`, and write a charted HTML analysis to
-`Results/<Name>_run<id>_analysis.html`.
+`Results/<Name>_run<id>_analysis.html` using the fixed skeleton at
+`templates/analysis_report_template.html` — fill in its `{{TOKEN}}`
+placeholders rather than regenerating the CSS/page structure from scratch
+each run.
 
 ### Phase 3 — Analyze & classify
 Classify every failure as exactly one of:
@@ -77,17 +88,21 @@ operator confirmation before changing anything.
 
 ### Phase 4 — Apply & persist
 Once confirmed: check for drift first — hash the live dataflow definition and
-compare it to the `Fingerprint` recorded in the OKF concept file for that
-dataflow. If it differs, stop and ask which side is correct before changing
-anything.
+compare it to the `Fingerprint` recorded in
+`OKF/workflows/<WorkflowName>/hrd_mapping.md` for that dataflow. If it
+differs, stop and ask which side is correct before changing anything.
 
 Apply only the confirmed classification's fix, re-run to confirm it actually
 resolves the failure, and refresh the `Fingerprint`.
 
-Update `OKF/workflows/<WorkflowName>.md`: Description, Key Columns, a Test
-Cases & Dataflows table (one row per test case/dataflow/run, with
-`Fingerprint`), and Known Caveats. Once a row reaches `Passed` with a
-confirmed, non-drifted `Fingerprint`, mark it **Validated** — that dataflow
+Update `OKF/workflows/<WorkflowName>/`: `extraction.md` (Description, Key
+Columns, plus `generated: {by, at, commit}` frontmatter — the staleness
+marker; `commit` is `git rev-parse HEAD` at the time of writing), `hrd_mapping.md`
+(a Test Cases & Dataflows table — one row per test case/dataflow/run, with
+`Fingerprint` — and Known Caveats), and `index.md` (no frontmatter — per §8 of
+the OKF spec only a bundle-root `index.md` gets that exemption — just a short
+summary and links to the other two files). Once a row reaches `Passed` with a
+confirmed, non-drifted `Fingerprint`, mark it **Validated** in `hrd_mapping.md` — that dataflow
 should be scheduled/run from the DataOps platform's own UI from then on, not
 re-validated by an AI agent on every visit.
 
@@ -124,3 +139,8 @@ plugin (`plugin/skills/test-case-generation/SKILL.md`), or an existing file in
   independently derived, or the test proves nothing.
 - Process one workflow file at a time, start to finish, before starting the
   next.
+- Don't waste tokens: read each file once per task, fetch platform metadata
+  (engines/folders/data sources) once per container and reuse it, never call
+  the same tool with the same arguments twice expecting a different result,
+  and use the fixed `templates/analysis_report_template.html` skeleton for
+  every analysis report instead of regenerating its boilerplate.

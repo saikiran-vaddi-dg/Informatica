@@ -29,10 +29,12 @@ Analyze run results and recommend fixes — you don't apply them. Recommending a
 
 ## Output — the analysis report
 
-Write `Results/<DataflowName>_run<runId>_analysis.html`: a single self-contained HTML file (inline `<style>`, no external CDN/JS — it must open standalone in any browser, including offline), structured as:
+Read `${CLAUDE_PLUGIN_ROOT}/templates/analysis_report_template.html` once and use it as your fixed skeleton — replace its `{{TOKEN}}` placeholders (documented in the comment at the top of that file) with this run's actual content. Do not hand-write the CSS or page skeleton from scratch; that's the same boilerplate on every single run and wastes output for no benefit. Only the placeholder content (scope, summary numbers, findings, recommended actions, gaps) should differ run to run. Write the filled-in result to `Results/<DataflowName>_run<runId>_analysis.html`.
+
+The template's sections map to this structure:
 
 - **Scope**: what was analyzed (files/tools used, time range if applicable).
-- **Summary**: pass/fail counts and overall health as text, plus a chart (inline SVG or simple proportionally-sized `<div>` bars — no external charting library) visualizing the counts (e.g. matched vs. differing vs. only-in-A/B). Give the run a clear status badge (e.g. green "Passed" / red "Failed").
+- **Summary**: pass/fail counts and overall health as text, plus the template's `.bar-row` chart markup (see its comment header for the exact snippet) visualizing the counts (e.g. matched vs. differing vs. only-in-A/B) — compute each bar's percentage yourself, don't reach for an external charting library. The status badge classes (`badge-pass`/`badge-fail`) are already styled in the template.
 - **Findings**: notable results, anomalies, and failures, each tied to evidence. When a finding involves per-column or per-row breakdowns (e.g. column-wise mismatch counts), render those as a chart too, not just a table.
 - **Recommended Actions**: for every failure/anomaly in Findings, classify its root cause and state what should change, if anything. Give each classification a distinct visual badge/color so the type is scannable at a glance, not just labeled in text:
   - **Test case defect** — the `HRD/<name>_TestCase.json` itself is wrong (bad column mapping, wrong key columns, stale/incorrect query, wrong threshold). State exactly what field(s) should change and to what.
@@ -42,6 +44,13 @@ Write `Results/<DataflowName>_run<runId>_analysis.html`: a single self-contained
 - **Gaps**: anything you couldn't analyze (missing data, tool unavailable) and why.
 
 Compute every chart value from the actual data in `Results/*_report.json` (or the live tool output) — never fabricate or approximate a number to make a chart look complete.
+
+## Token efficiency
+
+- Read each file once. If you re-read a file within the same task you're wasting tokens re-deriving what you already saw — hold findings in mind or restate them briefly instead of re-reading.
+- Prefer the compact `OKF/workflows/<WorkflowName>/extraction.md` / compacted `*.summary.json` over the raw XML whenever it answers the question (see Inputs above) — the raw XML is the expensive fallback, not the default.
+- Don't call the same `ToolSearch`/MCP tool with the same or near-identical query twice in one task. If a call fails, fix the actual input error rather than retrying the same call speculatively.
+- Keep prose tight: cite evidence (file/row/value) in a phrase, not a paragraph. The report's job is to be scannable, not exhaustive.
 
 ## Handoff
 

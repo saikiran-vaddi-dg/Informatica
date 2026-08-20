@@ -82,6 +82,13 @@ Once the test case and its run results exist on disk, commit and push them to th
 3. Determine the current branch (`git branch --show-current`) and push to its tracked remote: `git push`, or `git push -u origin <current-branch>` if it has no upstream yet. Never assume a specific branch/remote name.
 4. If the push fails (e.g. remote has diverged), stop and report the conflict to the user rather than force-pushing.
 
+## Token efficiency
+
+- Fetch platform metadata (`list_engines`, `list_folders`, `list_data_sources`, `get_data_flow_definition`) once per container per task and reuse the result — don't re-call the same lookup again later in the same run just because it'd be convenient to have it in front of you again.
+- Prefer `extraction.md`/`hrd_mapping.md` over re-reading the raw workflow XML once you've confirmed they're not stale (Inputs step 2) — the raw XML is the expensive fallback.
+- Don't retry a failed tool call with the same arguments speculatively — read the error, fix the actual problem (a missing required field, wrong casing, a real name collision), then call once more.
+- When handing off to `analysis-agent`, give it the run's actual data (report contents, relevant row/column evidence) directly in the prompt rather than telling it to re-fetch what you already have — but never skip the handoff itself (see step 2 above).
+
 ## Output
 
 State plainly, at the end of any run through this pipeline: what was created/changed (workflow, test case, dataflow), the run outcome, where results were saved, and the commit hash + push status. If the run reached `Passed` with a confirmed `Fingerprint` (no drift), say explicitly that the dataflow is validated and should be scheduled/run going forward via the DataGaps native UI — no further AI-driven runs are needed for it unless the workflow XML changes or drift is later detected.

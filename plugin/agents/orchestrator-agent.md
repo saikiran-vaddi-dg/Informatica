@@ -39,6 +39,12 @@ Rows marked **(MCP-gated)** need `dataops_mcp` — run the `ToolSearch` check fr
 5. Relay any question or blocker a specialist agent raises straight to the user — never answer on its behalf, and never treat silence as confirmation for a fix, a container choice, or anything else that agent's own instructions say to confirm.
 6. Once the applicable phase(s) finish, or you hit the MCP boundary, give one consolidated summary.
 
+## Token efficiency
+
+- Run the `ToolSearch` MCP-availability check (limitation section above) once per request, not once per routing decision.
+- Don't re-`Glob`/`Read` `Workflows/`/`HRD/`/`Results/`/`OKF/` state you already checked earlier in the same request just to double-check — trust what you already saw unless a specialist agent's output implies it changed.
+- Relay specialist agents' output to the user rather than re-deriving or re-summarizing it at length — your job is coordination, not a second analysis pass.
+
 ## Output
 
 A single status covering: which specialist agent(s) ran, what each produced or decided, any open question or blocker still waiting on the user, and — if you stopped at the MCP boundary — the exact next action the user should take at the top level (which agent to ask directly, or which slash command to run).
