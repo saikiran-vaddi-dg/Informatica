@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Analysis: HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v2 - Run 330171</title>
+<title>Analysis: HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v2 - Run 330171 (Independent Re-review)</title>
 <style>
   :root {
     --pass: #1a7f37; --fail: #cf222e; --warn: #9a6700; --info: #0969da;
     --bg: #f6f8fa; --border: #d0d7de; --text: #1f2328;
   }
   * { box-sizing: border-box; }
-  body { font-family: -apple-system, Segoe UI, Arial, sans-serif; margin: 0; padding: 24px; background: #fff; color: var(--text); line-height: 1.5; }
+  body { font-family: -apple-system, Segoe UI, Arial, sans-serif; margin: 0; padding: 24px; background: #fff; color: var(--text); line-height: 1.55; }
   h1 { font-size: 22px; margin-bottom: 4px; }
   h2 { font-size: 17px; border-bottom: 2px solid var(--border); padding-bottom: 6px; margin-top: 36px; }
+  h3 { font-size: 15px; }
   .subtitle { color: #57606a; margin-bottom: 20px; font-size: 14px; }
   .badge { display: inline-block; padding: 3px 12px; border-radius: 12px; font-weight: 600; font-size: 13px; color: #fff; }
   .badge-fail { background: var(--fail); }
@@ -19,26 +20,29 @@
   .badge-warn { background: var(--warn); }
   .badge-info { background: var(--info); }
   .badge-testcase { background: #8250df; }
-  .badge-env { background: #9a6700; }
+  .badge-env { background: #bf6a02; }
   .badge-etlbug { background: #cf222e; }
-  .badge-noaction { background: #57606a; }
+  .badge-indeterminate { background: #57606a; }
+  .badge-noaction { background: #1a7f37; }
   table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13px; }
-  th, td { border: 1px solid var(--border); padding: 6px 10px; text-align: left; }
+  th, td { border: 1px solid var(--border); padding: 6px 10px; text-align: left; vertical-align: top; }
   th { background: var(--bg); }
   tr:nth-child(even) { background: #fbfcfd; }
   code { background: var(--bg); padding: 1px 5px; border-radius: 4px; font-size: 12px; }
   .card { border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 12px 0; background: var(--bg); }
   .bar-row { display: flex; align-items: center; margin: 6px 0; gap: 8px; }
-  .bar-label { width: 190px; font-size: 12px; flex-shrink: 0; }
+  .bar-label { width: 220px; font-size: 12px; flex-shrink: 0; }
   .bar-track { flex: 1; background: #eaeef2; border-radius: 4px; overflow: hidden; height: 20px; position: relative; }
   .bar-fill { height: 100%; border-radius: 4px; }
-  .bar-value { font-size: 12px; margin-left: 8px; width: 60px; flex-shrink: 0; }
+  .bar-value { font-size: 12px; margin-left: 8px; width: 70px; flex-shrink: 0; }
   .finding { border-left: 4px solid var(--fail); padding: 10px 14px; margin: 14px 0; background: #fff5f5; }
   .finding.info { border-left-color: var(--info); background: #f1f8ff; }
-  .finding h3 { margin: 0 0 6px 0; font-size: 15px; }
+  .finding.warn { border-left-color: var(--warn); background: #fffaf0; }
   .rec { border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
   .mono { font-family: Consolas, monospace; font-size: 12px; }
   ul { margin: 6px 0; }
+  .callout { border: 1px solid #f0883e; background: #fff8f0; border-radius: 8px; padding: 12px 16px; margin: 16px 0; }
+  .disagree { border: 1px solid #8250df; background: #faf5ff; border-radius: 8px; padding: 12px 16px; margin: 16px 0; }
 </style>
 </head>
 <body>
@@ -48,9 +52,23 @@
 
 <span class="badge badge-fail">FAILED</span>
 <span class="badge badge-info">Full-table comparison (no incremental filter applied)</span>
+<span class="badge badge-indeterminate">Independent re-review &mdash; supersedes prior file of the same name</span>
+
+<div class="callout">
+<b>Why this file was regenerated.</b> A prior pass in this pipeline wrote an analysis file under this exact name without actually invoking the analysis-agent process to independently classify root cause. This is that independent classification, produced by re-reading the report JSON, the test case JSON, and the raw workflow XML directly (not by trusting the prior write-up's conclusions). Where my reading agrees with the prior write-up, I say so and cite my own evidence. Where it differs, I flag it explicitly &mdash; see the purple box under Finding 2 below.
+</div>
 
 <h2>Scope</h2>
-<p>Analyzed <code>Results/HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v2_run330171_report.json</code> (downloaded DataCompare report for run 330171), cross-referenced against <code>HRD/HHS_SDE_ORA_GTASActivityBalanceFact_TestCase.json</code> (the test case as deployed) and <code>Workflows/HHS_SDE_ORA_GTASActivityBalanceFact.XML</code> (the documented ETL mapping). Dataset A = JDBC_1 = target table <code>W_GTAS_ACTIVITY_BALANCES_FS</code>. Dataset B = JDBC_2 = source table <code>FV_GTAS_ACTIVITY_BALANCES</code>, extracted in full (the <code>:LAST_EXTRACT_DATE</code> bind variable was removed before this run since it is not valid on this platform and no real value was known).</p>
+<p>Analyzed directly:</p>
+<ul>
+<li><code>Results/HHS_SDE_ORA_GTASActivityBalanceFact_TestCase_v2_run330171_report.json</code> &mdash; the DataCompare report for run 330171.</li>
+<li><code>HRD/HHS_SDE_ORA_GTASActivityBalanceFact_TestCase.json</code> &mdash; the test case as built and run (JDBC_1/JDBC_2 queries, column mappings, thresholds, and its own <code>_notes</code>).</li>
+<li><code>Workflows/HHS_SDE_ORA_GTASActivityBalanceFact.XML</code> &mdash; read directly (not just the compacted summary) for the <code>EXP_GTASACTIVITY</code> transformation, its <code>TRANSFORMFIELD</code> expressions, the <code>LKP_PROVD_RECP</code> / <code>LKP_INTRA_HHS_ELI</code> lookup definitions, and the raw <code>CONNECTOR</code> lineage lines, since the specific question here (is a given target column really a straight passthrough, and does the documented lookup logic hold up) needed line-level XML evidence, not just the compacted summary.</li>
+<li><code>Workflows/HHS_SDE_ORA_GTASActivityBalanceFact.summary.json</code> &mdash; cross-checked against the raw XML for consistency (they agree).</li>
+<li><code>OKF/workflows/HHS_SDE_ORA_GTASActivityBalanceFact/extraction.md</code> and <code>hrd_mapping.md</code> &mdash; read for prior context, verified against the primary sources above rather than trusted at face value.</li>
+</ul>
+<p><b>Dataset A</b> = <code>JDBC_1</code> = target table <code>W_GTAS_ACTIVITY_BALANCES_FS</code>. <b>Dataset B</b> = <code>JDBC_2</code> = source table <code>FV_GTAS_ACTIVITY_BALANCES</code>, extracted in full (the <code>:LAST_EXTRACT_DATE</code> bind was removed before this run &mdash; not valid syntax on this platform, no resolvable value known).</p>
+<p><b>MCP tools:</b> <code>dataops_mcp</code> requires authorization in this session and the session is non-interactive, so no live job-history/run-metrics tool calls could be made. This analysis is therefore based entirely on the checked-in files listed above &mdash; see Gaps.</p>
 
 <h2>Summary</h2>
 <div class="card">
@@ -82,70 +100,112 @@
     <div class="bar-track"><div class="bar-fill" style="width:10%; background:var(--warn);"></div></div>
     <div class="bar-value">1</div>
   </div>
+
+  <p style="margin-top:14px; font-weight:600; font-size:13px;">Column-wise mismatch count (denominator = 9 matched-key rows; source: <code>columnWiseMismatches</code> in the report JSON)</p>
+  <div class="bar-row">
+    <div class="bar-label">INTEGRATION_ID</div>
+    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--fail);"></div></div>
+    <div class="bar-value">9 / 9</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">PROVIDER_RECIPNT_ID</div>
+    <div class="bar-track"><div class="bar-fill" style="width:88.9%; background:var(--fail);"></div></div>
+    <div class="bar-value">8 / 9</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">PROVIDER_RECIPNT_NAME</div>
+    <div class="bar-track"><div class="bar-fill" style="width:66.7%; background:var(--fail);"></div></div>
+    <div class="bar-value">6 / 9</div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">All other 38 columns</div>
+    <div class="bar-track"><div class="bar-fill" style="width:0%; background:var(--pass);"></div></div>
+    <div class="bar-value">0 / 9</div>
+  </div>
 </div>
 
 <h2>Findings</h2>
 
 <div class="finding">
   <h3>1. Every matched-key row (9/9) mismatches on <code>INTEGRATION_ID</code></h3>
-  <p>Target (A) holds real values shaped <code>&lt;JE_HEADER_ID&gt;~&lt;JE_LINE_NUM&gt;</code> (e.g. <code>5001~1</code>, <code>5009~1</code>). This test case's source-side (B) query computes <code>NULL</code> for this column, following the workflow XML's <code>EXP_GTASACTIVITY.out_INTEGRATION_ID</code> port, whose <code>EXPRESSION</code> attribute is empty in the exported XML.</p>
-  <div class="bar-row">
-    <div class="bar-label">INTEGRATION_ID mismatches</div>
-    <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--fail);"></div></div>
-    <div class="bar-value">9 / 9</div>
-  </div>
-  <p><b>Evidence:</b> <code>Results/..._report.json</code> &rarr; <code>mismatchedRows[*].INTEGRATION_ID</code>, all 9 rows show A=<code>"&lt;id&gt;~1"</code> vs B=<code>""</code>.</p>
+  <p>Target (A) holds real values shaped <code>&lt;JE_HEADER_ID&gt;~&lt;JE_LINE_NUM&gt;</code> (e.g. <code>5001~1</code> through <code>5009~1</code>, per <code>mismatchedRows[*].INTEGRATION_ID.a</code>). This test case's source-side (B) query computes <code>NULL</code>, following the workflow XML verbatim.</p>
+  <p><b>Verified directly in the raw XML</b> (<code>Workflows/HHS_SDE_ORA_GTASActivityBalanceFact.XML</code>, line 210): the <code>out_INTEGRATION_ID</code> <code>TRANSFORMFIELD</code> has <code>EXPRESSION=""</code> (empty) and <code>DEFAULTVALUE="ERROR('transformation error')"</code>, <code>PORTTYPE="OUTPUT"</code>. An output-only expression port with a genuinely blank expression could not pass Informatica's mapping validation &mdash; yet the enclosing <code>&lt;MAPPING ... ISVALID="YES"&gt;</code> (line 96) asserts the mapping validated successfully at export time. That internal contradiction is itself evidence the export/serialization dropped the real expression text for this one port, rather than the real mapping genuinely having no rule here.</p>
+  <p><b>Evidence:</b> <code>Results/..._report.json</code> &rarr; <code>mismatchedRows[*].INTEGRATION_ID</code> (a=<code>"5001~1"</code> pattern, b=<code>""</code>); <code>Workflows/HHS_SDE_ORA_GTASActivityBalanceFact.XML</code> lines 96, 210.</p>
 </div>
 
 <div class="finding">
   <h3>2. <code>PROVIDER_RECIPNT_ID</code> mismatches on 8/9 rows, <code>PROVIDER_RECIPNT_NAME</code> on 6/9</h3>
-  <p>Target values (e.g. ID <code>1200</code>/<code>1400</code>/<code>0751234</code>, resolved names <code>DEPARTMENT OF ENERGY</code>, <code>DEPARTMENT OF JUSTICE</code>, <code>CDC</code>, <code>FDA</code>) do not correspond to the test case's <code>PARENT_AWARD_ID</code>-passthrough / <code>LKP_PROVD_RECP</code>&ndash;<code>LKP_INTRA_HHS_ELI</code> lookup logic (which the workflow XML documents and which produced e.g. <code>PAW0001</code> or blank instead). Row CCID=10009 has blank <code>TRADING_PARTNER_TYPE</code>/<code>PARENT_AWARD_ID</code> on both sides, so it shows no mismatch here (only the INTEGRATION_ID mismatch above applies to it).</p>
-  <div class="bar-row">
-    <div class="bar-label">PROVIDER_RECIPNT_ID mismatches</div>
-    <div class="bar-track"><div class="bar-fill" style="width:89%; background:var(--fail);"></div></div>
-    <div class="bar-value">8 / 9</div>
+  <p><b>What the XML actually says</b> (verified directly, not from the summary alone): the <code>CONNECTOR</code> lines (315, 318, 331, 396) confirm <code>PROVIDER_RECIPNT_ID</code> really is wired as a straight passthrough of <code>FV_GTAS_ACTIVITY_BALANCES.PARENT_AWARD_ID</code>. <code>PROVIDER_RECIPNT_NAME</code>, however, is <b>not</b> empty and <b>not</b> a simple passthrough &mdash; line 213 contains a full nested <code>IIF</code>: 7-char id not starting <code>075</code> &rarr; <code>LKP_PROVD_RECP(SUBSTR(id,2,2))</code> against <code>FND_FLEX_VALUES_VL</code> (<code>VALUE_CATEGORY='HHS_TP_ELIMINATION_CODE'</code>); id starting <code>075</code> (HHS's own Treasury agency prefix) &rarr; <code>LKP_INTRA_HHS_ELI(SUBSTR(id,4,4))</code> against <code>W_GTAS_INTRAHHS_D.OPDIV</code>; else &rarr; <code>LKP_PROVD_RECP(id)</code> directly (lines 97&ndash;169 for the two lookup definitions).</p>
+  <p>This test case's <code>JDBC_2</code> query (<code>HRD/..._TestCase.json</code>) implements that <em>exact</em> branch structure as a SQL <code>CASE</code>/correlated-subquery translation &mdash; same three branches, same tables, same substrings. <b>The test case's expected-side logic is a faithful, correct SQL translation of the checked-in XML.</b> This directly contradicts how the prior pass's HRD <code>_notes</code> characterized it ("does NOT match a simple PARENT_AWARD_ID passthrough/lookup" as if the test case's logic were too simplistic) &mdash; the logic is not simplistic, and it does match the XML.</p>
+  <p><b>So why does it still fail?</b> Tracing the report's actual row values against the XML's own branch structure is revealing:</p>
+  <table>
+    <tr><th>CCID</th><th>Target (A) PROVIDER_RECIPNT_ID</th><th>Target (A) PROVIDER_RECIPNT_NAME</th><th>Which XML branch this fits</th><th>Computed (B) from source's PARENT_AWARD_ID</th></tr>
+    <tr><td>10001</td><td>1200</td><td>DEPARTMENT OF ENERGY</td><td>len&ne;7 &rarr; ELSE: <code>LKP_PROVD_RECP('1200')</code></td><td>PAW0001 / (blank)</td></tr>
+    <tr><td>10002</td><td>1400</td><td>DEPARTMENT OF JUSTICE</td><td>len&ne;7 &rarr; ELSE: <code>LKP_PROVD_RECP('1400')</code></td><td>PAW0002 / (blank)</td></tr>
+    <tr><td>10003</td><td>1900</td><td>DEPARTMENT OF STATE</td><td>len&ne;7 &rarr; ELSE: <code>LKP_PROVD_RECP('1900')</code></td><td>PAW0003 / (blank)</td></tr>
+    <tr><td>10004</td><td>0751234</td><td>CDC</td><td>len=7, prefix <code>075</code> &rarr; intra-HHS: <code>LKP_INTRA_HHS_ELI('1234')</code> &rarr; OPDIV</td><td>PAW0004 / (blank)</td></tr>
+    <tr><td>10005</td><td>0121500</td><td>DEPARTMENT OF AGRICULTURE</td><td>len=7, prefix&ne;075 &rarr; <code>LKP_PROVD_RECP('12')</code></td><td>PAW0005 / (blank)</td></tr>
+    <tr><td>10006</td><td>0750350</td><td>FDA</td><td>len=7, prefix <code>075</code> &rarr; intra-HHS: <code>LKP_INTRA_HHS_ELI('0350')</code> &rarr; OPDIV (FDA is an HHS OPDIV)</td><td>PAW0006 / (blank)</td></tr>
+  </table>
+  <p>Every non-blank target row's ID/name pair is internally consistent with the XML's documented branching (075-prefixed 7-char IDs resolving to HHS sub-agency OPDIVs like CDC/FDA; other 7-char IDs resolving via a 2-digit Treasury-style agency code; short IDs resolving via a direct code lookup). That is a real pattern in the data, not something I am assuming from the XML alone. This is <b>circumstantial but fairly strong evidence that the documented transformation logic itself is intact and was actually applied to produce the target's current values</b> &mdash; using some earlier, real <code>PARENT_AWARD_ID</code> input, not the value currently sitting in the source table.</p>
+  <p>Separately, the report shows <b>zero mismatches on the raw <code>PARENT_AWARD_ID</code> column itself</b> (it is not in <code>columnWiseMismatches</code>, and none of the 38 zero-mismatch columns include it as an exception) &mdash; meaning source and target agree that <code>PARENT_AWARD_ID='PAW0001'</code> (etc.) for these keys <i>today</i>. Yet the target's <code>PROVIDER_RECIPNT_ID</code> for the very same row is <code>'1200'</code>, not <code>'PAW0001'</code> &mdash; even though the XML wires <code>PROVIDER_RECIPNT_ID</code> as a straight <code>PARENT_AWARD_ID</code> copy. Combined with the branch-pattern evidence above, the most consistent explanation is that the <b>source table's current <code>PARENT_AWARD_ID</code> values (<code>PAW0001</code>&ndash;<code>PAW0009</code>) are synthetic placeholder test data that does not reflect the real <code>PARENT_AWARD_ID</code> that was actually used, at some earlier point, to derive the target row's already-stored <code>PROVIDER_RECIPNT_ID</code>/<code>PROVIDER_RECIPNT_NAME</code></b> &mdash; i.e. the two tables' test/dev content for this column has drifted out of sync with each other, not that the ETL logic itself is broken.</p>
+  <div class="disagree">
+    <b>Where I disagree with the prior write-up.</b> The prior analysis (and the HRD <code>_notes</code> it was based on) classified this as a "genuine XML-vs-production discrepancy" on the theory that the XML's logic is too simple/stale and that a different pre-existing dataflow (<code>HHS_SDE_ORA_GTASActivityBalanceFact_TestCase</code> in <code>DevContainer/WorkingSession</code>) encodes the "real" richer logic. I could not find that other dataflow's definition anywhere in this repository (only one HRD file exists for this workflow, and no cached export of the WorkingSession dataflow is checked in), and <code>dataops_mcp</code> is unavailable this session to pull it live, so <b>I cannot verify that claim at all</b> &mdash; it should be treated as unconfirmed, not as supporting evidence. Independently, tracing the XML's own branch logic against the target's actual values (table above) shows the logic is <i>not</i> simplistic and <i>does</i> plausibly explain the target's values, which argues against "the XML is wrong/stale" and toward "the XML is fine, the current source-table test data for <code>PARENT_AWARD_ID</code> is what's out of sync." I am flagging this as my own classification below; a firm resolution needs an SME/live-system check I don't have access to here.
   </div>
-  <div class="bar-row">
-    <div class="bar-label">PROVIDER_RECIPNT_NAME mismatches</div>
-    <div class="bar-track"><div class="bar-fill" style="width:67%; background:var(--fail);"></div></div>
-    <div class="bar-value">6 / 9</div>
-  </div>
-  <p><b>Evidence:</b> <code>Results/..._report.json</code> &rarr; <code>mismatchedRows[*].PROVIDER_RECIPNT_ID</code> / <code>.PROVIDER_RECIPNT_NAME</code>. A separate, pre-existing dataflow (<code>HHS_SDE_ORA_GTASActivityBalanceFact_TestCase</code> in <code>DevContainer/WorkingSession</code>, not part of this run) was found in an earlier session to implement a richer <code>TRADING_PARTNER_TYPE</code>-keyed lookup (e.g. <code>TRADING_PARTNER_AGENCY_ID || TRADING_PARTNER_MAIN_ACCOUNT</code> for type <code>B</code>, <code>GJL.ATTRIBUTE1</code> for type <code>M</code>/<code>O</code>) &mdash; a pattern consistent with the target values seen here.</p>
+  <p><b>Evidence:</b> <code>Results/..._report.json</code> &rarr; <code>mismatchedRows[*].PROVIDER_RECIPNT_ID</code>/<code>.PROVIDER_RECIPNT_NAME</code>, <code>columnWiseMismatches</code>; <code>Workflows/HHS_SDE_ORA_GTASActivityBalanceFact.XML</code> lines 97&ndash;169 (lookup definitions), 213 (IIF expression), 315/318/331/396 (connectors).</p>
+</div>
+
+<div class="finding warn">
+  <h3>3. One row only in source (Dataset B): CCID=10010</h3>
+  <p>Row with <code>JE_HEADER_ID=5010</code>, <code>PERIOD_YEAR=2024</code>, absent from target. The test case's <code>_notes</code> (item 2 in <code>HRD/..._TestCase.json</code>) explain that the intended <code>:LAST_EXTRACT_DATE</code> WHERE clause on <code>JDBC_2</code> was removed entirely before running, because that bind syntax is invalid on this platform and no resolvable value for the real Informatica mapping variable <code>$$LAST_EXTRACT_DATE</code> (see XML line 258, <code>SQ_FV_GTAS_ACTIVITY_BALANCES</code>'s <code>Sql Query</code> attribute) was available. This turned the run into a full-table compare instead of the incremental one the real workflow performs.</p>
+  <p><b>Evidence:</b> <code>Results/..._report.json</code> &rarr; <code>onlyInB[0]</code> (CCID 10010); <code>HRD/..._TestCase.json</code> &rarr; <code>_notes[1]</code>; XML line 258 (<code>$$LAST_EXTRACT_DATE</code> filter in the real mapping's source qualifier).</p>
 </div>
 
 <div class="finding info">
-  <h3>3. All 38 passthrough columns match perfectly across all 9 matched-key rows</h3>
-  <p>Zero mismatches on every non-computed column. This confirms the workflow's simple passthrough logic is correctly implemented end-to-end; the failure is isolated to the three computed/derived columns above.</p>
-</div>
-
-<div class="finding info">
-  <h3>4. 1 row only in source (Dataset B): CCID=10010</h3>
-  <p>Row with <code>JE_HEADER_ID=5010</code>, <code>PERIOD_YEAR=2024</code>, <code>CREATION_DATE</code> presumably recent, present in the full source extract but absent from the target. This test case ran a full-table comparison because the real <code>$$LAST_EXTRACT_DATE</code> value was unknown and its bind syntax is invalid on this platform; the target was very likely last loaded under that real incremental cutoff, so this row plausibly just falls after it rather than indicating a load defect.</p>
+  <h3>4. All 38 non-computed columns match perfectly across all 9 matched-key rows</h3>
+  <p>Zero mismatches on every straight-passthrough column (<code>columnsWithZeroMismatches: 38</code> in the report). This confirms the bulk of the mapping's passthrough logic, the JDBC connectivity for both datasets, and the DataCompare component's key-matching (9-column composite key) are all working correctly. The failure is isolated to the three computed/derived columns and the one full-table-scan side effect above.</p>
 </div>
 
 <h2>Recommended Actions</h2>
 
 <div class="rec">
-  <span class="badge badge-etlbug">Genuine workflow/ETL bug or documentation gap</span>
-  <p><b>Finding 1 (INTEGRATION_ID).</b> The workflow XML's <code>EXPRESSION</code> for <code>out_INTEGRATION_ID</code> is empty, but production data proves the real deployed mapping concatenates <code>JE_HEADER_ID</code> and <code>JE_LINE_NUM</code> with <code>~</code>. Either the XML export is stale/incomplete relative to the live Informatica mapping, or an out-of-band change was made in production without updating the exported artifact. <b>Do not</b> patch this test case's expected value to match &mdash; that would hide the fact that the source-of-truth XML is wrong. Recommend re-exporting the current production mapping for this transformation and reconciling <code>Workflows/HHS_SDE_ORA_GTASActivityBalanceFact.XML</code> against it.</p>
+  <span class="badge badge-etlbug">Genuine workflow/ETL bug (checked-in XML incomplete)</span>
+  <p><b>Finding 1 &mdash; <code>INTEGRATION_ID</code>.</b> The checked-in <code>Workflows/HHS_SDE_ORA_GTASActivityBalanceFact.XML</code> has an empty <code>EXPRESSION</code> for <code>out_INTEGRATION_ID</code> despite the mapping being flagged <code>ISVALID="YES"</code>, and production data proves the real deployed port concatenates <code>JE_HEADER_ID</code> and <code>JE_LINE_NUM</code> with <code>~</code>. <b>Do not</b> patch this test case's expected-side SQL to hardcode that pattern as a workaround &mdash; that would make the test case pass by copying an inference back into itself rather than fixing the actual gap. <b>Outside this pipeline's authority</b>: someone with access to the live Informatica repository needs to re-export/reconcile <code>EXP_GTASACTIVITY.out_INTEGRATION_ID</code>'s real expression (almost certainly something like <code>JE_HEADER_ID || '~' || JE_LINE_NUM</code>) into the checked-in XML. Once that's done, the test case's <code>JDBC_2</code> query should be updated to compute the same concatenation instead of <code>CAST(NULL ...)</code> &mdash; that part <i>is</i> a legitimate test-case-defect-style fix, but only after the XML is corrected, so the test case has a verified rule to encode rather than a guess.</p>
 </div>
 
 <div class="rec">
-  <span class="badge badge-etlbug">Genuine workflow/ETL bug or documentation gap</span>
-  <p><b>Finding 2 (PROVIDER_RECIPNT_ID / PROVIDER_RECIPNT_NAME).</b> Same category as Finding 1: the currently committed XML's simple passthrough/lookup formula does not reproduce production values, while a separate, pre-existing dataflow in <code>DevContainer/WorkingSession</code> already encodes logic that matches the observed pattern. This needs a human/SME decision on which side is authoritative (production reality vs. documented XML) before either the workflow documentation or this test case's expected logic is changed. Recommend the user confirm the real production mapping (possibly by inspecting that WorkingSession dataflow's <code>TRADING_PARTNER_TYPE</code>-keyed logic against the current ETL) before any file here is edited to "fix" this mismatch.</p>
+  <span class="badge badge-env">Environment/data defect (best-supported reading)</span>
+  &nbsp;<span class="badge badge-indeterminate">Needs SME/live confirmation</span>
+  <p><b>Finding 2 &mdash; <code>PROVIDER_RECIPNT_ID</code> / <code>PROVIDER_RECIPNT_NAME</code>.</b> My independent read is that the test case's expected-side SQL is <b>not</b> defective &mdash; it is a correct, faithful translation of the checked-in XML's <code>IIF</code>/lookup logic, and that logic's branch structure is corroborated by the target's own actual ID/name values (table above). The best-supported explanation is that <code>FV_GTAS_ACTIVITY_BALANCES</code> (the source table, JDBC_2) currently holds synthetic placeholder <code>PARENT_AWARD_ID</code> values (<code>PAW0001</code>&ndash;<code>PAW0009</code>) that don't correspond to whatever real <code>PARENT_AWARD_ID</code> values were originally used to derive the already-loaded target rows' <code>PROVIDER_RECIPNT_ID</code>/<code>PROVIDER_RECIPNT_NAME</code>. That would make this an <b>environment/data defect</b>: refresh/align <code>FV_GTAS_ACTIVITY_BALANCES.PARENT_AWARD_ID</code> (and any other columns needed for a consistent row) with real or realistically-shaped values that match what the target table's existing <code>PROVIDER_RECIPNT_ID</code>/<code>NAME</code> were actually derived from &mdash; or, if the target table is itself the stale/fixture side, refresh it from a real run of the workflow against the current source rows.</p>
+  <p><b>I am not fully confident in this classification</b> and explicitly recommend against silently changing either the test case or the XML based on it alone: (a) I could not verify the prior pass's claim about a differently-shaped pre-existing dataflow in <code>DevContainer/WorkingSession</code> encoding a <code>TRADING_PARTNER_TYPE</code>-keyed alternative &mdash; no such definition exists in this checked-out repository and <code>dataops_mcp</code> was unavailable this session to pull it live; (b) the branch-pattern match to real-looking government agency/OPDIV codes is circumstantial, not a verified fact about the reference tables' actual contents. <b>Recommended next step (before any file is edited):</b> ask the SME/user how <code>W_GTAS_ACTIVITY_BALANCES_FS</code>'s current 9 rows were populated (a real historical run of this mapping vs. a hand-authored fixture) and, separately, once <code>dataops_mcp</code> auth is available, pull the live/current deployed mapping definition for <code>HHS_SDE_ORA_GTASActivityBalanceFact</code> to confirm it matches the checked-in XML for this port. If the SME confirms the source table's <code>PARENT_AWARD_ID</code> seed values are simply wrong/unrepresentative, that is a clean environment/data fix (reseed the source table); if instead the live mapping turns out to differ from the checked-in XML, this becomes the same class of finding as Finding 1 (checked-in XML gap).</p>
 </div>
 
 <div class="rec">
-  <span class="badge badge-noaction">No action needed / expected behavior</span>
-  <p><b>Finding 4 (1 only-in-source row).</b> Consistent with running a full-table comparison in place of the real incremental filter. No test case or environment fix is recommended; re-running with the real <code>$$LAST_EXTRACT_DATE</code> value (once known) would be the correct way to validate the incremental behavior itself, but the current full-table comparison remains valid for validating passthrough/derived-column logic, which is this run's actual purpose.</p>
+  <span class="badge badge-env">Environment/data defect</span>
+  <p><b>Finding 3 &mdash; 1 only-in-source row (CCID=10010).</b> Root cause is that the real Informatica mapping variable <code>$$LAST_EXTRACT_DATE</code> has no resolvable value/mechanism on this DataOps platform for this JDBC source, forcing this run to compare the full table instead of the real incremental slice. This is an environment/parameter dependency gap, not a flaw in the target data or the workflow's transformation logic. <b>Recommended action:</b> establish how <code>$$LAST_EXTRACT_DATE</code>'s real runtime value can be obtained or approximated for this platform (e.g. a DataOps environment/dataflow parameter fed from the last successful load's watermark), then update <code>JDBC_2</code>'s query in <code>HRD/HHS_SDE_ORA_GTASActivityBalanceFact_TestCase.json</code> to reapply a <code>CREATION_DATE &gt;=</code> filter using that resolved value (this part, once the value is known, is a legitimate test-case update). Until then, this run's <code>onlyInB</code> result cannot be trusted as a genuine defect signal in either direction.</p>
+</div>
+
+<div class="rec">
+  <span class="badge badge-noaction">No action needed</span>
+  <p><b>Finding 4 &mdash; 38 passthrough columns, zero mismatches.</b> No fix needed; this is the healthy part of the run and confirms connectivity, key-matching, and passthrough logic are all sound.</p>
 </div>
 
 <h2>Gaps</h2>
 <ul>
-  <li>The real value of mapping variable <code>$$LAST_EXTRACT_DATE</code> used by the production incremental load was not available, so this run cannot confirm/deny whether the incremental filter itself behaves correctly &mdash; only that a full-table comparison surfaces the column-level discrepancies above.</li>
-  <li>The real value/logic behind <code>$$DATASOURCE_NUM_ID</code> was not available; that column remains excluded from comparison (<code>ignoreColumn: true</code>) in this test case, so no finding is possible for it in this run.</li>
-  <li>The pre-existing <code>DevContainer/WorkingSession</code> dataflow's exact query logic was referenced from an earlier session's findings, not re-inspected as part of this run; it is cited here as supporting context, not as verified evidence within this analysis.</li>
+  <li><code>dataops_mcp</code> requires authorization and this session is non-interactive, so no live job-execution history, run metrics, or current deployed-mapping definition could be pulled for cross-check. Everything above is based on the checked-in <code>Results/</code>, <code>HRD/</code>, and <code>Workflows/</code> files only. The user should authorize <code>dataops_mcp</code> (via <code>claude mcp</code> or <code>/mcp</code> in an interactive session) before the Finding 2 ambiguity can be fully resolved.</li>
+  <li>The claimed pre-existing dataflow <code>HHS_SDE_ORA_GTASActivityBalanceFact_TestCase</code> in <code>DevContainer/WorkingSession</code> (cited by the prior pass as evidence for a richer <code>TRADING_PARTNER_TYPE</code>-keyed lookup) has no corresponding file in this repository (only one HRD file exists for this workflow) and could not be independently inspected this session. Treat that specific claim as unverified.</li>
+  <li>The real value of <code>$$LAST_EXTRACT_DATE</code> and the actual contents of <code>FND_FLEX_VALUES_VL</code> / <code>W_GTAS_INTRAHHS_D</code> at the time the target table's current rows were loaded are unknown; the agency/OPDIV-code pattern match in Finding 2 is a strong circumstantial read of the report data, not a verified fact about those reference tables.</li>
+  <li>The real value/mechanism behind <code>$$DATASOURCE_NUM_ID</code> was not available; <code>DATASOURCE_NUM_ID</code> remains <code>ignoreColumn: true</code> in this test case and produced no finding either way.</li>
 </ul>
+
+<h2>Handoff</h2>
+<p>No files were edited and no dataflow create/update tool was called as part of this analysis. Before any change is made:</p>
+<ul>
+<li><b>Finding 1 (INTEGRATION_ID):</b> requires someone with access to the live Informatica repository to correct the checked-in XML; not something developer-agent can fix in this repo alone.</li>
+<li><b>Finding 2 (PROVIDER_RECIPNT_ID/NAME):</b> requires an SME answer on how the target/source test data was populated (and, ideally, a live mapping-definition pull once <code>dataops_mcp</code> is authorized) before deciding whether to reseed source data, reseed target data, or reconcile the XML.</li>
+<li><b>Finding 3 (only-in-source row):</b> requires a resolvable value/mechanism for <code>$$LAST_EXTRACT_DATE</code> before the test case's <code>JDBC_2</code> query can legitimately reapply an incremental filter.</li>
+</ul>
+<p>Please confirm how you'd like to proceed on each of the three findings above before developer-agent makes any change and re-runs.</p>
 
 </body>
 </html>

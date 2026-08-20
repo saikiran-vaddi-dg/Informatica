@@ -1,8 +1,8 @@
 ---
 generated:
   by: developer-agent
-  at: "2026-08-20T13:57:15+05:30"
-  commit: 92ab9366f12458bbbde0af53538b3269c0ee0940
+  at: "2026-08-20T15:17:00+05:30"
+  commit: 7488b62cfe616994542d33911df462f3420f402d
 ---
 
 # HHS_SDE_ORA_GTASActivityBalanceFact — Workflow Logic
@@ -22,3 +22,4 @@ Single-mapping workflow `HHS_SDE_ORA_GTASActivityBalanceFact`: source `FV_GTAS_A
 - **Derived / lookup-dependent**: `PROVIDER_RECIPNT_ID` (aliased from `PARENT_AWARD_ID`), `PROVIDER_RECIPNT_NAME` (nested lookup via `LKP_PROVD_RECP` / `LKP_INTRA_HHS_ELI`, branching on `PARENT_AWARD_ID` shape). **Confirmed stale against production** — see [hrd_mapping.md](hrd_mapping.md#known-caveats).
 - **Parameterized (mapping variables, unresolved at design time)**: `DATASOURCE_NUM_ID` (`$$DATASOURCE_NUM_ID`), source qualifier incremental filter on `CREATION_DATE` (`$$LAST_EXTRACT_DATE`).
 - **Known gap, not a lookup**: `INTEGRATION_ID` — empty `EXPRESSION`, always `NULL` per the XML (but not in production — see caveats).
+- **Live testing note (unconfirmed, not yet reflected in this XML)**: a run against the deployed dataflow with the checked-in XML's simple `PARENT_AWARD_ID`-passthrough/lookup formula for `PROVIDER_RECIPNT_ID`/`PROVIDER_RECIPNT_NAME` mismatched most rows against the live target. Swapping in a richer, empirically-tried `TRADING_PARTNER_TYPE`-keyed formula (with `LEFT JOIN`s to `apps.HZ_CUST_ACCOUNTS`/`apps.AP_SUPPLIERS`) performed materially better against the same target. This formula's production provenance is unconfirmed — it is not present anywhere in this checked-in XML — and it has not been adopted into either this workflow or `HRD/HHS_SDE_ORA_GTASActivityBalanceFact_TestCase.json`. See [hrd_mapping.md](hrd_mapping.md#known-caveats) for the full run history and what's still pending before adoption.
