@@ -33,8 +33,9 @@ driving.
 - `tools/compact_mapping.py <path-to-workflow.xml>` — a dependency-free Python 3
   script that compacts a workflow XML into a per-mapping JSON summary (typically
   95-99% smaller): topological flow, target-field lineage, resolved sources,
-  a complexity tier. It does **not** parse Mapping Variables (`$$` parameters)
-  or session-level per-partition SQL overrides — read the raw XML for those.
+  a complexity tier, Mapping Variables (`$$` parameters), and any session-level
+  per-partition SQL/filter overrides. Read the raw XML only for something this
+  summary still leaves ambiguous.
 
 ## Pipeline phases (run per workflow file, one at a time — finish one before starting the next)
 

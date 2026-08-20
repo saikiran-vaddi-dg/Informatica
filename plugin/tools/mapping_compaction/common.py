@@ -30,6 +30,14 @@ def to_json(obj: Any, indent: int = 2) -> str:
     return json.dumps(obj, indent=indent, default=_default)
 
 
+# Bump whenever MappingSummary's shape changes. compact_mapping.py's skip
+# check compares this against the persisted summary's own recorded value (in
+# addition to the content hash) so an unchanged XML whose cached summary
+# predates a schema change still gets reprocessed instead of silently
+# serving a stale shape forever.
+CURRENT_SCHEMA_VERSION = 3
+
+
 # ---------------------------------------------------------------------------
 # Stage 2 — parsed / structural representation
 # ---------------------------------------------------------------------------
@@ -44,6 +52,7 @@ class PortInfo:
     port_type: str = ""          # INPUT / OUTPUT / INPUT/OUTPUT / LOCAL VARIABLE
     expression: Optional[str] = None
     group: Optional[str] = None  # Router transformations tag ports with a GROUP
+    ref_field: Optional[str] = None  # a router/multi-group OUTPUT port's origin INPUT port name
 
 
 @dataclass
@@ -92,6 +101,46 @@ class ConnectorInfo:
 
 
 @dataclass
+class MappingVariableInfo:
+    """One <MAPPINGVARIABLE> — a `$$`-style mapping parameter/variable.
+    Not otherwise visible anywhere in the transformation/port graph, so this
+    is the only place a mapping's runtime-resolved values show up."""
+    name: str
+    datatype: str = ""
+    default_value: str = ""
+    is_param: bool = False
+    is_expression_variable: bool = False
+    description: str = ""
+
+
+@dataclass
+class PartitionSqlOverride:
+    """A per-partition attribute override (most commonly a `Sql Query` or
+    `Source Filter` override used for key-range partitioning) found on one
+    <PARTITION> child of a session's <SESSTRANSFORMATIONINST>. Only
+    partitions that actually carry a non-empty override are recorded —
+    plain pass-through partitions with no children produce nothing here."""
+    session_name: str
+    instance_name: str
+    transformation_type: str
+    partition_name: str
+    attribute_name: str
+    attribute_value: str
+
+
+@dataclass
+class TransformationLogicInfo:
+    """One TRANSFORMATION whose TABLEATTRIBUTEs or GROUP conditions carry
+    actual business logic (SQL override, lookup/filter/join condition,
+    router branch predicate) that field_lineage can't surface, because it
+    lives in per-instance configuration, not a port expression."""
+    transformation: str
+    type: str
+    attributes: Dict[str, str] = field(default_factory=dict)
+    group_conditions: List[Dict[str, str]] = field(default_factory=list)
+
+
+@dataclass
 class MappingInfo:
     """Full parsed representation of one <MAPPING> block — still 'raw-ish',
     this is the direct output of the XML parser (Stage 2a), before the
@@ -104,6 +153,8 @@ class MappingInfo:
     mapplet_refs: List[str] = field(default_factory=list)   # names of MAPPLET instances used
     connectors: List[ConnectorInfo] = field(default_factory=list)
     instance_roles: Dict[str, str] = field(default_factory=dict)  # INSTANCE name -> "type:resolved_name"
+    mapping_variables: List[MappingVariableInfo] = field(default_factory=list)
+    session_partition_overrides: List[PartitionSqlOverride] = field(default_factory=list)
 
     source_file: str = ""
     source_file_hash: str = ""
@@ -166,4 +217,8 @@ class MappingSummary:
     field_counts: Dict[str, int]
     complexity: ComplexityScore
     raw_archive_ref: str  # e.g. "blob://mapping-cache/<mapping>/<hash>.xml"
+    mapping_variables: List[MappingVariableInfo] = field(default_factory=list)
+    session_partition_overrides: List[PartitionSqlOverride] = field(default_factory=list)
+    transformation_logic: List[TransformationLogicInfo] = field(default_factory=list)
     source_file_hash: str = ""  # sha256 of the workflow XML this summary was generated from
+    schema_version: int = CURRENT_SCHEMA_VERSION

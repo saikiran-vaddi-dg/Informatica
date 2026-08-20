@@ -5,8 +5,8 @@ Vendored from etl_mapping_compaction_api/stage2_xml_parser.py.
 
 Deterministic, stdlib-only (xml.etree.ElementTree). Parses a raw PowerCenter
 POWERMART export into the structured dataclasses from `common.py`, dropping
-everything that isn't source, target, transformation, port, expression, or
-connector semantics.
+everything that isn't source, target, transformation, port, expression,
+connector, mapping-variable, or session-partition-override semantics.
 
 This is the ONE file that touches raw XML — every later stage works off the
 structured objects this module returns.
@@ -25,7 +25,9 @@ from common import (
     ConnectorInfo,
     FieldDef,
     MappingInfo,
+    MappingVariableInfo,
     MappletInfo,
+    PartitionSqlOverride,
     PortInfo,
     SourceInfo,
     TargetInfo,
@@ -59,6 +61,7 @@ def _parse_transformation(el: ET.Element) -> TransformationInfo:
                 port_type=tf.get("PORTTYPE", ""),
                 expression=tf.get("EXPRESSION") or None,
                 group=tf.get("GROUP") or None,
+                ref_field=tf.get("REF_FIELD") or None,
             )
         )
     table_attrs = {
@@ -84,6 +87,57 @@ def _parse_transformation(el: ET.Element) -> TransformationInfo:
         table_attributes=table_attrs,
         groups=groups,
     )
+
+
+def _parse_mapping_variables(mapping_el: ET.Element) -> List[MappingVariableInfo]:
+    """<MAPPINGVARIABLE> children of <MAPPING> — `$$`-style parameters and
+    variables. Not part of the port/connector graph, so nothing else in this
+    module would otherwise surface them."""
+    return [
+        MappingVariableInfo(
+            name=mv.get("NAME", ""),
+            datatype=mv.get("DATATYPE", ""),
+            default_value=mv.get("DEFAULTVALUE", ""),
+            is_param=mv.get("ISPARAM", "NO") == "YES",
+            is_expression_variable=mv.get("ISEXPRESSIONVARIABLE", "NO") == "YES",
+            description=mv.get("DESCRIPTION", ""),
+        )
+        for mv in mapping_el.findall("MAPPINGVARIABLE")
+    ]
+
+
+def _parse_session_partition_overrides(folder: ET.Element, mapping_name: str) -> List[PartitionSqlOverride]:
+    """Per-partition attribute overrides (typically a `Sql Query` or `Source
+    Filter` override used for key-range partitioning) from every <SESSION>
+    in the folder whose MAPPINGNAME matches this mapping. A <PARTITION> with
+    no child <ATTRIBUTE> elements (the common case — plain pass-through
+    partitioning) contributes nothing; only actual overrides are recorded,
+    so this stays empty for the vast majority of sessions."""
+    overrides: List[PartitionSqlOverride] = []
+    for session_el in folder.findall("SESSION"):
+        if session_el.get("MAPPINGNAME", "") != mapping_name:
+            continue
+        session_name = session_el.get("NAME", "")
+        for inst in session_el.findall("SESSTRANSFORMATIONINST"):
+            instance_name = inst.get("SINSTANCENAME", "")
+            transformation_type = inst.get("TRANSFORMATIONTYPE", "")
+            for partition in inst.findall("PARTITION"):
+                partition_name = partition.get("NAME", "")
+                for attr in partition.findall("ATTRIBUTE"):
+                    value = attr.get("VALUE", "")
+                    if not value:
+                        continue
+                    overrides.append(
+                        PartitionSqlOverride(
+                            session_name=session_name,
+                            instance_name=instance_name,
+                            transformation_type=transformation_type,
+                            partition_name=partition_name,
+                            attribute_name=attr.get("NAME", ""),
+                            attribute_value=value,
+                        )
+                    )
+    return overrides
 
 
 def parse_sources(folder: ET.Element) -> Dict[str, SourceInfo]:
@@ -184,6 +238,8 @@ def parse_mappings(folder: ET.Element, source_file: str, source_file_hash: str) 
                 mapplet_refs=mapplet_refs,
                 connectors=connectors,
                 instance_roles=instance_roles,
+                mapping_variables=_parse_mapping_variables(mapping_el),
+                session_partition_overrides=_parse_session_partition_overrides(folder, name),
                 source_file=source_file,
                 source_file_hash=source_file_hash,
             )

@@ -77,6 +77,20 @@ def _find_expression(mapping: MappingInfo, instance_name: str, field_name: str) 
     return None
 
 
+def _find_ref_field(mapping: MappingInfo, instance_name: str, field_name: str) -> Optional[str]:
+    """A Router (or other multi-group) OUTPUT port carries no CONNECTOR back
+    to its own INPUT port — PowerCenter links them implicitly via REF_FIELD
+    instead. Without following it, backward tracing dead-ends at the router
+    and misreports a real upstream expression as passthrough."""
+    for t in mapping.transformations:
+        if t.name != instance_name:
+            continue
+        for p in t.ports:
+            if p.name == field_name and p.ref_field and p.ref_field != field_name:
+                return p.ref_field
+    return None
+
+
 def _trace_lineage(mapping: MappingInfo, target_field: str, start_instance: str, start_field: str) -> Tuple[str, str]:
     """Walk connectors backward from (start_instance, start_field) until we
     hit a SOURCE or a real (non-passthrough) expression. Returns
@@ -115,6 +129,10 @@ def _trace_lineage(mapping: MappingInfo, target_field: str, start_instance: str,
 
         preds = incoming.get((instance, fld))
         if not preds:
+            ref = _find_ref_field(mapping, instance, fld)
+            if ref:
+                fld = ref
+                continue
             break
         c = preds[0]
         instance, fld = c.from_instance, c.from_field
@@ -150,6 +168,55 @@ def build_field_counts(mapping: MappingInfo, all_sources: Optional[Dict[str, "So
         "target_fields": sum(len(t.fields) for t in mapping.targets),
         "transform_ports": sum(len(t.ports) for t in mapping.transformations),
     }
+
+
+# TABLEATTRIBUTE names that carry row-level business logic (a SQL override,
+# a join/filter/lookup predicate, an update-strategy condition) as opposed to
+# operational/performance settings (cache sizing, tracing level, formatting)
+# that don't affect what data comes out.
+LOGIC_ATTRIBUTE_NAMES = {
+    "Sql Query",
+    "Source Filter",
+    "Lookup condition",
+    "Lookup Source Filter",
+    "Lookup Sql Override",
+    "Lookup table name",
+    "Filter Condition",
+    "User Defined Join",
+    "Pre SQL",
+    "Post SQL",
+    "Update Strategy Expression",
+    "Update Dynamic Cache Condition",
+    "Insert Else Update",
+    "Update Else Insert",
+}
+
+
+def build_transformation_logic(mapping: MappingInfo) -> List[dict]:
+    """Per-transformation business logic that lives in TABLEATTRIBUTEs or
+    GROUP conditions rather than the port/connector graph — SQL overrides,
+    lookup/filter/join conditions, router branch predicates. field_lineage
+    traces *what* feeds a target field; this captures *why* a join includes
+    what it does or a router sends a row down one branch vs another, which
+    the port graph alone can't show without reading the raw XML."""
+    entries = []
+    for t in mapping.transformations:
+        attrs = {k: v for k, v in t.table_attributes.items() if k in LOGIC_ATTRIBUTE_NAMES}
+        group_conditions = [
+            {"name": g["name"], "condition": g["condition"]}
+            for g in t.groups
+            if g.get("condition")
+        ]
+        if attrs or group_conditions:
+            entries.append(
+                {
+                    "transformation": t.name,
+                    "type": t.type,
+                    "attributes": attrs,
+                    "group_conditions": group_conditions,
+                }
+            )
+    return entries
 
 
 def resolve_sources(mapping: MappingInfo, mapplets: Dict[str, MappletInfo]) -> List[str]:
@@ -192,4 +259,7 @@ def build_intermediate_representation(
         "field_lineage": [fl.__dict__ for fl in build_field_lineage(mapping)],
         "field_counts": build_field_counts(mapping, all_sources, resolved_sources),
         "mapplet_refs": list(mapping.mapplet_refs),
+        "mapping_variables": [mv.__dict__ for mv in mapping.mapping_variables],
+        "session_partition_overrides": [o.__dict__ for o in mapping.session_partition_overrides],
+        "transformation_logic": build_transformation_logic(mapping),
     }

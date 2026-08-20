@@ -35,9 +35,23 @@ this plugin's own install location.
 Read the printed complexity tier before deciding how much manual scrutiny a
 mapping needs: `simple` mappings are template-shaped noise-free loads;
 `complex` ones have branching/lookup/SQL-override logic worth a closer read
-before drafting a test case. This pipeline doesn't parse Mapping Variables
-or session-level per-partition SQL overrides — read the raw workflow XML
-directly for those.
+before drafting a test case. Mapping Variables (`$$` parameters) and
+session-level per-partition SQL overrides are both captured in the summary's
+`mapping_variables`/`session_partition_overrides` fields — no raw-XML
+fallback needed for those.
+
+`field_lineage` follows a target field all the way back to its real
+transformation rule even through a Router's implicit REF_FIELD hop (a
+router output port has no CONNECTOR back to its own input port, only a
+REF_FIELD attribute) — so an IIF/branch expression feeding a field shows up
+as that field's `transformation_rule`, not as "Direct copy / passthrough".
+`transformation_logic` separately lists, per transformation, any SQL
+override, lookup/filter/join condition, or router group predicate found in
+its TABLEATTRIBUTEs/GROUPs — the config-level logic a field-by-field lineage
+trace can't otherwise surface. Between these two fields and
+`mapping_variables`/`session_partition_overrides`, the summary alone should
+answer nearly every business-logic question — treat a raw-XML read as a
+last resort, not a default next step.
 """
 import glob
 import json
@@ -56,7 +70,7 @@ from stage1_metadata_batch_tiering import assign_batch_tier, get_object_metadata
 from stage2_shared_object_dedup_cache import SharedObjectCache  # noqa: E402
 from stage2_state_summarizer import summarize_mapping, write_summary_json  # noqa: E402
 from stage2_xml_parser import parse_powercenter_export  # noqa: E402
-from common import to_json  # noqa: E402
+from common import CURRENT_SCHEMA_VERSION, to_json  # noqa: E402
 
 
 def find_existing_summaries(dest_dir, workflow_stem):
@@ -81,10 +95,13 @@ def process_file(path, shared_cache, batch_counters, force):
     if existing and not force:
         try:
             with open(existing[0]) as f:
-                prior_hash = json.load(f).get("source_file_hash")
+                existing_data = json.load(f)
+            prior_hash = existing_data.get("source_file_hash")
+            prior_schema = existing_data.get("schema_version")
         except (OSError, json.JSONDecodeError):
             prior_hash = None
-        if prior_hash == file_hash:
+            prior_schema = None
+        if prior_hash == file_hash and prior_schema == CURRENT_SCHEMA_VERSION:
             print(f"=== {original_name} ===")
             print(f"unchanged since last run (hash {file_hash[:12]}...) — skipping reprocessing.")
             for p in existing:

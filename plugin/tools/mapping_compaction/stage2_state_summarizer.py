@@ -24,7 +24,17 @@ import os
 import shutil
 from typing import Dict
 
-from common import FieldLineage, MappingInfo, MappingSummary, MappletInfo, SourceInfo, to_json
+from common import (
+    FieldLineage,
+    MappingInfo,
+    MappingSummary,
+    MappingVariableInfo,
+    MappletInfo,
+    PartitionSqlOverride,
+    SourceInfo,
+    TransformationLogicInfo,
+    to_json,
+)
 from stage2_build_intermediate_representation import build_intermediate_representation
 from stage2_complexity_classifier import score_mapping
 from stage2_shared_object_dedup_cache import SharedObjectCache
@@ -76,6 +86,9 @@ def summarize_mapping(
         field_counts=ir["field_counts"],
         complexity=complexity,
         raw_archive_ref=raw_archive_ref,
+        mapping_variables=[MappingVariableInfo(**mv) for mv in ir["mapping_variables"]],
+        session_partition_overrides=[PartitionSqlOverride(**o) for o in ir["session_partition_overrides"]],
+        transformation_logic=[TransformationLogicInfo(**tl) for tl in ir["transformation_logic"]],
         source_file_hash=file_hash,
     )
 
