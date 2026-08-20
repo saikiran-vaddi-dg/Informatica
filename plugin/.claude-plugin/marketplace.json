@@ -1,0 +1,14 @@
+{
+  "name": "coding-agent-marketplace",
+  "description": "Marketplace catalog for the coding-agent plugin: review, test-case, build, run, analyze, and ship Informatica workflows as DataOps DataCompare dataflows.",
+  "owner": {
+    "name": "Datagaps"
+  },
+  "plugins": [
+    {
+      "name": "coding-agent",
+      "source": ".",
+      "description": "Review, test-case, build, run, analyze, and ship Informatica workflows as DataOps DataCompare dataflows."
+    }
+  ]
+}

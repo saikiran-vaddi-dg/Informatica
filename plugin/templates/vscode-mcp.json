@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "dataops_mcp": {
+      "type": "http",
+      "url": "https://<your-dataops-instance>/mcp"
+    }
+  }
+}

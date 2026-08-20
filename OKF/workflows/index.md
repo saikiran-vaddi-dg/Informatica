@@ -6,4 +6,4 @@ okf_version: "0.2"
 
 ## Financial / GTAS Reporting
 
-- [HHS_SDE_ORA_GTASActivityBalanceFact](HHS_SDE_ORA_GTASActivityBalanceFact.md)
+- [HHS_SDE_ORA_GTASActivityBalanceFact](HHS_SDE_ORA_GTASActivityBalanceFact/index.md)

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "dataops_mcp": {
+      "type": "http",
+      "url": "http://192.168.6.68:8080/dataops-mcp-server/mcp",
+      "oauth": {
+        "clientId": "dataopssuite-mcp-client"
+      }
+    }
+  }
+}

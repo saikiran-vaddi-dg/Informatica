@@ -1,0 +1,9 @@
+{
+  "name": "coding-agent",
+  "version": "0.2.0",
+  "description": "Review, test-case, build, run, analyze, and ship Informatica workflows as DataOps DataCompare dataflows — review-agent drafts test coverage, developer-agent builds/runs/pushes, analysis-agent classifies failures and recommends fixes, orchestrator-agent routes ad-hoc requests to whichever of the above applies.",
+  "author": {
+    "name": "Datagaps"
+  },
+  "keywords": ["informatica", "dataops", "data-compare", "test-case", "etl-validation"]
+}
