@@ -1,0 +1,988 @@
+{
+  "mapping": "HHS_SDE_ORA_PurchaseRequisitionLinesFact",
+  "description": "Extracts the purchase requisition lines information from the oracle applications source table into the staging table W_PURCH_RQSTN_LINE_FS. Uses the business component mplt_BC_ORA_PurchaseRequisitionLinesFact for doing the same. This mapping could be configured to run on an incremental basis.\n\nModified by Sridevi on 5/5/15 for release 4.0",
+  "sources": [
+    "PO_HEADERS_ALL",
+    "PO_DOC_STYLE_HEADERS",
+    "PO_LINES_ALL",
+    "PO_RELEASES_ALL",
+    "PO_REQUISITION_LINES_ALL",
+    "PO_LINE_LOCATIONS_ALL",
+    "PO_REQUISITION_HEADERS_ALL"
+  ],
+  "target": "W_PURCH_RQSTN_LINE_FS",
+  "flow": [
+    "mapplet:mplt_BC_ORA_PurchaseRequisitionLinesFact",
+    "expression:Exp_W_PURCH_RQSTN_LINE_FS_Integration_Id",
+    "expression:X_CUSTOM",
+    "mapplet:mplt_SA_ORA_PurchaseRequisitionLinesFact",
+    "mapplet:MPLT_CURCY_CONVERSION_RATES_All",
+    "expression:LOC_TO_DOC",
+    "target_definition:W_PURCH_RQSTN_LINE_FS"
+  ],
+  "field_lineage": [
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE16",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE16 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE16",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE15",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE15",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE14",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE14 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE14",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE13",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE13 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE13",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_PO_HEADER_ID",
+      "source_lineage": "X_CUSTOM.POH_PO_HEADER_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_PO_HEADER_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POL_PO_LINE_ID",
+      "source_lineage": "X_CUSTOM.POL_PO_LINE_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_PO_LINE_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POR_ATTRIBUTE7",
+      "source_lineage": "X_CUSTOM.POR_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POR_ATTRIBUTE7",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "RECREATE_DEMAND_FLAG",
+      "source_lineage": "Exp_W_PURCH_RQSTN_LINE_FS_Integration_Id.RECREATE_DEMAND_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.RECREATE_DEMAND_FLAG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORL_CANCEL_FLAG",
+      "source_lineage": "X_CUSTOM.OUT_CANCEL_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.OUT_CANCEL_FLAG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE_CATEGORY",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_ATTRIBUTE_CATEGORY",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORL_CLOSED_DATE",
+      "source_lineage": "X_CUSTOM.PORL_CLOSED_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_CLOSED_DATE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORL_CANCEL_DATE",
+      "source_lineage": "X_CUSTOM.PORL_CANCEL_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_CANCEL_DATE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "SUPPLIER_ACCOUNT_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_ACCOUNT_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "CANCELLED_LINE_QTY",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CANCELLED_LINE_QTY",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "CANCELLED_LINE_AMT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CANCELLED_LINE_AMT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "URGENT_FLAG",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_URGENT_FLAG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PO_CREATION_METHOD_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PO_CREATION_METHOD_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PO_REVISIONS",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PO_REVISIONS",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PO_SUBMIT_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PO_SUBMIT_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "RCPT_LOC_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_RCPT_LOC_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PLANT_LOC_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PLANT_LOC_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "XACT_TYPE_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_XACT_TYPE_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "CYCLE_STATUS_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CYCLE_STATUS_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PO_APPROVED_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PO_APPROVED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "FULFILLMENT_STATUS_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_FULFILLMENT_STATUS_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PRODUCT_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PRODUCT_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "DUE_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_DUE_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "NEEDED_BY_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_NEEDED_BY_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "RECEIVED_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_RECEIVED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "ORDERED_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_ORDERED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "APPROVED_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_APPROVED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "RESUBMITTED_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_RESUBMITTED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORL_ATTRIBUTE1",
+      "source_lineage": "X_CUSTOM.PORL_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_ATTRIBUTE1",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORL_ATTRIBUTE15",
+      "source_lineage": "X_CUSTOM.EXT_PORL_ATTRIBUTE15",
+      "transformation_rule": "IIF(ISNULL(PORL_ATTRIBUTE15) OR PORL_ATTRIBUTE15='PRISM','0',PORL_ATTRIBUTE15)"
+    },
+    {
+      "target_field": "POL_ATTRIBUTE15",
+      "source_lineage": "X_CUSTOM.POL_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_ATTRIBUTE15",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ACCRUE_RCPT_FLG",
+      "source_lineage": "X_CUSTOM.POLL_ACCRUE_RCPT_FLG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POLL_ACCRUE_RCPT_FLG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_RCPT_FLG",
+      "source_lineage": "X_CUSTOM.POLL_RCPT_FLG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POLL_RCPT_FLG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE1",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE1",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE2",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE2",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE3",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE3",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE4",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE4",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE5",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE5",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_INTERFACE_CD",
+      "source_lineage": "X_CUSTOM.POH_INTERFACE_CD <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_INTERFACE_CD",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "AUX4_CHANGED_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_AUX4_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE12",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE12 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE12",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE11",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE11",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE10",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE10 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE10",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE9",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE9 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE9",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE8",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE8",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE7",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE7",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE6",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE6",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE5",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE5",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE4",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE4",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE3",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE3",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE2",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE2",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE1",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE1",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE_CATEGORY",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE_CATEGORY",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE15",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE15",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE14",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE14 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE14",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE13",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE13 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE13",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE12",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE12 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE12",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE11",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE11",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE10",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE10 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE10",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE9",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE9 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE9",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE8",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE8",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE7",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE7",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE6",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE6",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE5",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE5",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE4",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE4",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE3",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE3",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE2",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE2",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_ATTRIBUTE1",
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE1",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_TAX_ATTRIBUTE_UPDATE_CODE",
+      "source_lineage": "X_CUSTOM.POH_TAX_ATTRIBUTE_UPDATE_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_TAX_ATTRIBUTE_UPDATE_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE_CATEGORY",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE_CATEGORY",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE20",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE20 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE20",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE19",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE19 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE19",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE18",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE18 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE18",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE17",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE17 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE17",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE16",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE16 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE16",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE15",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE15",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE14",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE14 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE14",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE13",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE13 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE13",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE12",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE12 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE12",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE11",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE11",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE10",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE10 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE10",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE9",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE9 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE9",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE8",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE8",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE7",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE7",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_GLOBAL_ATTRIBUTE6",
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE6",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "LOC_EXCHANGE_RATE",
+      "source_lineage": "MPLT_CURCY_CONVERSION_RATES_All.EXT_DOC_TO_LOC_EXCH_RATE",
+      "transformation_rule": "resolved inside reusable mapplet 'MPLT_CURCY_CONVERSION_RATES_All' (see shared-object cache)"
+    },
+    {
+      "target_field": "X_CUSTOM",
+      "source_lineage": "X_CUSTOM.X_CUSTOM <- mplt_BC_ORA_PurchaseRequisitionLinesFact.X_CUSTOM",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE1",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE1",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE10",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE10 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE10",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE11",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE11",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE12",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE12 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE12",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE13",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE13 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE13",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE14",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE14 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE14",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE15",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE15",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE2",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE2",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE3",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE3",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE5",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE5",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE6",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE6",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE7",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE7",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_REQUISITION_HEADER_ID",
+      "source_lineage": "X_CUSTOM.REQUISITION_HEADER_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.REQUISITION_HEADER_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_ATTRIBUTE_CATEGORY",
+      "source_lineage": "X_CUSTOM.ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE_CATEGORY",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_ATTRIBUTE1",
+      "source_lineage": "X_CUSTOM.ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE1",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_ATTRIBUTE2",
+      "source_lineage": "X_CUSTOM.ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE2",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_ATTRIBUTE3",
+      "source_lineage": "X_CUSTOM.ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE3",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_ATTRIBUTE4",
+      "source_lineage": "X_CUSTOM.ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE4",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_ATTRIBUTE5",
+      "source_lineage": "X_CUSTOM.ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE5",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_ATTRIBUTE6",
+      "source_lineage": "X_CUSTOM.ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE6",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_ATTRIBUTE7",
+      "source_lineage": "X_CUSTOM.ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE7",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_ATTRIBUTE8",
+      "source_lineage": "X_CUSTOM.ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE8",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_ATTRIBUTE11",
+      "source_lineage": "X_CUSTOM.ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE11",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_DESCRIPTION",
+      "source_lineage": "X_CUSTOM.DESCRIPTION <- mplt_BC_ORA_PurchaseRequisitionLinesFact.DESCRIPTION",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_CREATION_DATE",
+      "source_lineage": "X_CUSTOM.PORH_CREATION_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_CREATION_DATE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_APPROVED_DATE",
+      "source_lineage": "X_CUSTOM.PORH_APPROVED_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_APPROVED_DATE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "LINE_TYPE_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LINE_TYPE_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "SUPPLIER_PROD_ID4",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_PROD_ID4",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "CREATED_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CREATED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "SUBMITTED_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUBMITTED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "CHANGED_BY_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CHANGED_BY_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "CREATED_BY_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CREATED_BY_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "SUPPLIER_PROD_ID3",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_PROD_ID3",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "SUPPLIER_PROD_ID2",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_PROD_ID2",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "SUPPLIER_PROD_ID1",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_PROD_ID1",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "AUX3_CHANGED_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_AUX3_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "AUX2_CHANGED_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_AUX2_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "AUX1_CHANGED_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_AUX1_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "DATASOURCE_NUM_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_DATASOURCE_NUM_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "INTEGRATION_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_INTEGRATION_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "LINE_TEXT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LINE_TEXT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "LOC_CURR_CODE",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LOC_CURR_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "DOC_CURR_CODE",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_DOC_CURR_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "UOM_CODE",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_UOM_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "CHANGED_ON_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "SUPPLIER_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "REQUESTOR_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_REQUESTOR_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "STD_COST_AMT",
+      "source_lineage": "LOC_TO_DOC.EXT_STD_COST_LOC_AMT_OUT",
+      "transformation_rule": "EXT_STD_COST_LOC_AMT * LOC_TO_DOC_EXCH_RATE_VAR"
+    },
+    {
+      "target_field": "UNIT_STD_COST",
+      "source_lineage": "LOC_TO_DOC.EXT_UNIT_LOC_STD_COST_OUT",
+      "transformation_rule": "EXT_UNIT_LOC_STD_COST * LOC_TO_DOC_EXCH_RATE_VAR"
+    },
+    {
+      "target_field": "EXCHANGE_DT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_EXCHANGE_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "LOC_EXCH_RATE_TYPE",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LOC_EXCH_RATE_TYPE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "REJECT_FLG",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_REJECT_FLG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "STORAGE_LOC_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_STORAGE_LOC_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "OPERATING_UNIT_ORG_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_OPERATING_UNIT_ORG_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "INVENTORY_ORG_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_INVENTORY_ORG_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "DELETE_FLG",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_DELETE_FLAG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PURCH_RQSTN_ITEM",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PURCH_RQSN_ITEM",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PURCH_RQSTN_NUM",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PURCH_RQSN_NUM",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "REQUESTED_QTY",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_QUANTITY",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "UNIT_PRICE",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_UNIT_PRICE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "LINE_AMT",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LINE_AMT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "RQSTN_ORG_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_RQSN_ORG_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "APPROVAL_STATUS_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_APPROVE_STATUS_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "INVENTORY_PROD_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_MFG_PROD_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "TENANT_ID",
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_TENANT_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_CLOSED_CODE",
+      "source_lineage": "X_CUSTOM.PORH_CLOSED_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_CLOSED_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_CANCEL_FLAG",
+      "source_lineage": "X_CUSTOM.PORH_CANCEL_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_CANCEL_FLAG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORL_ENCUMBERED_FLAG",
+      "source_lineage": "X_CUSTOM.PORL_ENCUMBERED_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_ENCUMBERED_FLAG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORL_LINE_LOCATION_ID",
+      "source_lineage": "X_CUSTOM.PORL_LINE_LOCATION_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_LINE_LOCATION_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_CLOSED_CODE",
+      "source_lineage": "X_CUSTOM.POH_CLOSED_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_CLOSED_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_CANCEL_FLAG",
+      "source_lineage": "X_CUSTOM.POH_CANCEL_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_CANCEL_FLAG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_CLOSED_DATE",
+      "source_lineage": "X_CUSTOM.POH_CLOSED_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_CLOSED_DATE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_AUTHORIZATION_STATUS",
+      "source_lineage": "X_CUSTOM.POH_AUTHORIZATION_STATUS <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_AUTHORIZATION_STATUS",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POL_UNIT_PRICE",
+      "source_lineage": "X_CUSTOM.POL_UNIT_PRICE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_UNIT_PRICE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POL_ITEM_DESCRIPTION",
+      "source_lineage": "X_CUSTOM.POL_ITEM_DESCRIPTION <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_ITEM_DESCRIPTION",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_PURCH_ORDER_NUM",
+      "source_lineage": "X_CUSTOM.POH_PURCH_ORDER_NUM <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_PURCH_ORDER_NUM",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_TYPE_LOOKUP_CODE",
+      "source_lineage": "X_CUSTOM.POH_TYPE_LOOKUP_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_TYPE_LOOKUP_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POL_CANCEL_FLAG",
+      "source_lineage": "X_CUSTOM.POL_CANCEL_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_CANCEL_FLAG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE4",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE4",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE9",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE9 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE9",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POH_ATTRIBUTE8",
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE8",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POL_CLOSED_CODE",
+      "source_lineage": "X_CUSTOM.POL_CLOSED_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_CLOSED_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_CREATED_BY",
+      "source_lineage": "X_CUSTOM.PORH_CREATED_BY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_CREATED_BY",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_TAX_ATTRIBUTE_UPDATE_CODE",
+      "source_lineage": "X_CUSTOM.POLL_TAX_ATTRIBUTE_UPDATE_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_TAX_ATTRIBUTE_UPDATE_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORH_PREPARER_ID",
+      "source_lineage": "X_CUSTOM.PORH_PREPARER_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_PREPARER_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORL_CLOSED_CODE",
+      "source_lineage": "X_CUSTOM.PORL_CLOSED_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_CLOSED_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "PORL_CLOSED_REASON",
+      "source_lineage": "X_CUSTOM.PORL_CLOSED_REASON <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_CLOSED_REASON",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE_CATEGORY",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE_CATEGORY",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE20",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE20 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE20",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE19",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE19 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE19",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE18",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE18 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE18",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    },
+    {
+      "target_field": "POLL_GLOBAL_ATTRIBUTE17",
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE17 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE17",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+    }
+  ],
+  "shared_object_refs": [
+    "MPLT_CURCY_CONVERSION_RATES_All",
+    "mplt_BC_ORA_PurchaseRequisitionLinesFact",
+    "mplt_SA_ORA_PurchaseRequisitionLinesFact"
+  ],
+  "field_counts": {
+    "source_fields": 875,
+    "target_fields": 184,
+    "transform_ports": 183
+  },
+  "complexity": {
+    "transformation_count": 3,
+    "connector_count": 411,
+    "reusable_mapplet_count": 3,
+    "lookup_count": 2,
+    "router_group_count": 0,
+    "update_strategy_present": false,
+    "sql_override_present": true,
+    "sql_override_join_count": 1,
+    "nested_expression_functions": [
+      "IIF",
+      "ISNULL"
+    ],
+    "tier": "complex",
+    "recommended_model": "large-reasoning-model"
+  },
+  "raw_archive_ref": "blob://mapping-cache/HHS_SDE_ORA_PurchaseRequisitionLinesFact/c0b318eb5da7.xml",
+  "mapping_variables": [
+    {
+      "name": "$$DATASOURCE_NUM_ID",
+      "datatype": "decimal",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$TENANT_ID",
+      "datatype": "string",
+      "default_value": "DEFAULT",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    }
+  ],
+  "session_partition_overrides": [],
+  "source_file_hash": "c0b318eb5da79f45882bb327cc4fd4766167ae12bc818781026a7ccf86319eac",
+  "schema_version": 2
+}

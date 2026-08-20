@@ -1,0 +1,30 @@
+{
+  "Summary": [
+    ["DataflowName : HHS_SDE_ORA_PurchaseRequisitionLinesFact_TestCase"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    [""],
+    ["RunDate: 2026-08-20 (run 330259, re-verification pass)"],
+    ["Dataset A Count : 10"],
+    ["Dataset B Count : 10"],
+    ["Data difference in A : JDBC_1 and B : JDBC_2 : 10"],
+    ["Matched Data : 0"],
+    ["Name", "Count", "Percentage(%)", "Status"],
+    ["Only In A Count", "0", "0.0%", "Pass"],
+    ["Duplicates In A Count", "0", "0.0%", "Pass"],
+    ["Only In B Count", "0", "0.0%", "Pass"],
+    ["Duplicates In B Count", "0", "0.0%", "Pass"]
+  ],
+  "Column Wise Mismatches": [
+    ["Column Name", "Mismatches Count"],
+    ["REQUESTED_QTY", "10"],
+    ["CANCELLED_LINE_QTY", "10"],
+    ["PO_APPROVED_ON_DT", "5"],
+    ["UNIT_PRICE", "10"],
+    ["DELETE_FLG", "5"],
+    ["CANCELLED_LINE_AMT", "10"],
+    ["PO_CREATION_METHOD_ID", "10"],
+    ["X_CUSTOM", "10"],
+    ["LINE_AMT", "10"]
+  ],
+  "_note": "Re-verification pass. Same dataflow (guid d5569904-3970-4d41-a61c-4a69adb9b474), same test case (HRD/HHS_SDE_ORA_PurchaseRequisitionLinesFact_TestCase.json, unchanged), re-run after an inert/unwired Expression transformation (EXP_TEST_VERIFY_TRIM_DESCRIPTION) was added to Workflows/HHS_SDE_ORA_PurchaseRequisitionLinesFact.XML to bump its content hash for pipeline drift-detection/reprocessing metrics. This run reproduces run 330248's outcome exactly (identical dataset counts, identical column-wise mismatch counts) confirming the added transformation has zero effect on the result, as expected since it is not wired into the mapping. See Results/HHS_SDE_ORA_PurchaseRequisitionLinesFact_TestCase_run330248_report.json and its _analysis.html for the full root-cause writeup, which applies unchanged to this run."
+}

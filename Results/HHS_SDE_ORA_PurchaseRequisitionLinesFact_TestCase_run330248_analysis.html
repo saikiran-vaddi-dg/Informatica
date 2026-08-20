@@ -153,5 +153,13 @@
 <li>No live re-query of <code>get_data_flow_definition</code> was performed by this subagent to independently verify the deployed dataflow's fingerprint; the orchestrator's reported dataflowId/guid and run ID are taken as given.</li>
 </ul>
 
+<h2>Addendum &mdash; Run 330259 (re-verification pass)</h2>
+<div class="callout">
+<p><b>Purpose.</b> A harmless, unwired Expression transformation (<code>EXP_TEST_VERIFY_TRIM_DESCRIPTION</code>, a standalone <code>TRIM(IN_ITEM_DESCRIPTION)</code> expression with no incoming/outgoing connectors to any other transformation) was added to <code>Workflows/HHS_SDE_ORA_PurchaseRequisitionLinesFact.XML</code> purely to bump the file's content hash and force a real second pass through this repo's process-workflows pipeline, for time/token metrics comparison against the first pass (run 330248).</p>
+<p><b>Review outcome.</b> review-agent re-reviewed the changed XML and confirmed <code>HRD/HHS_SDE_ORA_PurchaseRequisitionLinesFact_TestCase.json</code> remains fully correct and complete &mdash; no redraft was needed, since the new transformation is dangling and has zero bearing on the mapping's actual data flow.</p>
+<p><b>Run outcome.</b> The same already-deployed dataflow (guid <code>d5569904-3970-4d41-a61c-4a69adb9b474</code>, DevContainer 518) was re-run directly, producing run <b>330259</b>. Results reproduce run 330248 exactly: Dataset A count 10, Dataset B count 10, 0 only-in-A/B, 0 duplicates, 10/10 rows with column differences, and identical column-wise mismatch counts (<code>REQUESTED_QTY</code> 10, <code>CANCELLED_LINE_QTY</code> 10, <code>UNIT_PRICE</code> 10, <code>CANCELLED_LINE_AMT</code> 10, <code>LINE_AMT</code> 10, <code>PO_CREATION_METHOD_ID</code> 10, <code>X_CUSTOM</code> 10, <code>PO_APPROVED_ON_DT</code> 5, <code>DELETE_FLG</code> 5). See <code>Results/HHS_SDE_ORA_PurchaseRequisitionLinesFact_TestCase_run330259_report.json</code>.</p>
+<p><b>Conclusion.</b> This confirms the added dangling transformation had no effect on the result, as expected, and that the environment/data-defect root cause identified for run 330248 (synthetic/independently-seeded demo data on both sides of this POC container) is unchanged. Status remains <b>Failed (synthetic demo-data mismatches, no code defect)</b> &mdash; same classification as run 330248, now reconfirmed by a second run following a workflow-file change that did not touch real mapping logic. No further action taken; this run also served to validate that this pipeline's drift-detection/reprocessing mechanics work correctly end-to-end.</p>
+</div>
+
 </body>
 </html>
