@@ -1,0 +1,60 @@
+{
+  "mapping": "HHS_SDE_ORA_QuickDemoFact",
+  "description": "",
+  "sources": [
+    "FV_GTAS_ACTIVITY_BALANCES"
+  ],
+  "target": "W_GTAS_ACTIVITY_BALANCES_FS",
+  "flow": [
+    "source_definition:FV_GTAS_ACTIVITY_BALANCES",
+    "source_qualifier:SQ_FV_GTAS_ACTIVITY_BALANCES",
+    "expression:EXP_QUICKDEMO",
+    "target_definition:W_GTAS_ACTIVITY_BALANCES_FS"
+  ],
+  "field_lineage": [
+    {
+      "target_field": "CCID",
+      "source_lineage": "EXP_QUICKDEMO.CCID <- SQ_FV_GTAS_ACTIVITY_BALANCES.CCID <- FV_GTAS_ACTIVITY_BALANCES.CCID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PERIOD_NUM",
+      "source_lineage": "EXP_QUICKDEMO.PERIOD_NUM <- SQ_FV_GTAS_ACTIVITY_BALANCES.PERIOD_NUM <- FV_GTAS_ACTIVITY_BALANCES.PERIOD_NUM",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SET_OF_BOOKS_ID",
+      "source_lineage": "EXP_QUICKDEMO.SET_OF_BOOKS_ID <- SQ_FV_GTAS_ACTIVITY_BALANCES.SET_OF_BOOKS_ID <- FV_GTAS_ACTIVITY_BALANCES.SET_OF_BOOKS_ID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "AMOUNT",
+      "source_lineage": "EXP_QUICKDEMO.AMOUNT",
+      "transformation_rule": "ROUND(AMOUNT,2)"
+    }
+  ],
+  "shared_object_refs": [],
+  "field_counts": {
+    "source_fields": 4,
+    "target_fields": 4,
+    "transform_ports": 8
+  },
+  "complexity": {
+    "transformation_count": 2,
+    "connector_count": 12,
+    "reusable_mapplet_count": 0,
+    "lookup_count": 0,
+    "router_group_count": 0,
+    "update_strategy_present": false,
+    "sql_override_present": false,
+    "sql_override_join_count": 0,
+    "nested_expression_functions": [],
+    "tier": "simple",
+    "recommended_model": "template-only"
+  },
+  "raw_archive_ref": "blob://mapping-cache/HHS_SDE_ORA_QuickDemoFact/f3afcad930fe.xml",
+  "mapping_variables": [],
+  "session_partition_overrides": [],
+  "source_file_hash": "f3afcad930fe9d3434677ce5a896497abf0079c5383fa844e0f9c5100f9deedb",
+  "schema_version": 2
+}
