@@ -1,0 +1,39 @@
+# Environment defaults for the /process-workflows pipeline (developer-agent).
+# Edit this file to change which DataOps container/engine/folder new
+# dataflows are built in, or how $$ mapping-variable / session-parameter
+# defaults resolve — instead of editing agent instructions in plugin/.
+# See plugin/skills/dataflow-environment-config/SKILL.md for the full
+# resolution order and schema.
+
+version: 1
+
+dataflow:
+  container: "HHS_Poc_container"  # DataOps container/project new dataflows get created in
+  engine: "168_AN"
+  folder: "Dataflow"
+  # What a newly built dataflow should do:
+  #   validation    - a DataCompare-style actual-vs-expected reconciliation check (default)
+  #   implement_etl - actually implement the workflow's ETL logic itself
+  purpose: validation
+
+# How to resolve a $$ mapping variable / session parameter when the workflow
+# itself doesn't supply a usable value:
+#   prompt  - always ask the user
+#   default - use the variable's own DEFAULTVALUE from the workflow XML, if present (default if unset)
+parameter_defaults:
+  resolution: default
+  overrides: {}
+    # $$DATA_ACT_REPORTING_PERIOD: "202401"
+  # What to do if resolution above still finds nothing (no override, no
+  # workflow DEFAULTVALUE either):
+  #   prompt       - ask the user
+  #   leave_blank  - use an empty value and flag it in the test case's
+  #                  _notes for review, rather than blocking on a question (default if unset)
+  on_unresolved: leave_blank
+
+# Per-workflow overrides, keyed by workflow file stem (without .XML), for
+# cases where one workflow needs a different container/engine/folder than
+# the project default above.
+workflow_overrides: {}
+  # HHS_SIL_ProgramActivity_Dimension:
+  #   container: "some-other-container"
