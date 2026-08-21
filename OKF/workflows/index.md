@@ -13,3 +13,7 @@ okf_version: "0.2"
 ## Procurement
 
 - [HHS_SDE_ORA_PurchaseRequisitionLinesFact](HHS_SDE_ORA_PurchaseRequisitionLinesFact/index.md)
+
+## Reference / Dimension Data
+
+- [HHS_SDE_ORA_BankDimension](HHS_SDE_ORA_BankDimension/index.md)
