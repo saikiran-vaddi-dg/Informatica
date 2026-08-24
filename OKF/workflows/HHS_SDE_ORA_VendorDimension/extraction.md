@@ -2,7 +2,7 @@
 generated:
   by: developer-agent
   at: "2026-08-24T15:14:28+05:30"
-  commit: 98f136c64f16a7a010823c6425b4d1af7b4ebaaf
+  commit: 7839e00
 ---
 
 # HHS_SDE_ORA_VendorDimension — Extraction
