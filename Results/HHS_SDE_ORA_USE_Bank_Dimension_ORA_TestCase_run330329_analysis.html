@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HHS_SDE_ORA_USE_Bank_Dimension_ORA_TestCase - Run 330329 Analysis</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1a1a2e; --muted: #6b7280; --border: #e5e7eb;
+    --pass: #16a34a; --fail: #dc2626;
+    --testcase: #2563eb; --env: #d97706; --bug: #dc2626; --none: #6b7280;
+    --track: #f3f4f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14141f; --fg: #e8e8f0; --muted: #9ca3af; --border: #2d2d3d; --track: #24243a; }
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--fg); font: 15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif; margin: 0; padding: 2rem; max-width: 900px; margin-inline: auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+  h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+  .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+  .status-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; color: #fff; }
+  .badge-pass { background: var(--pass); }
+  .badge-fail { background: var(--fail); }
+  .bar-row { display: flex; align-items: center; gap: 0.75rem; margin: 0.4rem 0; }
+  .bar-label { width: 160px; flex-shrink: 0; font-size: 0.85rem; color: var(--muted); }
+  .bar-track { flex: 1; background: var(--track); border-radius: 4px; height: 14px; overflow: hidden; }
+  .bar-fill { background: var(--fail); height: 100%; border-radius: 4px; }
+  .bar-value { width: 90px; text-align: right; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+  .finding { border-left: 3px solid var(--border); padding: 0.5rem 0 0.5rem 1rem; margin: 1rem 0; }
+  .action { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 0.75rem 0; }
+  .badge { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+  .badge-testcase { background: var(--testcase); }
+  .badge-env { background: var(--env); }
+  .badge-bug { background: var(--bug); }
+  .badge-none { background: var(--none); }
+  code { background: var(--track); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+  table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); }
+</style>
+</head>
+<body>
+  <h1>HHS_SDE_ORA_USE_Bank_Dimension_ORA_TestCase - Run 330329 Analysis</h1>
+  <div class="meta">Generated 2026-08-24T16:40:00+05:30 &middot; <span class="status-badge badge-fail">Failed</span></div>
+
+  <h2>Scope</h2>
+  <p>
+    Analyzed <code>Results/HHS_SDE_ORA_USE_Bank_Dimension_ORA_TestCase_run330329_report.json</code> (DataCompare
+    component output, dataflowId not embedded in report, container <code>HHS_Poc_container</code> (containerId 525),
+    run 330329, run date 2026-08-24 11:01:22). Cross-referenced against
+    <code>HRD/HHS_SDE_ORA_USE_Bank_Dimension_ORA_TestCase.json</code> (JDBC 1 = actual, unconditional
+    <code>SELECT ... FROM W_BANK_DS</code>; JDBC 2 = independent from-scratch reconstruction of the SDE's source
+    logic with the <code>$$</code> parameters replaced by literals; keyed on <code>INTEGRATION_ID</code>, all
+    thresholds 0), <code>OKF/workflows/HHS_SDE_ORA_USE_Bank_Dimension_ORA/extraction.md</code> (current &mdash;
+    <code>generated.at</code> 2026-08-24T16:24:35+05:30 against commit <code>7d254ea0</code>) and
+    <code>hrd_mapping.md</code> in the same folder, and the sibling workflow's
+    <code>OKF/workflows/HHS_SDE_ORA_BankDimension/hrd_mapping.md</code>,
+    <code>Results/HHS_SDE_ORA_BankDimension_TestCase_run330302_analysis.html</code> and
+    <code>Results/HHS_SDE_ORA_BankDimension_ClientWalkthrough.md</code> for prior-run history on the same shared
+    staging table. To rule out a test-case defect, diffed
+    <code>Workflows/HHS_SDE_ORA_BankDimension.summary.json</code> against
+    <code>Workflows/HHS_SDE_ORA_USE_Bank_Dimension_ORA.summary.json</code> directly (both current, no staleness
+    flag) rather than opening either raw XML.
+  </p>
+  <p><b>Gaps carried into this scope note:</b> live <code>dataops_mcp</code> tools (job history, data source
+    connection details) required authorization that is unavailable in this non-interactive session &mdash; see
+    Gaps section.</p>
+
+  <h2>Summary</h2>
+  <p>
+    Dataset A (JDBC_1 / actual, <code>W_BANK_DS</code>) returned <b>0 rows</b>. Dataset B (JDBC_2 / expected,
+    independently reconstructed from live EBS source tables) returned <b>4 rows</b> for keys
+    <code>E~2050</code>, <code>I~1001</code>, <code>I~1002</code>, <code>I~1004</code>. Because A is empty, every
+    expected row lands in "Only In B": <code>Only In B Count = 4 (100%)</code>, breaching the
+    <code>onlyInBThreshold: 0</code> configured in the HRD test case, which is why the component is
+    <b>Failed</b>. There are zero comparable (paired) rows, so no column-wise mismatch data exists for this run.
+  </p>
+  <div class="bar-row">
+    <span class="bar-label">Only In A</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%"></div></div>
+    <span class="bar-value">0 (0%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Duplicates In A</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%"></div></div>
+    <span class="bar-value">0 (0%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Only In B</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div>
+    <span class="bar-value">4 (100%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Duplicates In B</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%"></div></div>
+    <span class="bar-value">0 (0%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Matched keys</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%; background: var(--pass);"></div></div>
+    <span class="bar-value">0 / 4 (0%)</span>
+  </div>
+
+  <h2>Findings</h2>
+
+  <div class="finding">
+    <h3>Dataset A (W_BANK_DS) is completely empty; all 4 expected rows are Only-In-B</h3>
+    <p>
+      <code>run330329_report.json</code> Summary: <code>"Dataset A Count : 0"</code>,
+      <code>"Dataset B Count : 4"</code>, <code>"Only In B Count","4","100.0%","Failed"</code>. JDBC 1's query
+      (per the HRD test case) is an unconditional <code>SELECT INTEGRATION_ID, ... FROM W_BANK_DS</code> with no
+      <code>WHERE</code> clause &mdash; a plain full-table read returning zero rows can only mean the physical
+      table currently holds no rows, not a query-construction problem.
+    </p>
+  </div>
+
+  <div class="finding">
+    <h3>Test-case dataSourceName/query for both sides verified correct against the workflow definition</h3>
+    <p>
+      Diffing <code>Workflows/HHS_SDE_ORA_BankDimension.summary.json</code> against
+      <code>Workflows/HHS_SDE_ORA_USE_Bank_Dimension_ORA.summary.json</code> shows the only differences are the
+      three documented <code>$$</code> parameter substitutions (<code>$$DATASOURCE_NUM_ID</code>&rarr;<code>601</code>,
+      <code>$$TENANT_ID</code>&rarr;<code>'DEFAULT'</code>, <code>$$LAST_EXTRACT_DATE</code>&rarr;
+      <code>01/01/2020</code>) plus the source-file hash/archive-ref bookkeeping fields; the mapping's target is
+      unchanged &mdash; still <code>W_BANK_DS</code>. <code>HRD/HHS_SDE_ORA_USE_Bank_Dimension_ORA_TestCase.json</code>'s
+      JDBC 1 <code>dataSourceName: "W_BANK_DS"</code> matches this exactly, and JDBC 2's query already bakes in
+      the same three literals (<code>601</code>, <code>'DEFAULT'</code>, the 2020-01-01 CDC cutoff) that the real
+      mapping uses for this hardcoded variant. No dataSourceName or query defect found in the test case.
+    </p>
+  </div>
+
+  <div class="finding">
+    <h3>Recurrence (worsened) of the previously-documented shared-table environment condition, not a new failure mode</h3>
+    <p>
+      <code>OKF/workflows/HHS_SDE_ORA_USE_Bank_Dimension_ORA/hrd_mapping.md</code>'s Known Caveats already flag that
+      JDBC 1's <code>W_BANK_DS</code> "is the same shared staging table as <code>HHS_SDE_ORA_BankDimension</code>'s
+      test case" and that, as of that sibling's last run, it "held hand-seeded stub rows rather than real mapping
+      output." That prior run (330302, see
+      <code>Results/HHS_SDE_ORA_BankDimension_TestCase_run330302_analysis.html</code>) found 4 stub rows for keys
+      <code>E~6001</code>/<code>I~5001</code> (2 keys, each duplicated). This run finds the same table now holds
+      <b>0 rows</b> &mdash; the table went from stub-seeded to empty between the two runs. This confirms the
+      general environment condition (W_BANK_DS not reflecting a real mapping run) is recurring, but the specific
+      symptom shape has changed (emptied vs. duplicated-stub-rows), which is called out explicitly rather than
+      assumed identical.
+    </p>
+  </div>
+
+  <div class="finding">
+    <h3>JDBC 2 (expected) is genuinely re-querying live source data, not a fixed/hardcoded fixture</h3>
+    <p>
+      This run's expected-side keys (<code>E~2050</code>, <code>I~1001</code>, <code>I~1002</code>,
+      <code>I~1004</code>) are an entirely different set from the sibling BankDimension run's
+      (<code>E~6001</code>, <code>I~5001</code>). This is consistent with <code>hrd_mapping.md</code>'s design
+      description of JDBC 2 as "an independent SQL rebuild ... run directly against the EBS source tables" rather
+      than a static fixture, and rules out a copy-paste/stale-query test-case defect on the JDBC 2 side.
+    </p>
+  </div>
+
+  <h2>Recommended Actions</h2>
+
+  <div class="action">
+    <span class="badge badge-env">Environment/data defect</span>
+    <p>
+      <b>Root cause: <code>W_BANK_DS</code> currently holds zero rows.</b> Fix outside the test case &mdash;
+      populate <code>W_BANK_DS</code> by actually running the <code>HHS_SDE_ORA_BankDimension</code> /
+      <code>HHS_SDE_ORA_USE_Bank_Dimension_ORA</code> mapping against the source EBS data (or otherwise confirm and
+      restore the table if it was truncated/dropped by an unrelated process), so that it contains real output for
+      keys <code>E~2050</code>, <code>I~1001</code>, <code>I~1002</code>, <code>I~1004</code> (and any other
+      current EBS accounts). No change to
+      <code>HRD/HHS_SDE_ORA_USE_Bank_Dimension_ORA_TestCase.json</code> is needed &mdash; its JDBC 1
+      dataSourceName/query and JDBC 2 reconstruction are both verified correct against the workflow definition.
+    </p>
+  </div>
+
+  <div class="action">
+    <span class="badge badge-none">Needs re-verification &mdash; not yet classifiable</span>
+    <p>
+      <b>Whether the empty result reflects the same physical table instance seen in run 330302, or a different
+      environment/schema behind the same data-source name.</b> Cannot be confirmed from <code>Results/</code>
+      alone. Recommended action: before assuming a simple reload will fix this, confirm on the platform that the
+      <code>W_BANK_DS</code> data source used by JDBC 1 in this dataflow points at the same connection/schema used
+      by the sibling <code>HHS_SDE_ORA_BankDimension_TestCase</code> run, and that no unrelated truncate/drop
+      happened between run 330302 and run 330329.
+    </p>
+  </div>
+
+  <p><b>No genuine workflow/ETL bug was identified in this run.</b> JDBC 1 is an unconditional full-table read with
+    no transformation logic in the test dataflow itself; an empty result is a data-availability condition on
+    <code>W_BANK_DS</code>, not a defect in the DataCompare/JDBC configuration or in the mapping logic reconstructed
+    on the JDBC 2 side. No test-case defect was found either &mdash; both the dataSourceName and the query text on
+    both sides were verified against the current workflow definition.</p>
+
+  <h2>Gaps</h2>
+  <ul>
+    <li>
+      Live <code>dataops_mcp</code> tools (job execution history, run metrics, data source connection/environment
+      details) were not usable in this session &mdash; the MCP servers require authorization and this session is
+      non-interactive. Could not confirm directly whether <code>W_BANK_DS</code> was truncated between run 330302
+      and run 330329, or whether the two runs' JDBC 1 data sources resolve to the same physical table/schema.
+    </li>
+    <li>
+      No direct query access to the live <code>W_BANK_DS</code> table or source EBS tables was available in this
+      analysis session; the "table is currently empty" conclusion is inferred from the DataCompare report's row
+      counts (<code>Dataset A Count : 0</code>), not confirmed by inspecting the table directly.
+    </li>
+    <li>
+      The dataflowId for this run was not present in <code>run330329_report.json</code>'s <code>meta</code> block
+      (only <code>dataFlowRunId</code>, <code>containerId</code>, <code>containerName</code>, and
+      <code>dataflowName</code> are recorded), so it could not be cross-referenced against a live
+      <code>get_data_flow_definition</code> call even if MCP access were available.
+    </li>
+  </ul>
+</body>
+</html>
