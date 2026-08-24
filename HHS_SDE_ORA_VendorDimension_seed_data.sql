@@ -97,9 +97,13 @@ CREATE TABLE W_VENDOR_DS (
 );
 
 INSERT INTO W_VENDOR_DS (VENDOR_ID, VENDOR_NAME, VENDOR_NUMBER, VENDOR_TYPE_CODE, DUNS_NUMBER, ADDRESS_LINE1, CITY, STATE, ZIP, COUNTRY, PHONE, INTEGRATION_ID, TENANT_ID, DATASOURCE_NUM_ID, SRC_EFF_FROM_DT, ACTIVE_FLG, CREATED_ON_DT, CHANGED_ON_DT, CREATED_BY_ID, CHANGED_BY_ID) VALUES
-('9001', 'Acme Medical Supplies', 'V-1001', 'SUPPLIER', '123456789', '100 Main St',     'Austin', 'TX', '73301', 'USA', '512-555-0100', 'VND~9001', 'HHS_DEFAULT', 301, DATE '1900-01-01', 'Y', DATE '2024-02-10', DATE '2026-06-15', '4021', '4021');
+('9001', 'Acme Medical Supplies', 'V-1001', 'SUPPLIER', '123456789', '100 Main St',     'Austin', 'TX', '73301', 'USA', '512-555-0100', 'VND~9001', 'HHS_DEFAULT', 302, DATE '1900-01-01', 'Y', DATE '2024-02-10', DATE '2026-06-15', '4021', '4021');
 -- COUNTRY resolved to 'USA' via the fallback rule (source COUNTRY was NULL).
+-- DATASOURCE_NUM_ID is 302, not 301 -- kept in sync with the Run 2 workflow
+-- change (commit ef22da5, "reassign to source system 302"). If you seeded
+-- this table before that change, update these two rows' DATASOURCE_NUM_ID
+-- from 301 to 302 or Run 2's actual dataflow execution will fail to match.
 INSERT INTO W_VENDOR_DS (VENDOR_ID, VENDOR_NAME, VENDOR_NUMBER, VENDOR_TYPE_CODE, DUNS_NUMBER, ADDRESS_LINE1, CITY, STATE, ZIP, COUNTRY, PHONE, INTEGRATION_ID, TENANT_ID, DATASOURCE_NUM_ID, SRC_EFF_FROM_DT, ACTIVE_FLG, CREATED_ON_DT, CHANGED_ON_DT, CREATED_BY_ID, CHANGED_BY_ID) VALUES
-('9002', 'Lonestar Lab Services', 'V-1002', 'SUPPLIER', '234567890', '200 Congress Ave','Dallas', 'TX', '75201', 'USA', '214-555-0200', 'VND~9002', 'HHS_DEFAULT', 301, DATE '1900-01-01', 'Y', DATE '2023-11-22', DATE '2026-05-02', '4033', '4021');
+('9002', 'Lonestar Lab Services', 'V-1002', 'SUPPLIER', '234567890', '200 Congress Ave','Dallas', 'TX', '75201', 'USA', '214-555-0200', 'VND~9002', 'HHS_DEFAULT', 302, DATE '1900-01-01', 'Y', DATE '2023-11-22', DATE '2026-05-02', '4033', '4021');
 -- Vendor 9003 is intentionally absent: ENABLED_FLAG='N' means the workflow's
 -- Filter drops it before it ever reaches the target.
