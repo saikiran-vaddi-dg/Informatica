@@ -1,0 +1,418 @@
+{
+  "mapping": "HHS_SIL_BankDimension",
+  "description": "This mapping is responsible for loading dimension records for the table W_BANK_D based on the corresponding staging area table.  This mapping takes care of inserting new records as well as updating existing records in the target table. On a requirement basis, this mapping also 'soft-deletes' records from the target table (meaning, marking a record as 'Deleted' instead of physically deleting them)",
+  "sources": [
+    "W_BANK_DS"
+  ],
+  "target": "W_BANK_D",
+  "flow": [
+    "source_definition:W_BANK_DS",
+    "source_qualifier:Sq_W_BANK_DS",
+    "lookup_procedure:Lkp_W_BANK_D",
+    "mapplet:MPLT_GET_ETL_PROC_WID",
+    "mapplet:mplt_SIL_BankDimension_CodeLookup",
+    "expression:Exp_W_BANK_D_Update_Flg",
+    "filter:Fil_W_BANK_D",
+    "expression:Exp_Custom",
+    "mapplet:mplt_SIL_BankDimension",
+    "update_strategy:Upd_W_BANK_D_Ins_Upd",
+    "target_definition:W_BANK_D"
+  ],
+  "field_lineage": [
+    {
+      "target_field": "CITY",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.CITY <- mplt_SIL_BankDimension.EXT_CITY",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "SWIFT_NAME",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.SWIFT_NAME <- mplt_SIL_BankDimension.EXT_SWIFT_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "SWIFT_CODE",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.SWIFT_CODE <- mplt_SIL_BankDimension.EXT_SWIFT_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_HIER_CODE",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_HIER_CODE <- mplt_SIL_BankDimension.EXT_BANK_HIER_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_HIER_NAME",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_HIER_NAME <- mplt_SIL_BankDimension.EXT_BANK_HIER_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_NUMBER",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_NUMBER <- mplt_SIL_BankDimension.EXT_BANK_NUMBER",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_BRANCH_CODE",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_BRANCH_CODE <- mplt_SIL_BankDimension.EXT_BANK_BRANCH_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_BRANCH_NAME",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_BRANCH_NAME <- mplt_SIL_BankDimension.EXT_BANK_BRANCH_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "ACTIVE_FLG",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.ACTIVE_FLG <- mplt_SIL_BankDimension.EXT_ACTIVE_FLG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "SET_ID",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.SET_ID <- mplt_SIL_BankDimension.EXT_SET_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_ACCOUNT_NAME",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_ACCOUNT_NAME <- Exp_Custom.BANK_ACCOUNT_NAME <- Fil_W_BANK_D.BANK_ACCOUNT_NAME <- Exp_W_BANK_D_Update_Flg.BANK_ACCOUNT_NAME <- Sq_W_BANK_DS.BANK_ACCOUNT_NAME <- W_BANK_DS.BANK_ACCOUNT_NAME",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "CREATED_ON_DT",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.CREATED_ON_DT <- mplt_SIL_BankDimension.EXT_CREATED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "CHANGED_ON_DT",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.CHANGED_ON_DT <- mplt_SIL_BankDimension.EXT_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "AUX1_CHANGED_ON_DT",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.AUX1_CHANGED_ON_DT <- mplt_SIL_BankDimension.EXT_AUX1_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "AUX2_CHANGED_ON_DT",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.AUX2_CHANGED_ON_DT <- mplt_SIL_BankDimension.EXT_AUX2_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "AUX3_CHANGED_ON_DT",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.AUX3_CHANGED_ON_DT <- mplt_SIL_BankDimension.EXT_AUX3_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "AUX4_CHANGED_ON_DT",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.AUX4_CHANGED_ON_DT <- mplt_SIL_BankDimension.EXT_AUX4_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "DELETE_FLG",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.DELETE_FLG <- mplt_SIL_BankDimension.EXT_DELETE_FLG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "INTEGRATION_ID",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.INTEGRATION_ID <- mplt_SIL_BankDimension.EXT_INTEGRATION_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "DATASOURCE_NUM_ID",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.DATASOURCE_NUM_ID <- mplt_SIL_BankDimension.EXT_DATASOURCE_NUM_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "ROW_WID",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.ROW_WID <- mplt_SIL_BankDimension.EXT_ROW_WID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "EFFECTIVE_FROM_DT",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.EFFECTIVE_FROM_DT <- mplt_SIL_BankDimension.EXT_EFFECTIVE_FROM_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "EFFECTIVE_TO_DT",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.EFFECTIVE_TO_DT <- mplt_SIL_BankDimension.EXT_EFFECTIVE_TO_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "CURRENT_FLG",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.CURRENT_FLG <- mplt_SIL_BankDimension.EXT_CURRENT_FLG",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "X_CUSTOM",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.X_CUSTOM <- Exp_Custom.X_CUSTOM <- Fil_W_BANK_D.X_CUSTOM <- Sq_W_BANK_DS.X_CUSTOM <- W_BANK_DS.X_CUSTOM",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "ETL_PROC_WID",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.ETL_PROC_WID <- mplt_SIL_BankDimension.EXT_ETL_PROC_WID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "SRC_EFF_FROM_DT",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.SRC_EFF_FROM_DT <- mplt_SIL_BankDimension.EXT_SRC_EFF_FROM_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "SRC_EFF_TO_DT",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.SRC_EFF_TO_DT <- mplt_SIL_BankDimension.EXT_SRC_EFF_TO_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "CREATED_BY_WID",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.CREATED_BY_WID <- mplt_SIL_BankDimension.EXT_CREATED_BY_WID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "CHANGED_BY_WID",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.CHANGED_BY_WID <- mplt_SIL_BankDimension.EXT_CHANGED_BY_WID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "W_INSERT_DT",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.W_INSERT_DT <- mplt_SIL_BankDimension.EXT_W_INSERT_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "W_UPDATE_DT",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.W_UPDATE_DT <- mplt_SIL_BankDimension.EXT_W_UPDATE_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "TENANT_ID",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.TENANT_ID <- mplt_SIL_BankDimension.EXT_TENANT_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_KEY_CODE",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_KEY_CODE <- mplt_SIL_BankDimension.EXT_BANK_KEY_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_NAME",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_NAME <- mplt_SIL_BankDimension.EXT_BANK_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "PHONE_NUM",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.PHONE_NUM <- mplt_SIL_BankDimension.EXT_PHONE_NUM",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "TAX_NUMBER",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.TAX_NUMBER <- mplt_SIL_BankDimension.EXT_TAX_NUMBER",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "CONTACT_NAME",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.CONTACT_NAME <- mplt_SIL_BankDimension.EXT_CONTACT_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_USER_NAME",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_USER_NAME <- mplt_SIL_BankDimension.EXT_BANK_USER_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_TYPE_CODE",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_TYPE_CODE <- mplt_SIL_BankDimension.EXT_BANK_TYPE_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_TYPE_NAME",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_TYPE_NAME <- mplt_SIL_BankDimension.EXT_BANK_TYPE_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_CAT_CODE",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_CAT_CODE <- mplt_SIL_BankDimension.EXT_BANK_CAT_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_CAT_NAME",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_CAT_NAME <- mplt_SIL_BankDimension.EXT_BANK_CAT_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_ID",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_ID <- mplt_SIL_BankDimension.EXT_BANK_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "ACCDET_ID",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.ACCDET_ID <- mplt_SIL_BankDimension.EXT_ACCDET_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "ACCDET_NAME",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.ACCDET_NAME <- mplt_SIL_BankDimension.EXT_ACCDET_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_ACCT_NUM",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_ACCT_NUM <- mplt_SIL_BankDimension.EXT_BANK_ACCT_NUM",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_ACCT_ALT_NUM",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_ACCT_ALT_NUM <- mplt_SIL_BankDimension.EXT_BANK_ACCT_ALT_NUM",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_ALT_NUM",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_ALT_NUM <- mplt_SIL_BankDimension.EXT_BANK_ALT_NUM",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_ALT_NAME",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.BANK_ALT_NAME <- mplt_SIL_BankDimension.EXT_BANK_ALT_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "COUNTRY_CODE",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.COUNTRY_CODE <- mplt_SIL_BankDimension.EXT_COUNTRY_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "COUNTRY_NAME",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.COUNTRY_NAME <- mplt_SIL_BankDimension.EXT_COUNTRY_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "COUNTRY_REGION",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.COUNTRY_REGION <- mplt_SIL_BankDimension.EXT_COUNTRY_REGION",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "STATE_CODE",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.STATE_CODE <- mplt_SIL_BankDimension.EXT_STATE_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "STATE_NAME",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.STATE_NAME <- mplt_SIL_BankDimension.EXT_STATE_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "STATE_REGION",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.STATE_REGION <- mplt_SIL_BankDimension.EXT_STATE_REGION",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "POSTAL_CODE",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.POSTAL_CODE <- mplt_SIL_BankDimension.EXT_POSTAL_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "COUNTY",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.COUNTY <- mplt_SIL_BankDimension.EXT_COUNTY",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "STREET_ADDRESS1",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.STREET_ADDRESS1 <- mplt_SIL_BankDimension.EXT_STREET_ADDRESS1",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "STREET_ADDRESS2",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.STREET_ADDRESS2 <- mplt_SIL_BankDimension.EXT_STREET_ADDRESS2",
+      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "AGENCY_LOCATION_CODE",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.AGENCY_LOCATION_CODE <- Exp_Custom.AGENCY_LOCATION_CODE <- Fil_W_BANK_D.AGENCY_LOCATION_CODE <- Exp_W_BANK_D_Update_Flg.AGENCY_LOCATION_CODE <- Sq_W_BANK_DS.AGENCY_LOCATION_CODE <- W_BANK_DS.AGENCY_LOCATION_CODE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PRIMARY_FLAG",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.PRIMARY_FLAG <- Exp_Custom.PRIMARY_FLAG <- Fil_W_BANK_D.PRIMARY_FLAG <- Exp_W_BANK_D_Update_Flg.PRIMARY_FLAG <- Sq_W_BANK_DS.PRIMARY_FLAG <- W_BANK_DS.PRIMARY_FLAG",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "END_DATE",
+      "source_lineage": "Upd_W_BANK_D_Ins_Upd.END_DATE <- Exp_Custom.END_DATE <- Fil_W_BANK_D.END_DATE <- Exp_W_BANK_D_Update_Flg.END_DATE <- Sq_W_BANK_DS.END_DATE <- W_BANK_DS.END_DATE",
+      "transformation_rule": "Direct copy / passthrough"
+    }
+  ],
+  "shared_object_refs": [
+    "MPLT_GET_ETL_PROC_WID",
+    "mplt_SIL_BankDimension",
+    "mplt_SIL_BankDimension_CodeLookup"
+  ],
+  "field_counts": {
+    "source_fields": 56,
+    "target_fields": 63,
+    "transform_ports": 279
+  },
+  "complexity": {
+    "transformation_count": 6,
+    "connector_count": 399,
+    "reusable_mapplet_count": 3,
+    "lookup_count": 1,
+    "router_group_count": 0,
+    "update_strategy_present": true,
+    "sql_override_present": true,
+    "sql_override_join_count": 1,
+    "nested_expression_functions": [
+      "IIF",
+      "DECODE",
+      "ISNULL"
+    ],
+    "tier": "complex",
+    "recommended_model": "large-reasoning-model"
+  },
+  "raw_archive_ref": "blob://mapping-cache/HHS_SIL_BankDimension/4b4ed22c99ac.xml",
+  "mapping_variables": [
+    {
+      "name": "$$TYPE2_FLG",
+      "datatype": "string",
+      "default_value": "N",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$LOW_DATE",
+      "datatype": "string",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    }
+  ],
+  "session_partition_overrides": [],
+  "transformation_logic": [
+    {
+      "transformation": "Lkp_W_BANK_D",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup Sql Override": "SELECT \r\nTARGET_TABLE.ROW_WID as ROW_WID, \r\nTARGET_TABLE.CHANGED_ON_DT as CHANGED_ON_DT, \r\nTARGET_TABLE.AUX1_CHANGED_ON_DT as AUX1_CHANGED_ON_DT, \r\nTARGET_TABLE.AUX2_CHANGED_ON_DT as AUX2_CHANGED_ON_DT, \r\nTARGET_TABLE.AUX3_CHANGED_ON_DT as AUX3_CHANGED_ON_DT, \r\nTARGET_TABLE.AUX4_CHANGED_ON_DT as AUX4_CHANGED_ON_DT, \r\nTARGET_TABLE.ETL_PROC_WID as ETL_PROC_WID, \r\nTARGET_TABLE.W_INSERT_DT as W_INSERT_DT, \r\nTARGET_TABLE.EFFECTIVE_FROM_DT as EFFECTIVE_FROM_DT, \r\nTARGET_TABLE.EFFECTIVE_TO_DT as EFFECTIVE_TO_DT, \r\nTARGET_TABLE.DELETE_FLG as DELETE_FLG,\r\nTARGET_TABLE.CURRENT_FLG as CURRENT_FLG, \r\nTARGET_TABLE.DATASOURCE_NUM_ID as DATASOURCE_NUM_ID, \r\nTARGET_TABLE.INTEGRATION_ID as INTEGRATION_ID, \r\nTARGET_TABLE.SRC_EFF_FROM_DT as SRC_EFF_FROM_DT \r\nFROM \r\nW_BANK_DS STAGE_TABLE, W_BANK_D TARGET_TABLE \r\nWHERE(\r\nCASE\r\nWHEN TARGET_TABLE.SRC_EFF_FROM_DT = $$LOW_DATE\r\nTHEN 'Y'\r\nELSE TARGET_TABLE.CURRENT_FLG\r\nEND) = TARGET_TABLE.CURRENT_FLG AND\r\nSTAGE_TABLE.DATASOURCE_NUM_ID = TARGET_TABLE.DATASOURCE_NUM_ID AND\r\nSTAGE_TABLE.INTEGRATION_ID = TARGET_TABLE.INTEGRATION_ID AND\r\nSTAGE_TABLE.SRC_EFF_FROM_DT = TARGET_TABLE.SRC_EFF_FROM_DT\r\nORDER BY\r\nTARGET_TABLE.DATASOURCE_NUM_ID, \r\nTARGET_TABLE.INTEGRATION_ID, \r\nTARGET_TABLE.SRC_EFF_FROM_DT --",
+        "Lookup table name": "W_BANK_D",
+        "Lookup condition": "DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID AND INTEGRATION_ID = IN_INTEGRATION_ID AND SRC_EFF_FROM_DT = IN_SRC_EFF_FROM_DT",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": []
+    },
+    {
+      "transformation": "Upd_W_BANK_D_Ins_Upd",
+      "type": "Update Strategy",
+      "attributes": {
+        "Update Strategy Expression": "IIF(UPDATE_FLG = 'I' OR UPDATE_FLG = 'B' OR UPDATE_FLG = 'S', DD_INSERT,\r\nIIF(UPDATE_FLG = 'D' OR UPDATE_FLG = 'U', DD_UPDATE, DD_REJECT))"
+      },
+      "group_conditions": []
+    },
+    {
+      "transformation": "Fil_W_BANK_D",
+      "type": "Filter",
+      "attributes": {
+        "Filter Condition": "IIF(UPDATE_FLG = 'X', FALSE, TRUE)"
+      },
+      "group_conditions": []
+    }
+  ],
+  "source_file_hash": "4b4ed22c99ac54dd5643fc34beb922baea1330418ed878f40873b2f7ce388a91",
+  "schema_version": 3
+}

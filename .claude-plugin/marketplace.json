@@ -1,0 +1,14 @@
+{
+  "name": "informatica-dataops-marketplace",
+  "owner": {
+    "name": "Datagaps"
+  },
+  "plugins": [
+    {
+      "name": "coding-agent",
+      "source": "./plugin",
+      "description": "Review, test-case, build, run, analyze, and ship Informatica workflows as DataOps DataCompare dataflows.",
+      "version": "0.2.0"
+    }
+  ]
+}

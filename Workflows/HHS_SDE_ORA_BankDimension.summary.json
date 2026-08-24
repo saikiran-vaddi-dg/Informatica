@@ -1,0 +1,316 @@
+{
+  "mapping": "HHS_SDE_ORA_BankDimension",
+  "description": "Extracts bank information from the source system to the staging area",
+  "sources": [
+    "HZ_PARTIES",
+    "CEBV_BANK_ACCOUNTS",
+    "CEBV_BANK_BRANCHES"
+  ],
+  "target": "W_BANK_DS",
+  "flow": [
+    "mapplet:HHS_mplt_BC_ORA_BankDimension",
+    "expression:Exp_Integration_ID",
+    "filter:Filter",
+    "mapplet:HHS_mplt_SA_ORA_BankDimension",
+    "target_definition:W_BANK_DS"
+  ],
+  "field_lineage": [
+    {
+      "target_field": "BANK_ACCT_NUM",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_ACCT_NUM",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "ACCDET_NAME",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_ACCDET_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "ACCDET_ID",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_ACCDET_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_ID",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_CAT_NAME",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_CAT_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_NAME",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "COUNTRY_CODE",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_COUNTRY_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_CAT_CODE",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_CAT_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_TYPE_NAME",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_TYPE_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_TYPE_CODE",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_TYPE_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_USER_NAME",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_USER_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "CONTACT_NAME",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_CONTACT_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "TAX_NUMBER",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_TAX_NUMBER",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "PHONE_NUM",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_PHONE_NUM",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "CHANGED_ON_DT",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "CREATED_ON_DT",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_CREATED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "CHANGED_BY_ID",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_CHANGED_BY_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "CREATED_BY_ID",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_CREATED_BY_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "SRC_EFF_TO_DT",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_CURR_EFF_TO_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "SRC_EFF_FROM_DT",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_CURR_EFF_FROM_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "ACTIVE_FLG",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_ACTIVE_FLAG",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "STREET_ADDRESS1",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_STREET_ADDRESS1",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "COUNTY",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_COUNTY",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "STATE_NAME",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_STATE_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "CITY",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_CITY_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "X_CUSTOM",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_X_CUSTOM",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "TENANT_ID",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_TENANT_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "AUX4_CHANGED_ON_DT",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_AUX4_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "AUX3_CHANGED_ON_DT",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_AUX3_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "AUX2_CHANGED_ON_DT",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_AUX2_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "AUX1_CHANGED_ON_DT",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_AUX1_CHANGED_ON_DT",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "DATASOURCE_NUM_ID",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_DATASOURCE_NUM_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "INTEGRATION_ID",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_INTEGRATION_ID",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_BRANCH_NAME",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_BRANCH_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_BRANCH_CODE",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_BRANCH_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_NUMBER",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_NUMBER",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_HIER_NAME",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_HIER_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_HIER_CODE",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_HIER_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "SWIFT_NAME",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_SWIFT_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "SWIFT_CODE",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_SWIFT_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "COUNTRY_NAME",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_COUNTRY_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_ALT_NAME",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_ALT_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_ALT_NUM",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_ALT_NUM",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_ACCT_ALT_NUM",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_ACCT_ALT_NUM",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "BANK_ACCOUNT_NAME",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_BANK_ACCT_NAME",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "AGENCY_LOCATION_CODE",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_AGENCY_LOCATION_CODE",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "PRIMARY_FLAG",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_PRIMARY_FLAG",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    },
+    {
+      "target_field": "END_DATE",
+      "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_END_DATE",
+      "transformation_rule": "resolved inside reusable mapplet 'HHS_mplt_SA_ORA_BankDimension' (see shared-object cache)"
+    }
+  ],
+  "shared_object_refs": [
+    "HHS_mplt_BC_ORA_BankDimension",
+    "HHS_mplt_SA_ORA_BankDimension"
+  ],
+  "field_counts": {
+    "source_fields": 205,
+    "target_fields": 56,
+    "transform_ports": 72
+  },
+  "complexity": {
+    "transformation_count": 2,
+    "connector_count": 140,
+    "reusable_mapplet_count": 2,
+    "lookup_count": 0,
+    "router_group_count": 0,
+    "update_strategy_present": false,
+    "sql_override_present": true,
+    "sql_override_join_count": 17,
+    "nested_expression_functions": [
+      "IIF",
+      "ISNULL"
+    ],
+    "tier": "complex",
+    "recommended_model": "large-reasoning-model"
+  },
+  "raw_archive_ref": "blob://mapping-cache/HHS_SDE_ORA_BankDimension/5efb48950c27.xml",
+  "mapping_variables": [
+    {
+      "name": "$$DATASOURCE_NUM_ID",
+      "datatype": "decimal",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$TENANT_ID",
+      "datatype": "string",
+      "default_value": "DEFAULT",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    }
+  ],
+  "session_partition_overrides": [],
+  "transformation_logic": [
+    {
+      "transformation": "Filter",
+      "type": "Filter",
+      "attributes": {
+        "Filter Condition": "REJECT_FLAG = 'I'"
+      },
+      "group_conditions": []
+    }
+  ],
+  "source_file_hash": "5efb48950c2784068c382d1e59642da22701041f054b2be005ecc5ee27340e6d",
+  "schema_version": 3
+}

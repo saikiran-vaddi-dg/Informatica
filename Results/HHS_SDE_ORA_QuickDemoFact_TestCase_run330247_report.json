@@ -1,0 +1,88 @@
+{
+  "Summary": [
+    ["DataflowName : HHS_SDE_ORA_QuickDemoFact_TestCase"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    [""],
+    ["RunDate: 2026-08-20 11:42:23.752452"],
+    ["Dataset A Count : 9"],
+    ["Dataset B Count : 10"],
+    ["Data difference in A : JDBC_1 and B : JDBC_2 : 0"],
+    ["Matched Data : 9"],
+    ["Name", "Count", "Percentage(%)", "Status"],
+    ["Only In A Count", "0", "0.0%", "Pass"],
+    ["Duplicates In A Count", "0", "0.0%", "Pass"],
+    ["Only In B Count", "1", "10.0%", "Failed"],
+    ["Duplicates In B Count", "0", "0.0%", "Pass"]
+  ],
+  "Queries": [
+    ["DataflowName : HHS_SDE_ORA_QuickDemoFact_TestCase"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Queries for JDBC_1 and JDBC_2"],
+    ["Source Query/FileName: JDBC_1"],
+    ["SELECT CCID, PERIOD_NUM, SET_OF_BOOKS_ID, AMOUNT FROM W_GTAS_ACTIVITY_BALANCES_FS"],
+    ["Target Query/FileName: JDBC_2"],
+    ["SELECT s.CCID, s.PERIOD_NUM, s.SET_OF_BOOKS_ID, CAST(ROUND(s.AMOUNT, 2) AS NUMBER(28,2)) AS AMOUNT FROM FV_GTAS_ACTIVITY_BALANCES s"]
+  ],
+  "Mismatched Rows": [
+    ["DataflowName : HHS_SDE_ORA_QuickDemoFact_TestCase"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Mismatched Rows Between JDBC_1 and JDBC_2"],
+    ["Note :No data available for Mismatched Rows"]
+  ],
+  "Only In JDBC_1": [
+    ["DataflowName : HHS_SDE_ORA_QuickDemoFact_TestCase"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Data Only In JDBC_1"],
+    ["Note :No data available for Only In JDBC_1"]
+  ],
+  "Only In JDBC_2": [
+    ["DataflowName : HHS_SDE_ORA_QuickDemoFact_TestCase"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Data Only In JDBC_2"],
+    ["CCID_tgt", "PERIOD_NUM_tgt", "SET_OF_BOOKS_ID_tgt", "AMOUNT_tgt"],
+    ["10010", "9", "2021", "500000.00"]
+  ],
+  "Duplicates In JDBC_1": [
+    ["DataflowName : HHS_SDE_ORA_QuickDemoFact_TestCase"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Data Duplicates In JDBC_1"],
+    ["Note :No data available for Duplicates In JDBC_1"]
+  ],
+  "Duplicates In JDBC_2": [
+    ["DataflowName : HHS_SDE_ORA_QuickDemoFact_TestCase"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Data Duplicates In JDBC_2"],
+    ["Note :No data available for Duplicates In JDBC_2"]
+  ],
+  "Matched Rows": [
+    ["DataflowName : HHS_SDE_ORA_QuickDemoFact_TestCase"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Matched Rows Between JDBC_1 and JDBC_2"],
+    ["CCID", "PERIOD_NUM", "SET_OF_BOOKS_ID", "AMOUNT"],
+    ["10001", "9", "2021", "1500000.00"],
+    ["10002", "9", "2021", "275500.50"],
+    ["10003", "9", "2021", "98000.00"],
+    ["10004", "9", "2021", "640000.00"],
+    ["10005", "13", "2021", "12250.75"],
+    ["10006", "9", "2021", "3300000.00"],
+    ["10007", "9", "2021", "45000.00"],
+    ["10008", "9", "2021", "8750.25"],
+    ["10009", "9", "2021", "999.99"]
+  ],
+  "Column Wise Mismatches": [
+    ["DataflowName : HHS_SDE_ORA_QuickDemoFact_TestCase"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    ["Column Wise Mismatches Between JDBC_1 and JDBC_2"],
+    ["Note :No data available for Column Wise Mismatches"]
+  ],
+  "Mapped Columns": [
+    ["DataflowName : HHS_SDE_ORA_QuickDemoFact_TestCase"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    [""],
+    ["sourceColumn", "sourceType", "sourceDataFormat", "sourceTypeChange", "originalSourceType", "targetColumn", "targetType", "targetDataFormat", "targetTypeChange", "orginalTargetType", "unique", "upperThreshold", "lowerThreshold", "thresholdUnit", "hasThreshold", "columnOrder"],
+    ["CCID", "decimal(15,0)", "", "", "decimal(15,0)", "CCID", "decimal(15,0)", "", "", "decimal(15,0)", "Y", "0.0", "0.0", "", "", "0"],
+    ["PERIOD_NUM", "decimal(15,0)", "", "", "decimal(15,0)", "PERIOD_NUM", "decimal(15,0)", "", "", "decimal(15,0)", "Y", "0.0", "0.0", "", "", "0"],
+    ["SET_OF_BOOKS_ID", "decimal(15,0)", "", "", "decimal(15,0)", "SET_OF_BOOKS_ID", "decimal(15,0)", "", "", "decimal(15,0)", "Y", "0.0", "0.0", "", "", "0"],
+    ["AMOUNT", "decimal(28,2)", "", "", "decimal(28,2)", "AMOUNT", "decimal(28,2)", "", "", "decimal(28,2)", "N", "0.0", "0.0", "", "", "0"]
+  ]
+}
