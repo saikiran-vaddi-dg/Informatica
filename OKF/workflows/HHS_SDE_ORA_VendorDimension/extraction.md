@@ -1,8 +1,8 @@
 ---
 generated:
   by: developer-agent
-  at: "2026-08-24T15:14:28+05:30"
-  commit: 7839e00
+  at: "2026-08-24T15:19:09+05:30"
+  commit: ef22da5
 ---
 
 # HHS_SDE_ORA_VendorDimension — Extraction
@@ -30,9 +30,12 @@ no SQL override.
   joined against `PO_VENDORS`.
 - **Conditional**: `COUNTRY` defaults to `'USA'` when source value is null.
 - **Hardcoded literals (not parameterized)**: `TENANT_ID` (`'HHS_DEFAULT'`),
-  `DATASOURCE_NUM_ID` (`301`), `SRC_EFF_FROM_DT` (`01/01/1900`),
+  `DATASOURCE_NUM_ID` (`302`), `SRC_EFF_FROM_DT` (`01/01/1900`),
   `ACTIVE_FLG` (`'Y'`) — unlike `HHS_SDE_ORA_BankDimension`, these are plain
-  literals in the expression, not `$$`-parameters.
+  literals in the expression, not `$$`-parameters. Note: `DATASOURCE_NUM_ID`
+  has already changed once (`301` -> `302`, commit `ef22da5`, "reassign to
+  source system 302") — confirm with the SME whether this literal is stable
+  going forward or likely to keep moving.
 - **Filters**: `PO_VENDOR_SITES_ALL.PRIMARY_PAY_SITE_FLAG='Y'` (source
   qualifier filter) and `ENABLED_FLAG='Y'` (post-join Filter transformation).
 - **Known caveat**: the `JNR_VendorPrimarySite` Joiner's exact join type
