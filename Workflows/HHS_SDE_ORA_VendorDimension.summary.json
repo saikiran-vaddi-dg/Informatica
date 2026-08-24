@@ -85,7 +85,7 @@
     {
       "target_field": "DATASOURCE_NUM_ID",
       "source_lineage": "Exp_Vendor_Business_Rules.DATASOURCE_NUM_ID",
-      "transformation_rule": "301"
+      "transformation_rule": "302"
     },
     {
       "target_field": "SRC_EFF_FROM_DT",
@@ -140,7 +140,7 @@
     "tier": "moderate",
     "recommended_model": "small-model"
   },
-  "raw_archive_ref": "blob://mapping-cache/HHS_SDE_ORA_VendorDimension/88c4b702eb69.xml",
+  "raw_archive_ref": "blob://mapping-cache/HHS_SDE_ORA_VendorDimension/ba34e57b0a1a.xml",
   "mapping_variables": [],
   "session_partition_overrides": [],
   "transformation_logic": [
@@ -192,7 +192,7 @@
         },
         {
           "port": "DATASOURCE_NUM_ID",
-          "expression": "301"
+          "expression": "302"
         },
         {
           "port": "TENANT_ID",
@@ -226,6 +226,6 @@
       "mapplet": null
     }
   ],
-  "source_file_hash": "88c4b702eb6944733223bbd4167dcbe2da8d6dda071498880eb036118b3b0d26",
+  "source_file_hash": "ba34e57b0a1aa7bc8fae5873e1b15fb2f84336005dfafb5c19f7c1c6fc1526c0",
   "schema_version": 4
 }
