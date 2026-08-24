@@ -35,7 +35,7 @@ def to_json(obj: Any, indent: int = 2) -> str:
 # addition to the content hash) so an unchanged XML whose cached summary
 # predates a schema change still gets reprocessed instead of silently
 # serving a stale shape forever.
-CURRENT_SCHEMA_VERSION = 3
+CURRENT_SCHEMA_VERSION = 4
 
 
 # ---------------------------------------------------------------------------
@@ -130,14 +130,19 @@ class PartitionSqlOverride:
 
 @dataclass
 class TransformationLogicInfo:
-    """One TRANSFORMATION whose TABLEATTRIBUTEs or GROUP conditions carry
-    actual business logic (SQL override, lookup/filter/join condition,
-    router branch predicate) that field_lineage can't surface, because it
-    lives in per-instance configuration, not a port expression."""
+    """One TRANSFORMATION whose TABLEATTRIBUTEs, GROUP conditions, or port
+    EXPRESSIONs carry actual business logic (SQL override, lookup/filter/join
+    condition, router branch predicate, an Expression transformation's real
+    formula) that field_lineage can't always surface, because it either lives
+    in per-instance configuration rather than a port expression, or sits on a
+    port that isn't the exact hop a target field's lineage trace passes
+    through."""
     transformation: str
     type: str
     attributes: Dict[str, str] = field(default_factory=dict)
     group_conditions: List[Dict[str, str]] = field(default_factory=list)
+    port_expressions: List[Dict[str, str]] = field(default_factory=list)
+    mapplet: Optional[str] = None  # set when this entry came from a referenced mapplet's inner transformations, not the mapping's own
 
 
 @dataclass
@@ -170,6 +175,8 @@ class MappletInfo:
     inner_transform_names: List[str] = field(default_factory=list)
     source_refs: List[str] = field(default_factory=list)  # SOURCE definitions consumed inside this mapplet
     inner_transformations: List["TransformationInfo"] = field(default_factory=list)  # full detail, for complexity scoring
+    source_instance_names: List[str] = field(default_factory=list)  # INSTANCE NAME (not resolved) of this mapplet's own SOURCE instances — used to stop a backward trace inside it
+    inner_connectors: List["ConnectorInfo"] = field(default_factory=list)  # this mapplet's own internal wiring, so field_lineage can trace through it instead of stopping at the boundary
 
 
 # ---------------------------------------------------------------------------

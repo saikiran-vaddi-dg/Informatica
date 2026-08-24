@@ -67,8 +67,8 @@ def build_flow(mapping: MappingInfo) -> List[str]:
     return [_role_label(n, mapping) for n in order]
 
 
-def _find_expression(mapping: MappingInfo, instance_name: str, field_name: str) -> Optional[str]:
-    for t in mapping.transformations:
+def _find_expression_in(transformations, instance_name: str, field_name: str) -> Optional[str]:
+    for t in transformations:
         if t.name != instance_name:
             continue
         for p in t.ports:
@@ -77,12 +77,12 @@ def _find_expression(mapping: MappingInfo, instance_name: str, field_name: str) 
     return None
 
 
-def _find_ref_field(mapping: MappingInfo, instance_name: str, field_name: str) -> Optional[str]:
+def _find_ref_field_in(transformations, instance_name: str, field_name: str) -> Optional[str]:
     """A Router (or other multi-group) OUTPUT port carries no CONNECTOR back
     to its own INPUT port — PowerCenter links them implicitly via REF_FIELD
     instead. Without following it, backward tracing dead-ends at the router
     and misreports a real upstream expression as passthrough."""
-    for t in mapping.transformations:
+    for t in transformations:
         if t.name != instance_name:
             continue
         for p in t.ports:
@@ -91,21 +91,24 @@ def _find_ref_field(mapping: MappingInfo, instance_name: str, field_name: str) -
     return None
 
 
-def _trace_lineage(mapping: MappingInfo, target_field: str, start_instance: str, start_field: str) -> Tuple[str, str]:
-    """Walk connectors backward from (start_instance, start_field) until we
-    hit a SOURCE or a real (non-passthrough) expression. Returns
-    (source_lineage_str, transformation_rule_str)."""
+def _walk_backward(connectors, transformations, start_instance: str, start_field: str, is_stop):
+    """Generic backward walk over one connector graph, shared by both the
+    top-level mapping trace and the mapplet-internal trace below (they only
+    differ in which connector/transformation lists they walk and what counts
+    as a stopping instance). `is_stop(instance) -> (stop: bool, rule_override:
+    Optional[str])` lets the caller decide what ends the walk and whether
+    that should override the reported rule (a mapplet boundary does; a plain
+    source does not, since a real expression may still be found first).
+    Returns (hops, rule, stopped_at_instance_or_None)."""
     incoming: Dict[Tuple[str, str], List] = defaultdict(list)
-    for c in mapping.connectors:
+    for c in connectors:
         incoming[(c.to_instance, c.to_field)].append(c)
-
-    source_names = {s.name for s in mapping.sources}
-    mapplet_names = set(mapping.mapplet_refs)
 
     visited = set()
     instance, fld = start_instance, start_field
-    hops = []
+    hops: List[str] = []
     rule = "Direct copy / passthrough"
+    stopped_at: Optional[str] = None
 
     for _ in range(25):  # generous bound; these pipelines are shallow
         if (instance, fld) in visited:
@@ -113,23 +116,21 @@ def _trace_lineage(mapping: MappingInfo, target_field: str, start_instance: str,
         visited.add((instance, fld))
         hops.append(f"{instance}.{fld}")
 
-        if instance in mapplet_names:
-            # Mapplets are an intentional black box here (Stage 2c treats them
-            # as a shared, referenced-not-expanded object).
-            rule = f"resolved inside reusable mapplet '{instance}' (see shared-object cache)"
+        stop, override = is_stop(instance)
+        if stop:
+            if override:
+                rule = override
+            stopped_at = instance
             break
 
-        expr = _find_expression(mapping, instance, fld)
+        expr = _find_expression_in(transformations, instance, fld)
         if expr:
             rule = expr
             break
 
-        if instance in source_names:
-            break
-
         preds = incoming.get((instance, fld))
         if not preds:
-            ref = _find_ref_field(mapping, instance, fld)
+            ref = _find_ref_field_in(transformations, instance, fld)
             if ref:
                 fld = ref
                 continue
@@ -137,16 +138,108 @@ def _trace_lineage(mapping: MappingInfo, target_field: str, start_instance: str,
         c = preds[0]
         instance, fld = c.from_instance, c.from_field
 
+    return hops, rule, stopped_at
+
+
+def _mapplet_boundary_transform(mplt: MappletInfo, type_substr: str):
+    """A mapplet's own Input/Output Transformation — the intrinsic
+    pseudo-transformations that expose its interface — identified by type
+    rather than a fixed name, since PowerCenter names them per-mapplet."""
+    for t in mplt.inner_transformations:
+        if type_substr.lower() in (t.type or "").lower():
+            return t
+    return None
+
+
+def _trace_into_mapplet(mplt: MappletInfo, boundary_field: str) -> Tuple[List[str], str]:
+    """Continue backward-tracing inside a mapplet's own connector graph,
+    starting at its Output Transformation port matching the field the caller
+    wired to, instead of stopping at the boundary with a generic
+    placeholder. Distinguishes a straight rename/passthrough of the
+    mapplet's own input (or a source read directly inside it) from real
+    cleansing logic on one of its inner transformations' ports."""
+    output_transform = _mapplet_boundary_transform(mplt, "Output Transformation")
+    if output_transform is None:
+        # Older/partial mapplet capture (no Output Transformation found) —
+        # fall back to the old placeholder rather than tracing blind.
+        return [], f"resolved inside reusable mapplet '{mplt.name}' (see shared-object cache)"
+
+    input_transform = _mapplet_boundary_transform(mplt, "Input Transformation")
+    input_name = input_transform.name if input_transform else None
+    source_instance_names = set(mplt.source_instance_names)
+
+    def is_stop(instance):
+        if instance == input_name or instance in source_instance_names:
+            return True, None
+        return False, None
+
+    hops, rule, stopped_at = _walk_backward(
+        mplt.inner_connectors, mplt.inner_transformations, output_transform.name, boundary_field, is_stop
+    )
+
+    if rule == "Direct copy / passthrough" and stopped_at is not None:
+        end_field = hops[-1].split(".", 1)[1] if hops else boundary_field
+        if stopped_at == input_name:
+            if end_field == boundary_field:
+                rule = (
+                    f"straight rename/passthrough via mapplet '{mplt.name}' "
+                    f"(input port '{end_field}' -> output, no cleansing)"
+                )
+            else:
+                rule = (
+                    f"renamed inside mapplet '{mplt.name}': input port '{end_field}' "
+                    f"-> output port '{boundary_field}' (no cleansing)"
+                )
+        else:
+            rule = f"passthrough from source inside mapplet '{mplt.name}' (no cleansing)"
+
+    return hops, rule
+
+
+def _trace_lineage(
+    mapping: MappingInfo, mapplets: Dict[str, MappletInfo], target_field: str, start_instance: str, start_field: str
+) -> Tuple[str, str]:
+    """Walk connectors backward from (start_instance, start_field) until we
+    hit a SOURCE or a real (non-passthrough) expression. When the trail leads
+    into a referenced mapplet, keeps walking inside that mapplet's own
+    connector graph (see `_trace_into_mapplet`) instead of stopping at the
+    boundary — so a straight rename/passthrough field is reported as such,
+    and a real cleansing formula inside the mapplet becomes the
+    transformation_rule, rather than a generic "see shared-object cache"
+    placeholder. Returns (source_lineage_str, transformation_rule_str)."""
+    source_names = {s.name for s in mapping.sources}
+    mapplet_names = set(mapping.mapplet_refs)
+
+    def is_stop(instance):
+        if instance in mapplet_names or instance in source_names:
+            return True, None
+        return False, None
+
+    hops, rule, stopped_at = _walk_backward(
+        mapping.connectors, mapping.transformations, start_instance, start_field, is_stop
+    )
+
+    if stopped_at in mapplet_names:
+        boundary_field = hops[-1].split(".", 1)[1]
+        mplt = mapplets.get(stopped_at)
+        if mplt and mplt.inner_transformations:
+            inner_hops, inner_rule = _trace_into_mapplet(mplt, boundary_field)
+            hops.extend(f"[{stopped_at}]{h}" for h in inner_hops)
+            rule = inner_rule
+        else:
+            rule = f"resolved inside reusable mapplet '{stopped_at}' (see shared-object cache)"
+
     return " <- ".join(hops), rule
 
 
-def build_field_lineage(mapping: MappingInfo) -> List[FieldLineage]:
+def build_field_lineage(mapping: MappingInfo, mapplets: Optional[Dict[str, MappletInfo]] = None) -> List[FieldLineage]:
+    mapplets = mapplets or {}
     lineage = []
     target_names = {t.name for t in mapping.targets}
     for c in mapping.connectors:
         if c.to_instance not in target_names:
             continue
-        source_lineage, rule = _trace_lineage(mapping, c.to_field, c.from_instance, c.from_field)
+        source_lineage, rule = _trace_lineage(mapping, mapplets, c.to_field, c.from_instance, c.from_field)
         lineage.append(
             FieldLineage(
                 target_field=c.to_field,
@@ -192,30 +285,60 @@ LOGIC_ATTRIBUTE_NAMES = {
 }
 
 
-def build_transformation_logic(mapping: MappingInfo) -> List[dict]:
-    """Per-transformation business logic that lives in TABLEATTRIBUTEs or
-    GROUP conditions rather than the port/connector graph — SQL overrides,
-    lookup/filter/join conditions, router branch predicates. field_lineage
-    traces *what* feeds a target field; this captures *why* a join includes
-    what it does or a router sends a row down one branch vs another, which
-    the port graph alone can't show without reading the raw XML."""
-    entries = []
-    for t in mapping.transformations:
-        attrs = {k: v for k, v in t.table_attributes.items() if k in LOGIC_ATTRIBUTE_NAMES}
-        group_conditions = [
-            {"name": g["name"], "condition": g["condition"]}
-            for g in t.groups
-            if g.get("condition")
-        ]
-        if attrs or group_conditions:
-            entries.append(
-                {
-                    "transformation": t.name,
-                    "type": t.type,
-                    "attributes": attrs,
-                    "group_conditions": group_conditions,
-                }
-            )
+def build_transformation_logic(mapping: MappingInfo, mapplets: Optional[Dict[str, MappletInfo]] = None) -> List[dict]:
+    """Per-transformation business logic that a port/connector-graph trace
+    can't (always) surface:
+      - TABLEATTRIBUTEs / GROUP conditions — SQL overrides, lookup/filter/join
+        conditions, router branch predicates. These live in per-instance
+        configuration, not a port expression, so field_lineage never sees them.
+      - A port's own EXPRESSION — an Expression (or Aggregator/Rank/...)
+        transformation's real formula. field_lineage only reports one of
+        these if it's the exact hop a target field's trace happens to pass
+        through; a formula on a port nothing downstream directly maps to (or
+        one a trace never reaches because a later hop resolves inside a
+        mapplet) would otherwise be invisible.
+
+    Also walks each referenced mapplet's own inner transformations — tagged
+    with which mapplet they came from via the `mapplet` field — since the
+    same two kinds of logic (a Source Qualifier's SQL override, an
+    Expression's cleansing formula) can live inside a mapplet just as
+    easily, and previously only showed up in `field_lineage` as a generic
+    "resolved inside reusable mapplet" placeholder with no detail at all."""
+    entries: List[dict] = []
+
+    def _collect(transformations, mapplet_name: Optional[str] = None) -> None:
+        for t in transformations:
+            attrs = {k: v for k, v in t.table_attributes.items() if k in LOGIC_ATTRIBUTE_NAMES}
+            group_conditions = [
+                {"name": g["name"], "condition": g["condition"]}
+                for g in t.groups
+                if g.get("condition")
+            ]
+            port_expressions = [
+                {"port": p.name, "expression": p.expression}
+                for p in t.ports
+                if p.expression and p.expression != p.name
+            ]
+            if attrs or group_conditions or port_expressions:
+                entries.append(
+                    {
+                        "transformation": t.name,
+                        "type": t.type,
+                        "attributes": attrs,
+                        "group_conditions": group_conditions,
+                        "port_expressions": port_expressions,
+                        "mapplet": mapplet_name,
+                    }
+                )
+
+    _collect(mapping.transformations)
+
+    mapplets = mapplets or {}
+    for ref in mapping.mapplet_refs:
+        mplt = mapplets.get(ref)
+        if mplt:
+            _collect(mplt.inner_transformations, mapplet_name=mplt.name)
+
     return entries
 
 
@@ -256,10 +379,10 @@ def build_intermediate_representation(
         "sources": resolved_sources,
         "target": mapping.targets[0].name if mapping.targets else None,
         "flow": build_flow(mapping),
-        "field_lineage": [fl.__dict__ for fl in build_field_lineage(mapping)],
+        "field_lineage": [fl.__dict__ for fl in build_field_lineage(mapping, mapplets)],
         "field_counts": build_field_counts(mapping, all_sources, resolved_sources),
         "mapplet_refs": list(mapping.mapplet_refs),
         "mapping_variables": [mv.__dict__ for mv in mapping.mapping_variables],
         "session_partition_overrides": [o.__dict__ for o in mapping.session_partition_overrides],
-        "transformation_logic": build_transformation_logic(mapping),
+        "transformation_logic": build_transformation_logic(mapping, mapplets),
     }

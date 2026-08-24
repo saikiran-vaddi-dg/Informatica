@@ -27,7 +27,7 @@ Read the target workflow XML and identify, from its actual logic:
 - Every transformation branch (CASE/IIF logic, lookups, expressions) that produces a materially different output — you'll reproduce all of them together in Step 2, not one at a time.
 - The target table and load strategy (insert/update/upsert).
 
-This is the same fact-finding review-agent does before drafting any test case — what this skill defines is the output artifact that fact-finding feeds into.
+This is the same fact-finding review-agent does before drafting any test case — what this skill defines is the output artifact that fact-finding feeds into. For turning a `compact_mapping.py` summary's `field_lineage`/`transformation_logic` (Informatica expression syntax, mapplet-traced rules) into the actual SQL that belongs in Step 2 below, see the `compacted-mapping-analysis` skill — this skill assumes that translation has already happened, it doesn't teach it.
 
 ### Step 2: Model "actual" vs "expected"
 

@@ -166,15 +166,29 @@ def parse_targets(folder: ET.Element) -> Dict[str, TargetInfo]:
 
 
 def parse_mapplets(folder: ET.Element) -> Dict[str, MappletInfo]:
-    """Top-level reusable MAPPLET definitions (Stage 2c dedup source)."""
+    """Top-level reusable MAPPLET definitions (Stage 2c dedup source).
+
+    Also captures a mapplet's own internal <CONNECTOR> wiring and its SOURCE
+    instances' names — previously dropped — so a field_lineage trace that
+    reaches into this mapplet can keep walking its actual port graph instead
+    of stopping dead at the boundary with a generic placeholder."""
     mapplets = {}
     for el in folder.findall("MAPPLET"):
         name = el.get("NAME", "")
         inner_transformations = [_parse_transformation(t) for t in el.findall("TRANSFORMATION")]
-        source_refs = [
-            inst.get("TRANSFORMATION_NAME", inst.get("NAME", ""))
-            for inst in el.findall("INSTANCE")
-            if inst.get("TYPE", "") == "SOURCE"
+        source_instances = [inst for inst in el.findall("INSTANCE") if inst.get("TYPE", "") == "SOURCE"]
+        source_refs = [inst.get("TRANSFORMATION_NAME", inst.get("NAME", "")) for inst in source_instances]
+        source_instance_names = [inst.get("NAME", "") for inst in source_instances]
+        inner_connectors = [
+            ConnectorInfo(
+                from_field=c.get("FROMFIELD", ""),
+                from_instance=c.get("FROMINSTANCE", ""),
+                from_instance_type=c.get("FROMINSTANCETYPE", ""),
+                to_field=c.get("TOFIELD", ""),
+                to_instance=c.get("TOINSTANCE", ""),
+                to_instance_type=c.get("TOINSTANCETYPE", ""),
+            )
+            for c in el.findall("CONNECTOR")
         ]
         mapplets[name] = MappletInfo(
             name=name,
@@ -184,6 +198,8 @@ def parse_mapplets(folder: ET.Element) -> Dict[str, MappletInfo]:
             inner_transform_names=[t.name for t in inner_transformations],
             source_refs=source_refs,
             inner_transformations=inner_transformations,
+            source_instance_names=source_instance_names,
+            inner_connectors=inner_connectors,
         )
     return mapplets
 
