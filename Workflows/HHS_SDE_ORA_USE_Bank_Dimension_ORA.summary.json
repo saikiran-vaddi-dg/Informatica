@@ -118,7 +118,7 @@
     {
       "target_field": "ACTIVE_FLG",
       "source_lineage": "HHS_mplt_SA_ORA_BankDimension.EXT_ACTIVE_FLAG <- [HHS_mplt_SA_ORA_BankDimension]MAPO_BANKS.EXT_ACTIVE_FLAG <- [HHS_mplt_SA_ORA_BankDimension]EXP_BANKS.EXT_ACTIVE_FLAG",
-      "transformation_rule": "'Y'"
+      "transformation_rule": "IIF(ISNULL(INP_END_DATE), 'Y', IIF(INP_END_DATE > SYSDATE, 'Y', IIF(INP_END_DATE > (SYSDATE - 90), 'P', 'N')))"
     },
     {
       "target_field": "STREET_ADDRESS1",
@@ -281,7 +281,7 @@
     "tier": "complex",
     "recommended_model": "large-reasoning-model"
   },
-  "raw_archive_ref": "blob://mapping-cache/HHS_SDE_ORA_BankDimension/33539eb08c25.xml",
+  "raw_archive_ref": "blob://mapping-cache/HHS_SDE_ORA_BankDimension/e0b14fcc7ba9.xml",
   "mapping_variables": [],
   "session_partition_overrides": [],
   "transformation_logic": [
@@ -503,7 +503,7 @@
         },
         {
           "port": "EXT_ACTIVE_FLAG",
-          "expression": "'Y'"
+          "expression": "IIF(ISNULL(INP_END_DATE), 'Y', IIF(INP_END_DATE > SYSDATE, 'Y', IIF(INP_END_DATE > (SYSDATE - 90), 'P', 'N')))"
         },
         {
           "port": "EXT_CURR_EFF_FROM_DT",
@@ -569,6 +569,6 @@
       "mapplet": "HHS_mplt_SA_ORA_BankDimension"
     }
   ],
-  "source_file_hash": "33539eb08c25dc481c9f854ed012c21630c9a5eac46a22e9d58685ab4eb05c87",
+  "source_file_hash": "e0b14fcc7ba9ef102c6c74c8ed72879edf9c1f56b35e4092006075b35710d296",
   "schema_version": 4
 }

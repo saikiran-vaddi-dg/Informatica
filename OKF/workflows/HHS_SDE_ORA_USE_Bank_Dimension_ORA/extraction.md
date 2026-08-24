@@ -1,8 +1,8 @@
 ---
 generated:
   by: developer-agent
-  at: "2026-08-24T16:24:35+05:30"
-  commit: 7d254ea041b31d565335fb4f92269765b869cff4
+  at: "2026-08-24T17:29:18+05:30"
+  commit: 8225fe202c8fe8317e3d96019e6d74f8e77c843d
 ---
 
 # HHS_SDE_ORA_USE_Bank_Dimension_ORA — Extraction
@@ -39,6 +39,15 @@ the literal `'DEFAULT'`. Target is the same staging table, `W_BANK_DS`.
 - **Known quirk (inherited)**: `BANK_BRANCH_CODE` and `BANK_BRANCH_NAME` share
   the same source field — preserved as actual behavior, same as the base
   workflow.
+- **`ACTIVE_FLG` lifecycle rule (updated 2026-08-24)**: no longer a hardcoded
+  `'Y'`. `HHS_mplt_SA_ORA_BankDimension.EXP_BANKS.EXT_ACTIVE_FLAG` now derives
+  a 3-way status from `END_DATE`:
+  `IIF(ISNULL(INP_END_DATE), 'Y', IIF(INP_END_DATE > SYSDATE, 'Y', IIF(INP_END_DATE > (SYSDATE - 90), 'P', 'N')))`
+  — `'Y'` if `END_DATE` is null or in the future, `'P'` if it passed within
+  the last 90 days, `'N'` if it passed more than 90 days ago. This change is
+  isolated to this `_USE_...ORA` variant's mapplet copy; the sibling
+  `HHS_SDE_ORA_BankDimension.XML` still hardcodes `'Y'` as of 2026-08-21 (see
+  [sibling extraction](../HHS_SDE_ORA_BankDimension/extraction.md)).
 - **No registered data source**: no source named
   `HHS_SDE_ORA_USE_Bank_Dimension_ORA` exists on the platform; the JDBC 2
   ("expected") side of the test case reuses the `HHS_SDE_ORA_BankDimension`
