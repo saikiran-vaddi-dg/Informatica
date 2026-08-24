@@ -1,0 +1,90 @@
+{
+  "dataflowName": "HHS_SDE_ORA_VendorDimension_TestCase",
+  "engineName": "168_AN",
+  "environment": "",
+  "folderName": "Dataflow",
+  "type": "dataflow",
+  "sources": [
+    {
+      "componentName": "JDBC 1",
+      "type": "JDBC",
+      "dataSourceName": "W_VENDOR_DS",
+      "format": "QUERY",
+      "datasetName": "JDBC_1",
+      "query": "SELECT VENDOR_ID, VENDOR_NAME, VENDOR_NUMBER, VENDOR_TYPE_CODE, DUNS_NUMBER, ADDRESS_LINE1, CITY, STATE, ZIP, COUNTRY, PHONE, INTEGRATION_ID, TENANT_ID, DATASOURCE_NUM_ID, SRC_EFF_FROM_DT, ACTIVE_FLG, CREATED_ON_DT, CHANGED_ON_DT, CREATED_BY_ID, CHANGED_BY_ID FROM W_VENDOR_DS",
+      "dependencies": [],
+      "dataSourceLogicalName": "",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "autoRepartition": "ENABLED",
+      "enableTrim": "ENABLED"
+    },
+    {
+      "componentName": "JDBC 2",
+      "type": "JDBC",
+      "dataSourceName": "HHS_SDE_ORA_VendorDimension",
+      "format": "QUERY",
+      "datasetName": "JDBC_2",
+      "query": "WITH primary_site AS (SELECT VENDOR_ID, ADDRESS_LINE1, CITY, STATE, ZIP, COUNTRY, PHONE FROM PO_VENDOR_SITES_ALL WHERE PRIMARY_PAY_SITE_FLAG = 'Y') SELECT TO_CHAR(v.VENDOR_ID) AS VENDOR_ID, v.VENDOR_NAME AS VENDOR_NAME, v.SEGMENT1 AS VENDOR_NUMBER, v.VENDOR_TYPE_LOOKUP_CODE AS VENDOR_TYPE_CODE, v.DUNS_NUMBER AS DUNS_NUMBER, ps.ADDRESS_LINE1 AS ADDRESS_LINE1, ps.CITY AS CITY, ps.STATE AS STATE, ps.ZIP AS ZIP, CASE WHEN ps.COUNTRY IS NULL THEN 'USA' ELSE ps.COUNTRY END AS COUNTRY, ps.PHONE AS PHONE, 'VND~' || TO_CHAR(v.VENDOR_ID) AS INTEGRATION_ID, 'HHS_DEFAULT' AS TENANT_ID, 301 AS DATASOURCE_NUM_ID, DATE '1900-01-01' AS SRC_EFF_FROM_DT, 'Y' AS ACTIVE_FLG, v.CREATION_DATE AS CREATED_ON_DT, v.LAST_UPDATE_DATE AS CHANGED_ON_DT, TO_CHAR(v.CREATED_BY) AS CREATED_BY_ID, TO_CHAR(v.LAST_UPDATED_BY) AS CHANGED_BY_ID FROM PO_VENDORS v JOIN primary_site ps ON ps.VENDOR_ID = v.VENDOR_ID WHERE v.ENABLED_FLAG = 'Y'",
+      "dependencies": [],
+      "dataSourceLogicalName": "",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "autoRepartition": "ENABLED",
+      "enableTrim": "ENABLED"
+    }
+  ],
+  "mappings": [
+    {
+      "componentName": "DataCompare 3",
+      "sourceDatasetName": "JDBC_1",
+      "targetDatasetName": "JDBC_2",
+      "autoMap": "ENABLED",
+      "applyTargetDatatypeToSource": "DISABLED",
+      "datasetName": "DataCompare_3",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "type": "Mapping",
+      "config": {
+        "onlyInA": "ENABLED",
+        "onlyInB": "ENABLED",
+        "differences": "ENABLED",
+        "enableTrim": "ENABLED",
+        "considerNullAndEmptySpaceEqual": "ENABLED",
+        "automaticDataTypeConversion": "ENABLED",
+        "columnWiseMismatches": "ENABLED",
+        "compareIgnoreCase": "ENABLED",
+        "passComponentIfDuplicatesExist": "DISABLED",
+        "onlyInAThresholdUnit": "number",
+        "onlyInAThreshold": "0",
+        "onlyInBThresholdUnit": "number",
+        "onlyInBThreshold": "0",
+        "differencesSourceThresholdUnit": "number",
+        "differencesSourceThreshold": "0",
+        "differencesTargetThresholdUnit": "number",
+        "differencesTargetThreshold": "0"
+      },
+      "columnMappings": [
+        {"sourceColumnName": "VENDOR_ID", "targetColumnName": "VENDOR_ID", "uniqueKeyColumn": true},
+        {"sourceColumnName": "VENDOR_NAME", "targetColumnName": "VENDOR_NAME", "uniqueKeyColumn": false},
+        {"sourceColumnName": "VENDOR_NUMBER", "targetColumnName": "VENDOR_NUMBER", "uniqueKeyColumn": false},
+        {"sourceColumnName": "VENDOR_TYPE_CODE", "targetColumnName": "VENDOR_TYPE_CODE", "uniqueKeyColumn": false},
+        {"sourceColumnName": "DUNS_NUMBER", "targetColumnName": "DUNS_NUMBER", "uniqueKeyColumn": false},
+        {"sourceColumnName": "ADDRESS_LINE1", "targetColumnName": "ADDRESS_LINE1", "uniqueKeyColumn": false},
+        {"sourceColumnName": "CITY", "targetColumnName": "CITY", "uniqueKeyColumn": false},
+        {"sourceColumnName": "STATE", "targetColumnName": "STATE", "uniqueKeyColumn": false},
+        {"sourceColumnName": "ZIP", "targetColumnName": "ZIP", "uniqueKeyColumn": false},
+        {"sourceColumnName": "COUNTRY", "targetColumnName": "COUNTRY", "uniqueKeyColumn": false},
+        {"sourceColumnName": "PHONE", "targetColumnName": "PHONE", "uniqueKeyColumn": false},
+        {"sourceColumnName": "INTEGRATION_ID", "targetColumnName": "INTEGRATION_ID", "uniqueKeyColumn": false},
+        {"sourceColumnName": "TENANT_ID", "targetColumnName": "TENANT_ID", "uniqueKeyColumn": false},
+        {"sourceColumnName": "DATASOURCE_NUM_ID", "targetColumnName": "DATASOURCE_NUM_ID", "uniqueKeyColumn": false},
+        {"sourceColumnName": "SRC_EFF_FROM_DT", "targetColumnName": "SRC_EFF_FROM_DT", "uniqueKeyColumn": false},
+        {"sourceColumnName": "ACTIVE_FLG", "targetColumnName": "ACTIVE_FLG", "uniqueKeyColumn": false},
+        {"sourceColumnName": "CREATED_ON_DT", "targetColumnName": "CREATED_ON_DT", "uniqueKeyColumn": false},
+        {"sourceColumnName": "CHANGED_ON_DT", "targetColumnName": "CHANGED_ON_DT", "uniqueKeyColumn": false},
+        {"sourceColumnName": "CREATED_BY_ID", "targetColumnName": "CREATED_BY_ID", "uniqueKeyColumn": false},
+        {"sourceColumnName": "CHANGED_BY_ID", "targetColumnName": "CHANGED_BY_ID", "uniqueKeyColumn": false}
+      ],
+      "dependencies": ["JDBC 1", "JDBC 2"]
+    }
+  ],
+  "tags": ["HHS", "VendorDimension", "DataCompare"]
+}

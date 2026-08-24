@@ -1,0 +1,231 @@
+{
+  "mapping": "HHS_SDE_ORA_VendorDimension",
+  "description": "Synthetic demo mapping. Extracts vendor master data and each vendor's primary pay site from Oracle EBS Purchasing tables to the staging area. Uses no mapping variables or session parameters; every constant is a literal hardcoded in an expression.",
+  "sources": [
+    "PO_VENDORS",
+    "PO_VENDOR_SITES_ALL"
+  ],
+  "target": "W_VENDOR_DS",
+  "flow": [
+    "source_definition:PO_VENDORS",
+    "source_definition:PO_VENDOR_SITES_ALL",
+    "source_qualifier:SQ_PO_VENDORS",
+    "source_qualifier:SQ_PO_VENDOR_SITES_ALL",
+    "joiner:JNR_VendorPrimarySite",
+    "filter:Filter",
+    "expression:Exp_Vendor_Business_Rules",
+    "target_definition:W_VENDOR_DS"
+  ],
+  "field_lineage": [
+    {
+      "target_field": "VENDOR_ID",
+      "source_lineage": "Exp_Vendor_Business_Rules.VENDOR_ID_OUT",
+      "transformation_rule": "TO_CHAR(VENDOR_ID)"
+    },
+    {
+      "target_field": "VENDOR_NAME",
+      "source_lineage": "Exp_Vendor_Business_Rules.VENDOR_NAME <- Filter.VENDOR_NAME <- JNR_VendorPrimarySite.VENDOR_NAME <- SQ_PO_VENDORS.VENDOR_NAME <- PO_VENDORS.VENDOR_NAME",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "VENDOR_NUMBER",
+      "source_lineage": "Exp_Vendor_Business_Rules.VENDOR_NUMBER",
+      "transformation_rule": "SEGMENT1"
+    },
+    {
+      "target_field": "VENDOR_TYPE_CODE",
+      "source_lineage": "Exp_Vendor_Business_Rules.VENDOR_TYPE_CODE",
+      "transformation_rule": "VENDOR_TYPE_LOOKUP_CODE"
+    },
+    {
+      "target_field": "DUNS_NUMBER",
+      "source_lineage": "Exp_Vendor_Business_Rules.DUNS_NUMBER <- Filter.DUNS_NUMBER <- JNR_VendorPrimarySite.DUNS_NUMBER <- SQ_PO_VENDORS.DUNS_NUMBER <- PO_VENDORS.DUNS_NUMBER",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "ADDRESS_LINE1",
+      "source_lineage": "Exp_Vendor_Business_Rules.ADDRESS_LINE1 <- Filter.ADDRESS_LINE1 <- JNR_VendorPrimarySite.ADDRESS_LINE1 <- SQ_PO_VENDOR_SITES_ALL.ADDRESS_LINE1 <- PO_VENDOR_SITES_ALL.ADDRESS_LINE1",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "CITY",
+      "source_lineage": "Exp_Vendor_Business_Rules.CITY <- Filter.CITY <- JNR_VendorPrimarySite.CITY <- SQ_PO_VENDOR_SITES_ALL.CITY <- PO_VENDOR_SITES_ALL.CITY",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "STATE",
+      "source_lineage": "Exp_Vendor_Business_Rules.STATE <- Filter.STATE <- JNR_VendorPrimarySite.STATE <- SQ_PO_VENDOR_SITES_ALL.STATE <- PO_VENDOR_SITES_ALL.STATE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "ZIP",
+      "source_lineage": "Exp_Vendor_Business_Rules.ZIP <- Filter.ZIP <- JNR_VendorPrimarySite.ZIP <- SQ_PO_VENDOR_SITES_ALL.ZIP <- PO_VENDOR_SITES_ALL.ZIP",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "COUNTRY",
+      "source_lineage": "Exp_Vendor_Business_Rules.COUNTRY_OUT",
+      "transformation_rule": "IIF(ISNULL(COUNTRY), 'USA', COUNTRY)"
+    },
+    {
+      "target_field": "PHONE",
+      "source_lineage": "Exp_Vendor_Business_Rules.PHONE <- Filter.PHONE <- JNR_VendorPrimarySite.PHONE <- SQ_PO_VENDOR_SITES_ALL.PHONE <- PO_VENDOR_SITES_ALL.PHONE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "INTEGRATION_ID",
+      "source_lineage": "Exp_Vendor_Business_Rules.INTEGRATION_ID",
+      "transformation_rule": "'VND~' || TO_CHAR(VENDOR_ID)"
+    },
+    {
+      "target_field": "TENANT_ID",
+      "source_lineage": "Exp_Vendor_Business_Rules.TENANT_ID",
+      "transformation_rule": "'HHS_DEFAULT'"
+    },
+    {
+      "target_field": "DATASOURCE_NUM_ID",
+      "source_lineage": "Exp_Vendor_Business_Rules.DATASOURCE_NUM_ID",
+      "transformation_rule": "301"
+    },
+    {
+      "target_field": "SRC_EFF_FROM_DT",
+      "source_lineage": "Exp_Vendor_Business_Rules.SRC_EFF_FROM_DT",
+      "transformation_rule": "TO_DATE('01/01/1900','MM/DD/YYYY')"
+    },
+    {
+      "target_field": "ACTIVE_FLG",
+      "source_lineage": "Exp_Vendor_Business_Rules.ACTIVE_FLG",
+      "transformation_rule": "'Y'"
+    },
+    {
+      "target_field": "CREATED_ON_DT",
+      "source_lineage": "Exp_Vendor_Business_Rules.CREATED_ON_DT",
+      "transformation_rule": "CREATION_DATE"
+    },
+    {
+      "target_field": "CHANGED_ON_DT",
+      "source_lineage": "Exp_Vendor_Business_Rules.CHANGED_ON_DT",
+      "transformation_rule": "LAST_UPDATE_DATE"
+    },
+    {
+      "target_field": "CREATED_BY_ID",
+      "source_lineage": "Exp_Vendor_Business_Rules.CREATED_BY_ID",
+      "transformation_rule": "TO_CHAR(CREATED_BY)"
+    },
+    {
+      "target_field": "CHANGED_BY_ID",
+      "source_lineage": "Exp_Vendor_Business_Rules.CHANGED_BY_ID",
+      "transformation_rule": "TO_CHAR(LAST_UPDATED_BY)"
+    }
+  ],
+  "shared_object_refs": [],
+  "field_counts": {
+    "source_fields": 19,
+    "target_fields": 20,
+    "transform_ports": 85
+  },
+  "complexity": {
+    "transformation_count": 5,
+    "connector_count": 92,
+    "reusable_mapplet_count": 0,
+    "lookup_count": 0,
+    "router_group_count": 0,
+    "update_strategy_present": false,
+    "sql_override_present": false,
+    "sql_override_join_count": 0,
+    "nested_expression_functions": [
+      "IIF",
+      "ISNULL"
+    ],
+    "tier": "moderate",
+    "recommended_model": "small-model"
+  },
+  "raw_archive_ref": "blob://mapping-cache/HHS_SDE_ORA_VendorDimension/88c4b702eb69.xml",
+  "mapping_variables": [],
+  "session_partition_overrides": [],
+  "transformation_logic": [
+    {
+      "transformation": "SQ_PO_VENDOR_SITES_ALL",
+      "type": "Source Qualifier",
+      "attributes": {
+        "Source Filter": "PO_VENDOR_SITES_ALL.PRIMARY_PAY_SITE_FLAG = 'Y'"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": null
+    },
+    {
+      "transformation": "Filter",
+      "type": "Filter",
+      "attributes": {
+        "Filter Condition": "ENABLED_FLAG = 'Y'"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": null
+    },
+    {
+      "transformation": "Exp_Vendor_Business_Rules",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "VENDOR_ID_OUT",
+          "expression": "TO_CHAR(VENDOR_ID)"
+        },
+        {
+          "port": "VENDOR_NUMBER",
+          "expression": "SEGMENT1"
+        },
+        {
+          "port": "VENDOR_TYPE_CODE",
+          "expression": "VENDOR_TYPE_LOOKUP_CODE"
+        },
+        {
+          "port": "COUNTRY_OUT",
+          "expression": "IIF(ISNULL(COUNTRY), 'USA', COUNTRY)"
+        },
+        {
+          "port": "INTEGRATION_ID",
+          "expression": "'VND~' || TO_CHAR(VENDOR_ID)"
+        },
+        {
+          "port": "DATASOURCE_NUM_ID",
+          "expression": "301"
+        },
+        {
+          "port": "TENANT_ID",
+          "expression": "'HHS_DEFAULT'"
+        },
+        {
+          "port": "SRC_EFF_FROM_DT",
+          "expression": "TO_DATE('01/01/1900','MM/DD/YYYY')"
+        },
+        {
+          "port": "ACTIVE_FLG",
+          "expression": "'Y'"
+        },
+        {
+          "port": "CREATED_ON_DT",
+          "expression": "CREATION_DATE"
+        },
+        {
+          "port": "CHANGED_ON_DT",
+          "expression": "LAST_UPDATE_DATE"
+        },
+        {
+          "port": "CREATED_BY_ID",
+          "expression": "TO_CHAR(CREATED_BY)"
+        },
+        {
+          "port": "CHANGED_BY_ID",
+          "expression": "TO_CHAR(LAST_UPDATED_BY)"
+        }
+      ],
+      "mapplet": null
+    }
+  ],
+  "source_file_hash": "88c4b702eb6944733223bbd4167dcbe2da8d6dda071498880eb036118b3b0d26",
+  "schema_version": 4
+}
