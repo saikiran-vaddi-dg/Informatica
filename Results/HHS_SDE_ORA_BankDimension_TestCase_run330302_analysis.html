@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HHS_SDE_ORA_BankDimension_TestCase - Run 330302 Analysis</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1a1a2e; --muted: #6b7280; --border: #e5e7eb;
+    --pass: #16a34a; --fail: #dc2626;
+    --testcase: #2563eb; --env: #d97706; --bug: #dc2626; --none: #6b7280;
+    --track: #f3f4f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14141f; --fg: #e8e8f0; --muted: #9ca3af; --border: #2d2d3d; --track: #24243a; }
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--fg); font: 15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif; margin: 0; padding: 2rem; max-width: 900px; margin-inline: auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+  h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+  .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+  .status-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; color: #fff; }
+  .badge-pass { background: var(--pass); }
+  .badge-fail { background: var(--fail); }
+  .bar-row { display: flex; align-items: center; gap: 0.75rem; margin: 0.4rem 0; }
+  .bar-label { width: 160px; flex-shrink: 0; font-size: 0.85rem; color: var(--muted); }
+  .bar-track { flex: 1; background: var(--track); border-radius: 4px; height: 14px; overflow: hidden; }
+  .bar-fill { background: var(--fail); height: 100%; border-radius: 4px; }
+  .bar-value { width: 90px; text-align: right; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+  .finding { border-left: 3px solid var(--border); padding: 0.5rem 0 0.5rem 1rem; margin: 1rem 0; }
+  .action { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 0.75rem 0; }
+  .badge { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+  .badge-testcase { background: var(--testcase); }
+  .badge-env { background: var(--env); }
+  .badge-bug { background: var(--bug); }
+  .badge-none { background: var(--none); }
+  code { background: var(--track); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+  table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); }
+</style>
+</head>
+<body>
+  <h1>HHS_SDE_ORA_BankDimension_TestCase - Run 330302 Analysis</h1>
+  <div class="meta">Generated 2026-08-24T11:02:01+05:30 &middot; <span class="status-badge badge-fail">Failed</span></div>
+
+  <h2>Scope</h2>
+  <p>
+    Analyzed <code>Results/HHS_SDE_ORA_BankDimension_TestCase_run330302_report.json</code> (DataCompare component
+    output, dataflowId <code>e017c2a3-e738-4194-97ae-6bde6e04ae58</code>, container <code>HHS_Poc_container</code>,
+    engine <code>168_AN</code>, folder <code>Dataflow</code>, run 330302, run date 2026-08-24 05:25:58).
+    Cross-referenced against <code>HRD/HHS_SDE_ORA_BankDimension_TestCase.json</code> (test case definition: JDBC_1
+    = actual straight <code>SELECT * FROM W_BANK_DS</code>, JDBC_2 = from-scratch reconstruction of the SDE's source
+    logic, keyed on <code>INTEGRATION_ID</code>, all thresholds set to 0) and
+    <code>OKF/workflows/HHS_SDE_ORA_BankDimension/extraction.md</code> (current — <code>generated.at</code>
+    2026-08-24T10:48:30+05:30 against commit <code>f8fefb0</code>, which post-dates the workflow XML's last commit
+    2026-08-21T21:00:25+05:30, so read directly per the staleness rule; raw XML was not opened) and
+    <code>hrd_mapping.md</code> / <code>index.md</code> in the same folder.
+  </p>
+  <p><b>Gaps carried into this scope note:</b> live <code>dataops_mcp</code> job-history tools were unavailable
+    (auth required, non-interactive session) — see Gaps section.</p>
+
+  <h2>Summary</h2>
+  <p>
+    Dataset A (JDBC_1 / actual, <code>W_BANK_DS</code>) returned 4 rows for 2 distinct <code>INTEGRATION_ID</code>
+    keys (<code>E~6001</code>, <code>I~5001</code>) — i.e. each key duplicated once. Dataset B (JDBC_2 / expected
+    reconstruction) returned exactly 2 rows, one per key. Of the 2 keys DataCompare could pair for column-level
+    comparison, 0 matched and 2 mismatched; the 2 unpaired duplicate rows in A were bucketed as "Only In A".
+    Overall component status is <b>Failed</b> because <code>onlyInAThreshold</code> and
+    <code>differencesSourceThreshold</code> are both configured to 0 in the HRD test case and both were breached.
+    Note the HRD config also sets <code>passComponentIfDuplicatesExist: ENABLED</code>, which is why "Duplicates In A
+    Count" independently shows a Pass badge in the raw report — it did not drive the Failed verdict.
+  </p>
+  <div class="bar-row">
+    <span class="bar-label">Only In A</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 50%"></div></div>
+    <span class="bar-value">2 (50%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Duplicates In A</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 50%"></div></div>
+    <span class="bar-value">2 (50%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Only In B</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%"></div></div>
+    <span class="bar-value">0 (0%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Duplicates In B</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%"></div></div>
+    <span class="bar-value">0 (0%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Matched keys</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%; background: var(--pass);"></div></div>
+    <span class="bar-value">0 / 2 (0%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Mismatched keys</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div>
+    <span class="bar-value">2 / 2 (100%)</span>
+  </div>
+
+  <h2>Findings</h2>
+
+  <div class="finding">
+    <h3>Both keys duplicated in A, duplicates are byte-identical (not fan-out variants)</h3>
+    <p>
+      <code>Duplicates In JDBC_1</code>: <code>E~6001</code> +1, <code>I~5001</code> +1, matching
+      <code>Dataset A Count : 4</code> for 2 distinct keys. Neither duplicate pair shows any internal variance in
+      the report (only one row per key appears in <code>Only In JDBC_1</code> / <code>Mismatched Rows</code>).
+      <code>extraction.md</code> documents an explicit Expression+Filter "sequential-variable-port dedup" on
+      <code>INTEGRATION_ID</code> specifically built to guard against the contact-join fan-out — a real dedup-logic
+      failure from that fan-out would typically produce duplicates that *differ* in <code>CONTACT_NAME</code>/
+      <code>PHONE_NUM</code>, not identical copies. Identical duplicates are more consistent with the same stub row
+      having been inserted twice into <code>W_BANK_DS</code>.
+    </p>
+  </div>
+
+  <div class="finding">
+    <h3>Actual target rows carry literal placeholder text and only 7/26 non-key columns populated</h3>
+    <p>
+      <code>Only In JDBC_1</code> rows for both keys show <code>BANK_ACCOUNT_NAME</code> = "TEST EXTERNAL ACCT" /
+      "TEST CHECKING ACCT", <code>BANK_NAME</code> = "BANK OF TEST HQ", <code>BANK_BRANCH_NAME</code> =
+      "TEST BANK MAIN BRANCH" — not text an Oracle EBS extraction would produce. Only
+      <code>INTEGRATION_ID</code>, <code>BANK_ACCT_NUM</code>, <code>BANK_ACCOUNT_NAME</code>, <code>BANK_NAME</code>,
+      <code>BANK_BRANCH_NAME</code>, <code>AGENCY_LOCATION_CODE</code>, <code>PRIMARY_FLAG</code> are populated in A;
+      every other column is blank.
+    </p>
+  </div>
+
+  <div class="finding">
+    <h3>13 columns mismatch, all are the derived/lookup-dependent columns extraction.md names, and A is blank in all but two</h3>
+    <p>
+      <code>Column Wise Mismatches</code>: CREATED_ON_DT(2), STATE_NAME(2), STREET_ADDRESS1(2), BANK_TYPE_CODE(2),
+      COUNTRY_CODE(2), SRC_EFF_FROM_DT(2), COUNTY(2), BANK_CAT_CODE(1), PHONE_NUM(2), ACTIVE_FLG(2), CITY(2),
+      CHANGED_ON_DT(2), BANK_BRANCH_CODE(2) — out of 2 comparable rows. These map exactly onto
+      <code>extraction.md</code>'s "derived-lookup-dependent" list (branch-view join, contact join,
+      <code>COALESCE</code> fallback) plus the documented <code>BANK_BRANCH_CODE</code>/<code>BANK_BRANCH_NAME</code>
+      quirk. In 11 of the 13 mismatching (row, column) pairs A is empty and B holds a real reconstructed value
+      (e.g. row <code>I~5001</code>, <code>BANK_TYPE_CODE</code>: <code>"A :  B : BANK"</code>).
+    </p>
+  </div>
+
+  <div class="finding">
+    <h3>SRC_EFF_FROM_DT: A holds a live timestamp, not the expected 1899-01-01 sentinel</h3>
+    <p>
+      Row <code>I~5001</code>: <code>"A : 2026-08-21 16:57:12 B : 1899-01-01 00:00:00"</code>; row
+      <code>E~6001</code> similarly <code>"A : 2026-08-21 16:57:07 B : 1899-01-01 00:00:00"</code>.
+      B's JDBC_2 query hardcodes <code>TO_DATE('18990101000000', 'YYYYMMDDHH24MISS')</code> as the expected value.
+      A's values are close to (but not identical to) that row's own <code>CHANGED_ON_DT</code>/<code>CREATED_ON_DT</code>
+      timestamps, which look like an insert/load timestamp rather than a transformation output. This constant is not
+      independently confirmed in <code>extraction.md</code> (only encoded in the HRD test case) — see Gaps.
+    </p>
+  </div>
+
+  <div class="finding">
+    <h3>PHONE_NUM for I~5001: both sides populated but differ (not a blank-vs-derived case)</h3>
+    <p>
+      Row <code>I~5001</code>: <code>"A : 217-5551000 B : 217-5552000"</code>. Unlike every other mismatching
+      column, A is not blank here — it holds a real-looking but different value from B's live-source-derived
+      value. This is the one mismatch that does not fit the "A never got loaded" pattern cleanly and is called out
+      separately in Recommended Actions.
+    </p>
+  </div>
+
+  <div class="finding">
+    <h3>passComponentIfDuplicatesExist=ENABLED masks the duplicate signal in the badge column</h3>
+    <p>
+      <code>HRD/HHS_SDE_ORA_BankDimension_TestCase.json</code> config sets
+      <code>"passComponentIfDuplicatesExist": "ENABLED"</code>, which is why <code>Duplicates In A Count</code>
+      shows <code>Status: Pass</code> in the raw report despite 2 duplicated keys. It did not affect this run's
+      overall Failed verdict (onlyInA/differences thresholds already caught it independently), but it would hide a
+      duplicate-only regression in a future run where onlyInA/differences happened to be clean.
+    </p>
+  </div>
+
+  <h2>Recommended Actions</h2>
+
+  <div class="action">
+    <span class="badge badge-env">Environment/data defect</span>
+    <p>
+      <b>Duplicates in A (E~6001, I~5001) and the corresponding "Only In A" rows.</b> W_BANK_DS currently holds two
+      byte-identical stub rows per key rather than the single row a genuine mapping run (with its documented
+      INTEGRATION_ID dedup step) would produce. Fix outside the test case: truncate/reload the
+      <code>W_BANK_DS</code> rows for <code>E~6001</code>/<code>I~5001</code> by actually running the
+      <code>HHS_SDE_ORA_BankDimension</code> mapping against the source EBS test data, instead of relying on
+      hand-inserted stub rows. No change to <code>HRD/HHS_SDE_ORA_BankDimension_TestCase.json</code> is needed.
+    </p>
+  </div>
+
+  <div class="action">
+    <span class="badge badge-env">Environment/data defect</span>
+    <p>
+      <b>12 of 13 column-wise mismatches (CREATED_ON_DT, STATE_NAME, STREET_ADDRESS1, BANK_TYPE_CODE,
+      COUNTRY_CODE, COUNTY, BANK_CAT_CODE, PHONE_NUM for E~6001, ACTIVE_FLG, CITY, CHANGED_ON_DT,
+      BANK_BRANCH_CODE).</b> All are derived/lookup-dependent columns per <code>extraction.md</code>; A is blank
+      in each, B holds a plausible derived value consistent with the documented branch/contact-join logic and the
+      known BANK_BRANCH_CODE=BANK_BRANCH_NAME quirk. This resolves once <code>W_BANK_DS</code> is reloaded via an
+      actual mapping run (same fix as above). Test case's JDBC_2 reconstruction is correct as written — no
+      test-case change recommended.
+    </p>
+  </div>
+
+  <div class="action">
+    <span class="badge badge-env">Environment/data defect (lower confidence — needs confirmation)</span>
+    <p>
+      <b>SRC_EFF_FROM_DT mismatch.</b> A's value looks like a stub-row insert timestamp, not the mapping's expected
+      constant. Before treating this as fully resolved by a reload, confirm the actual Informatica expression for
+      <code>SRC_EFF_FROM_DT</code> in the workflow (not independently documented in <code>extraction.md</code>) to
+      make sure the HRD test case's hardcoded <code>1899-01-01</code> expectation in JDBC_2 is really what the
+      mapping emits, rather than a value the test-case author assumed. If confirmed correct, no test-case change is
+      needed and this resolves with the same W_BANK_DS reload.
+    </p>
+  </div>
+
+  <div class="action">
+    <span class="badge badge-none">Needs re-verification after reload — not yet classifiable</span>
+    <p>
+      <b>PHONE_NUM mismatch for I~5001 (A="217-5551000" vs B="217-5552000", both non-blank).</b> Does not fit the
+      "A never loaded" pattern the other mismatches show. Two environment-side explanations are plausible — a
+      hand-typed stub phone number unrelated to the live EBS contact record, or W_BANK_DS loaded before the EBS
+      contact record's phone number was updated — but neither can be confirmed from <code>Results/</code> alone.
+      Recommended action: reload <code>W_BANK_DS</code> via the actual mapping first, then re-run this DataCompare;
+      if PHONE_NUM still mismatches after a clean reload, escalate specifically that discrepancy (possible genuine
+      bug in contact/phone selection when a bank account has multiple contact records) rather than assuming
+      environment defect by default.
+    </p>
+  </div>
+
+  <div class="action">
+    <span class="badge badge-testcase">Test case improvement (optional, not this run's failure cause)</span>
+    <p>
+      <b><code>passComponentIfDuplicatesExist: ENABLED</code> in the DataCompare config.</b> Since
+      <code>INTEGRATION_ID</code> is a strict unique key that the mapping's own dedup step is designed to
+      guarantee, consider setting this to <code>DISABLED</code> (or adding an explicit duplicates threshold of 0)
+      so a future duplicate-only regression in <code>W_BANK_DS</code> is caught rather than silently marked Pass.
+      This did not cause this run's Failed verdict and is offered as a hardening suggestion, not a fix for the
+      current failure.
+    </p>
+  </div>
+
+  <p><b>No genuine workflow/ETL bug was identified in this run.</b> All failure symptoms are explained by A
+    (<code>W_BANK_DS</code>) apparently containing hand-seeded/stub rows rather than the output of an actual
+    mapping run, with one item (SRC_EFF_FROM_DT expression) needing confirmation and one item (PHONE_NUM for
+    I~5001) needing re-verification after a clean reload before it can be fully closed out.</p>
+
+  <h2>Gaps</h2>
+  <ul>
+    <li>
+      Live <code>dataops_mcp</code> tools (job execution history, run metrics, current dataflow definition) were
+      not usable in this session — the MCP servers (<code>dataops_mcp_68</code> and related) require
+      authorization and this session is non-interactive. Per <code>hrd_mapping.md</code>'s own caveat, the
+      recorded fingerprint is a proxy hash of the HRD file, not the live deployed definition, and could not be
+      verified against <code>get_data_flow_definition</code> here either.
+    </li>
+    <li>
+      The actual Informatica expression backing <code>SRC_EFF_FROM_DT</code> is not documented in
+      <code>extraction.md</code>; only the HRD test case's JDBC_2 query encodes the assumed
+      <code>1899-01-01</code> constant. Could not independently confirm this against the workflow's compacted
+      mapping docs without opening the raw XML, which is out of scope per project convention (analyze
+      compacted summaries, not raw XML).
+    </li>
+    <li>
+      No direct query access to the live <code>W_BANK_DS</code> table or the source EBS tables was available in
+      this analysis session — the "stub data" conclusion is inferred from the DataCompare output's row content
+      (placeholder strings, mostly-blank columns, timestamp shape) rather than confirmed by inspecting the table
+      or its load history directly.
+    </li>
+  </ul>
+</body>
+</html>

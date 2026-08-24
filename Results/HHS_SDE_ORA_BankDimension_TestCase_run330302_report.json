@@ -1,0 +1,48 @@
+{
+  "Summary": [
+    ["DataflowName : HHS_SDE_ORA_BankDimension_TestCase"],
+    ["DataSet A: JDBC_1 / DataSet B: JDBC_2"],
+    [""],
+    ["RunDate: 2026-08-24 05:25:58.241978"],
+    ["Dataset A Count : 4"],
+    ["Dataset B Count : 2"],
+    ["Data difference in A : JDBC_1 and B : JDBC_2 : 2"],
+    ["Matched Data : 0"],
+    ["Name", "Count", "Percentage(%)", "Status"],
+    ["Only In A Count", "2", "50.0%", "Failed"],
+    ["Duplicates In A Count", "2", "50.0%", "Pass"],
+    ["Only In B Count", "0", "0.0%", "Pass"],
+    ["Duplicates In B Count", "0", "0.0%", "Pass"]
+  ],
+  "Mismatched Rows": [
+    ["INTEGRATION_ID", "BANK_ACCT_NUM", "BANK_ACCOUNT_NAME", "BANK_ALT_NAME", "BANK_NAME", "BANK_BRANCH_NAME", "BANK_BRANCH_CODE", "BANK_NUMBER", "BANK_CAT_CODE", "BANK_TYPE_CODE", "BANK_USER_NAME", "CONTACT_NAME", "PHONE_NUM", "CHANGED_BY_ID", "CREATED_BY_ID", "CHANGED_ON_DT", "CREATED_ON_DT", "SRC_EFF_FROM_DT", "ACTIVE_FLG", "STREET_ADDRESS1", "COUNTY", "STATE_NAME", "CITY", "COUNTRY_CODE", "AGENCY_LOCATION_CODE", "PRIMARY_FLAG", "END_DATE"],
+    ["E~6001", "****6789", "TEST EXTERNAL ACCT", "", "BANK OF TEST HQ", "TEST BANK MAIN BRANCH", "A :  B : TEST BANK MAIN BRANCH", "", "", "A :  B : BANK", "", "", "A :  B : -", "", "", "A :  B : 2026-08-21 16:57:19", "A :  B : 2026-08-21 16:57:19", "A : 2026-08-21 16:57:07 B : 1899-01-01 00:00:00", "A :  B : Y", "A :  B : 123 MAIN ST", "A :  B : IL", "A :  B : IL", "A :  B : SPRINGFIELD", "A :  B : US", "75050002", "Y", "null"],
+    ["I~5001", "1234567890", "TEST CHECKING ACCT", "", "BANK OF TEST HQ", "TEST BANK MAIN BRANCH", "A :  B : TEST BANK MAIN BRANCH", "", "A :  B : CHECKING", "A :  B : BANK", "", "", "A : 217-5551000 B : 217-5552000", "", "", "A :  B : 2026-08-21 16:57:26", "A :  B : 2026-08-21 16:57:26", "A : 2026-08-21 16:57:12 B : 1899-01-01 00:00:00", "A :  B : Y", "A :  B : 123 MAIN ST", "A :  B : IL", "A :  B : IL", "A :  B : SPRINGFIELD", "A :  B : US", "75050001", "Y", "null"]
+  ],
+  "Only In JDBC_1": [
+    ["INTEGRATION_ID", "BANK_ACCT_NUM", "BANK_ACCOUNT_NAME", "BANK_NAME", "BANK_BRANCH_NAME", "AGENCY_LOCATION_CODE", "PRIMARY_FLAG"],
+    ["E~6001", "****6789", "TEST EXTERNAL ACCT", "BANK OF TEST HQ", "TEST BANK MAIN BRANCH", "75050002", "Y"],
+    ["I~5001", "1234567890", "TEST CHECKING ACCT", "BANK OF TEST HQ", "TEST BANK MAIN BRANCH", "75050001", "Y"]
+  ],
+  "Duplicates In JDBC_1": [
+    ["INTEGRATION_ID", "count"],
+    ["E~6001", "1"],
+    ["I~5001", "1"]
+  ],
+  "Column Wise Mismatches": [
+    ["Column Name", "Mismatches Count"],
+    ["CREATED_ON_DT", "2"],
+    ["STATE_NAME", "2"],
+    ["STREET_ADDRESS1", "2"],
+    ["BANK_TYPE_CODE", "2"],
+    ["COUNTRY_CODE", "2"],
+    ["SRC_EFF_FROM_DT", "2"],
+    ["COUNTY", "2"],
+    ["BANK_CAT_CODE", "1"],
+    ["PHONE_NUM", "2"],
+    ["ACTIVE_FLG", "2"],
+    ["CITY", "2"],
+    ["CHANGED_ON_DT", "2"],
+    ["BANK_BRANCH_CODE", "2"]
+  ]
+}
