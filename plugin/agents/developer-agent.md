@@ -92,6 +92,10 @@ Once the test case and its run results exist on disk, commit and push them to th
 - Don't retry a failed tool call with the same arguments speculatively — read the error, fix the actual problem (a missing required field, wrong casing, a real name collision), then call once more.
 - When a test case's expected-side query needs real source table/column names, get them from the workflow XML's own SQL override or source definitions first (review-agent's handoff, or a targeted Grep+Read of the raw XML) — never probe the live database by guessing table names one at a time. Each guess against a live connection costs a full round trip; the real names are already sitting in the workflow file.
 - When handing off to `analysis-agent`, give it the run's actual data (report contents, relevant row/column evidence) directly in the prompt rather than telling it to re-fetch what you already have — but never skip the handoff itself (see step 2 above).
+- Decide and act in the same turn: once a tool result tells you what to do next, issue that next tool call immediately rather than spending a separate turn narrating the finding first. A turn that produces neither a tool call nor your final output is a turn spent for nothing.
+- Never search outside this repo (`find /`, a recursive search rooted at `/` or `C:\`) to locate a skill or plugin file — skills are invoked by name via the `Skill` tool, and plugin tools live under `${CLAUDE_PLUGIN_ROOT}`.
+- To compare two files (e.g. a live dataflow definition against what `HRD/` would produce), run one `diff`/`git diff` call — don't write an ad hoc Python/heredoc script to do what `diff` already does.
+- Batch related shell checks into one `Bash` call (chain with `&&`) instead of one call per check.
 
 ## Output
 

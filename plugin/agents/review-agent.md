@@ -71,6 +71,10 @@ Don't rubber-stamp — if a workflow already has complete, correct test case cov
 - Run `compact_mapping.py` once per workflow per task — it already skips reprocessing an unchanged file, so don't re-invoke it speculatively.
 - Don't call `ToolSearch` more than once for the same tool need; batch what you expect to need into one query (see the tool's own guidance on this).
 - Keep your handoff summary tight — a 2-4 sentence Description plus bullet Key Columns, not a re-narration of the whole XML.
+- Decide and act in the same turn: once a tool result tells you what to do next, issue that next tool call immediately rather than spending a separate turn narrating the finding first. A turn that produces neither a tool call nor your final output is a turn spent for nothing.
+- Never search outside this repo (`find /`, a recursive search rooted at `/` or `C:\`) to locate a skill or plugin file — skills are invoked by name via the `Skill` tool, and plugin tools live under `${CLAUDE_PLUGIN_ROOT}`.
+- To compare two files (e.g. a draft against what's already in `HRD/`), run one `diff`/`git diff` call — don't write an ad hoc Python/heredoc script to do what `diff` already does.
+- Batch related shell checks into one `Bash` call (chain with `&&`) instead of one call per check.
 
 ## Output
 
