@@ -11,9 +11,9 @@ Run `git pull` in this project's working copy (fast-forwards the current branch 
 
 After a successful pull, ensure the required folder layout exists — create whichever of these are missing (a fresh clone won't have them yet): `Workflows/`, `HRD/`, `Results/`, `OKF/workflows/`. If `OKF/index.md` doesn't exist yet, create it as the bundle-root index (`okf_version: "0.2"` frontmatter, a short description, and a link to `workflows/index.md`); if `OKF/workflows/index.md` doesn't exist yet, create it too (`okf_version: "0.2"` frontmatter and a bare `# Workflows` heading) so developer-agent has somewhere to append per-workflow entries later. This is additive only (never deletes or overwrites existing files) so it needs no confirmation.
 
-Also ensure the harness-neutral pipeline file exists in the target repo, so this pipeline is usable from any AI coding agent that reads the `AGENTS.md` convention (Copilot, Cursor, Codex, and 20+ others — not just Claude Code) — copy it from this plugin's `templates/` directory only if the destination doesn't already exist (never overwrite a file the user may have customized):
-- `templates/AGENTS.md` → `AGENTS.md` (repo root) — the canonical, harness-neutral process description. No per-tool wrapper files needed: `AGENTS.md` is read natively by the major coding agents.
-- `templates/vscode-mcp.json` → `.vscode/mcp.json`, only if missing — MCP server configuration is the one piece that genuinely isn't standardized across tools yet (Claude Code uses this plugin's own `.mcp.json`; VS Code-based agents read `.vscode/mcp.json`'s `servers` key instead). Placeholder URL; the user still edits it before use.
+Also ensure the harness-neutral pipeline file exists in the target repo, so this pipeline is usable from any AI coding agent that reads the `AGENTS.md` convention (Copilot, Cursor, Codex, and 20+ others — not just Claude Code) — copy it from this plugin's own `templates/` directory (resolve via `${CLAUDE_PLUGIN_ROOT}/templates/`, never by searching the filesystem for it) only if the destination doesn't already exist (never overwrite a file the user may have customized):
+- `${CLAUDE_PLUGIN_ROOT}/templates/AGENTS.md` → `AGENTS.md` (repo root) — the canonical, harness-neutral process description. No per-tool wrapper files needed: `AGENTS.md` is read natively by the major coding agents.
+- `${CLAUDE_PLUGIN_ROOT}/templates/vscode-mcp.json` → `.vscode/mcp.json`, only if missing — MCP server configuration is the one piece that genuinely isn't standardized across tools yet (Claude Code uses this plugin's own `.mcp.json`; VS Code-based agents read `.vscode/mcp.json`'s `servers` key instead). Placeholder URL; the user still edits it before use.
 
 ## 2. Enumerate workflow files
 
@@ -45,7 +45,9 @@ Process files strictly one at a time, in sync — finish the full pipeline (revi
 - Fetch platform metadata (`list_engines`, `list_folders`, `list_data_sources`) once per container and reuse it across every file in this run that targets the same container — don't re-fetch per file.
 - Don't re-run a skip check (step 0) or re-`Glob`/`Read` folder state you already checked earlier in this same command invocation.
 - Never call the same tool with the same (or near-identical) arguments more than once expecting a different result — if a call fails, fix the actual input error before retrying.
-- Analysis reports use the fixed skeleton at `templates/analysis_report_template.html` (see analysis-agent.md) — never let a run regenerate that boilerplate from scratch.
+- Analysis reports use the fixed skeleton at `${CLAUDE_PLUGIN_ROOT}/templates/analysis_report_template.html` (see analysis-agent.md) — never let a run regenerate that boilerplate from scratch.
+- Decide and act in the same turn: once a tool result tells you what to do next, issue that next tool call immediately rather than spending a separate turn narrating the finding first.
+- Never search the filesystem to locate a skill or plugin file — not `find /`, not `find $HOME`, not any broad recursive search. Plugin files resolve directly via `${CLAUDE_PLUGIN_ROOT}/...`, which is always set — never something to search for.
 
 ## 4. Next steps
 
