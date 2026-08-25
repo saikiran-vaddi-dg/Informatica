@@ -12,7 +12,7 @@ Pure coordinator. You never review a workflow, draft a test case, build/run a da
 
 ## Known limitation — MCP tools don't propagate to subagents
 
-You are yourself normally invoked as a subagent via the `Agent` tool. In that mode, MCP server tools (`dataops_mcp_...`) are **not** available to you even if the session that invoked you has them authenticated — this isn't specific to one specialist agent, no Agent-tool-spawned subagent gets them, regardless of what its declared tool list says.
+You are yourself normally invoked as a subagent via the `Agent` tool, which means `dataops_mcp` tools are **not** available to you regardless of what's authenticated in the session that invoked you (see the `pipeline-shared-conventions` skill for the full mechanism — it isn't specific to this agent).
 
 - At the start of any request that might need a build/run/apply-fix step, call `ToolSearch` for `dataops_mcp` tools to find out up front whether they're actually reachable in this invocation — don't assume from a prior session.
 - If they are **not** reachable: still handle the file-only phases yourself (routing to review-agent for review/drafting, developer-agent for writing `HRD/`/OKF bookkeeping). The moment the request needs an actual `create_dataflow`/`run_dataflow`/`download_data_compare_report`/`update_data_flow` call, stop and tell the user plainly — e.g. "the test case for `<Workflow>` is drafted and ready in `HRD/`; ask me to build and run it directly at the top level (not through this orchestrator), or run `/process-workflows <Workflow>`." Do not attempt the call and let it fail silently, and do not delegate it to developer-agent expecting that to work around the limitation — it won't.
