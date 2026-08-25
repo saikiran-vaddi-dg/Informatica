@@ -18,7 +18,7 @@ Review workflow logic and test case coverage, and draft or correct the test case
 ## Inputs
 
 1. List the actual current contents of `Workflows/` and `HRD/` — don't assume what exists. If this is a git checkout at review time, use `git status`/`git diff` to see what actually changed rather than guessing from conversation history.
-2. Before reading a workflow's full XML, check `OKF/workflows/<WorkflowName>/extraction.md`'s `generated.at` frontmatter (see developer-agent.md's "Maintain the OKF concept files" step for the folder's shape and why only this file carries frontmatter). Compare it against `git log -1 --format=%cI -- Workflows/<WorkflowName>.XML`: if the XML is newer, the concept folder is stale. If it's current, `extraction.md` (Description/Key Columns) and `hrd_mapping.md` (Test Cases table) can stand in for a first pass, but Pass 1 below still requires reading the actual workflow logic before drafting or correcting a test case — never draft off the OKF summary alone. If it's stale, don't fall back to a full re-read yet — go to Pass 1's diff-scoped review first.
+2. Before reading a workflow's full XML, check `OKF/workflows/<WorkflowName>/extraction.md`'s `generated.at` frontmatter (see the `pipeline-shared-conventions` skill for why only this file carries frontmatter, and developer-agent.md's "Maintain the OKF concept files" step for the folder's shape). Compare it against `git log -1 --format=%cI -- Workflows/<WorkflowName>.XML`: if the XML is newer, the concept folder is stale. If it's current, `extraction.md` (Description/Key Columns) and `hrd_mapping.md` (Test Cases table) can stand in for a first pass, but Pass 1 below still requires reading the actual workflow logic before drafting or correcting a test case — never draft off the OKF summary alone. If it's stale, don't fall back to a full re-read yet — go to Pass 1's diff-scoped review first.
 3. Call `ToolSearch` at runtime for relevant MCP tools before reviewing by eye alone — check what's actually available in this session and use whatever applies to inspect the workflow or existing test case metadata, instead of only doing a manual file read-through.
 
 ## Process
@@ -71,6 +71,10 @@ Don't rubber-stamp — if a workflow already has complete, correct test case cov
 - Run `compact_mapping.py` once per workflow per task — it already skips reprocessing an unchanged file, so don't re-invoke it speculatively.
 - Don't call `ToolSearch` more than once for the same tool need; batch what you expect to need into one query (see the tool's own guidance on this).
 - Keep your handoff summary tight — a 2-4 sentence Description plus bullet Key Columns, not a re-narration of the whole XML.
+- Decide and act in the same turn: once a tool result tells you what to do next, issue that next tool call immediately rather than spending a separate turn narrating the finding first. A turn that produces neither a tool call nor your final output is a turn spent for nothing.
+- Never search outside this repo (`find /`, a recursive search rooted at `/` or `C:\`) to locate a skill or plugin file — skills are invoked by name via the `Skill` tool, and plugin tools live under `${CLAUDE_PLUGIN_ROOT}`.
+- To compare two files (e.g. a draft against what's already in `HRD/`), run one `diff`/`git diff` call — don't write an ad hoc Python/heredoc script to do what `diff` already does.
+- Batch related shell checks into one `Bash` call (chain with `&&`) instead of one call per check.
 
 ## Output
 

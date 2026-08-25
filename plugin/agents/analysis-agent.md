@@ -51,6 +51,9 @@ Compute every chart value from the actual data in `Results/*_report.json` (or th
 - Prefer the compact `OKF/workflows/<WorkflowName>/extraction.md` / compacted `*.summary.json` over the raw XML whenever it answers the question (see Inputs above) — the raw XML is the expensive fallback, not the default.
 - Don't call the same `ToolSearch`/MCP tool with the same or near-identical query twice in one task. If a call fails, fix the actual input error rather than retrying the same call speculatively.
 - Keep prose tight: cite evidence (file/row/value) in a phrase, not a paragraph. The report's job is to be scannable, not exhaustive.
+- Decide and act in the same turn: once a tool result tells you what to do next, issue that next tool call immediately rather than spending a separate turn narrating the finding first. A turn that produces neither a tool call nor your final output is a turn spent for nothing.
+- Never search outside this repo (`find /`, a recursive search rooted at `/` or `C:\`) to locate a skill or plugin file — skills are invoked by name via the `Skill` tool, and plugin tools live under `${CLAUDE_PLUGIN_ROOT}`.
+- Batch related shell checks into one `Bash` call (chain with `&&`) instead of one call per check.
 
 ## Handoff
 
