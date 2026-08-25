@@ -1,0 +1,46 @@
+{
+  "_note": "SUBSTITUTE REPORT — derived from DataOps repository query (t_df_run/t_df_component_run) because download_data_compare_report's connector was unavailable this session (a known intermittent-auth issue for this project, distinct MCP server ID from the one whose tools were reachable). Re-download the full DataCompare report once the connector is reconnected, via download_data_compare_report(dataFlowRunId=330357, componentName='DataCompare 3').",
+  "dataflowId": "f58d08f7-9649-4266-8a9e-2a328645a883",
+  "dataflowName": "HHS_SIL_BankDimension_TestCase",
+  "container": "HHS_Poc_container",
+  "containerId": 525,
+  "engineName": "168_AN",
+  "livyServerId": 983,
+  "folderName": "Dataflow",
+  "dataFlowRunId": 330357,
+  "run": {
+    "status": "Completed",
+    "startTime": "2026-08-25T14:12:01.199Z",
+    "endTime": "2026-08-25T14:12:53.317Z",
+    "source": "t_df_run repository table"
+  },
+  "components": [
+    {
+      "componentName": "JDBC 1",
+      "datasetName": "W_BANK_D",
+      "status": "Completed",
+      "message": "Read 13 rows"
+    },
+    {
+      "componentName": "JDBC 2",
+      "datasetName": "W_BANK_DS",
+      "status": "Completed",
+      "message": "Read 13 rows"
+    },
+    {
+      "componentName": "DataCompare 3",
+      "status": "Completed",
+      "message": "Matched : 13(A:100% ,B:100%);",
+      "result": "PASSED",
+      "matched": 13,
+      "totalA": 13,
+      "totalB": 13,
+      "matchedPercentA": 100,
+      "matchedPercentB": 100,
+      "onlyInA": 0,
+      "onlyInB": 0,
+      "differences": 0,
+      "source": "t_df_component_run repository table"
+    }
+  ]
+}
