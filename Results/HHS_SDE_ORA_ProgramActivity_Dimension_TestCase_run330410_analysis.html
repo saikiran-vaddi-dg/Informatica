@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HHS_SDE_ORA_ProgramActivity_Dimension_TestCase - Run 330410 Analysis</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1a1a2e; --muted: #6b7280; --border: #e5e7eb;
+    --pass: #16a34a; --fail: #dc2626;
+    --testcase: #2563eb; --env: #d97706; --bug: #dc2626; --none: #6b7280;
+    --track: #f3f4f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14141f; --fg: #e8e8f0; --muted: #9ca3af; --border: #2d2d3d; --track: #24243a; }
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--fg); font: 15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif; margin: 0; padding: 2rem; max-width: 900px; margin-inline: auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+  h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+  .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+  .status-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; color: #fff; }
+  .badge-pass { background: var(--pass); }
+  .badge-fail { background: var(--fail); }
+  .bar-row { display: flex; align-items: center; gap: 0.75rem; margin: 0.4rem 0; }
+  .bar-label { width: 160px; flex-shrink: 0; font-size: 0.85rem; color: var(--muted); }
+  .bar-track { flex: 1; background: var(--track); border-radius: 4px; height: 14px; overflow: hidden; }
+  .bar-fill { background: var(--fail); height: 100%; border-radius: 4px; }
+  .bar-value { width: 90px; text-align: right; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+  .finding { border-left: 3px solid var(--border); padding: 0.5rem 0 0.5rem 1rem; margin: 1rem 0; }
+  .action { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 0.75rem 0; }
+  .badge { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+  .badge-testcase { background: var(--testcase); }
+  .badge-env { background: var(--env); }
+  .badge-bug { background: var(--bug); }
+  .badge-none { background: var(--none); }
+  code { background: var(--track); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+  table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); }
+</style>
+</head>
+<body>
+  <h1>HHS_SDE_ORA_ProgramActivity_Dimension_TestCase - Run 330410 Analysis</h1>
+  <div class="meta">Generated 2026-08-26T10:52:43Z &middot; <span class="status-badge badge-fail">Failed</span></div>
+
+  <h2>Scope</h2>
+  <p>
+    Dataflow <code>HHS_SDE_ORA_ProgramActivity_Dimension_TestCase</code>
+    (dataflowId <code>08c9c67d-89c2-495d-8f61-3b7f9a0ddb0f</code>), run
+    <code>330410</code>, container <code>HHS_Poc_container</code>, engine
+    <code>168_AN</code>. Analyzed from
+    <code>Results/HHS_SDE_ORA_ProgramActivity_Dimension_TestCase_run330410_report.json</code>
+    (built from <code>t_df_run</code> / <code>t_df_component_run</code> /
+    <code>t_df_component_run_datasets</code> via
+    <code>query_on_dataops_repository</code> — no
+    <code>download_data_compare_report</code> tool exists on this
+    dataops_mcp server, and row-level <code>sample_json</code> values are
+    encrypted, so only aggregate per-dataset row counts were available).
+    Cross-referenced against the test case definition
+    <code>HRD/HHS_SDE_ORA_ProgramActivity_Dimension_TestCase.json</code> and
+    the workflow logic in
+    <code>OKF/workflows/HHS_SDE_ORA_ProgramActivity_Dimension/extraction.md</code>
+    (frontmatter <code>generated.at: 2026-08-26T10:07:37Z</code>, commit
+    <code>1961455...</code>, which postdates the XML's last commit
+    <code>2026-08-21T21:00:25+05:30</code> — current, used directly without
+    falling back to raw XML).
+  </p>
+
+  <h2>Summary</h2>
+  <p>
+    Run 330410 <strong>Failed</strong>. JDBC 1 (actual, staging table
+    <code>WC_PROGRAM_ACTIVITY_DS</code>) completed and read <strong>4
+    rows</strong>. JDBC 2 (expected, live Oracle EBS source query joining
+    <code>FDABI.FV_FACTS_PRC_HDR</code> &rarr;
+    <code>FDABI.FV_FACTS_PRC_DTL</code> &rarr;
+    <code>FV.FV_DACT_PRC_ALLOCATION</code>) completed without error but read
+    <strong>0 rows</strong>. DataCompare 3 failed with summary message
+    <code>"Only In A : 4(100%);"</code> — every actual row is unmatched
+    because the expected side is entirely empty, not because of a
+    column-level or partial-key mismatch.
+  </p>
+  <div class="bar-row">
+    <span class="bar-label">Only In Source (A)</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div>
+    <span class="bar-value">4 (100%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Only In Target (B)</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%"></div></div>
+    <span class="bar-value">0 (0%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Matched</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%"></div></div>
+    <span class="bar-value">0 (0%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Difference</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%"></div></div>
+    <span class="bar-value">0 (0%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Column Difference</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%"></div></div>
+    <span class="bar-value">0 (0%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Source/Target Dupes</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%"></div></div>
+    <span class="bar-value">0 / 0</span>
+  </div>
+
+  <h2>Findings</h2>
+
+  <div class="finding">
+    <h3>All 4 actual rows are OnlySource — expected side returned nothing</h3>
+    <p>
+      <code>Results/..._report.json</code>: DataCompare 3 dataset breakdown —
+      <code>OnlySource=4</code>, <code>OnlyTarget=0</code>,
+      <code>Matched=0</code>, <code>Difference=0</code>,
+      <code>Column_Difference=0</code>, <code>Source_Duplicate=0</code>,
+      <code>Target_Duplicate=0</code>. This is a total mismatch (no rows
+      compared at all), not a partial key/column defect.
+    </p>
+  </div>
+
+  <div class="finding">
+    <h3>JDBC 2 (expected) reads 0 rows from an unfiltered LEFT JOIN chain starting at the driving table</h3>
+    <p>
+      <code>HRD/HHS_SDE_ORA_ProgramActivity_Dimension_TestCase.json</code>
+      JDBC 2 query: <code>FROM FDABI.FV_FACTS_PRC_HDR HDR LEFT JOIN
+      FDABI.FV_FACTS_PRC_DTL DTL ON HDR.PRC_HEADER_ID = DTL.PRC_HEADER_ID
+      LEFT JOIN FV.FV_DACT_PRC_ALLOCATION ALLOC ON DTL.PRC_DETAIL_ID =
+      ALLOC.PRC_DETAIL_ID</code> — no <code>WHERE</code> clause. Under LEFT
+      JOIN semantics every row of the driving table <code>HDR</code> is
+      preserved in the result regardless of whether <code>DTL</code>/
+      <code>ALLOC</code> have matches. A 0-row result from this exact shape
+      of query is only possible if <code>FDABI.FV_FACTS_PRC_HDR</code>
+      itself returned zero rows to this connection (empty table, or a
+      connection/permission/instance issue that silently yields no rows) —
+      it cannot happen because of a downstream join filtering rows out,
+      since there is nothing to filter on.
+    </p>
+  </div>
+
+  <div class="finding">
+    <h3>JDBC 2's join/select logic matches the workflow's own Source Qualifier SQL override</h3>
+    <p>
+      <code>OKF/workflows/HHS_SDE_ORA_ProgramActivity_Dimension/extraction.md</code>
+      (current) documents the identical join chain — HDR outer-joined to
+      DTL outer-joined to ALLOC — the same conditional
+      <code>PROGRAM_ACTIVITY_RPT_CODE</code>/<code>_DESC</code> derivation
+      keyed on <code>ALLOCATED_FLAG='Y'</code>, and the same composite
+      <code>INTEGRATION_ID</code> key (<code>PRC_HEADER_ID~PRC_DETAIL_ID~PRC_ALLOC_ID</code>)
+      that the test case uses as its unique key column. The test case's
+      expected-side query is a faithful re-statement of the mapping it is
+      testing, not an independently-authored query with its own bugs.
+    </p>
+  </div>
+
+  <div class="finding">
+    <h3>Staging table already holds 4 rows, but the live source query returns none</h3>
+    <p>
+      JDBC 1's plain unfiltered <code>SELECT * FROM WC_PROGRAM_ACTIVITY_DS</code>
+      returns 4 rows (report.json, <code>row_count: 4</code>), meaning some
+      prior ETL run (or manual seed) populated staging from these same
+      source tables. The fact that the live source-side query now returns 0
+      rows against the same tables indicates the source data available to
+      this run's connection no longer matches — or never matched — what
+      produced the 4 staged rows.
+    </p>
+  </div>
+
+  <h2>Recommended Actions</h2>
+
+  <div class="action">
+    <span class="badge badge-none">No action — test case</span>
+    <p>
+      The JDBC 2 expected-side query is not the problem. Its join chain,
+      column derivations, and key column (<code>INTEGRATION_ID</code>,
+      marked <code>uniqueKeyColumn: true</code>) all match the workflow's
+      own SQL override per <code>extraction.md</code>. Do not loosen
+      thresholds or change column mappings in
+      <code>HRD/HHS_SDE_ORA_ProgramActivity_Dimension_TestCase.json</code> —
+      doing so would mask a real data problem rather than fix a test defect.
+    </p>
+  </div>
+
+  <div class="action">
+    <span class="badge badge-env">Environment/data defect</span>
+    <p>
+      Root cause is on the source-data side, not the query or the workflow
+      logic. Because the LEFT JOIN chain is unfiltered and driven by
+      <code>FDABI.FV_FACTS_PRC_HDR</code>, a 0-row result means that table
+      returned no rows to this connection at run time — most likely it is
+      empty/unloaded in this POC Oracle instance (consistent with the
+      pattern already seen in commit <code>3a1e6d2</code> on this same
+      pipeline, where a prior failure traced to a schema/data issue rather
+      than workflow logic). Concrete fix: (1) directly query
+      <code>SELECT COUNT(*) FROM FDABI.FV_FACTS_PRC_HDR</code> using the
+      same connection/credentials as data source <code>FV_FACTS_PRC_HDR</code>
+      to confirm it is genuinely empty vs. a connection pointing at the
+      wrong schema/instance; (2) if empty, load representative rows into
+      <code>FDABI.FV_FACTS_PRC_HDR</code> (and its dependents
+      <code>FDABI.FV_FACTS_PRC_DTL</code>, <code>FV.FV_DACT_PRC_ALLOCATION</code>)
+      that correspond to the 4 rows already staged in
+      <code>WC_PROGRAM_ACTIVITY_DS</code>, or repoint the JDBC 2 data
+      source's connection parameters to whichever instance originally fed
+      the ETL run that populated those 4 staging rows.
+    </p>
+  </div>
+
+  <div class="action">
+    <span class="badge badge-bug">Not indicated — genuine workflow bug</span>
+    <p>
+      Nothing in this run's evidence points to the Informatica mapping
+      logic itself being wrong: the join and derivation logic that produced
+      the 4 staged rows is the same logic re-stated in JDBC 2, and an
+      unfiltered LEFT JOIN cannot itself produce 0 rows from a populated
+      driving table. Do not treat this as an ETL bug to "fix" in the
+      workflow — that would be the wrong target given the join semantics
+      above.
+    </p>
+  </div>
+
+  <h2>Gaps</h2>
+  <p>
+    No <code>download_data_compare_report</code> tool is available on this
+    dataops_mcp server, and row-level <code>sample_json</code> values in
+    <code>t_df_component_run_datasets</code> are encrypted/opaque, so no
+    per-row or per-column mismatch detail could be produced beyond the
+    aggregate OnlySource/OnlyTarget/Matched/Difference counts already
+    charted above. Direct verification of
+    <code>FDABI.FV_FACTS_PRC_HDR</code>'s actual row count in the source
+    Oracle instance was not performed in this analysis (no SQL execution
+    tool against that data source was available in this session) — this is
+    the single follow-up that would convert the environment-defect
+    classification above from inferred to confirmed.
+  </p>
+</body>
+</html>

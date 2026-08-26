@@ -1,0 +1,518 @@
+{
+  "dataflowName": "HHS_SDE_ORA_ProgramActivity_Dimension_TestCase",
+  "engineName": "168_AN",
+  "environment": "",
+  "folderName": "Dataflow",
+  "type": "dataflow",
+  "sources": [
+    {
+      "componentName": "JDBC 1",
+      "type": "JDBC",
+      "dataSourceName": "WC_PROGRAM_ACTIVITY_DS",
+      "format": "QUERY",
+      "datasetName": "JDBC_1",
+      "query": "SELECT INTEGRATION_ID, DATASOURCE_NUM_ID, LEDGER_ID, CODE_TYPE, DETAIL_ID, FLEX_VALUE_ID, FLEX_VALUE_SET_ID, TREASURY_SYMBOL_ID, TREASURY_SYMBOL, FUND_VALUE, ALLOCATED_FLAG, ALLOCATION_PERCENTAGE, PROGRAM_ACTIVITY_RPT_CODE, PROGRAM_ACTIVITY_RPT_DESC, PROGRAM_ACTIVITY_RPT_KEY, PROGRAM_ACTIVITY_RPT_KEY_DESC, SEGMENT1_LOW, SEGMENT2_LOW, SEGMENT3_LOW, SEGMENT4_LOW, SEGMENT5_LOW, SEGMENT6_LOW, SEGMENT7_LOW, SEGMENT8_LOW, SEGMENT9_LOW, SEGMENT10_LOW, SEGMENT11_LOW, SEGMENT12_LOW, SEGMENT13_LOW, SEGMENT14_LOW, SEGMENT15_LOW, SEGMENT16_LOW, SEGMENT17_LOW, SEGMENT18_LOW, SEGMENT19_LOW, SEGMENT20_LOW, SEGMENT21_LOW, SEGMENT22_LOW, SEGMENT23_LOW, SEGMENT24_LOW, SEGMENT25_LOW, SEGMENT26_LOW, SEGMENT27_LOW, SEGMENT28_LOW, SEGMENT29_LOW, SEGMENT30_LOW, SEGMENT1_HIGH, SEGMENT2_HIGH, SEGMENT3_HIGH, SEGMENT4_HIGH, SEGMENT5_HIGH, SEGMENT6_HIGH, SEGMENT7_HIGH, SEGMENT8_HIGH, SEGMENT9_HIGH, SEGMENT10_HIGH, SEGMENT11_HIGH, SEGMENT12_HIGH, SEGMENT13_HIGH, SEGMENT14_HIGH, SEGMENT15_HIGH, SEGMENT16_HIGH, SEGMENT17_HIGH, SEGMENT18_HIGH, SEGMENT19_HIGH, SEGMENT20_HIGH, SEGMENT21_HIGH, SEGMENT22_HIGH, SEGMENT23_HIGH, SEGMENT24_HIGH, SEGMENT25_HIGH, SEGMENT26_HIGH, SEGMENT27_HIGH, SEGMENT28_HIGH, SEGMENT29_HIGH, SEGMENT30_HIGH, PRC_HDR_CHANGED_ON_DT, PRC_HDR_CREATED_ON_DT, PRC_DTL_CHANGED_ON_DT, PRC_DTL_CREATED_ON_DT, PRC_ALLOC_CHANGED_ON_DT, PRC_ALLOC_CREATED_ON_DT, PRC_HDR_CHANGED_BY_ID, PRC_HDR_CREATED_BY_ID, PRC_DTL_CHANGED_BY_ID, PRC_DTL_CREATED_BY_ID, PRC_ALLOC_CHANGED_BY_ID, PRC_ALLOC_CREATED_BY_ID FROM WC_PROGRAM_ACTIVITY_DS",
+      "dependencies": [],
+      "dataSourceLogicalName": "",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "autoRepartition": "ENABLED",
+      "enableTrim": "ENABLED"
+    },
+    {
+      "componentName": "JDBC 2",
+      "type": "JDBC",
+      "dataSourceName": "FV_FACTS_PRC_HDR",
+      "format": "QUERY",
+      "datasetName": "JDBC_2",
+      "query": "SELECT TO_CHAR(HDR.PRC_HEADER_ID) || '~' || TO_CHAR(DTL.PRC_DETAIL_ID) || '~' || TO_CHAR(ALLOC.PRC_ALLOC_ID) AS INTEGRATION_ID, CAST(NULL AS NUMBER) AS DATASOURCE_NUM_ID, TO_CHAR(HDR.SET_OF_BOOKS_ID) AS LEDGER_ID, HDR.CODE_TYPE AS CODE_TYPE, DTL.PRC_DETAIL_ID AS DETAIL_ID, DTL.FLEX_VALUE_ID AS FLEX_VALUE_ID, HDR.FLEX_VALUE_SET_ID AS FLEX_VALUE_SET_ID, HDR.TREASURY_SYMBOL_ID AS TREASURY_SYMBOL_ID, HDR.TREASURY_SYMBOL AS TREASURY_SYMBOL, HDR.FUND_VALUE AS FUND_VALUE, DTL.ALLOCATED_FLAG AS ALLOCATED_FLAG, ALLOC.PERCENTAGE AS ALLOCATION_PERCENTAGE, CASE WHEN DTL.ALLOCATED_FLAG = 'Y' THEN ALLOC.PROGRAM_ACTIVITY_RPT_CODE ELSE TO_CHAR(DTL.REPORTING_CODE) END AS PROGRAM_ACTIVITY_RPT_CODE, CASE WHEN DTL.ALLOCATED_FLAG = 'Y' THEN ALLOC.PROGRAM_ACTIVITY_RPT_DESC ELSE DTL.REPORTING_DESC END AS PROGRAM_ACTIVITY_RPT_DESC, ALLOC.PROGRAM_ACTIVITY_RPT_KEY AS PROGRAM_ACTIVITY_RPT_KEY, ALLOC.PROGRAM_ACTIVITY_RPT_KEY_DESC AS PROGRAM_ACTIVITY_RPT_KEY_DESC, DTL.SEGMENT1_LOW AS SEGMENT1_LOW, DTL.SEGMENT2_LOW AS SEGMENT2_LOW, DTL.SEGMENT3_LOW AS SEGMENT3_LOW, DTL.SEGMENT4_LOW AS SEGMENT4_LOW, DTL.SEGMENT5_LOW AS SEGMENT5_LOW, DTL.SEGMENT6_LOW AS SEGMENT6_LOW, DTL.SEGMENT7_LOW AS SEGMENT7_LOW, DTL.SEGMENT8_LOW AS SEGMENT8_LOW, DTL.SEGMENT9_LOW AS SEGMENT9_LOW, DTL.SEGMENT10_LOW AS SEGMENT10_LOW, DTL.SEGMENT11_LOW AS SEGMENT11_LOW, DTL.SEGMENT12_LOW AS SEGMENT12_LOW, DTL.SEGMENT13_LOW AS SEGMENT13_LOW, DTL.SEGMENT14_LOW AS SEGMENT14_LOW, DTL.SEGMENT15_LOW AS SEGMENT15_LOW, DTL.SEGMENT16_LOW AS SEGMENT16_LOW, DTL.SEGMENT17_LOW AS SEGMENT17_LOW, DTL.SEGMENT18_LOW AS SEGMENT18_LOW, DTL.SEGMENT19_LOW AS SEGMENT19_LOW, DTL.SEGMENT20_LOW AS SEGMENT20_LOW, DTL.SEGMENT21_LOW AS SEGMENT21_LOW, DTL.SEGMENT22_LOW AS SEGMENT22_LOW, DTL.SEGMENT23_LOW AS SEGMENT23_LOW, DTL.SEGMENT24_LOW AS SEGMENT24_LOW, DTL.SEGMENT25_LOW AS SEGMENT25_LOW, DTL.SEGMENT26_LOW AS SEGMENT26_LOW, DTL.SEGMENT27_LOW AS SEGMENT27_LOW, DTL.SEGMENT28_LOW AS SEGMENT28_LOW, DTL.SEGMENT29_LOW AS SEGMENT29_LOW, DTL.SEGMENT30_LOW AS SEGMENT30_LOW, DTL.SEGMENT1_HIGH AS SEGMENT1_HIGH, DTL.SEGMENT2_HIGH AS SEGMENT2_HIGH, DTL.SEGMENT3_HIGH AS SEGMENT3_HIGH, DTL.SEGMENT4_HIGH AS SEGMENT4_HIGH, DTL.SEGMENT5_HIGH AS SEGMENT5_HIGH, DTL.SEGMENT6_HIGH AS SEGMENT6_HIGH, DTL.SEGMENT7_HIGH AS SEGMENT7_HIGH, DTL.SEGMENT8_HIGH AS SEGMENT8_HIGH, DTL.SEGMENT9_HIGH AS SEGMENT9_HIGH, DTL.SEGMENT10_HIGH AS SEGMENT10_HIGH, DTL.SEGMENT11_HIGH AS SEGMENT11_HIGH, DTL.SEGMENT12_HIGH AS SEGMENT12_HIGH, DTL.SEGMENT13_HIGH AS SEGMENT13_HIGH, DTL.SEGMENT14_HIGH AS SEGMENT14_HIGH, DTL.SEGMENT15_HIGH AS SEGMENT15_HIGH, DTL.SEGMENT16_HIGH AS SEGMENT16_HIGH, DTL.SEGMENT17_HIGH AS SEGMENT17_HIGH, DTL.SEGMENT18_HIGH AS SEGMENT18_HIGH, DTL.SEGMENT19_HIGH AS SEGMENT19_HIGH, DTL.SEGMENT20_HIGH AS SEGMENT20_HIGH, DTL.SEGMENT21_HIGH AS SEGMENT21_HIGH, DTL.SEGMENT22_HIGH AS SEGMENT22_HIGH, DTL.SEGMENT23_HIGH AS SEGMENT23_HIGH, DTL.SEGMENT24_HIGH AS SEGMENT24_HIGH, DTL.SEGMENT25_HIGH AS SEGMENT25_HIGH, DTL.SEGMENT26_HIGH AS SEGMENT26_HIGH, DTL.SEGMENT27_HIGH AS SEGMENT27_HIGH, DTL.SEGMENT28_HIGH AS SEGMENT28_HIGH, DTL.SEGMENT29_HIGH AS SEGMENT29_HIGH, DTL.SEGMENT30_HIGH AS SEGMENT30_HIGH, HDR.LAST_UPDATE_DATE AS PRC_HDR_CHANGED_ON_DT, HDR.CREATION_DATE AS PRC_HDR_CREATED_ON_DT, DTL.LAST_UPDATE_DATE AS PRC_DTL_CHANGED_ON_DT, DTL.CREATION_DATE AS PRC_DTL_CREATED_ON_DT, ALLOC.LAST_UPDATE_DATE AS PRC_ALLOC_CHANGED_ON_DT, ALLOC.CREATION_DATE AS PRC_ALLOC_CREATED_ON_DT, TO_CHAR(HDR.LAST_UPDATED_BY) AS PRC_HDR_CHANGED_BY_ID, TO_CHAR(HDR.CREATED_BY) AS PRC_HDR_CREATED_BY_ID, TO_CHAR(DTL.LAST_UPDATED_BY) AS PRC_DTL_CHANGED_BY_ID, TO_CHAR(DTL.CREATED_BY) AS PRC_DTL_CREATED_BY_ID, TO_CHAR(ALLOC.LAST_UPDATED_BY) AS PRC_ALLOC_CHANGED_BY_ID, TO_CHAR(ALLOC.CREATED_BY) AS PRC_ALLOC_CREATED_BY_ID FROM FDABI.FV_FACTS_PRC_HDR HDR LEFT JOIN FDABI.FV_FACTS_PRC_DTL DTL ON HDR.PRC_HEADER_ID = DTL.PRC_HEADER_ID LEFT JOIN FV.FV_DACT_PRC_ALLOCATION ALLOC ON DTL.PRC_DETAIL_ID = ALLOC.PRC_DETAIL_ID",
+      "dependencies": [],
+      "dataSourceLogicalName": "",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "autoRepartition": "ENABLED",
+      "enableTrim": "ENABLED"
+    }
+  ],
+  "mappings": [
+    {
+      "componentName": "DataCompare 3",
+      "sourceDatasetName": "JDBC_1",
+      "targetDatasetName": "JDBC_2",
+      "autoMap": "ENABLED",
+      "applyTargetDatatypeToSource": "DISABLED",
+      "datasetName": "DataCompare_3",
+      "excludeInNotificationIfCompletedOrPassed": "ENABLED",
+      "type": "Mapping",
+      "config": {
+        "onlyInA": "ENABLED",
+        "onlyInB": "ENABLED",
+        "differences": "ENABLED",
+        "enableTrim": "ENABLED",
+        "considerNullAndEmptySpaceEqual": "ENABLED",
+        "automaticDataTypeConversion": "ENABLED",
+        "columnWiseMismatches": "ENABLED",
+        "compareIgnoreCase": "ENABLED",
+        "passComponentIfDuplicatesExist": "DISABLED",
+        "onlyInAThresholdUnit": "number",
+        "onlyInAThreshold": "0",
+        "onlyInBThresholdUnit": "number",
+        "onlyInBThreshold": "0",
+        "differencesSourceThresholdUnit": "number",
+        "differencesSourceThreshold": "0",
+        "differencesTargetThresholdUnit": "number",
+        "differencesTargetThreshold": "0"
+      },
+      "columnMappings": [
+        {
+          "sourceColumnName": "INTEGRATION_ID",
+          "targetColumnName": "INTEGRATION_ID",
+          "uniqueKeyColumn": true
+        },
+        {
+          "sourceColumnName": "DATASOURCE_NUM_ID",
+          "targetColumnName": "DATASOURCE_NUM_ID",
+          "uniqueKeyColumn": false,
+          "ignoreColumn": true
+        },
+        {
+          "sourceColumnName": "LEDGER_ID",
+          "targetColumnName": "LEDGER_ID",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "CODE_TYPE",
+          "targetColumnName": "CODE_TYPE",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "DETAIL_ID",
+          "targetColumnName": "DETAIL_ID",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "FLEX_VALUE_ID",
+          "targetColumnName": "FLEX_VALUE_ID",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "FLEX_VALUE_SET_ID",
+          "targetColumnName": "FLEX_VALUE_SET_ID",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "TREASURY_SYMBOL_ID",
+          "targetColumnName": "TREASURY_SYMBOL_ID",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "TREASURY_SYMBOL",
+          "targetColumnName": "TREASURY_SYMBOL",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "FUND_VALUE",
+          "targetColumnName": "FUND_VALUE",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "ALLOCATED_FLAG",
+          "targetColumnName": "ALLOCATED_FLAG",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "ALLOCATION_PERCENTAGE",
+          "targetColumnName": "ALLOCATION_PERCENTAGE",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PROGRAM_ACTIVITY_RPT_CODE",
+          "targetColumnName": "PROGRAM_ACTIVITY_RPT_CODE",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PROGRAM_ACTIVITY_RPT_DESC",
+          "targetColumnName": "PROGRAM_ACTIVITY_RPT_DESC",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PROGRAM_ACTIVITY_RPT_KEY",
+          "targetColumnName": "PROGRAM_ACTIVITY_RPT_KEY",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PROGRAM_ACTIVITY_RPT_KEY_DESC",
+          "targetColumnName": "PROGRAM_ACTIVITY_RPT_KEY_DESC",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT1_LOW",
+          "targetColumnName": "SEGMENT1_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT2_LOW",
+          "targetColumnName": "SEGMENT2_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT3_LOW",
+          "targetColumnName": "SEGMENT3_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT4_LOW",
+          "targetColumnName": "SEGMENT4_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT5_LOW",
+          "targetColumnName": "SEGMENT5_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT6_LOW",
+          "targetColumnName": "SEGMENT6_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT7_LOW",
+          "targetColumnName": "SEGMENT7_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT8_LOW",
+          "targetColumnName": "SEGMENT8_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT9_LOW",
+          "targetColumnName": "SEGMENT9_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT10_LOW",
+          "targetColumnName": "SEGMENT10_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT11_LOW",
+          "targetColumnName": "SEGMENT11_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT12_LOW",
+          "targetColumnName": "SEGMENT12_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT13_LOW",
+          "targetColumnName": "SEGMENT13_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT14_LOW",
+          "targetColumnName": "SEGMENT14_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT15_LOW",
+          "targetColumnName": "SEGMENT15_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT16_LOW",
+          "targetColumnName": "SEGMENT16_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT17_LOW",
+          "targetColumnName": "SEGMENT17_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT18_LOW",
+          "targetColumnName": "SEGMENT18_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT19_LOW",
+          "targetColumnName": "SEGMENT19_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT20_LOW",
+          "targetColumnName": "SEGMENT20_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT21_LOW",
+          "targetColumnName": "SEGMENT21_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT22_LOW",
+          "targetColumnName": "SEGMENT22_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT23_LOW",
+          "targetColumnName": "SEGMENT23_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT24_LOW",
+          "targetColumnName": "SEGMENT24_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT25_LOW",
+          "targetColumnName": "SEGMENT25_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT26_LOW",
+          "targetColumnName": "SEGMENT26_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT27_LOW",
+          "targetColumnName": "SEGMENT27_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT28_LOW",
+          "targetColumnName": "SEGMENT28_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT29_LOW",
+          "targetColumnName": "SEGMENT29_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT30_LOW",
+          "targetColumnName": "SEGMENT30_LOW",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT1_HIGH",
+          "targetColumnName": "SEGMENT1_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT2_HIGH",
+          "targetColumnName": "SEGMENT2_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT3_HIGH",
+          "targetColumnName": "SEGMENT3_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT4_HIGH",
+          "targetColumnName": "SEGMENT4_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT5_HIGH",
+          "targetColumnName": "SEGMENT5_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT6_HIGH",
+          "targetColumnName": "SEGMENT6_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT7_HIGH",
+          "targetColumnName": "SEGMENT7_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT8_HIGH",
+          "targetColumnName": "SEGMENT8_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT9_HIGH",
+          "targetColumnName": "SEGMENT9_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT10_HIGH",
+          "targetColumnName": "SEGMENT10_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT11_HIGH",
+          "targetColumnName": "SEGMENT11_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT12_HIGH",
+          "targetColumnName": "SEGMENT12_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT13_HIGH",
+          "targetColumnName": "SEGMENT13_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT14_HIGH",
+          "targetColumnName": "SEGMENT14_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT15_HIGH",
+          "targetColumnName": "SEGMENT15_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT16_HIGH",
+          "targetColumnName": "SEGMENT16_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT17_HIGH",
+          "targetColumnName": "SEGMENT17_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT18_HIGH",
+          "targetColumnName": "SEGMENT18_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT19_HIGH",
+          "targetColumnName": "SEGMENT19_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT20_HIGH",
+          "targetColumnName": "SEGMENT20_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT21_HIGH",
+          "targetColumnName": "SEGMENT21_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT22_HIGH",
+          "targetColumnName": "SEGMENT22_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT23_HIGH",
+          "targetColumnName": "SEGMENT23_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT24_HIGH",
+          "targetColumnName": "SEGMENT24_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT25_HIGH",
+          "targetColumnName": "SEGMENT25_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT26_HIGH",
+          "targetColumnName": "SEGMENT26_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT27_HIGH",
+          "targetColumnName": "SEGMENT27_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT28_HIGH",
+          "targetColumnName": "SEGMENT28_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT29_HIGH",
+          "targetColumnName": "SEGMENT29_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "SEGMENT30_HIGH",
+          "targetColumnName": "SEGMENT30_HIGH",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PRC_HDR_CHANGED_ON_DT",
+          "targetColumnName": "PRC_HDR_CHANGED_ON_DT",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PRC_HDR_CREATED_ON_DT",
+          "targetColumnName": "PRC_HDR_CREATED_ON_DT",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PRC_DTL_CHANGED_ON_DT",
+          "targetColumnName": "PRC_DTL_CHANGED_ON_DT",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PRC_DTL_CREATED_ON_DT",
+          "targetColumnName": "PRC_DTL_CREATED_ON_DT",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PRC_ALLOC_CHANGED_ON_DT",
+          "targetColumnName": "PRC_ALLOC_CHANGED_ON_DT",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PRC_ALLOC_CREATED_ON_DT",
+          "targetColumnName": "PRC_ALLOC_CREATED_ON_DT",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PRC_HDR_CHANGED_BY_ID",
+          "targetColumnName": "PRC_HDR_CHANGED_BY_ID",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PRC_HDR_CREATED_BY_ID",
+          "targetColumnName": "PRC_HDR_CREATED_BY_ID",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PRC_DTL_CHANGED_BY_ID",
+          "targetColumnName": "PRC_DTL_CHANGED_BY_ID",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PRC_DTL_CREATED_BY_ID",
+          "targetColumnName": "PRC_DTL_CREATED_BY_ID",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PRC_ALLOC_CHANGED_BY_ID",
+          "targetColumnName": "PRC_ALLOC_CHANGED_BY_ID",
+          "uniqueKeyColumn": false
+        },
+        {
+          "sourceColumnName": "PRC_ALLOC_CREATED_BY_ID",
+          "targetColumnName": "PRC_ALLOC_CREATED_BY_ID",
+          "uniqueKeyColumn": false
+        }
+      ],
+      "dependencies": [
+        "JDBC 1",
+        "JDBC 2"
+      ]
+    }
+  ],
+  "tags": [
+    "HHS",
+    "ProgramActivityDimension",
+    "DataCompare"
+  ]
+}

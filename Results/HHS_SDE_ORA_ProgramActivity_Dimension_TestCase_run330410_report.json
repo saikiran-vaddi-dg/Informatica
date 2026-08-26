@@ -1,0 +1,44 @@
+{
+  "dataflowName": "HHS_SDE_ORA_ProgramActivity_Dimension_TestCase",
+  "dataflowId": "08c9c67d-89c2-495d-8f61-3b7f9a0ddb0f",
+  "runId": 330410,
+  "status": "Failed",
+  "container": "HHS_Poc_container",
+  "engineName": "168_AN",
+  "folderName": "Dataflow",
+  "note": "download_data_compare_report tool not available on this dataops_mcp server; t_df_component_run_html had 0 rows for this Failed run (no rendered report generated). Row-level sample_json in t_df_component_run_datasets is encrypted/opaque, so only aggregate per-dataset row counts (plain columns) could be retrieved via query_on_dataops_repository.",
+  "components": {
+    "JDBC 1": {
+      "role": "actual",
+      "dataSourceName": "WC_PROGRAM_ACTIVITY_DS",
+      "status": "Completed",
+      "row_count": 4
+    },
+    "JDBC 2": {
+      "role": "expected",
+      "dataSourceName": "FV_FACTS_PRC_HDR",
+      "query_tables": [
+        "FDABI.FV_FACTS_PRC_HDR",
+        "FDABI.FV_FACTS_PRC_DTL",
+        "FV.FV_DACT_PRC_ALLOCATION"
+      ],
+      "status": "Completed",
+      "row_count": 0
+    },
+    "DataCompare 3": {
+      "status": "Failed",
+      "summary_message": "Only In A : 4(100%);",
+      "datasets": {
+        "DataCompare_3": { "row_count": 4 },
+        "DataCompare_3_OnlySource": { "row_count": 4 },
+        "DataCompare_3_OnlyTarget": { "row_count": 0 },
+        "DataCompare_3_Matched": { "row_count": 0 },
+        "DataCompare_3_Difference": { "row_count": 0 },
+        "DataCompare_3_Column_Difference": { "row_count": 0 },
+        "DataCompare_3_Source_Duplicate": { "row_count": 0 },
+        "DataCompare_3_Target_Duplicate": { "row_count": 0 }
+      }
+    }
+  },
+  "fingerprint_md5": "93b6989b477ec48584a5d779179b8d24"
+}
