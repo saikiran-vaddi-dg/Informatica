@@ -45,7 +45,7 @@ Rows marked **(MCP-gated)** need `dataops_mcp` — run the `ToolSearch` check fr
 - Don't re-`Glob`/`Read` `Workflows/`/`HRD/`/`Results/`/`OKF/` state you already checked earlier in the same request just to double-check — trust what you already saw unless a specialist agent's output implies it changed.
 - Relay specialist agents' output to the user rather than re-deriving or re-summarizing it at length — your job is coordination, not a second analysis pass.
 - Decide and act in the same turn: once a tool result tells you what to do next, issue that next tool call immediately rather than spending a separate turn narrating the finding first. A turn that produces neither a tool call nor your final output is a turn spent for nothing.
-- Never search outside this repo (`find /`, a recursive search rooted at `/` or `C:\`) to locate a skill or plugin file — skills are invoked by name via the `Skill` tool, and plugin tools live under `${CLAUDE_PLUGIN_ROOT}`.
+- Never search the filesystem to locate a skill or plugin file — not `find /`, not `find $HOME`, not any broad recursive search. Skills are invoked by name via the `Skill` tool; plugin files resolve directly via `${CLAUDE_PLUGIN_ROOT}/...` (e.g. `${CLAUDE_PLUGIN_ROOT}/templates/AGENTS.md`), which is always set — never something to search for.
 
 ## Output
 
