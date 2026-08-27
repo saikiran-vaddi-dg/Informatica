@@ -1,0 +1,38 @@
+{
+  "dataflow": {
+    "name": "HHS_SIL_GTASActivityBalanceFact_TestCase",
+    "id": "36047d64-13d5-4850-8e54-8ecaeed3d0d7",
+    "container": "HHS_client_Poc_container",
+    "engine": "168_AN",
+    "folder": "Dataflow"
+  },
+  "run": {
+    "id": 330424,
+    "status": "Failed",
+    "note": "Re-run after composite-key fix (GL_ACCOUNT_WID, LEDGER_WID set to uniqueKeyColumn=false) applied via update_data_flow. Failure signature identical to run 330422 -- composite-key fix did not change the outcome."
+  },
+  "components": [
+    {"name": "JDBC 1", "status": "Completed", "rows": 8},
+    {"name": "JDBC 2", "status": "Completed", "rows": 17},
+    {
+      "name": "DataCompare 3",
+      "status": "Failed",
+      "onlyInB": {"count": 9, "percent": 52.9},
+      "duplicatesInA": {"count": 4, "percent": 50},
+      "duplicatesInB": {"count": 4, "percent": 23.5},
+      "differences": {"count": 8, "rows": 8, "percentA": 100, "percentB": 47.1},
+      "matched": 0
+    }
+  ],
+  "analysis": {
+    "report": "Results/HHS_SIL_GTASActivityBalanceFact_TestCase_run330422_analysis.html",
+    "note": "Same analysis report referenced -- failure signature identical to run 330422, so its classification still applies to this run. No new analysis file was generated.",
+    "classification": [
+      {"finding": "MCAL_PERIOD_WID always blank", "class": "environment/data defect", "notes": "W_MCAL_PERIOD_D population/registration needs external SME/DBA verification in container HHS_client_Poc_container, not a test case fix"},
+      {"finding": "Only In B: 9 rows", "class": "no defect", "notes": "expected fact-vs-staging timing gap"},
+      {"finding": "AMOUNT mismatch on 2/4 rows", "class": "environment/data defect", "notes": "decimal precision mismatch root cause needs external verification"},
+      {"finding": "Duplicate keys (4 each side) -- persists after composite-key fix", "class": "environment/data defect (revised)", "notes": "composite-key correction (dropping GL_ACCOUNT_WID/LEDGER_WID from uniqueKeyColumn) was applied and verified via re-run not to change the outcome; duplicate-key symptom appears to stem from the same underlying environment/data issue (blank MCAL_PERIOD_WID / precision mismatch) rather than the key definition itself. No further test-case fix is warranted."}
+    ]
+  },
+  "conclusion": "Status = Failed (final). Composite-key fix confirmed applied and not sufficient to resolve the failure. Remaining blockers are environment/data issues out of scope for this pipeline; require external SME/DBA verification before this dataflow can pass."
+}
