@@ -1,57 +1,18 @@
-# HHS_SDE_ORA_BankDimension — HRD Mapping
+# HHS_SDE_ORA_BankDimension — Test Cases, Dataflows & Caveats
 
 ## Test Cases & Dataflows
 
-| Test Case | Dataflow | Environment | Run ID | Status | Fingerprint |
-|---|---|---|---|---|---|
-| `HRD/HHS_SDE_ORA_BankDimension_TestCase.json` | `HHS_SDE_ORA_BankDimension_TestCase` (dataflowId `e017c2a3-e738-4194-97ae-6bde6e04ae58`) | `HHS_Poc_container` (containerId 525), engine `168_AN`, folder `Dataflow` | 330302 | Failed | `sha256:ac5255bd8ab334bd5adf5bfa913dfdbb5f61db2ca37e2371d3ce271fe1a46d41` (see caveat below — proxy hash) |
+| Test Case | Dataflow | Container | Folder | Engine | Run ID | Status | Fingerprint |
+|---|---|---|---|---|---|---|---|
+| `HRD/HHS_SDE_ORA_BankDimension_TestCase.json` | `HHS_SDE_ORA_BankDimension_TestCase` (guid `f5dc20fd-ae07-40fc-b8a2-316bdf18095c`) | DevContainer (518) | Dataflow (`0e4b8c19-6a14-43bd-9c14-23f421b9971e`) | 168_AN | 330273 | Failed (synthetic demo-data mismatches, no code defect — 4th occurrence in this container) | unresolved — `dataops_mcp_68` unauthenticated this session, could not call `get_data_flow_definition` |
+
+Dataflow has been created and run (see [Results/HHS_SDE_ORA_BankDimension_TestCase_run330273_report.json](../../../Results/HHS_SDE_ORA_BankDimension_TestCase_run330273_report.json) and [Results/HHS_SDE_ORA_BankDimension_TestCase_run330273_analysis.html](../../../Results/HHS_SDE_ORA_BankDimension_TestCase_run330273_analysis.html)). Row/join logic passed (10/10 matched by `ACCDET_ID` key, 0 only-in-A/B, 0 duplicates); 6 column mismatches (`ACCDET_NAME`, `BANK_ALT_NAME`, `CONTACT_NAME`, `COUNTRY_NAME`, `STATE_NAME`, `STREET_ADDRESS1`, all 10/10 rows) are classified as an environment/data defect, not a test case or workflow bug — no fix was applied per the pipeline's own rule for this classification. Fingerprint could not be captured this session because `dataops_mcp_68` was unauthenticated; capture it (via `get_data_flow_definition` on the guid above) the next time this row is touched, before trusting any drift check against it.
 
 ## Known Caveats
 
-- **Fingerprint is a proxy, not a live-definition hash.** `get_data_flow_definition`
-  is not reachable from this developer-agent subagent session (same MCP
-  propagation limitation as create/run), so the recorded Fingerprint above is
-  a SHA-256 of `HRD/HHS_SDE_ORA_BankDimension_TestCase.json` as built, not the
-  deployed dataflow definition returned by the platform. Treat step 3's future
-  drift check as best-effort until the orchestrator (or a session with live
-  `dataops_mcp` access) fetches `get_data_flow_definition` for dataflowId
-  `e017c2a3-e738-4194-97ae-6bde6e04ae58` and this row's Fingerprint is
-  recomputed from that.
-- **Fingerprint now stale relative to the local HRD file.** The Fingerprint
-  above was computed from `HRD/HHS_SDE_ORA_BankDimension_TestCase.json`
-  before the `passComponentIfDuplicatesExist` edit noted below; it no longer
-  matches the current file's hash, and (per the point above) never matched
-  the live deployed definition either since it was never pushed via
-  `update_data_flow`. Recompute once this dataflow is actually rebuilt/
-  updated on the platform against real `W_BANK_DS` data.
-- **Run 330302 failed — classified, recommendation delivered, partially applied; do not treat as validated.**
-  `analysis-agent` (`Results/HHS_SDE_ORA_BankDimension_TestCase_run330302_analysis.html`)
-  classified every failure symptom (duplicated `INTEGRATION_ID` keys `E~6001`/
-  `I~5001` in Dataset A, 12 of 13 blank derived/lookup columns in A, the
-  `SRC_EFF_FROM_DT` mismatch) as **environment/data defects**: `W_BANK_DS`
-  currently holds hand-seeded stub rows, not the output of an actual
-  `HHS_SDE_ORA_BankDimension` mapping run against source EBS data. No test
-  case defect and no genuine workflow/ETL bug was found. One item
-  (`PHONE_NUM` for `I~5001`) needs re-verification after a clean reload
-  before it can be fully closed out.
-  - **Applied**: the one optional test-case hardening recommendation —
-    `passComponentIfDuplicatesExist` changed from `ENABLED` to `DISABLED` in
-    `HRD/HHS_SDE_ORA_BankDimension_TestCase.json`'s DataCompare config, since
-    `INTEGRATION_ID` is a strict unique key and this had been masking the
-    duplicate signal. This is a local test-case edit only — it was not
-    pushed to the live dataflow via `update_data_flow` and the dataflow was
-    not re-run, per the environment-defect classification below.
-  - **Not applied / out of pipeline scope**: the 4 environment/data-defect
-    items (duplicate stub rows, blank derived columns, `SRC_EFF_FROM_DT`,
-    `PHONE_NUM`) all require someone to actually run the
-    `HHS_SDE_ORA_BankDimension` mapping against source EBS data to reload
-    `W_BANK_DS` with real output — this pipeline cannot and should not
-    attempt that reload. Re-running the dataflow today would still fail
-    against the same stub data, so no re-run was attempted. Status remains
-    `Failed` until that external reload happens and this dataflow is
-    re-run.
-- Test case models the SDE's known quirk of `BANK_BRANCH_CODE` and
-  `BANK_BRANCH_NAME` sharing the same source field as actual behavior, not a
-  defect — see `extraction.md`.
-- `X_CUSTOM` and `AUX1..4_CHANGED_ON_DT` origin is unresolved past the
-  mapplet boundary (see `extraction.md`); not covered by this test case.
+- **Environment/data defect: `W_BANK_DS` never populated by real ETL in this container.** Run 330273 found 6 columns (`ACCDET_NAME`, `BANK_ALT_NAME`, `CONTACT_NAME`, `COUNTRY_NAME`, `STATE_NAME`, `STREET_ADDRESS1`) mismatched on all 10/10 rows despite correct key/join logic — `W_BANK_DS` holds independently-seeded synthetic placeholder data unrelated to the source tables' own independently-seeded placeholders. This is the 4th occurrence of this exact root cause in DevContainer 518 (same as `HHS_SDE_ORA_PurchaseRequisitionLinesFact` run 330248, `HHS_SDE_ORA_GTASActivityBalanceFact` run 330171, `HHS_SDE_ORA_QuickDemoFact` run 330247). Needs a real ETL run outside this pipeline's scope before this test case can pass; see [Results/HHS_SDE_ORA_BankDimension_TestCase_run330273_analysis.html](../../../Results/HHS_SDE_ORA_BankDimension_TestCase_run330273_analysis.html) for the full finding.
+- **`HZ_PARTIES` join is an unconfirmed row-position assumption.** The expected-side join uses `BANK_BRANCH_ID = PARTY_ID` because no real FK is available in this schema to relate the two tables; this has not been confirmed against the workflow's actual SQL override.
+- **`JDBC_2` query reconstructed, not confirmed.** `summary.json` reports `sql_override_present=true`, `sql_override_join_count=17` for the mapplet-embedded Source Qualifier but exposes no join predicate/column-mapping text (compaction-tool gap). The expected-side query is reconstructed from the well-known Oracle EBS/OBIA `SDE_ORA_BankDimension` source shape, not confirmed against this workflow's actual SQL override. Columns that could not be confidently reconstructed are marked `ignoreColumn: true`: `BANK_HIER_NAME`/`CODE`, `BANK_CAT_NAME`/`CODE`, `BANK_TYPE_NAME`/`CODE`, `BANK_USER_NAME`, `COUNTRY_NAME`, `AGENCY_LOCATION_CODE`, `X_CUSTOM`, `TENANT_ID`, `DATASOURCE_NUM_ID`, `INTEGRATION_ID`.
+- **`INTEGRATION_ID` formula not captured.** `transformation_logic` only captured the top-level Filter (`REJECT_FLAG='I'`); the `Exp_Integration_ID` expression (INTEGRATION_ID's source per flow/field_lineage) has no captured port formula (compaction-tool gap). `ACCDET_ID` is used as the DataCompare key instead; `INTEGRATION_ID` itself is `ignoreColumn: true`.
+- **Filter logic unverified.** The `REJECT_FLAG = 'I'` filter is assumed satisfied by construction on the expected side (`CEBV_BANK_ACCOUNTS.BANK_ACCOUNT_ID` is a source PK) — not independently verified against the mapplet's actual dedup/reject logic.
+- **9 of 56 target fields untraced.** `field_lineage` lists 47 of 56 target fields; the other 9 (likely standard OBIA ETL audit/system columns) have no lineage entry and are intentionally excluded from the test case rather than guessed.

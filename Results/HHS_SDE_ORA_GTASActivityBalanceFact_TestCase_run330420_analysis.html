@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HHS_SDE_ORA_GTASActivityBalanceFact_TestCase - Run 330420 Analysis</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1a1a2e; --muted: #6b7280; --border: #e5e7eb;
+    --pass: #16a34a; --fail: #dc2626;
+    --testcase: #2563eb; --env: #d97706; --bug: #dc2626; --none: #6b7280;
+    --track: #f3f4f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14141f; --fg: #e8e8f0; --muted: #9ca3af; --border: #2d2d3d; --track: #24243a; }
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--fg); font: 15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif; margin: 0; padding: 2rem; max-width: 900px; margin-inline: auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+  h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+  .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+  .status-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; color: #fff; }
+  .badge-pass { background: var(--pass); }
+  .badge-fail { background: var(--fail); }
+  .bar-row { display: flex; align-items: center; gap: 0.75rem; margin: 0.4rem 0; }
+  .bar-label { width: 160px; flex-shrink: 0; font-size: 0.85rem; color: var(--muted); }
+  .bar-track { flex: 1; background: var(--track); border-radius: 4px; height: 14px; overflow: hidden; }
+  .bar-fill { background: var(--fail); height: 100%; border-radius: 4px; }
+  .bar-value { width: 90px; text-align: right; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+  .finding { border-left: 3px solid var(--border); padding: 0.5rem 0 0.5rem 1rem; margin: 1rem 0; }
+  .action { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 0.75rem 0; }
+  .badge { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+  .badge-testcase { background: var(--testcase); }
+  .badge-env { background: var(--env); }
+  .badge-bug { background: var(--bug); }
+  .badge-none { background: var(--none); }
+  code { background: var(--track); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+  table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); }
+</style>
+</head>
+<body>
+  <h1>HHS_SDE_ORA_GTASActivityBalanceFact_TestCase - Run 330420 Analysis</h1>
+  <div class="meta">Generated 2026-08-27T00:00:00Z &middot; <span class="status-badge badge-fail">Failed</span></div>
+
+  <h2>Scope</h2>
+  <p>Analyzed run 330420 of dataflow <code>HHS_SDE_ORA_GTASActivityBalanceFact_TestCase</code> (dataflowId <code>6389e713-a539-4fc8-9edd-242c8b8c23a0</code>, container <code>HHS_Poc_container</code>, engine <code>168_AN</code>, folder <code>Dataflow</code>). Run facts, component statuses, and DataCompare row/column breakdown were supplied by the orchestrator, who executed the run via <code>dataops_mcp</code> directly (this agent has no MCP access). Cross-referenced against the test case definition in <code>HRD/HHS_SDE_ORA_GTASActivityBalanceFact_TestCase.json</code> (JDBC 1 actual query against <code>W_GTAS_ACTIVITY_BALANCES_FS</code>, JDBC 2 expected query against <code>FV_GTAS_ACTIVITY_BALANCES</code> reproducing the FDA session SQL override, DataCompare 3 keyed on CCID/PERIOD_NUM/SET_OF_BOOKS_ID/JE_HEADER_ID/JE_LINE_NUM/AE_HEADER_ID/AE_LINE_NUM) and the workflow logic in <code>Workflows/HHS_SDE_ORA_GTASActivityBalanceFact.summary.json</code> (<code>session_partition_overrides</code> block containing the join to <code>HZ_CUST_ACCOUNTS</code>/<code>AP_SUPPLIERS</code>/<code>GL_JE_LINES</code> and the <code>PERIOD_YEAR</code> lineage from <code>FV_GTAS_ACTIVITY_BALANCES.PERIOD_YEAR</code>, confirmed at lines 31-32 and the <code>$$GTAS_FISCAL_YR_FDA_EXT</code> parameter definition at line 311).</p>
+
+  <h2>Summary</h2>
+  <p>DataCompare 3 failed. Dataset A (actual, <code>W_GTAS_ACTIVITY_BALANCES_FS</code>) returned 17 rows; Dataset B (expected, computed from <code>FV_GTAS_ACTIVITY_BALANCES</code>) returned 9 rows. All 9 expected rows matched their actual counterparts with <strong>zero column-wise mismatches</strong>, including the computed <code>PROVIDER_RECIPNT_ID</code>/<code>PROVIDER_RECIPNT_NAME</code> fields that require reproducing the FDA session's join/CASE logic. The failure is driven entirely by 8 "Only In A" rows (4 distinct rows, each duplicated once in the target) that have no corresponding row in the source table at all.</p>
+  <div class="bar-row">
+    <span class="bar-label">Matched</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 52.94%; background: var(--pass);"></div></div>
+    <span class="bar-value">9 (100% of B)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Only In A</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 47.06%"></div></div>
+    <span class="bar-value">8 (47.06% of A)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Duplicates In A</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 23.53%"></div></div>
+    <span class="bar-value">4 (23.53% of A)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Only In B</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%"></div></div>
+    <span class="bar-value">0 (0%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Duplicates In B</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%"></div></div>
+    <span class="bar-value">0 (0%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Column mismatches</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%"></div></div>
+    <span class="bar-value">0 (0%)</span>
+  </div>
+
+  <h2>Findings</h2>
+
+  <div class="finding">
+    <h3>All 9 source-backed rows matched with zero column mismatches</h3>
+    <p>Every row present in <code>FV_GTAS_ACTIVITY_BALANCES</code> (JE_HEADER_ID 5001-5009, FUND_VALUE format <code>75-XXXX-2026</code>) matched its counterpart in <code>W_GTAS_ACTIVITY_BALANCES_FS</code> exactly, including the computed <code>PROVIDER_RECIPNT_ID</code>/<code>PROVIDER_RECIPNT_NAME</code> columns. This confirms the test case's JDBC 2 query correctly reproduces the FDA session's join to <code>HZ_CUST_ACCOUNTS</code>/<code>AP_SUPPLIERS</code>/<code>GL_JE_LINES</code> and the CASE-expression logic in <code>Workflows/HHS_SDE_ORA_GTASActivityBalanceFact.summary.json</code>'s <code>session_partition_overrides</code>.</p>
+  </div>
+
+  <div class="finding">
+    <h3>Source correctly excludes PERIOD_YEAR &ne; 2026 (JE_HEADER_ID 5010)</h3>
+    <p><code>FV_GTAS_ACTIVITY_BALANCES</code> contains JE_HEADER_ID 5001-5010; row 5010 has <code>PERIOD_YEAR=2024</code> and is correctly excluded by the WHERE filter in JDBC 2's query (<code>WHERE FV.PERIOD_YEAR IN (2026)</code>), consistent with <code>$$GTAS_FISCAL_YR_FDA_EXT</code> resolving to <code>2026</code> (workflow summary line 311, parameter has no default and no <code>dataops.config.yaml</code> override).</p>
+  </div>
+
+  <div class="finding">
+    <h3>4 target rows (8 with duplicates) have no source lineage whatsoever</h3>
+    <p>CCID 10001/JE_HEADER_ID 810001, CCID 10002/JE_HEADER_ID 810002, CCID 10005/JE_HEADER_ID 810003, and CCID 10009/JE_HEADER_ID 810004 each appear twice in <code>W_GTAS_ACTIVITY_BALANCES_FS</code> (8 "Only In A" rows total, 4 "Duplicates In A"). None of these JE_HEADER_ID values exist in <code>FV_GTAS_ACTIVITY_BALANCES</code> at all &mdash; the source's full range is 5001-5010. These 4 rows also use a materially different FUND_VALUE format (plain 4-digit codes like <code>'0143'</code>) versus the matched rows' <code>75-XXXX-2026</code> convention that the mapping's real join/CASE logic is built around, and blank <code>PROVIDER_RECIPNT_ID</code>/<code>PROVIDER_RECIPNT_NAME</code>.</p>
+    <div class="bar-row">
+      <span class="bar-label">CCID 10001 (JE 810001)</span>
+      <div class="bar-track"><div class="bar-fill" style="width: 25%"></div></div>
+      <span class="bar-value">2 rows</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">CCID 10002 (JE 810002)</span>
+      <div class="bar-track"><div class="bar-fill" style="width: 25%"></div></div>
+      <span class="bar-value">2 rows</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">CCID 10005 (JE 810003)</span>
+      <div class="bar-track"><div class="bar-fill" style="width: 25%"></div></div>
+      <span class="bar-value">2 rows</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">CCID 10009 (JE 810004)</span>
+      <div class="bar-track"><div class="bar-fill" style="width: 25%"></div></div>
+      <span class="bar-value">2 rows</span>
+    </div>
+  </div>
+
+  <h2>Recommended Actions</h2>
+
+  <div class="action">
+    <span class="badge badge-env">Environment/data defect</span>
+    <p><strong>Root cause:</strong> the 4 extra rows (8 with their duplicates) in the target stub table <code>W_GTAS_ACTIVITY_BALANCES_FS</code> are pre-existing/legacy fixture data unrelated to this FDA session's actual source extract. Since JE_HEADER_ID 810001-810004 don't exist anywhere in <code>FV_GTAS_ACTIVITY_BALANCES</code>, no query change in the test case could ever make these rows match &mdash; there is nothing on the source side for the ETL logic to have transformed into them, which rules out both a test case defect (the expected-side query is proven correct by the 9/9 perfect match on real data) and a workflow/ETL bug (a mapping bug would manifest as a wrong transformation of real source rows, not rows fabricated with zero source lineage).</p>
+    <p><strong>Recommended fix (outside the test case):</strong> clean up <code>W_GTAS_ACTIVITY_BALANCES_FS</code> by removing or archiving the 8 rows for CCID 10001/10002/10005/10009 (JE_HEADER_ID 810001-810004) so the target stub table reflects only data actually produced from the current <code>FV_GTAS_ACTIVITY_BALANCES</code> source, then re-run. No change to <code>HRD/HHS_SDE_ORA_GTASActivityBalanceFact_TestCase.json</code> is recommended.</p>
+  </div>
+
+  <div class="action">
+    <span class="badge badge-env">Environment/data defect</span>
+    <p><strong>Root cause:</strong> each of the 4 stray rows is duplicated once in the target (Duplicates In A = 4), meaning <code>W_GTAS_ACTIVITY_BALANCES_FS</code> itself has two identical copies per natural key for this legacy data &mdash; a data-quality issue in the stub table's load history, not a comparison-key problem (the same key columns correctly and cleanly matched all 9 real rows with no duplicate flags).</p>
+    <p><strong>Recommended fix:</strong> resolved by the same table cleanup above. Do not set <code>passComponentIfDuplicatesExist</code> to <code>ENABLED</code> in the test case to mask this &mdash; that would silently hide a real target data-quality issue rather than fix it.</p>
+  </div>
+
+  <h2>Gaps</h2>
+  <p>This agent has no direct <code>dataops_mcp</code> access this session; all run facts, row-level detail, and column-mismatch counts were provided by the orchestrator from its own live run of 330420 and treated as ground truth rather than independently re-queried. No other gaps: the workflow summary confirms the join/CASE logic and PERIOD_YEAR lineage cited above, and the test case JSON was read directly and is consistent with the SQL override described.</p>
+</body>
+</html>

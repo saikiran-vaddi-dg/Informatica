@@ -24,7 +24,7 @@
       "dataSourceName": "FV_GTAS_ACTIVITY_BALANCES",
       "format": "QUERY",
       "datasetName": "JDBC_2",
-      "query": "WITH SRC AS (SELECT CCID, PERIOD_NUM, SET_OF_BOOKS_ID, PERIOD_YEAR, JE_SOURCE, JE_CATEGORY, FUND_VALUE, ACCOUNT_NUMBER, AUTHORITY_TYPE_CODE, FED_NON_FED, TRADING_PARTNER_TYPE, TRADING_PARTNER_NAME, TRADING_PARTNER_AGENCY_ID, TRADING_PARTNER_MAIN_ACCOUNT, BUDGET_IMPACT_IND, D_C_INDICATOR, AMOUNT, JE_HEADER_ID, JE_LINE_NUM, RECORD_CATEGORY, GL_PERIOD, BALANCE_TYPE, TRADING_PARTNER_ID, PERIOD_NAME, EXCEPTION_CATEGORY, DOLLAR_AMOUNT, REDUCTION_TYPE_CODE, DACT_REPORT_IND, PIID, PARENT_AWARD_ID, FAIN, URI, DOC_NUM, POSTED_DATE, DEFAULT_EFFECTIVE_DATE, AE_HEADER_ID, AE_LINE_NUM, CREATION_DATE, EVENT_ID, PARENT_AWARD_ID AS PROVIDER_RECIPNT_ID FROM FV_GTAS_ACTIVITY_BALANCES WHERE CREATION_DATE >= TO_DATE('$$LAST_EXTRACT_DATE', 'MM/DD/YYYY HH24:MI:SS')), LKP_PROVD_RECP AS (SELECT DISTINCT FLEX_VALUE, DESCRIPTION FROM FND_FLEX_VALUES_VL WHERE VALUE_CATEGORY = 'HHS_TP_ELIMINATION_CODE') SELECT SRC.CCID, SRC.PERIOD_NUM, SRC.SET_OF_BOOKS_ID, SRC.PERIOD_YEAR, SRC.JE_SOURCE, SRC.JE_CATEGORY, SRC.FUND_VALUE, SRC.ACCOUNT_NUMBER, SRC.AUTHORITY_TYPE_CODE, SRC.FED_NON_FED, SRC.TRADING_PARTNER_TYPE, SRC.TRADING_PARTNER_NAME, SRC.TRADING_PARTNER_AGENCY_ID, SRC.TRADING_PARTNER_MAIN_ACCOUNT, SRC.BUDGET_IMPACT_IND, SRC.D_C_INDICATOR, SRC.AMOUNT, SRC.JE_HEADER_ID, SRC.JE_LINE_NUM, SRC.RECORD_CATEGORY, SRC.GL_PERIOD, SRC.BALANCE_TYPE, SRC.TRADING_PARTNER_ID, SRC.PERIOD_NAME, SRC.EXCEPTION_CATEGORY, SRC.DOLLAR_AMOUNT, SRC.REDUCTION_TYPE_CODE, SRC.DACT_REPORT_IND, SRC.PIID, SRC.PARENT_AWARD_ID, SRC.FAIN, SRC.URI, SRC.DOC_NUM, SRC.POSTED_DATE, SRC.DEFAULT_EFFECTIVE_DATE, SRC.AE_HEADER_ID, SRC.AE_LINE_NUM, CAST(NULL AS VARCHAR(100)) AS INTEGRATION_ID, SRC.CREATION_DATE AS CREATED_ON_DT, CAST(NULL AS NUMBER) AS DATASOURCE_NUM_ID, SRC.PROVIDER_RECIPNT_ID, CASE WHEN LENGTH(SRC.PROVIDER_RECIPNT_ID) = 7 AND SUBSTR(SRC.PROVIDER_RECIPNT_ID,1,3) != '075' THEN (SELECT L.DESCRIPTION FROM LKP_PROVD_RECP L WHERE L.FLEX_VALUE = SUBSTR(SRC.PROVIDER_RECIPNT_ID,2,2)) WHEN SUBSTR(SRC.PROVIDER_RECIPNT_ID,1,3) = '075' THEN (SELECT I.DESCRIPTION FROM W_GTAS_INTRAHHS_D I WHERE I.TP_MAIN_ACT = SUBSTR(SRC.PROVIDER_RECIPNT_ID,4,4)) ELSE (SELECT L.DESCRIPTION FROM LKP_PROVD_RECP L WHERE L.FLEX_VALUE = SRC.PROVIDER_RECIPNT_ID) END AS PROVIDER_RECIPNT_NAME, SRC.EVENT_ID FROM SRC",
+      "query": "WITH LKP_PROVD_RECP AS (SELECT DISTINCT FLEX_VALUE, DESCRIPTION FROM FND_FLEX_VALUES_VL WHERE VALUE_CATEGORY = 'HHS_TP_ELIMINATION_CODE'), SRC AS (SELECT FV.CCID, FV.PERIOD_NUM, FV.SET_OF_BOOKS_ID, FV.PERIOD_YEAR, FV.JE_SOURCE, FV.JE_CATEGORY, FV.FUND_VALUE, FV.ACCOUNT_NUMBER, FV.AUTHORITY_TYPE_CODE, FV.FED_NON_FED, FV.TRADING_PARTNER_TYPE, FV.TRADING_PARTNER_NAME, FV.TRADING_PARTNER_AGENCY_ID, FV.TRADING_PARTNER_MAIN_ACCOUNT, FV.BUDGET_IMPACT_IND, FV.D_C_INDICATOR, FV.AMOUNT, FV.JE_HEADER_ID, FV.JE_LINE_NUM, FV.RECORD_CATEGORY, FV.CREATION_DATE, FV.GL_PERIOD, FV.BALANCE_TYPE, FV.TRADING_PARTNER_ID, FV.PERIOD_NAME, FV.EXCEPTION_CATEGORY, FV.DOLLAR_AMOUNT, FV.REDUCTION_TYPE_CODE, FV.DACT_REPORT_IND, FV.PIID, FV.PARENT_AWARD_ID, FV.FAIN, FV.URI, FV.DOC_NUM, FV.POSTED_DATE, FV.DEFAULT_EFFECTIVE_DATE, FV.AE_HEADER_ID, FV.AE_LINE_NUM, FV.EVENT_ID, CASE WHEN FV.TRADING_PARTNER_TYPE = 'C' THEN NVL(HCA.ATTRIBUTE1, CASE WHEN FV.FED_NON_FED = 'F' AND FV.TRADING_PARTNER_ID IS NULL AND FV.TRADING_PARTNER_AGENCY_ID IS NOT NULL AND LENGTH(GJL.ATTRIBUTE4) = 7 AND LENGTH(GJL.ATTRIBUTE1) = 4 THEN GJL.ATTRIBUTE1 ELSE NULL END) WHEN FV.TRADING_PARTNER_TYPE = 'S' THEN NVL(APS.ATTRIBUTE1, CASE WHEN FV.FED_NON_FED = 'F' AND FV.TRADING_PARTNER_ID IS NULL AND FV.TRADING_PARTNER_AGENCY_ID IS NOT NULL AND LENGTH(GJL.ATTRIBUTE4) = 7 AND LENGTH(GJL.ATTRIBUTE1) = 4 THEN GJL.ATTRIBUTE1 ELSE NULL END) WHEN FV.TRADING_PARTNER_TYPE = 'M' THEN GJL.ATTRIBUTE1 WHEN FV.TRADING_PARTNER_TYPE = 'O' AND (LENGTH(GJL.ATTRIBUTE1) = 4 OR (FV.JE_SOURCE = 'Year End Close' AND LENGTH(GJL.ATTRIBUTE1) = 7)) THEN GJL.ATTRIBUTE1 WHEN FV.TRADING_PARTNER_TYPE = 'B' THEN FV.TRADING_PARTNER_AGENCY_ID || FV.TRADING_PARTNER_MAIN_ACCOUNT ELSE NULL END AS PROVIDER_RECIPNT_ID FROM FV_GTAS_ACTIVITY_BALANCES FV LEFT OUTER JOIN (SELECT ATTRIBUTE1, CUST_ACCOUNT_ID FROM HZ_CUST_ACCOUNTS WHERE LENGTH(ATTRIBUTE1) = 4) HCA ON FV.TRADING_PARTNER_TYPE = 'C' AND FV.TRADING_PARTNER_ID IS NOT NULL AND FV.TRADING_PARTNER_ID = HCA.CUST_ACCOUNT_ID LEFT OUTER JOIN (SELECT ATTRIBUTE1, VENDOR_ID FROM AP_SUPPLIERS WHERE LENGTH(ATTRIBUTE1) = 4) APS ON FV.TRADING_PARTNER_TYPE = 'S' AND FV.TRADING_PARTNER_ID IS NOT NULL AND FV.TRADING_PARTNER_ID = APS.VENDOR_ID LEFT OUTER JOIN (SELECT JE_HEADER_ID, JE_LINE_NUM, ATTRIBUTE1, ATTRIBUTE4 FROM GL_JE_LINES WHERE LENGTH(ATTRIBUTE1) = 4 OR LENGTH(ATTRIBUTE1) = 7) GJL ON FV.JE_HEADER_ID = GJL.JE_HEADER_ID AND FV.JE_LINE_NUM = GJL.JE_LINE_NUM WHERE FV.PERIOD_YEAR IN (2026)) SELECT SRC.CCID, SRC.PERIOD_NUM, SRC.SET_OF_BOOKS_ID, SRC.PERIOD_YEAR, SRC.JE_SOURCE, SRC.JE_CATEGORY, SRC.FUND_VALUE, SRC.ACCOUNT_NUMBER, SRC.AUTHORITY_TYPE_CODE, SRC.FED_NON_FED, SRC.TRADING_PARTNER_TYPE, SRC.TRADING_PARTNER_NAME, SRC.TRADING_PARTNER_AGENCY_ID, SRC.TRADING_PARTNER_MAIN_ACCOUNT, SRC.BUDGET_IMPACT_IND, SRC.D_C_INDICATOR, SRC.AMOUNT, SRC.JE_HEADER_ID, SRC.JE_LINE_NUM, SRC.RECORD_CATEGORY, SRC.GL_PERIOD, SRC.BALANCE_TYPE, SRC.TRADING_PARTNER_ID, SRC.PERIOD_NAME, SRC.EXCEPTION_CATEGORY, SRC.DOLLAR_AMOUNT, SRC.REDUCTION_TYPE_CODE, SRC.DACT_REPORT_IND, SRC.PIID, SRC.PARENT_AWARD_ID, SRC.FAIN, SRC.URI, SRC.DOC_NUM, SRC.POSTED_DATE, SRC.DEFAULT_EFFECTIVE_DATE, SRC.AE_HEADER_ID, SRC.AE_LINE_NUM, CAST(NULL AS VARCHAR(100)) AS INTEGRATION_ID, SRC.CREATION_DATE AS CREATED_ON_DT, CAST(NULL AS NUMBER) AS DATASOURCE_NUM_ID, SRC.PROVIDER_RECIPNT_ID, CASE WHEN LENGTH(SRC.PROVIDER_RECIPNT_ID) = 7 AND SUBSTR(SRC.PROVIDER_RECIPNT_ID,1,3) != '075' THEN (SELECT L.DESCRIPTION FROM LKP_PROVD_RECP L WHERE L.FLEX_VALUE = SUBSTR(SRC.PROVIDER_RECIPNT_ID,2,2)) WHEN SUBSTR(SRC.PROVIDER_RECIPNT_ID,1,3) = '075' THEN (SELECT I.OPDIV FROM W_GTAS_INTRAHHS_D I WHERE I.TP_MAIN_ACT = SUBSTR(SRC.PROVIDER_RECIPNT_ID,4,4)) ELSE (SELECT L.DESCRIPTION FROM LKP_PROVD_RECP L WHERE L.FLEX_VALUE = SRC.PROVIDER_RECIPNT_ID) END AS PROVIDER_RECIPNT_NAME, SRC.EVENT_ID FROM SRC",
       "dependencies": [],
       "dataSourceLogicalName": "",
       "excludeInNotificationIfCompletedOrPassed": "ENABLED",
@@ -62,233 +62,52 @@
         "differencesTargetThreshold": "0"
       },
       "columnMappings": [
-        {
-          "sourceColumnName": "CCID",
-          "targetColumnName": "CCID",
-          "uniqueKeyColumn": true
-        },
-        {
-          "sourceColumnName": "PERIOD_NUM",
-          "targetColumnName": "PERIOD_NUM",
-          "uniqueKeyColumn": true
-        },
-        {
-          "sourceColumnName": "SET_OF_BOOKS_ID",
-          "targetColumnName": "SET_OF_BOOKS_ID",
-          "uniqueKeyColumn": true
-        },
-        {
-          "sourceColumnName": "PERIOD_YEAR",
-          "targetColumnName": "PERIOD_YEAR",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "JE_SOURCE",
-          "targetColumnName": "JE_SOURCE",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "JE_CATEGORY",
-          "targetColumnName": "JE_CATEGORY",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "FUND_VALUE",
-          "targetColumnName": "FUND_VALUE",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "ACCOUNT_NUMBER",
-          "targetColumnName": "ACCOUNT_NUMBER",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "AUTHORITY_TYPE_CODE",
-          "targetColumnName": "AUTHORITY_TYPE_CODE",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "FED_NON_FED",
-          "targetColumnName": "FED_NON_FED",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "TRADING_PARTNER_TYPE",
-          "targetColumnName": "TRADING_PARTNER_TYPE",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "TRADING_PARTNER_NAME",
-          "targetColumnName": "TRADING_PARTNER_NAME",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "TRADING_PARTNER_AGENCY_ID",
-          "targetColumnName": "TRADING_PARTNER_AGENCY_ID",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "TRADING_PARTNER_MAIN_ACCOUNT",
-          "targetColumnName": "TRADING_PARTNER_MAIN_ACCOUNT",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "BUDGET_IMPACT_IND",
-          "targetColumnName": "BUDGET_IMPACT_IND",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "D_C_INDICATOR",
-          "targetColumnName": "D_C_INDICATOR",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "AMOUNT",
-          "targetColumnName": "AMOUNT",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "JE_HEADER_ID",
-          "targetColumnName": "JE_HEADER_ID",
-          "uniqueKeyColumn": true
-        },
-        {
-          "sourceColumnName": "JE_LINE_NUM",
-          "targetColumnName": "JE_LINE_NUM",
-          "uniqueKeyColumn": true
-        },
-        {
-          "sourceColumnName": "RECORD_CATEGORY",
-          "targetColumnName": "RECORD_CATEGORY",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "GL_PERIOD",
-          "targetColumnName": "GL_PERIOD",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "BALANCE_TYPE",
-          "targetColumnName": "BALANCE_TYPE",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "TRADING_PARTNER_ID",
-          "targetColumnName": "TRADING_PARTNER_ID",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "PERIOD_NAME",
-          "targetColumnName": "PERIOD_NAME",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "EXCEPTION_CATEGORY",
-          "targetColumnName": "EXCEPTION_CATEGORY",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "DOLLAR_AMOUNT",
-          "targetColumnName": "DOLLAR_AMOUNT",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "REDUCTION_TYPE_CODE",
-          "targetColumnName": "REDUCTION_TYPE_CODE",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "DACT_REPORT_IND",
-          "targetColumnName": "DACT_REPORT_IND",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "PIID",
-          "targetColumnName": "PIID",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "PARENT_AWARD_ID",
-          "targetColumnName": "PARENT_AWARD_ID",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "FAIN",
-          "targetColumnName": "FAIN",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "URI",
-          "targetColumnName": "URI",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "DOC_NUM",
-          "targetColumnName": "DOC_NUM",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "POSTED_DATE",
-          "targetColumnName": "POSTED_DATE",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "DEFAULT_EFFECTIVE_DATE",
-          "targetColumnName": "DEFAULT_EFFECTIVE_DATE",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "AE_HEADER_ID",
-          "targetColumnName": "AE_HEADER_ID",
-          "uniqueKeyColumn": true
-        },
-        {
-          "sourceColumnName": "AE_LINE_NUM",
-          "targetColumnName": "AE_LINE_NUM",
-          "uniqueKeyColumn": true
-        },
-        {
-          "sourceColumnName": "INTEGRATION_ID",
-          "targetColumnName": "INTEGRATION_ID",
-          "uniqueKeyColumn": false,
-          "ignoreColumn": true
-        },
-        {
-          "sourceColumnName": "CREATED_ON_DT",
-          "targetColumnName": "CREATED_ON_DT",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "DATASOURCE_NUM_ID",
-          "targetColumnName": "DATASOURCE_NUM_ID",
-          "uniqueKeyColumn": false,
-          "ignoreColumn": true
-        },
-        {
-          "sourceColumnName": "PROVIDER_RECIPNT_ID",
-          "targetColumnName": "PROVIDER_RECIPNT_ID",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "PROVIDER_RECIPNT_NAME",
-          "targetColumnName": "PROVIDER_RECIPNT_NAME",
-          "uniqueKeyColumn": false
-        },
-        {
-          "sourceColumnName": "EVENT_ID",
-          "targetColumnName": "EVENT_ID",
-          "uniqueKeyColumn": false
-        }
+        { "sourceColumnName": "CCID", "targetColumnName": "CCID", "uniqueKeyColumn": true },
+        { "sourceColumnName": "PERIOD_NUM", "targetColumnName": "PERIOD_NUM", "uniqueKeyColumn": true },
+        { "sourceColumnName": "SET_OF_BOOKS_ID", "targetColumnName": "SET_OF_BOOKS_ID", "uniqueKeyColumn": true },
+        { "sourceColumnName": "PERIOD_YEAR", "targetColumnName": "PERIOD_YEAR", "uniqueKeyColumn": false },
+        { "sourceColumnName": "JE_SOURCE", "targetColumnName": "JE_SOURCE", "uniqueKeyColumn": false },
+        { "sourceColumnName": "JE_CATEGORY", "targetColumnName": "JE_CATEGORY", "uniqueKeyColumn": false },
+        { "sourceColumnName": "FUND_VALUE", "targetColumnName": "FUND_VALUE", "uniqueKeyColumn": false },
+        { "sourceColumnName": "ACCOUNT_NUMBER", "targetColumnName": "ACCOUNT_NUMBER", "uniqueKeyColumn": false },
+        { "sourceColumnName": "AUTHORITY_TYPE_CODE", "targetColumnName": "AUTHORITY_TYPE_CODE", "uniqueKeyColumn": false },
+        { "sourceColumnName": "FED_NON_FED", "targetColumnName": "FED_NON_FED", "uniqueKeyColumn": false },
+        { "sourceColumnName": "TRADING_PARTNER_TYPE", "targetColumnName": "TRADING_PARTNER_TYPE", "uniqueKeyColumn": false },
+        { "sourceColumnName": "TRADING_PARTNER_NAME", "targetColumnName": "TRADING_PARTNER_NAME", "uniqueKeyColumn": false },
+        { "sourceColumnName": "TRADING_PARTNER_AGENCY_ID", "targetColumnName": "TRADING_PARTNER_AGENCY_ID", "uniqueKeyColumn": false },
+        { "sourceColumnName": "TRADING_PARTNER_MAIN_ACCOUNT", "targetColumnName": "TRADING_PARTNER_MAIN_ACCOUNT", "uniqueKeyColumn": false },
+        { "sourceColumnName": "BUDGET_IMPACT_IND", "targetColumnName": "BUDGET_IMPACT_IND", "uniqueKeyColumn": false },
+        { "sourceColumnName": "D_C_INDICATOR", "targetColumnName": "D_C_INDICATOR", "uniqueKeyColumn": false },
+        { "sourceColumnName": "AMOUNT", "targetColumnName": "AMOUNT", "uniqueKeyColumn": false },
+        { "sourceColumnName": "JE_HEADER_ID", "targetColumnName": "JE_HEADER_ID", "uniqueKeyColumn": true },
+        { "sourceColumnName": "JE_LINE_NUM", "targetColumnName": "JE_LINE_NUM", "uniqueKeyColumn": true },
+        { "sourceColumnName": "RECORD_CATEGORY", "targetColumnName": "RECORD_CATEGORY", "uniqueKeyColumn": false },
+        { "sourceColumnName": "GL_PERIOD", "targetColumnName": "GL_PERIOD", "uniqueKeyColumn": false },
+        { "sourceColumnName": "BALANCE_TYPE", "targetColumnName": "BALANCE_TYPE", "uniqueKeyColumn": false },
+        { "sourceColumnName": "TRADING_PARTNER_ID", "targetColumnName": "TRADING_PARTNER_ID", "uniqueKeyColumn": false },
+        { "sourceColumnName": "PERIOD_NAME", "targetColumnName": "PERIOD_NAME", "uniqueKeyColumn": false },
+        { "sourceColumnName": "EXCEPTION_CATEGORY", "targetColumnName": "EXCEPTION_CATEGORY", "uniqueKeyColumn": false },
+        { "sourceColumnName": "DOLLAR_AMOUNT", "targetColumnName": "DOLLAR_AMOUNT", "uniqueKeyColumn": false },
+        { "sourceColumnName": "REDUCTION_TYPE_CODE", "targetColumnName": "REDUCTION_TYPE_CODE", "uniqueKeyColumn": false },
+        { "sourceColumnName": "DACT_REPORT_IND", "targetColumnName": "DACT_REPORT_IND", "uniqueKeyColumn": false },
+        { "sourceColumnName": "PIID", "targetColumnName": "PIID", "uniqueKeyColumn": false },
+        { "sourceColumnName": "PARENT_AWARD_ID", "targetColumnName": "PARENT_AWARD_ID", "uniqueKeyColumn": false },
+        { "sourceColumnName": "FAIN", "targetColumnName": "FAIN", "uniqueKeyColumn": false },
+        { "sourceColumnName": "URI", "targetColumnName": "URI", "uniqueKeyColumn": false },
+        { "sourceColumnName": "DOC_NUM", "targetColumnName": "DOC_NUM", "uniqueKeyColumn": false },
+        { "sourceColumnName": "POSTED_DATE", "targetColumnName": "POSTED_DATE", "uniqueKeyColumn": false },
+        { "sourceColumnName": "DEFAULT_EFFECTIVE_DATE", "targetColumnName": "DEFAULT_EFFECTIVE_DATE", "uniqueKeyColumn": false },
+        { "sourceColumnName": "AE_HEADER_ID", "targetColumnName": "AE_HEADER_ID", "uniqueKeyColumn": true },
+        { "sourceColumnName": "AE_LINE_NUM", "targetColumnName": "AE_LINE_NUM", "uniqueKeyColumn": true },
+        { "sourceColumnName": "INTEGRATION_ID", "targetColumnName": "INTEGRATION_ID", "uniqueKeyColumn": false, "ignoreColumn": true },
+        { "sourceColumnName": "CREATED_ON_DT", "targetColumnName": "CREATED_ON_DT", "uniqueKeyColumn": false },
+        { "sourceColumnName": "DATASOURCE_NUM_ID", "targetColumnName": "DATASOURCE_NUM_ID", "uniqueKeyColumn": false, "ignoreColumn": true },
+        { "sourceColumnName": "PROVIDER_RECIPNT_ID", "targetColumnName": "PROVIDER_RECIPNT_ID", "uniqueKeyColumn": false },
+        { "sourceColumnName": "PROVIDER_RECIPNT_NAME", "targetColumnName": "PROVIDER_RECIPNT_NAME", "uniqueKeyColumn": false },
+        { "sourceColumnName": "EVENT_ID", "targetColumnName": "EVENT_ID", "uniqueKeyColumn": false }
       ],
-      "dependencies": [
-        "JDBC 1",
-        "JDBC 2"
-      ]
+      "dependencies": ["JDBC 1", "JDBC 2"]
     }
   ],
-  "tags": [
-    "HHS",
-    "GTASActivityBalanceFact",
-    "DataCompare"
-  ]
+  "tags": ["HHS", "GTASActivityBalanceFact", "DataCompare"]
 }
