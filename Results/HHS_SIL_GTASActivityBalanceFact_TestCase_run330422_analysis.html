@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HHS_SIL_GTASActivityBalanceFact_TestCase - Run 330422 Analysis</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1a1a2e; --muted: #6b7280; --border: #e5e7eb;
+    --pass: #16a34a; --fail: #dc2626;
+    --testcase: #2563eb; --env: #d97706; --bug: #dc2626; --none: #6b7280;
+    --track: #f3f4f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #14141f; --fg: #e8e8f0; --muted: #9ca3af; --border: #2d2d3d; --track: #24243a; }
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--fg); font: 15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif; margin: 0; padding: 2rem; max-width: 900px; margin-inline: auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+  h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+  .meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 1rem; }
+  .status-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; color: #fff; }
+  .badge-pass { background: var(--pass); }
+  .badge-fail { background: var(--fail); }
+  .bar-row { display: flex; align-items: center; gap: 0.75rem; margin: 0.4rem 0; }
+  .bar-label { width: 160px; flex-shrink: 0; font-size: 0.85rem; color: var(--muted); }
+  .bar-track { flex: 1; background: var(--track); border-radius: 4px; height: 14px; overflow: hidden; }
+  .bar-fill { background: var(--fail); height: 100%; border-radius: 4px; }
+  .bar-value { width: 90px; text-align: right; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+  .finding { border-left: 3px solid var(--border); padding: 0.5rem 0 0.5rem 1rem; margin: 1rem 0; }
+  .action { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 0.75rem 0; }
+  .badge { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
+  .badge-testcase { background: var(--testcase); }
+  .badge-env { background: var(--env); }
+  .badge-bug { background: var(--bug); }
+  .badge-none { background: var(--none); }
+  code { background: var(--track); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+  table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); }
+</style>
+</head>
+<body>
+  <h1>HHS_SIL_GTASActivityBalanceFact_TestCase - Run 330422 Analysis</h1>
+  <div class="meta">Generated 2026-08-27T00:00:00Z &middot; <span class="status-badge badge-fail">Failed</span></div>
+
+  <h2>Scope</h2>
+  <p>Dataflow <code>HHS_SIL_GTASActivityBalanceFact_TestCase</code> (id <code>36047d64-13d5-4850-8e54-8ecaeed3d0d7</code>), container <code>HHS_client_Poc_container</code>, engine <code>168_AN</code>, folder <code>Dataflow</code>, run <code>330422</code>. Analyzed the DataCompare 3 failure supplied by the caller (component-level statuses and duplicate/only-in-B/mismatch data) against:</p>
+  <ul>
+    <li><code>HRD/HHS_SIL_GTASActivityBalanceFact_TestCase.json</code> — JDBC 1 (source, reads target table <code>W_GTAS_ACTIVITY_BALANCES_F</code>), JDBC 2 (rebuilds the ETL derivation against staging <code>W_GTAS_ACTIVITY_BALANCES_FS</code> with dimension-key subqueries), DataCompare 3 config and composite key, and its own <code>_notes</code>.</li>
+    <li><code>Workflows/HHS_SIL_GTASActivityBalanceFact.summary.json</code> — real Informatica <code>SQ_W_GTAS_ACTIVITY_BALANCES_FS</code> SQL override (session <code>HHS_SIL_GTASActivityBalanceFact_FDA</code>/<code>_PSC</code>), field lineage, and mapplet structure (target <code>W_GTAS_ACTIVITY_BALANCES_F</code>, source table set includes <code>W_MCAL_PERIOD_D</code>, <code>W_GL_ACCOUNT_D</code>, etc.).</li>
+  </ul>
+  <p>No <code>Results/*_report.json</code> file exists for this run in the repo (Results/ contains no matching entry) — the DataCompare figures analyzed here were supplied directly by the caller. <code>ToolSearch</code> was not invoked for live dataops_mcp job history because the caller already supplied complete component-level and DataCompare-level results, and MCP tools are not available to this analysis-agent subagent context per project policy.</p>
+
+  <h2>Summary</h2>
+  <p>DataCompare 3 failed with Dataset A (target table, 8 rows) vs Dataset B (rebuilt staging derivation, 17 rows): 0 rows matched, 9 rows Only In B, 4 duplicate keys on each side, and all 4 matched-key pairs showing column mismatches (100% of A's unique-key rows differ). Root cause is a mix of one environment/data defect (MCAL_PERIOD_WID resolving to NULL), one expected timing gap (Only In B), one likely environment/precision issue (AMOUNT), and one test-case definition gap (composite key) — see Findings and Recommended Actions below.</p>
+  <div class="bar-row">
+    <span class="bar-label">Matched</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 0%; background:#16a34a;"></div></div>
+    <span class="bar-value">0 (0%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Only In B</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 52.9%"></div></div>
+    <span class="bar-value">9 (52.9% of B)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Duplicates In A</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 50%"></div></div>
+    <span class="bar-value">4 (50% of A)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Duplicates In B</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 23.5%"></div></div>
+    <span class="bar-value">4 (23.5% of B)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">Differences</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div>
+    <span class="bar-value">8/8 (100% of A)</span>
+  </div>
+
+  <h3>Column-wise mismatch breakdown (of 4 matched keys)</h3>
+  <div class="bar-row">
+    <span class="bar-label">MCAL_PERIOD_WID</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div>
+    <span class="bar-value">4/4 (100%)</span>
+  </div>
+  <div class="bar-row">
+    <span class="bar-label">AMOUNT</span>
+    <div class="bar-track"><div class="bar-fill" style="width: 50%"></div></div>
+    <span class="bar-value">2/4 (50%)</span>
+  </div>
+
+  <h2>Findings</h2>
+
+  <div class="finding">
+    <h3>MCAL_PERIOD_WID is NULL/blank for all 4 matched rows (810001–810004)</h3>
+    <p>Cross-checked the test case's JDBC 2 subquery — <code>SELECT MIN(p.ROW_WID) FROM W_MCAL_PERIOD_D p WHERE p.MCAL_YEAR = fs.PERIOD_YEAR AND p.MCAL_PERIOD = fs.PERIOD_NUM AND p.DATASOURCE_NUM_ID = fs.DATASOURCE_NUM_ID</code> — against the real Informatica <code>SQ_W_GTAS_ACTIVITY_BALANCES_FS</code> SQL override in <code>Workflows/HHS_SIL_GTASActivityBalanceFact.summary.json</code> (session <code>HHS_SIL_GTASActivityBalanceFact_FDA</code>, line ~305): <code>LEFT OUTER JOIN W_MCAL_PERIOD_D ON W_GTAS_ACTIVITY_BALANCES_FS.PERIOD_YEAR = W_MCAL_PERIOD_D.MCAL_YEAR AND W_GTAS_ACTIVITY_BALANCES_FS.PERIOD_NUM = W_MCAL_PERIOD_D.MCAL_PERIOD AND ...DATASOURCE_NUM_ID = ...DATASOURCE_NUM_ID</code>. Join direction and column pairing match exactly — this is also confirmed by the test case's own <code>_notes[0]</code>, which records that this join was already corrected vs. a prior buggy draft (no swap). Since the join logic is verified correct, an all-NULL result for every row means the join is finding no matches at runtime — i.e., <code>W_MCAL_PERIOD_D</code> is empty, unpopulated for the relevant MCAL_YEAR/MCAL_PERIOD values, or otherwise not resolving in this run's container (<code>HHS_client_Poc_container</code>).</p>
+  </div>
+
+  <div class="finding">
+    <h3>"Only In B" = 9 rows (JE_HEADER_ID 5001–5009, RECORD_CATEGORY ACTIVITY/BALANCE/CLOSING)</h3>
+    <p>JDBC 1 (Dataset A) reads from <code>W_GTAS_ACTIVITY_BALANCES_F</code> (the already-loaded fact/target table per <code>HRD</code> query and confirmed as the workflow's <code>target</code> in <code>Workflows/HHS_SIL_GTASActivityBalanceFact.summary.json</code>), while JDBC 2 (Dataset B) derives from the staging table <code>W_GTAS_ACTIVITY_BALANCES_FS</code>. The 9 "Only In B" rows carry different <code>RECORD_CATEGORY</code> values ('ACTIVITY'/'BALANCE'/'CLOSING') than A's 4 rows ('PROPRIETARY'/'BUDGETARY') and entirely different JE_HEADER_IDs (5001-5009 vs 810001-810004) — they do not exist in A at all. This is consistent with staging containing newer/unprocessed records that the target table has not yet absorbed via a full ETL run, not with a filtering bug: the test case's JDBC 2 query does not filter on RECORD_CATEGORY at all (selects <code>fs.RECORD_CATEGORY</code> unfiltered), so nothing in the test case logic is excluding these categories from either side.</p>
+  </div>
+
+  <div class="finding">
+    <h3>AMOUNT differs for 2 of 4 matched keys (rounding/precision)</h3>
+    <p>JE_HEADER_ID 810001: A=125001.00 vs B=125000.50; 810004: A=15750.00 vs B=15750.25. Both are direct passthrough columns per lineage (<code>EXP_FINAL.AMOUNT &lt;- ... &lt;- W_GTAS_ACTIVITY_BALANCES_FS.AMOUNT</code>, "Direct copy / passthrough", no transformation). Given A's source is integral-looking (whole dollars) and B differs by fractional cents, and the difference is not present on 2 of the 4 rows (810002/810003 not flagged), this looks like a precision/scale mismatch between the target column's stored decimal(28,2) and the source staging value, or a rounding step applied on load into the target table that isn't in scope of either JDBC query. Neither JDBC query in the test case truncates or rounds AMOUNT, so the test case itself isn't introducing this discrepancy.</p>
+  </div>
+
+  <div class="finding">
+    <h3>4 duplicate keys on both sides for JE_HEADER_ID 810001–810004</h3>
+    <p>The DataCompare composite key is <code>(JE_HEADER_ID, JE_LINE_NUM, AE_HEADER_ID, AE_LINE_NUM, BALANCE_TYPE, RECORD_CATEGORY, GL_ACCOUNT_WID, LEDGER_WID, DATASOURCE_NUM_ID)</code> per <code>HRD/HHS_SIL_GTASActivityBalanceFact_TestCase.json</code> columnMappings. The test case's own <code>_notes[3]</code> explicitly flags this key as "inferred from the fact's grain -- confirm against the real target table PK/unique constraint if possible before build," i.e. it was never validated against the actual database-level unique constraint on <code>W_GTAS_ACTIVITY_BALANCES_F</code>/<code>_FS</code>. Given GL_ACCOUNT_WID is itself unresolved/blank or duplicated for these rows (compounded by the CURRENT_FLG join potentially returning >1 match via MIN() collapsing ties), the key as defined may not be sufficiently discriminating, causing the engine to see 2 physical rows per logical key on each side.</p>
+  </div>
+
+  <h2>Recommended Actions</h2>
+
+  <div class="action">
+    <span class="badge badge-env">Environment/data defect</span>
+    <p><strong>MCAL_PERIOD_WID always blank.</strong> The join SQL in JDBC 2 exactly mirrors the real Informatica SQL override (verified against <code>Workflows/HHS_SIL_GTASActivityBalanceFact.summary.json</code> line ~305) and was already reviewed/corrected per <code>_notes[0]</code>. No test-case change is needed. Recommend verifying, in container <code>HHS_client_Poc_container</code>, that <code>W_MCAL_PERIOD_D</code> is populated with rows whose <code>MCAL_YEAR</code>/<code>MCAL_PERIOD</code> match the <code>PERIOD_YEAR</code>/<code>PERIOD_NUM</code> values present in the 4 test rows (GL_PERIOD/PERIOD_NAME in <code>W_GTAS_ACTIVITY_BALANCES_FS</code>), and that <code>DATASOURCE_NUM_ID</code> values align between the two tables in this container.</p>
+  </div>
+
+  <div class="action">
+    <span class="badge badge-none">No action needed (expected condition)</span>
+    <p><strong>"Only In B" = 9 rows.</strong> These represent staging records (JE_HEADER_ID 5001-5009, RECORD_CATEGORY ACTIVITY/BALANCE/CLOSING) not yet present in the already-loaded target table — an expected fact-vs-staging timing gap given JDBC 1 reads the target and JDBC 2 derives from staging. Nothing in the JDBC 2 query filters these rows out inappropriately. If this data lag is not actually expected by the test's intent, that is a scope/environment question for the user, not a test-case logic defect.</p>
+  </div>
+
+  <div class="action">
+    <span class="badge badge-env">Environment/data defect (tentative — needs confirmation)</span>
+    <p><strong>AMOUNT mismatches on 2/4 rows (fractional-cent differences).</strong> Both JDBC queries pass AMOUNT through unmodified, so the test case is not responsible for the discrepancy. Likely a decimal precision/rounding difference between the staging value and the value materialized in the target table (source flagged as decimal(15,0) vs target decimal(28,2)). Recommend confirming the target table's actual column definition/rounding behavior for AMOUNT and, if the difference proves to be genuine data corruption in the staging-to-target load (not a schema-precision artifact), escalate as a workflow bug rather than tolerate it in the test case.</p>
+  </div>
+
+  <div class="action">
+    <span class="badge badge-testcase">Test case defect</span>
+    <p><strong>Composite unique key under-constrains matches (duplicates in both A and B).</strong> Per the test case's own <code>_notes[3]</code>, the key was inferred from grain, not confirmed against the real PK/unique constraint on the target/staging tables. Recommend updating <code>HRD/HHS_SIL_GTASActivityBalanceFact_TestCase.json</code>'s DataCompare 3 <code>columnMappings</code> <code>uniqueKeyColumn</code> flags once the real unique constraint is confirmed — most likely by removing GL_ACCOUNT_WID/LEDGER_WID from the key (since they're derived/nullable dimension-key lookups, not part of the source grain) and/or adding any missing natural-key column, so each logical fact row maps to exactly one physical row per side.</p>
+  </div>
+
+  <h2>Gaps</h2>
+  <p>No <code>Results/HHS_SIL_GTASActivityBalanceFact_TestCase_run330422_report.json</code> (or similarly named raw DataCompare report artifact) exists in <code>Results/</code> for this run — all figures analyzed above were taken from the component statuses and DataCompare report data supplied directly in the task description, not independently re-derived from a stored report file. Live dataops_mcp job-history/metrics tools were not queried for this analysis; if a more authoritative live report exists on the DataOps platform for run 330422, it was not cross-checked here. Confirmation of the actual PK/unique constraint on <code>W_GTAS_ACTIVITY_BALANCES_F</code>/<code>_FS</code> and the live population state of <code>W_MCAL_PERIOD_D</code> in container <code>HHS_client_Poc_container</code> were not directly queryable from local files and require developer/DBA verification.</p>
+
+</body>
+</html>

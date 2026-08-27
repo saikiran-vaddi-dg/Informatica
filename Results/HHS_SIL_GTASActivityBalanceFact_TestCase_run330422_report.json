@@ -1,0 +1,35 @@
+{
+  "dataflow": {
+    "name": "HHS_SIL_GTASActivityBalanceFact_TestCase",
+    "id": "36047d64-13d5-4850-8e54-8ecaeed3d0d7",
+    "container": "HHS_client_Poc_container",
+    "engine": "168_AN",
+    "folder": "Dataflow"
+  },
+  "run": {
+    "id": 330422,
+    "status": "Failed"
+  },
+  "components": [
+    {"name": "JDBC 1", "status": "Completed", "rows": 8},
+    {"name": "JDBC 2", "status": "Completed", "rows": 17},
+    {
+      "name": "DataCompare 3",
+      "status": "Failed",
+      "onlyInB": {"count": 9, "percent": 52.9},
+      "duplicatesInA": {"count": 4, "percent": 50},
+      "duplicatesInB": {"count": 4, "percent": 23.5},
+      "differences": {"count": 8, "rows": 8},
+      "matched": 0
+    }
+  ],
+  "analysis": {
+    "report": "Results/HHS_SIL_GTASActivityBalanceFact_TestCase_run330422_analysis.html",
+    "classification": [
+      {"finding": "MCAL_PERIOD_WID always blank", "class": "environment/data defect", "notes": "W_MCAL_PERIOD_D population needs external verification, not a test case fix"},
+      {"finding": "Only In B: 9 rows", "class": "no defect", "notes": "expected fact-vs-staging timing gap"},
+      {"finding": "AMOUNT mismatch on 2/4 rows", "class": "tentatively environment/data defect", "notes": "possible decimal precision"},
+      {"finding": "Duplicate keys (4 each side)", "class": "confirmed test case defect", "notes": "composite unique key included GL_ACCOUNT_WID and LEDGER_WID (derived dimension-lookup columns), never confirmed against real target table PK; fixed in HRD/HHS_SIL_GTASActivityBalanceFact_TestCase.json"}
+    ]
+  }
+}
