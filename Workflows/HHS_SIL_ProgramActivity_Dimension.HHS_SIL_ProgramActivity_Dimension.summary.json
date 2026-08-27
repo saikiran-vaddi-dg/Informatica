@@ -1,0 +1,682 @@
+{
+  "mapping": "HHS_SIL_ProgramActivity_Dimension",
+  "description": "",
+  "sources": [
+    "W_USER_D",
+    "W_LEDGER_D",
+    "WC_PROGRAM_ACTIVITY_DS"
+  ],
+  "target": "WC_PROGRAM_ACTIVITY_D",
+  "flow": [
+    "sequence:SEQ_WC_PROGRAM_ACTIVITY_D",
+    "source_definition:WC_PROGRAM_ACTIVITY_DS",
+    "source_definition:W_LEDGER_D",
+    "source_definition:W_USER_D",
+    "source_definition:W_USER_D",
+    "source_definition:W_USER_D",
+    "source_qualifier:SQ_WC_PROGRAM_ACTIVITY_DS",
+    "mapplet:MPLT_GET_ETL_PROC_WID",
+    "expression:EXPTRANS",
+    "lookup_procedure:LKP_WC_PROGRAM_ACTIVITY_D",
+    "router:RTR_WC_PROGRAM_ACTIVITY_D",
+    "expression:EXP_INS",
+    "update_strategy:Update",
+    "update_strategy:Insert",
+    "target_definition:WC_PROGRAM_ACTIVITY_D",
+    "target_definition:WC_PROGRAM_ACTIVITY_D"
+  ],
+  "field_lineage": [
+    {
+      "target_field": "ROW_WID",
+      "source_lineage": "Update.LKP_ROW_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.LKP_ROW_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.LKP_ROW_WID <- LKP_WC_PROGRAM_ACTIVITY_D.ROW_WID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "LEDGER_WID",
+      "source_lineage": "Update.LEDGER_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.LEDGER_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.LEDGER_WID <- EXPTRANS.LEDGER_WID <- SQ_WC_PROGRAM_ACTIVITY_DS.LEDGER_WID <- W_LEDGER_D.ROW_WID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "ALLOCATED_FLAG",
+      "source_lineage": "Update.ALLOCATED_FLAG3 <- RTR_WC_PROGRAM_ACTIVITY_D.ALLOCATED_FLAG3 <- RTR_WC_PROGRAM_ACTIVITY_D.ALLOCATED_FLAG <- EXPTRANS.ALLOCATED_FLAG <- SQ_WC_PROGRAM_ACTIVITY_DS.ALLOCATED_FLAG <- WC_PROGRAM_ACTIVITY_DS.ALLOCATED_FLAG",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "CODE_TYPE",
+      "source_lineage": "Update.CODE_TYPE3 <- RTR_WC_PROGRAM_ACTIVITY_D.CODE_TYPE3 <- RTR_WC_PROGRAM_ACTIVITY_D.CODE_TYPE <- EXPTRANS.CODE_TYPE <- SQ_WC_PROGRAM_ACTIVITY_DS.CODE_TYPE <- WC_PROGRAM_ACTIVITY_DS.CODE_TYPE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "DETAIL_ID",
+      "source_lineage": "Update.DETAIL_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.DETAIL_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.DETAIL_ID <- EXPTRANS.DETAIL_ID <- SQ_WC_PROGRAM_ACTIVITY_DS.DETAIL_ID <- WC_PROGRAM_ACTIVITY_DS.DETAIL_ID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "FLEX_VALUE_ID",
+      "source_lineage": "Update.FLEX_VALUE_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.FLEX_VALUE_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.FLEX_VALUE_ID <- EXPTRANS.FLEX_VALUE_ID <- SQ_WC_PROGRAM_ACTIVITY_DS.FLEX_VALUE_ID <- WC_PROGRAM_ACTIVITY_DS.FLEX_VALUE_ID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "FLEX_VALUE_SET_ID",
+      "source_lineage": "Update.FLEX_VALUE_SET_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.FLEX_VALUE_SET_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.FLEX_VALUE_SET_ID <- EXPTRANS.FLEX_VALUE_SET_ID <- SQ_WC_PROGRAM_ACTIVITY_DS.FLEX_VALUE_SET_ID <- WC_PROGRAM_ACTIVITY_DS.FLEX_VALUE_SET_ID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "TREASURY_SYMBOL_ID",
+      "source_lineage": "Update.TREASURY_SYMBOL_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.TREASURY_SYMBOL_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.TREASURY_SYMBOL_ID <- EXPTRANS.TREASURY_SYMBOL_ID <- SQ_WC_PROGRAM_ACTIVITY_DS.TREASURY_SYMBOL_ID <- WC_PROGRAM_ACTIVITY_DS.TREASURY_SYMBOL_ID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "TREASURY_SYMBOL",
+      "source_lineage": "Update.TREASURY_SYMBOL3 <- RTR_WC_PROGRAM_ACTIVITY_D.TREASURY_SYMBOL3 <- RTR_WC_PROGRAM_ACTIVITY_D.TREASURY_SYMBOL <- EXPTRANS.TREASURY_SYMBOL <- SQ_WC_PROGRAM_ACTIVITY_DS.TREASURY_SYMBOL <- WC_PROGRAM_ACTIVITY_DS.TREASURY_SYMBOL",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "FUND_VALUE",
+      "source_lineage": "Update.FUND_VALUE3 <- RTR_WC_PROGRAM_ACTIVITY_D.FUND_VALUE3 <- RTR_WC_PROGRAM_ACTIVITY_D.FUND_VALUE <- EXPTRANS.FUND_VALUE <- SQ_WC_PROGRAM_ACTIVITY_DS.FUND_VALUE <- WC_PROGRAM_ACTIVITY_DS.FUND_VALUE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "ALLOCATION_PERCENTAGE",
+      "source_lineage": "Update.ALLOCATION_PERCENTAGE3 <- RTR_WC_PROGRAM_ACTIVITY_D.ALLOCATION_PERCENTAGE3 <- RTR_WC_PROGRAM_ACTIVITY_D.ALLOCATION_PERCENTAGE <- EXPTRANS.ALLOCATION_PERCENTAGE <- SQ_WC_PROGRAM_ACTIVITY_DS.ALLOCATION_PERCENTAGE <- WC_PROGRAM_ACTIVITY_DS.ALLOCATION_PERCENTAGE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PROGRAM_ACTIVITY_RPT_CODE",
+      "source_lineage": "Update.PROGRAM_ACTIVITY_RPT_CODE3 <- RTR_WC_PROGRAM_ACTIVITY_D.PROGRAM_ACTIVITY_RPT_CODE3 <- RTR_WC_PROGRAM_ACTIVITY_D.PROGRAM_ACTIVITY_RPT_CODE <- EXPTRANS.PROGRAM_ACTIVITY_RPT_CODE <- SQ_WC_PROGRAM_ACTIVITY_DS.PROGRAM_ACTIVITY_RPT_CODE <- WC_PROGRAM_ACTIVITY_DS.PROGRAM_ACTIVITY_RPT_CODE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PROGRAM_ACTIVITY_RPT_DESC",
+      "source_lineage": "Update.PROGRAM_ACTIVITY_RPT_DESC3 <- RTR_WC_PROGRAM_ACTIVITY_D.PROGRAM_ACTIVITY_RPT_DESC3 <- RTR_WC_PROGRAM_ACTIVITY_D.PROGRAM_ACTIVITY_RPT_DESC <- EXPTRANS.PROGRAM_ACTIVITY_RPT_DESC <- SQ_WC_PROGRAM_ACTIVITY_DS.PROGRAM_ACTIVITY_RPT_DESC <- WC_PROGRAM_ACTIVITY_DS.PROGRAM_ACTIVITY_RPT_DESC",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT1_LOW",
+      "source_lineage": "Update.SEGMENT1_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT1_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT1_LOW <- EXPTRANS.SEGMENT1_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT1_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT1_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT2_LOW",
+      "source_lineage": "Update.SEGMENT2_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT2_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT2_LOW <- EXPTRANS.SEGMENT2_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT2_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT2_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT3_LOW",
+      "source_lineage": "Update.SEGMENT3_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT3_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT3_LOW <- EXPTRANS.SEGMENT3_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT3_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT3_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT4_LOW",
+      "source_lineage": "Update.SEGMENT4_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT4_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT4_LOW <- EXPTRANS.SEGMENT4_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT4_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT4_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT5_LOW",
+      "source_lineage": "Update.SEGMENT5_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT5_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT5_LOW <- EXPTRANS.SEGMENT5_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT5_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT5_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT6_LOW",
+      "source_lineage": "Update.SEGMENT6_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT6_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT6_LOW <- EXPTRANS.SEGMENT6_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT6_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT6_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT7_LOW",
+      "source_lineage": "Update.SEGMENT7_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT7_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT7_LOW <- EXPTRANS.SEGMENT7_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT7_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT7_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT8_LOW",
+      "source_lineage": "Update.SEGMENT8_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT8_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT8_LOW <- EXPTRANS.SEGMENT8_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT8_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT8_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT9_LOW",
+      "source_lineage": "Update.SEGMENT9_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT9_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT9_LOW <- EXPTRANS.SEGMENT9_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT9_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT9_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT10_LOW",
+      "source_lineage": "Update.SEGMENT10_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT10_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT10_LOW <- EXPTRANS.SEGMENT10_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT10_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT10_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT11_LOW",
+      "source_lineage": "Update.SEGMENT11_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT11_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT11_LOW <- EXPTRANS.SEGMENT11_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT11_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT11_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT12_LOW",
+      "source_lineage": "Update.SEGMENT12_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT12_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT12_LOW <- EXPTRANS.SEGMENT12_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT12_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT12_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT13_LOW",
+      "source_lineage": "Update.SEGMENT13_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT13_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT13_LOW <- EXPTRANS.SEGMENT13_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT13_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT13_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT14_LOW",
+      "source_lineage": "Update.SEGMENT14_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT14_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT14_LOW <- EXPTRANS.SEGMENT14_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT14_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT14_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT15_LOW",
+      "source_lineage": "Update.SEGMENT15_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT15_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT15_LOW <- EXPTRANS.SEGMENT15_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT15_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT15_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT16_LOW",
+      "source_lineage": "Update.SEGMENT16_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT16_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT16_LOW <- EXPTRANS.SEGMENT16_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT16_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT16_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT17_LOW",
+      "source_lineage": "Update.SEGMENT17_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT17_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT17_LOW <- EXPTRANS.SEGMENT17_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT17_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT17_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT18_LOW",
+      "source_lineage": "Update.SEGMENT18_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT18_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT18_LOW <- EXPTRANS.SEGMENT18_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT18_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT18_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT19_LOW",
+      "source_lineage": "Update.SEGMENT19_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT19_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT19_LOW <- EXPTRANS.SEGMENT19_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT19_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT19_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT20_LOW",
+      "source_lineage": "Update.SEGMENT20_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT20_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT20_LOW <- EXPTRANS.SEGMENT20_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT20_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT20_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT21_LOW",
+      "source_lineage": "Update.SEGMENT21_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT21_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT21_LOW <- EXPTRANS.SEGMENT21_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT21_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT21_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT22_LOW",
+      "source_lineage": "Update.SEGMENT22_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT22_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT22_LOW <- EXPTRANS.SEGMENT22_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT22_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT22_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT23_LOW",
+      "source_lineage": "Update.SEGMENT23_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT23_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT23_LOW <- EXPTRANS.SEGMENT23_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT23_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT23_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT24_LOW",
+      "source_lineage": "Update.SEGMENT24_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT24_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT24_LOW <- EXPTRANS.SEGMENT24_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT24_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT24_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT25_LOW",
+      "source_lineage": "Update.SEGMENT25_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT25_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT25_LOW <- EXPTRANS.SEGMENT25_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT25_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT25_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT26_LOW",
+      "source_lineage": "Update.SEGMENT26_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT26_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT26_LOW <- EXPTRANS.SEGMENT26_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT26_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT26_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT27_LOW",
+      "source_lineage": "Update.SEGMENT27_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT27_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT27_LOW <- EXPTRANS.SEGMENT27_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT27_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT27_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT28_LOW",
+      "source_lineage": "Update.SEGMENT28_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT28_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT28_LOW <- EXPTRANS.SEGMENT28_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT28_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT28_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT29_LOW",
+      "source_lineage": "Update.SEGMENT29_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT29_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT29_LOW <- EXPTRANS.SEGMENT29_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT29_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT29_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT30_LOW",
+      "source_lineage": "Update.SEGMENT30_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT30_LOW3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT30_LOW <- EXPTRANS.SEGMENT30_LOW <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT30_LOW <- WC_PROGRAM_ACTIVITY_DS.SEGMENT30_LOW",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT1_HIGH",
+      "source_lineage": "Update.SEGMENT1_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT1_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT1_HIGH <- EXPTRANS.SEGMENT1_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT1_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT1_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT2_HIGH",
+      "source_lineage": "Update.SEGMENT2_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT2_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT2_HIGH <- EXPTRANS.SEGMENT2_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT2_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT2_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT3_HIGH",
+      "source_lineage": "Update.SEGMENT3_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT3_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT3_HIGH <- EXPTRANS.SEGMENT3_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT3_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT3_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT4_HIGH",
+      "source_lineage": "Update.SEGMENT4_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT4_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT4_HIGH <- EXPTRANS.SEGMENT4_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT4_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT4_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT5_HIGH",
+      "source_lineage": "Update.SEGMENT5_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT5_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT5_HIGH <- EXPTRANS.SEGMENT5_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT5_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT5_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT6_HIGH",
+      "source_lineage": "Update.SEGMENT6_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT6_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT6_HIGH <- EXPTRANS.SEGMENT6_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT6_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT6_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT7_HIGH",
+      "source_lineage": "Update.SEGMENT7_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT7_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT7_HIGH <- EXPTRANS.SEGMENT7_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT7_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT7_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT8_HIGH",
+      "source_lineage": "Update.SEGMENT8_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT8_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT8_HIGH <- EXPTRANS.SEGMENT8_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT8_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT8_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT9_HIGH",
+      "source_lineage": "Update.SEGMENT9_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT9_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT9_HIGH <- EXPTRANS.SEGMENT9_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT9_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT9_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT10_HIGH",
+      "source_lineage": "Update.SEGMENT10_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT10_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT10_HIGH <- EXPTRANS.SEGMENT10_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT10_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT10_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT11_HIGH",
+      "source_lineage": "Update.SEGMENT11_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT11_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT11_HIGH <- EXPTRANS.SEGMENT11_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT11_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT11_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT12_HIGH",
+      "source_lineage": "Update.SEGMENT12_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT12_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT12_HIGH <- EXPTRANS.SEGMENT12_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT12_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT12_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT13_HIGH",
+      "source_lineage": "Update.SEGMENT13_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT13_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT13_HIGH <- EXPTRANS.SEGMENT13_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT13_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT13_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT14_HIGH",
+      "source_lineage": "Update.SEGMENT14_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT14_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT14_HIGH <- EXPTRANS.SEGMENT14_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT14_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT14_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT15_HIGH",
+      "source_lineage": "Update.SEGMENT15_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT15_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT15_HIGH <- EXPTRANS.SEGMENT15_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT15_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT15_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT16_HIGH",
+      "source_lineage": "Update.SEGMENT16_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT16_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT16_HIGH <- EXPTRANS.SEGMENT16_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT16_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT16_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT17_HIGH",
+      "source_lineage": "Update.SEGMENT17_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT17_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT17_HIGH <- EXPTRANS.SEGMENT17_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT17_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT17_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT18_HIGH",
+      "source_lineage": "Update.SEGMENT18_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT18_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT18_HIGH <- EXPTRANS.SEGMENT18_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT18_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT18_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT19_HIGH",
+      "source_lineage": "Update.SEGMENT19_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT19_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT19_HIGH <- EXPTRANS.SEGMENT19_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT19_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT19_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT20_HIGH",
+      "source_lineage": "Update.SEGMENT20_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT20_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT20_HIGH <- EXPTRANS.SEGMENT20_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT20_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT20_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT21_HIGH",
+      "source_lineage": "Update.SEGMENT21_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT21_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT21_HIGH <- EXPTRANS.SEGMENT21_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT21_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT21_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT22_HIGH",
+      "source_lineage": "Update.SEGMENT22_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT22_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT22_HIGH <- EXPTRANS.SEGMENT22_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT22_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT22_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT23_HIGH",
+      "source_lineage": "Update.SEGMENT23_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT23_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT23_HIGH <- EXPTRANS.SEGMENT23_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT23_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT23_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT24_HIGH",
+      "source_lineage": "Update.SEGMENT24_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT24_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT24_HIGH <- EXPTRANS.SEGMENT24_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT24_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT24_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT25_HIGH",
+      "source_lineage": "Update.SEGMENT25_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT25_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT25_HIGH <- EXPTRANS.SEGMENT25_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT25_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT25_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT26_HIGH",
+      "source_lineage": "Update.SEGMENT26_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT26_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT26_HIGH <- EXPTRANS.SEGMENT26_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT26_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT26_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT27_HIGH",
+      "source_lineage": "Update.SEGMENT27_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT27_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT27_HIGH <- EXPTRANS.SEGMENT27_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT27_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT27_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT28_HIGH",
+      "source_lineage": "Update.SEGMENT28_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT28_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT28_HIGH <- EXPTRANS.SEGMENT28_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT28_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT28_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT29_HIGH",
+      "source_lineage": "Update.SEGMENT29_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT29_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT29_HIGH <- EXPTRANS.SEGMENT29_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT29_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT29_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SEGMENT30_HIGH",
+      "source_lineage": "Update.SEGMENT30_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT30_HIGH3 <- RTR_WC_PROGRAM_ACTIVITY_D.SEGMENT30_HIGH <- EXPTRANS.SEGMENT30_HIGH <- SQ_WC_PROGRAM_ACTIVITY_DS.SEGMENT30_HIGH <- WC_PROGRAM_ACTIVITY_DS.SEGMENT30_HIGH",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "W_UPDATE_DT",
+      "source_lineage": "Update.W_UPDATE_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.W_UPDATE_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.W_UPDATE_DT <- EXPTRANS.W_UPDATE_DT",
+      "transformation_rule": "SESSSTARTTIME"
+    },
+    {
+      "target_field": "ETL_PROC_WID",
+      "source_lineage": "Update.ETL_PROC_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.ETL_PROC_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.ETL_PROC_WID <- EXPTRANS.ETL_PROC_WID <- MPLT_GET_ETL_PROC_WID.ETL_PROC_WID <- [MPLT_GET_ETL_PROC_WID]OUTPUT.ETL_PROC_WID <- [MPLT_GET_ETL_PROC_WID]Exp_Decide_Etl_Proc_Wid.ETL_PROC_WID_OUT",
+      "transformation_rule": "IIF($$ETL_PROC_WID = 0, LKP_ETL_PROC_WID, $$ETL_PROC_WID)"
+    },
+    {
+      "target_field": "PRC_HDR_CHANGED_ON_DT",
+      "source_lineage": "Update.PRC_HDR_CHANGED_ON_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_HDR_CHANGED_ON_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_HDR_CHANGED_ON_DT <- EXPTRANS.PRC_HDR_CHANGED_ON_DT <- SQ_WC_PROGRAM_ACTIVITY_DS.PRC_HDR_CHANGED_ON_DT <- WC_PROGRAM_ACTIVITY_DS.PRC_HDR_CHANGED_ON_DT",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PRC_HDR_CHANGED_BY_WID",
+      "source_lineage": "Update.PRC_HDR_CHANGED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_HDR_CHANGED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_HDR_CHANGED_BY_WID <- EXPTRANS.PRC_HDR_CHANGED_BY_WID <- SQ_WC_PROGRAM_ACTIVITY_DS.PRC_HDR_CHANGED_BY_WID <- W_USER_D.ROW_WID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PRC_DTL_CHANGED_ON_DT",
+      "source_lineage": "Update.PRC_DTL_CHANGED_ON_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_DTL_CHANGED_ON_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_DTL_CHANGED_ON_DT <- EXPTRANS.PRC_DTL_CHANGED_ON_DT <- SQ_WC_PROGRAM_ACTIVITY_DS.PRC_DTL_CHANGED_ON_DT <- WC_PROGRAM_ACTIVITY_DS.PRC_DTL_CHANGED_ON_DT",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PRC_DTL_CHANGED_BY_WID",
+      "source_lineage": "Update.PRC_DTL_CHANGED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_DTL_CHANGED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_DTL_CHANGED_BY_WID <- EXPTRANS.PRC_DTL_CHANGED_BY_WID <- SQ_WC_PROGRAM_ACTIVITY_DS.PRC_DTL_CHANGED_BY_WID <- W_USER_D1.ROW_WID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PRC_ALLOC_CHANGED_ON_DT",
+      "source_lineage": "Update.PRC_ALLOC_CHANGED_ON_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_ALLOC_CHANGED_ON_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_ALLOC_CHANGED_ON_DT <- EXPTRANS.PRC_ALLOC_CHANGED_ON_DT <- SQ_WC_PROGRAM_ACTIVITY_DS.PRC_ALLOC_CHANGED_ON_DT <- WC_PROGRAM_ACTIVITY_DS.PRC_ALLOC_CHANGED_ON_DT",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PRC_ALLOC_CHANGED_BY_WID",
+      "source_lineage": "Update.PRC_ALLOC_CHANGED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_ALLOC_CHANGED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_ALLOC_CHANGED_BY_WID <- EXPTRANS.PRC_ALLOC_CHANGED_BY_WID <- SQ_WC_PROGRAM_ACTIVITY_DS.PRC_ALLOC_CHANGED_BY_WID <- W_USER_D2.ROW_WID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PRC_HDR_CREATED_ON_DT",
+      "source_lineage": "Update.PRC_HDR_CREATED_ON_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_HDR_CREATED_ON_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_HDR_CREATED_ON_DT <- EXPTRANS.PRC_HDR_CREATED_ON_DT <- SQ_WC_PROGRAM_ACTIVITY_DS.PRC_HDR_CREATED_ON_DT <- WC_PROGRAM_ACTIVITY_DS.PRC_HDR_CREATED_ON_DT",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PRC_HDR_CREATED_BY_WID",
+      "source_lineage": "Update.PRC_HDR_CREATED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_HDR_CREATED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_HDR_CREATED_BY_WID <- EXPTRANS.PRC_HDR_CREATED_BY_WID <- SQ_WC_PROGRAM_ACTIVITY_DS.PRC_HDR_CREATED_BY_WID <- W_USER_D.ROW_WID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PRC_DTL_CREATED_ON_DT",
+      "source_lineage": "Update.PRC_DTL_CREATED_ON_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_DTL_CREATED_ON_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_DTL_CREATED_ON_DT <- EXPTRANS.PRC_DTL_CREATED_ON_DT <- SQ_WC_PROGRAM_ACTIVITY_DS.PRC_DTL_CREATED_ON_DT <- WC_PROGRAM_ACTIVITY_DS.PRC_DTL_CREATED_ON_DT",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PRC_DTL_CREATED_BY_WID",
+      "source_lineage": "Update.PRC_DTL_CREATED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_DTL_CREATED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_DTL_CREATED_BY_WID <- EXPTRANS.PRC_DTL_CREATED_BY_WID <- SQ_WC_PROGRAM_ACTIVITY_DS.PRC_DTL_CREATED_BY_WID <- W_USER_D1.ROW_WID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PRC_ALLOC_CREATED_ON_DT",
+      "source_lineage": "Update.PRC_ALLOC_CREATED_ON_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_ALLOC_CREATED_ON_DT3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_ALLOC_CREATED_ON_DT <- EXPTRANS.PRC_ALLOC_CREATED_ON_DT <- SQ_WC_PROGRAM_ACTIVITY_DS.PRC_ALLOC_CREATED_ON_DT <- WC_PROGRAM_ACTIVITY_DS.PRC_ALLOC_CREATED_ON_DT",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PRC_ALLOC_CREATED_BY_WID",
+      "source_lineage": "Update.PRC_ALLOC_CREATED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_ALLOC_CREATED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.PRC_ALLOC_CREATED_BY_WID <- EXPTRANS.PRC_ALLOC_CREATED_BY_WID <- SQ_WC_PROGRAM_ACTIVITY_DS.PRC_ALLOC_CREATED_BY_WID <- W_USER_D2.ROW_WID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "CFRS_TREASURY_SYMBOL",
+      "source_lineage": "Update.CFRS_TREASURY_SYMBOL2 <- RTR_WC_PROGRAM_ACTIVITY_D.CFRS_TREASURY_SYMBOL3 <- RTR_WC_PROGRAM_ACTIVITY_D.CFRS_TREASURY_SYMBOL <- EXPTRANS.CFRS_TREASURY_SYMBOL <- SQ_WC_PROGRAM_ACTIVITY_DS.CFRS_TREASURY_SYMBOL <- WC_PROGRAM_ACTIVITY_DS.CFRS_TREASURY_SYMBOL",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "CMS_PRC_HDR_CREATED_BY_ID",
+      "source_lineage": "Update.CMS_PRC_HDR_CREATED_BY_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.CMS_PRC_HDR_CREATED_BY_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.CMS_PRC_HDR_CREATED_BY_ID <- EXPTRANS.CMS_PRC_HDR_CREATED_BY_ID",
+      "transformation_rule": "IIF(LEDGER_WID=2, PRC_HDR_CREATED_BY_ID,NULL)"
+    },
+    {
+      "target_field": "CMS_PRC_HDR_CHANGED_BY_ID",
+      "source_lineage": "Update.CMS_PRC_HDR_CHANGED_BY_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.CMS_PRC_HDR_CHANGED_BY_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.CMS_PRC_HDR_CHANGED_BY_ID <- EXPTRANS.CMS_PRC_HDR_CHANGED_BY_ID",
+      "transformation_rule": "IIF(LEDGER_WID=2, PRC_HDR_CHANGED_BY_ID,NULL)"
+    },
+    {
+      "target_field": "CMS_PRC_DTL_CREATED_BY_ID",
+      "source_lineage": "Update.CMS_PRC_DTL_CREATED_BY_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.CMS_PRC_DTL_CREATED_BY_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.CMS_PRC_DTL_CREATED_BY_ID <- EXPTRANS.CMS_PRC_DTL_CREATED_BY_ID",
+      "transformation_rule": "IIF(LEDGER_WID=2,PRC_DTL_CREATED_BY_ID,NULL)"
+    },
+    {
+      "target_field": "CMS_PRC_DTL_CHANGED_BY_ID",
+      "source_lineage": "Update.CMS_PRC_DTL_CHANGED_BY_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.CMS_PRC_DTL_CHANGED_BY_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.CMS_PRC_DTL_CHANGED_BY_ID <- EXPTRANS.CMS_PRC_DTL_CHANGED_BY_ID",
+      "transformation_rule": "IIF(LEDGER_WID=2,PRC_DTL_CHANGED_BY_ID,NULL)"
+    },
+    {
+      "target_field": "CMS_PRC_ALLOC_CREATED_BY_ID",
+      "source_lineage": "Update.CMS_PRC_ALLOC_CREATED_BY_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.CMS_PRC_ALLOC_CREATED_BY_ID3 <- RTR_WC_PROGRAM_ACTIVITY_D.CMS_PRC_ALLOC_CREATED_BY_ID <- EXPTRANS.CMS_PRC_ALLOC_CREATED_BY_ID",
+      "transformation_rule": "IIF(LEDGER_WID=2,PRC_ALLOC_CREATED_BY_ID,NULL)"
+    },
+    {
+      "target_field": "CMS_PRC_ALLOC_CHANGED_BY_ID",
+      "source_lineage": "Update.CMS_PRC_ALLOC_CHANGED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.CMS_PRC_ALLOC_CHANGED_BY_WID3 <- RTR_WC_PROGRAM_ACTIVITY_D.CMS_PRC_ALLOC_CHANGED_BY_WID <- EXPTRANS.CMS_PRC_ALLOC_CHANGED_BY_ID",
+      "transformation_rule": "IIF(LEDGER_WID=2,PRC_ALLOC_CHANGED_BY_ID,NULL)"
+    },
+    {
+      "target_field": "PROGRAM_ACTIVITY_RPT_KEY",
+      "source_lineage": "Update.PROGRAM_ACTIVITY_RPT_KEY <- RTR_WC_PROGRAM_ACTIVITY_D.PROGRAM_ACTIVITY_RPT_KEY3 <- RTR_WC_PROGRAM_ACTIVITY_D.PROGRAM_ACTIVITY_RPT_KEY <- EXPTRANS.PROGRAM_ACTIVITY_RPT_KEY <- SQ_WC_PROGRAM_ACTIVITY_DS.PROGRAM_ACTIVITY_RPT_KEY <- WC_PROGRAM_ACTIVITY_DS.PROGRAM_ACTIVITY_RPT_KEY",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PROGRAM_ACTIVITY_RPT_KEY_DESC",
+      "source_lineage": "Update.PROGRAM_ACTIVITY_RPT_KEY_DESC <- RTR_WC_PROGRAM_ACTIVITY_D.PROGRAM_ACTIVITY_RPT_KEY_DESC3 <- RTR_WC_PROGRAM_ACTIVITY_D.PROGRAM_ACTIVITY_RPT_KEY_DESC <- EXPTRANS.PROGRAM_ACTIVITY_RPT_KEY_DESC <- SQ_WC_PROGRAM_ACTIVITY_DS.PROGRAM_ACTIVITY_RPT_KEY_DESC <- WC_PROGRAM_ACTIVITY_DS.PROGRAM_ACTIVITY_RPT_KEY_DESC",
+      "transformation_rule": "Direct copy / passthrough"
+    }
+  ],
+  "shared_object_refs": [
+    "MPLT_GET_ETL_PROC_WID"
+  ],
+  "field_counts": {
+    "source_fields": 176,
+    "target_fields": 100,
+    "transform_ports": 916
+  },
+  "complexity": {
+    "transformation_count": 8,
+    "connector_count": 790,
+    "reusable_mapplet_count": 1,
+    "lookup_count": 1,
+    "router_group_count": 3,
+    "update_strategy_present": true,
+    "sql_override_present": true,
+    "sql_override_join_count": 7,
+    "nested_expression_functions": [
+      "IIF"
+    ],
+    "tier": "complex",
+    "recommended_model": "large-reasoning-model"
+  },
+  "raw_archive_ref": "blob://mapping-cache/HHS_SIL_ProgramActivity_Dimension/af0606afd911.xml",
+  "mapping_variables": [],
+  "session_partition_overrides": [],
+  "transformation_logic": [
+    {
+      "transformation": "EXP_INS",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "DELETE_FLG",
+          "expression": "'N'"
+        }
+      ],
+      "mapplet": null
+    },
+    {
+      "transformation": "Update",
+      "type": "Update Strategy",
+      "attributes": {
+        "Update Strategy Expression": "DD_UPDATE"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": null
+    },
+    {
+      "transformation": "Insert",
+      "type": "Update Strategy",
+      "attributes": {
+        "Update Strategy Expression": "DD_INSERT"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": null
+    },
+    {
+      "transformation": "LKP_WC_PROGRAM_ACTIVITY_D",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup Sql Override": "SELECT WC_PROGRAM_ACTIVITY_D.ROW_WID as ROW_WID, WC_PROGRAM_ACTIVITY_D.PRC_HDR_CHANGED_ON_DT as PRC_HDR_CHANGED_ON_DT, WC_PROGRAM_ACTIVITY_D.PRC_DTL_CHANGED_ON_DT as PRC_DTL_CHANGED_ON_DT, WC_PROGRAM_ACTIVITY_D.PRC_ALLOC_CHANGED_ON_DT as PRC_ALLOC_CHANGED_ON_DT, WC_PROGRAM_ACTIVITY_D.INTEGRATION_ID as INTEGRATION_ID, WC_PROGRAM_ACTIVITY_D.DATASOURCE_NUM_ID as DATASOURCE_NUM_ID FROM WC_PROGRAM_ACTIVITY_D --",
+        "Lookup table name": "WC_PROGRAM_ACTIVITY_D",
+        "Lookup condition": "INTEGRATION_ID = in_INTEGRATION_ID AND DATASOURCE_NUM_ID = in_DATASOURCE_NUM_ID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": null
+    },
+    {
+      "transformation": "SQ_WC_PROGRAM_ACTIVITY_DS",
+      "type": "Source Qualifier",
+      "attributes": {
+        "Sql Query": "select\r\n    W_LEDGER_D.ROW_WID,\r\n    WC_PROGRAM_ACTIVITY_DS.ALLOCATED_FLAG,\r\n    WC_PROGRAM_ACTIVITY_DS.CODE_TYPE,\r\n    WC_PROGRAM_ACTIVITY_DS.DETAIL_ID,\r\n    WC_PROGRAM_ACTIVITY_DS.FLEX_VALUE_ID,\r\n    WC_PROGRAM_ACTIVITY_DS.FLEX_VALUE_SET_ID,\r\n    WC_PROGRAM_ACTIVITY_DS.TREASURY_SYMBOL_ID,\r\n    WC_PROGRAM_ACTIVITY_DS.TREASURY_SYMBOL,\r\n    WC_PROGRAM_ACTIVITY_DS.FUND_VALUE,\r\n    WC_PROGRAM_ACTIVITY_DS.ALLOCATION_PERCENTAGE,\r\n    WC_PROGRAM_ACTIVITY_DS.PROGRAM_ACTIVITY_RPT_CODE,\r\n    WC_PROGRAM_ACTIVITY_DS.PROGRAM_ACTIVITY_RPT_DESC,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT1_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT2_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT3_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT4_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT5_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT6_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT7_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT8_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT9_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT10_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT11_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT12_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT13_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT14_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT15_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT16_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT17_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT18_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT19_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT20_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT21_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT22_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT23_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT24_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT25_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT26_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT27_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT28_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT29_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT30_LOW,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT1_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT2_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT3_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT4_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT5_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT6_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT7_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT8_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT9_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT10_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT11_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT12_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT13_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT14_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT15_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT16_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT17_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT18_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT19_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT20_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT21_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT22_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT23_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT24_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT25_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT26_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT27_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT28_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT29_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.SEGMENT30_HIGH,\r\n    WC_PROGRAM_ACTIVITY_DS.DATASOURCE_NUM_ID,\r\n    WC_PROGRAM_ACTIVITY_DS.INTEGRATION_ID,\r\n    WC_PROGRAM_ACTIVITY_DS.PRC_HDR_CHANGED_ON_DT,\r\n    U1.ROW_WID,\r\n    WC_PROGRAM_ACTIVITY_DS.PRC_HDR_CREATED_ON_DT,\r\n    U2.ROW_WID,\r\n    WC_PROGRAM_ACTIVITY_DS.PRC_DTL_CHANGED_ON_DT,\r\n    U3.ROW_WID,\r\n    WC_PROGRAM_ACTIVITY_DS.PRC_DTL_CREATED_ON_DT,\r\n    U4.ROW_WID,\r\n    WC_PROGRAM_ACTIVITY_DS.PRC_ALLOC_CHANGED_ON_DT,\r\n    U5.ROW_WID,\r\n    WC_PROGRAM_ACTIVITY_DS.PRC_ALLOC_CREATED_ON_DT,\r\n    U6.ROW_WID\r\nfrom\r\n    WC_PROGRAM_ACTIVITY_DS\r\n    LEFT OUTER JOIN W_LEDGER_D\r\n     ON WC_PROGRAM_ACTIVITY_DS.LEDGER_ID    = W_LEDGER_D.INTEGRATION_ID\r\n     AND WC_PROGRAM_ACTIVITY_DS.DATASOURCE_NUM_ID = W_LEDGER_D.DATASOURCE_NUM_ID\r\n     AND DELETE_FLG= 'N'\r\n    \r\n    LEFT OUTER JOIN W_USER_D U1\r\n    ON WC_PROGRAM_ACTIVITY_DS.PRC_HDR_CHANGED_BY_ID    = U1.INTEGRATION_ID\r\n     AND WC_PROGRAM_ACTIVITY_DS.DATASOURCE_NUM_ID = U1.DATASOURCE_NUM_ID\r\n     AND U1.CURRENT_FLG = 'Y'\r\n     \r\n    LEFT OUTER JOIN W_USER_D U2\r\n    ON WC_PROGRAM_ACTIVITY_DS.PRC_HDR_CREATED_BY_ID    = U2.INTEGRATION_ID\r\n     AND WC_PROGRAM_ACTIVITY_DS.DATASOURCE_NUM_ID = U2.DATASOURCE_NUM_ID\r\n     AND U2.CURRENT_FLG = 'Y'\r\n     \r\n    LEFT OUTER JOIN W_USER_D U3\r\n    ON WC_PROGRAM_ACTIVITY_DS.PRC_DTL_CHANGED_BY_ID    = U3.INTEGRATION_ID\r\n     AND WC_PROGRAM_ACTIVITY_DS.DATASOURCE_NUM_ID = U3.DATASOURCE_NUM_ID\r\n     AND U3.CURRENT_FLG = 'Y'\r\n     \r\n    LEFT OUTER JOIN W_USER_D U4\r\n    ON WC_PROGRAM_ACTIVITY_DS.PRC_DTL_CREATED_BY_ID    = U4.INTEGRATION_ID\r\n     AND WC_PROGRAM_ACTIVITY_DS.DATASOURCE_NUM_ID = U4.DATASOURCE_NUM_ID\r\n     AND U4.CURRENT_FLG = 'Y'\r\n     \r\n    LEFT OUTER JOIN W_USER_D U5\r\n    ON WC_PROGRAM_ACTIVITY_DS.PRC_ALLOC_CHANGED_BY_ID    = U5.INTEGRATION_ID\r\n     AND WC_PROGRAM_ACTIVITY_DS.DATASOURCE_NUM_ID = U5.DATASOURCE_NUM_ID\r\n     AND U5.CURRENT_FLG = 'Y'\r\n    \r\n    LEFT OUTER JOIN W_USER_D U6\r\n    ON WC_PROGRAM_ACTIVITY_DS.PRC_ALLOC_CREATED_BY_ID    = U6.INTEGRATION_ID\r\n     AND WC_PROGRAM_ACTIVITY_DS.DATASOURCE_NUM_ID = U6.DATASOURCE_NUM_ID\r\n     AND U6.CURRENT_FLG = 'Y'"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": null
+    },
+    {
+      "transformation": "EXPTRANS",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "W_INSERT_DT",
+          "expression": "SESSSTARTTIME"
+        },
+        {
+          "port": "W_UPDATE_DT",
+          "expression": "SESSSTARTTIME"
+        },
+        {
+          "port": "CMS_PRC_HDR_CREATED_BY_ID",
+          "expression": "IIF(LEDGER_WID=2, PRC_HDR_CREATED_BY_ID,NULL)"
+        },
+        {
+          "port": "CMS_PRC_HDR_CHANGED_BY_ID",
+          "expression": "IIF(LEDGER_WID=2, PRC_HDR_CHANGED_BY_ID,NULL)"
+        },
+        {
+          "port": "CMS_PRC_DTL_CREATED_BY_ID",
+          "expression": "IIF(LEDGER_WID=2,PRC_DTL_CREATED_BY_ID,NULL)"
+        },
+        {
+          "port": "CMS_PRC_DTL_CHANGED_BY_ID",
+          "expression": "IIF(LEDGER_WID=2,PRC_DTL_CHANGED_BY_ID,NULL)"
+        },
+        {
+          "port": "CMS_PRC_ALLOC_CREATED_BY_ID",
+          "expression": "IIF(LEDGER_WID=2,PRC_ALLOC_CREATED_BY_ID,NULL)"
+        },
+        {
+          "port": "CMS_PRC_ALLOC_CHANGED_BY_ID",
+          "expression": "IIF(LEDGER_WID=2,PRC_ALLOC_CHANGED_BY_ID,NULL)"
+        }
+      ],
+      "mapplet": null
+    },
+    {
+      "transformation": "RTR_WC_PROGRAM_ACTIVITY_D",
+      "type": "Router",
+      "attributes": {},
+      "group_conditions": [
+        {
+          "name": "INSERT",
+          "condition": "ISNULL(LKP_ROW_WID)"
+        },
+        {
+          "name": "UPDATE",
+          "condition": "NOT ISNULL(LKP_ROW_WID) AND (LKP_PRC_HDR_CHANGED_ON_DT != PRC_HDR_CHANGED_ON_DT OR LKP_PRC_DTL_CHANGED_ON_DT != PRC_DTL_CHANGED_ON_DT OR LKP_PRC_ALLOC_CHANGED_ON_DT != PRC_ALLOC_CHANGED_ON_DT)"
+        }
+      ],
+      "port_expressions": [],
+      "mapplet": null
+    },
+    {
+      "transformation": "EXP_Constant_for_Lookup",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "CONSTANT_1",
+          "expression": "1"
+        }
+      ],
+      "mapplet": "MPLT_GET_ETL_PROC_WID"
+    },
+    {
+      "transformation": "Exp_Decide_Etl_Proc_Wid",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "ETL_PROC_WID_OUT",
+          "expression": "IIF($$ETL_PROC_WID = 0, LKP_ETL_PROC_WID, $$ETL_PROC_WID)"
+        }
+      ],
+      "mapplet": "MPLT_GET_ETL_PROC_WID"
+    }
+  ],
+  "source_file_hash": "af0606afd911870c79a33806efee8cd20989404910d32e54db69c6fa21832147",
+  "schema_version": 4
+}

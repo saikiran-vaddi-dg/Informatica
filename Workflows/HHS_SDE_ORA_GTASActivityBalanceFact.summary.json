@@ -1,0 +1,428 @@
+{
+  "mapping": "HHS_SDE_ORA_GTASActivityBalanceFact",
+  "description": "",
+  "sources": [
+    "FV_GTAS_ACTIVITY_BALANCES"
+  ],
+  "target": "W_GTAS_ACTIVITY_BALANCES_FS",
+  "flow": [
+    "source_definition:FV_GTAS_ACTIVITY_BALANCES",
+    "source_qualifier:SQ_FV_GTAS_ACTIVITY_BALANCES",
+    "expression:EXP_GTASACTIVITY",
+    "target_definition:W_GTAS_ACTIVITY_BALANCES_FS"
+  ],
+  "field_lineage": [
+    {
+      "target_field": "CCID",
+      "source_lineage": "EXP_GTASACTIVITY.CCID <- SQ_FV_GTAS_ACTIVITY_BALANCES.CCID <- FV_GTAS_ACTIVITY_BALANCES.CCID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PERIOD_NUM",
+      "source_lineage": "EXP_GTASACTIVITY.PERIOD_NUM <- SQ_FV_GTAS_ACTIVITY_BALANCES.PERIOD_NUM <- FV_GTAS_ACTIVITY_BALANCES.PERIOD_NUM",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "SET_OF_BOOKS_ID",
+      "source_lineage": "EXP_GTASACTIVITY.SET_OF_BOOKS_ID <- SQ_FV_GTAS_ACTIVITY_BALANCES.SET_OF_BOOKS_ID <- FV_GTAS_ACTIVITY_BALANCES.SET_OF_BOOKS_ID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PERIOD_YEAR",
+      "source_lineage": "EXP_GTASACTIVITY.PERIOD_YEAR <- SQ_FV_GTAS_ACTIVITY_BALANCES.PERIOD_YEAR <- FV_GTAS_ACTIVITY_BALANCES.PERIOD_YEAR",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "JE_SOURCE",
+      "source_lineage": "EXP_GTASACTIVITY.JE_SOURCE <- SQ_FV_GTAS_ACTIVITY_BALANCES.JE_SOURCE <- FV_GTAS_ACTIVITY_BALANCES.JE_SOURCE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "JE_CATEGORY",
+      "source_lineage": "EXP_GTASACTIVITY.JE_CATEGORY <- SQ_FV_GTAS_ACTIVITY_BALANCES.JE_CATEGORY <- FV_GTAS_ACTIVITY_BALANCES.JE_CATEGORY",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "FUND_VALUE",
+      "source_lineage": "EXP_GTASACTIVITY.FUND_VALUE <- SQ_FV_GTAS_ACTIVITY_BALANCES.FUND_VALUE <- FV_GTAS_ACTIVITY_BALANCES.FUND_VALUE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "ACCOUNT_NUMBER",
+      "source_lineage": "EXP_GTASACTIVITY.ACCOUNT_NUMBER <- SQ_FV_GTAS_ACTIVITY_BALANCES.ACCOUNT_NUMBER <- FV_GTAS_ACTIVITY_BALANCES.ACCOUNT_NUMBER",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "AUTHORITY_TYPE_CODE",
+      "source_lineage": "EXP_GTASACTIVITY.AUTHORITY_TYPE_CODE <- SQ_FV_GTAS_ACTIVITY_BALANCES.AUTHORITY_TYPE_CODE <- FV_GTAS_ACTIVITY_BALANCES.AUTHORITY_TYPE_CODE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "FED_NON_FED",
+      "source_lineage": "EXP_GTASACTIVITY.FED_NON_FED <- SQ_FV_GTAS_ACTIVITY_BALANCES.FED_NON_FED <- FV_GTAS_ACTIVITY_BALANCES.FED_NON_FED",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "TRADING_PARTNER_TYPE",
+      "source_lineage": "EXP_GTASACTIVITY.TRADING_PARTNER_TYPE <- SQ_FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_TYPE <- FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_TYPE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "TRADING_PARTNER_NAME",
+      "source_lineage": "EXP_GTASACTIVITY.TRADING_PARTNER_NAME <- SQ_FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_NAME <- FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_NAME",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "TRADING_PARTNER_AGENCY_ID",
+      "source_lineage": "EXP_GTASACTIVITY.TRADING_PARTNER_AGENCY_ID <- SQ_FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_AGENCY_ID <- FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_AGENCY_ID#1",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "TRADING_PARTNER_MAIN_ACCOUNT",
+      "source_lineage": "EXP_GTASACTIVITY.TRADING_PARTNER_MAIN_ACCOUNT <- SQ_FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_MAIN_ACCOUNT <- FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_MAIN_ACCOUNT",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "BUDGET_IMPACT_IND",
+      "source_lineage": "EXP_GTASACTIVITY.BUDGET_IMPACT_IND <- SQ_FV_GTAS_ACTIVITY_BALANCES.BUDGET_IMPACT_IND <- FV_GTAS_ACTIVITY_BALANCES.BUDGET_IMPACT_IND",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "D_C_INDICATOR",
+      "source_lineage": "EXP_GTASACTIVITY.D_C_INDICATOR <- SQ_FV_GTAS_ACTIVITY_BALANCES.D_C_INDICATOR <- FV_GTAS_ACTIVITY_BALANCES.D_C_INDICATOR",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "AMOUNT",
+      "source_lineage": "EXP_GTASACTIVITY.AMOUNT <- SQ_FV_GTAS_ACTIVITY_BALANCES.AMOUNT <- FV_GTAS_ACTIVITY_BALANCES.AMOUNT",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "JE_HEADER_ID",
+      "source_lineage": "EXP_GTASACTIVITY.JE_HEADER_ID <- SQ_FV_GTAS_ACTIVITY_BALANCES.JE_HEADER_ID <- FV_GTAS_ACTIVITY_BALANCES.JE_HEADER_ID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "JE_LINE_NUM",
+      "source_lineage": "EXP_GTASACTIVITY.JE_LINE_NUM <- SQ_FV_GTAS_ACTIVITY_BALANCES.JE_LINE_NUM <- FV_GTAS_ACTIVITY_BALANCES.JE_LINE_NUM",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "RECORD_CATEGORY",
+      "source_lineage": "EXP_GTASACTIVITY.RECORD_CATEGORY <- SQ_FV_GTAS_ACTIVITY_BALANCES.RECORD_CATEGORY <- FV_GTAS_ACTIVITY_BALANCES.RECORD_CATEGORY",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "GL_PERIOD",
+      "source_lineage": "EXP_GTASACTIVITY.GL_PERIOD <- SQ_FV_GTAS_ACTIVITY_BALANCES.GL_PERIOD <- FV_GTAS_ACTIVITY_BALANCES.GL_PERIOD",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "BALANCE_TYPE",
+      "source_lineage": "EXP_GTASACTIVITY.BALANCE_TYPE <- SQ_FV_GTAS_ACTIVITY_BALANCES.BALANCE_TYPE <- FV_GTAS_ACTIVITY_BALANCES.BALANCE_TYPE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "TRADING_PARTNER_ID",
+      "source_lineage": "EXP_GTASACTIVITY.TRADING_PARTNER_ID <- SQ_FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_ID <- FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_ID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PERIOD_NAME",
+      "source_lineage": "EXP_GTASACTIVITY.PERIOD_NAME <- SQ_FV_GTAS_ACTIVITY_BALANCES.PERIOD_NAME <- FV_GTAS_ACTIVITY_BALANCES.PERIOD_NAME",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "EXCEPTION_CATEGORY",
+      "source_lineage": "EXP_GTASACTIVITY.EXCEPTION_CATEGORY <- SQ_FV_GTAS_ACTIVITY_BALANCES.EXCEPTION_CATEGORY <- FV_GTAS_ACTIVITY_BALANCES.EXCEPTION_CATEGORY",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "DOLLAR_AMOUNT",
+      "source_lineage": "EXP_GTASACTIVITY.DOLLAR_AMOUNT <- SQ_FV_GTAS_ACTIVITY_BALANCES.DOLLAR_AMOUNT <- FV_GTAS_ACTIVITY_BALANCES.DOLLAR_AMOUNT",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "REDUCTION_TYPE_CODE",
+      "source_lineage": "EXP_GTASACTIVITY.REDUCTION_TYPE_CODE <- SQ_FV_GTAS_ACTIVITY_BALANCES.REDUCTION_TYPE_CODE <- FV_GTAS_ACTIVITY_BALANCES.REDUCTION_TYPE_CODE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "DACT_REPORT_IND",
+      "source_lineage": "EXP_GTASACTIVITY.DACT_REPORT_IND <- SQ_FV_GTAS_ACTIVITY_BALANCES.DACT_REPORT_IND <- FV_GTAS_ACTIVITY_BALANCES.DACT_REPORT_IND",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PIID",
+      "source_lineage": "EXP_GTASACTIVITY.PIID <- SQ_FV_GTAS_ACTIVITY_BALANCES.PIID <- FV_GTAS_ACTIVITY_BALANCES.PIID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PARENT_AWARD_ID",
+      "source_lineage": "EXP_GTASACTIVITY.PARENT_AWARD_ID <- SQ_FV_GTAS_ACTIVITY_BALANCES.PARENT_AWARD_ID <- FV_GTAS_ACTIVITY_BALANCES.PARENT_AWARD_ID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "FAIN",
+      "source_lineage": "EXP_GTASACTIVITY.FAIN <- SQ_FV_GTAS_ACTIVITY_BALANCES.FAIN <- FV_GTAS_ACTIVITY_BALANCES.FAIN",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "URI",
+      "source_lineage": "EXP_GTASACTIVITY.URI <- SQ_FV_GTAS_ACTIVITY_BALANCES.URI <- FV_GTAS_ACTIVITY_BALANCES.URI#1",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "DOC_NUM",
+      "source_lineage": "EXP_GTASACTIVITY.DOC_NUM <- SQ_FV_GTAS_ACTIVITY_BALANCES.DOC_NUM <- FV_GTAS_ACTIVITY_BALANCES.DOC_NUM",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "POSTED_DATE",
+      "source_lineage": "EXP_GTASACTIVITY.POSTED_DATE <- SQ_FV_GTAS_ACTIVITY_BALANCES.POSTED_DATE <- FV_GTAS_ACTIVITY_BALANCES.POSTED_DATE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "DEFAULT_EFFECTIVE_DATE",
+      "source_lineage": "EXP_GTASACTIVITY.DEFAULT_EFFECTIVE_DATE <- SQ_FV_GTAS_ACTIVITY_BALANCES.DEFAULT_EFFECTIVE_DATE <- FV_GTAS_ACTIVITY_BALANCES.DEFAULT_EFFECTIVE_DATE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "AE_HEADER_ID",
+      "source_lineage": "EXP_GTASACTIVITY.AE_HEADER_ID <- SQ_FV_GTAS_ACTIVITY_BALANCES.AE_HEADER_ID <- FV_GTAS_ACTIVITY_BALANCES.AE_HEADER_ID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "AE_LINE_NUM",
+      "source_lineage": "EXP_GTASACTIVITY.AE_LINE_NUM <- SQ_FV_GTAS_ACTIVITY_BALANCES.AE_LINE_NUM <- FV_GTAS_ACTIVITY_BALANCES.AE_LINE_NUM",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "INTEGRATION_ID",
+      "source_lineage": "EXP_GTASACTIVITY.out_INTEGRATION_ID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "CREATED_ON_DT",
+      "source_lineage": "EXP_GTASACTIVITY.CREATION_DATE <- SQ_FV_GTAS_ACTIVITY_BALANCES.CREATION_DATE <- FV_GTAS_ACTIVITY_BALANCES.CREATION_DATE",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "DATASOURCE_NUM_ID",
+      "source_lineage": "EXP_GTASACTIVITY.out_DATASOURCENUM_ID",
+      "transformation_rule": "$$DATASOURCE_NUM_ID"
+    },
+    {
+      "target_field": "PROVIDER_RECIPNT_ID",
+      "source_lineage": "EXP_GTASACTIVITY.PROVIDER_RECIPNT_ID <- SQ_FV_GTAS_ACTIVITY_BALANCES.PROVIDER_RECIPNT_ID <- FV_GTAS_ACTIVITY_BALANCES.PARENT_AWARD_ID",
+      "transformation_rule": "Direct copy / passthrough"
+    },
+    {
+      "target_field": "PROVIDER_RECIPNT_NAME",
+      "source_lineage": "EXP_GTASACTIVITY.PROVIDER_RECIPNT_NAME",
+      "transformation_rule": "IIF(LENGTH (PROVIDER_RECIPNT_ID) = 7 AND SUBSTR(PROVIDER_RECIPNT_ID,1,3) != '075',\r\n:LKP.LKP_PROVD_RECP(SUBSTR(PROVIDER_RECIPNT_ID,2,2)), \r\nIIF(SUBSTR(PROVIDER_RECIPNT_ID,1,3) = '075',\r\n:LKP.LKP_INTRA_HHS_ELI(SUBSTR(PROVIDER_RECIPNT_ID,4,4)),\r\n:LKP.LKP_PROVD_RECP(PROVIDER_RECIPNT_ID)))"
+    },
+    {
+      "target_field": "EVENT_ID",
+      "source_lineage": "EXP_GTASACTIVITY.EVENT_ID <- SQ_FV_GTAS_ACTIVITY_BALANCES.EVENT_ID <- FV_GTAS_ACTIVITY_BALANCES.EVENT_ID",
+      "transformation_rule": "Direct copy / passthrough"
+    }
+  ],
+  "shared_object_refs": [],
+  "field_counts": {
+    "source_fields": 42,
+    "target_fields": 43,
+    "transform_ports": 89
+  },
+  "complexity": {
+    "transformation_count": 4,
+    "connector_count": 123,
+    "reusable_mapplet_count": 0,
+    "lookup_count": 2,
+    "router_group_count": 0,
+    "update_strategy_present": false,
+    "sql_override_present": true,
+    "sql_override_join_count": 0,
+    "nested_expression_functions": [
+      "IIF"
+    ],
+    "tier": "complex",
+    "recommended_model": "large-reasoning-model"
+  },
+  "raw_archive_ref": "blob://mapping-cache/HHS_SDE_ORA_GTASActivityBalanceFact/31b954f2368f.xml",
+  "mapping_variables": [
+    {
+      "name": "$$LAST_EXTRACT_DATE",
+      "datatype": "string",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$DATASOURCE_NUM_ID",
+      "datatype": "decimal",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_CDC_LEDGER",
+      "datatype": "integer",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_FDA_LEDGER",
+      "datatype": "integer",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_PSC_LEDGER",
+      "datatype": "integer",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_IHS_LEDGER",
+      "datatype": "integer",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_FISCAL_YR_CDC_EXT",
+      "datatype": "string",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_FISCAL_YR_FDA_EXT",
+      "datatype": "string",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_FISCAL_YR_IHS_EXT",
+      "datatype": "string",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_FISCAL_YR_PSC_EXT",
+      "datatype": "string",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_ACTBAL_CDC_EXT_DT",
+      "datatype": "date/time",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_ACTBAL_FDA_EXT_DT",
+      "datatype": "date/time",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_ACTBAL_IHS_EXT_DT",
+      "datatype": "date/time",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    },
+    {
+      "name": "$$GTAS_ACTBAL_PSC_EXT_DT",
+      "datatype": "date/time",
+      "default_value": "",
+      "is_param": true,
+      "is_expression_variable": false,
+      "description": ""
+    }
+  ],
+  "session_partition_overrides": [],
+  "transformation_logic": [
+    {
+      "transformation": "LKP_INTRA_HHS_ELI",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_GTAS_INTRAHHS_D",
+        "Lookup condition": "TP_MAIN_ACT = INP_ACT",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": null
+    },
+    {
+      "transformation": "LKP_PROVD_RECP",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup Sql Override": "SELECT DISTINCT FND_FLEX_VALUES_VL.FLEX_VALUE AS FLEX_VALUE, FND_FLEX_VALUES_VL.DESCRIPTION AS DESCRIPTION FROM FND_FLEX_VALUES_VL WHERE VALUE_CATEGORY = 'HHS_TP_ELIMINATION_CODE' --",
+        "Lookup table name": "FND_FLEX_VALUES_VL",
+        "Lookup condition": "FLEX_VALUE = INP_PROVIDER_RECIPNT",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": null
+    },
+    {
+      "transformation": "EXP_GTASACTIVITY",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "out_DATASOURCENUM_ID",
+          "expression": "$$DATASOURCE_NUM_ID"
+        },
+        {
+          "port": "PROVIDER_RECIPNT_NAME",
+          "expression": "IIF(LENGTH (PROVIDER_RECIPNT_ID) = 7 AND SUBSTR(PROVIDER_RECIPNT_ID,1,3) != '075',\r\n:LKP.LKP_PROVD_RECP(SUBSTR(PROVIDER_RECIPNT_ID,2,2)), \r\nIIF(SUBSTR(PROVIDER_RECIPNT_ID,1,3) = '075',\r\n:LKP.LKP_INTRA_HHS_ELI(SUBSTR(PROVIDER_RECIPNT_ID,4,4)),\r\n:LKP.LKP_PROVD_RECP(PROVIDER_RECIPNT_ID)))"
+        }
+      ],
+      "mapplet": null
+    },
+    {
+      "transformation": "SQ_FV_GTAS_ACTIVITY_BALANCES",
+      "type": "Source Qualifier",
+      "attributes": {
+        "Sql Query": "SELECT FV_GTAS_ACTIVITY_BALANCES.CCID, FV_GTAS_ACTIVITY_BALANCES.PERIOD_NUM, FV_GTAS_ACTIVITY_BALANCES.SET_OF_BOOKS_ID, FV_GTAS_ACTIVITY_BALANCES.PERIOD_YEAR, FV_GTAS_ACTIVITY_BALANCES.JE_SOURCE, FV_GTAS_ACTIVITY_BALANCES.JE_CATEGORY, FV_GTAS_ACTIVITY_BALANCES.FUND_VALUE, FV_GTAS_ACTIVITY_BALANCES.ACCOUNT_NUMBER, FV_GTAS_ACTIVITY_BALANCES.AUTHORITY_TYPE_CODE, FV_GTAS_ACTIVITY_BALANCES.FED_NON_FED, FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_TYPE, FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_NAME, FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_AGENCY_ID, FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_MAIN_ACCOUNT, FV_GTAS_ACTIVITY_BALANCES.BUDGET_IMPACT_IND, FV_GTAS_ACTIVITY_BALANCES.D_C_INDICATOR, FV_GTAS_ACTIVITY_BALANCES.AMOUNT, FV_GTAS_ACTIVITY_BALANCES.JE_HEADER_ID, FV_GTAS_ACTIVITY_BALANCES.JE_LINE_NUM, FV_GTAS_ACTIVITY_BALANCES.RECORD_CATEGORY, FV_GTAS_ACTIVITY_BALANCES.CREATION_DATE, FV_GTAS_ACTIVITY_BALANCES.GL_PERIOD, FV_GTAS_ACTIVITY_BALANCES.BALANCE_TYPE, FV_GTAS_ACTIVITY_BALANCES.TRADING_PARTNER_ID, FV_GTAS_ACTIVITY_BALANCES.PERIOD_NAME, FV_GTAS_ACTIVITY_BALANCES.EXCEPTION_CATEGORY, FV_GTAS_ACTIVITY_BALANCES.DOLLAR_AMOUNT, FV_GTAS_ACTIVITY_BALANCES.REDUCTION_TYPE_CODE, FV_GTAS_ACTIVITY_BALANCES.DACT_REPORT_IND, FV_GTAS_ACTIVITY_BALANCES.PIID, FV_GTAS_ACTIVITY_BALANCES.PARENT_AWARD_ID, FV_GTAS_ACTIVITY_BALANCES.FAIN, FV_GTAS_ACTIVITY_BALANCES.URI, FV_GTAS_ACTIVITY_BALANCES.DOC_NUM, FV_GTAS_ACTIVITY_BALANCES.POSTED_DATE, FV_GTAS_ACTIVITY_BALANCES.DEFAULT_EFFECTIVE_DATE, FV_GTAS_ACTIVITY_BALANCES.AE_HEADER_ID, FV_GTAS_ACTIVITY_BALANCES.AE_LINE_NUM \r\nFROM\r\n FV_GTAS_ACTIVITY_BALANCES\r\n   WHERE   FV_GTAS_ACTIVITY_BALANCES.CREATION_DATE >= \r\n         TO_DATE('$$LAST_EXTRACT_DATE', 'MM/DD/YYYY HH24:MI:SS')"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": null
+    }
+  ],
+  "source_file_hash": "31b954f2368f5e159ee2fef6c1dc6e3ee6cd1ca61ad688c514627d2aca622446",
+  "schema_version": 4
+}

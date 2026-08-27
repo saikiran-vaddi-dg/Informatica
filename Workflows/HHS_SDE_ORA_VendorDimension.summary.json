@@ -140,7 +140,7 @@
     "tier": "moderate",
     "recommended_model": "small-model"
   },
-  "raw_archive_ref": "blob://mapping-cache/HHS_SDE_ORA_VendorDimension/ba34e57b0a1a.xml",
+  "raw_archive_ref": "blob://mapping-cache/HHS_SDE_ORA_VendorDimension/4b6f39940bdf.xml",
   "mapping_variables": [],
   "session_partition_overrides": [],
   "transformation_logic": [
@@ -226,6 +226,6 @@
       "mapplet": null
     }
   ],
-  "source_file_hash": "ba34e57b0a1aa7bc8fae5873e1b15fb2f84336005dfafb5c19f7c1c6fc1526c0",
+  "source_file_hash": "4b6f39940bdf1ef2dd6f5cacd37d56e64a297147fb8f75a4f2915102d9da6e01",
   "schema_version": 4
 }
