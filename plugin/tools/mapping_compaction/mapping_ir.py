@@ -19,6 +19,7 @@ Two non-trivial pieces of real logic live here (both plain graph algorithms):
 
 from __future__ import annotations
 
+import re
 from collections import defaultdict, deque
 from typing import Dict, List, Optional, Tuple
 
@@ -91,7 +92,175 @@ def _find_ref_field_in(transformations, instance_name: str, field_name: str) -> 
     return None
 
 
-def _walk_backward(connectors, transformations, start_instance: str, start_field: str, is_stop):
+_LEADING_BLOCK_COMMENT_RE = re.compile(r"^\s*/\*.*?\*/\s*", re.DOTALL)
+_TRAILING_SQL_ALIAS_RE = re.compile(
+    r"\s+AS\s+(?:\"[^\"]+\"|\[[^\]]+\]|`[^`]+`|[A-Za-z_][A-Za-z0-9_#$]*)\s*$",
+    re.IGNORECASE,
+)
+_SIMPLE_COLUMN_REF_RE = re.compile(r"^(?:[A-Za-z_][A-Za-z0-9_#$]*\.)*([A-Za-z_][A-Za-z0-9_#$]*)$")
+
+
+def _strip_sql_alias(expr: str) -> str:
+    expr = _LEADING_BLOCK_COMMENT_RE.sub("", expr.strip())
+    m = _TRAILING_SQL_ALIAS_RE.search(expr)
+    if m:
+        return expr[:m.start()].strip()
+    return expr
+
+
+def _is_word_boundary(sql: str, index: int) -> bool:
+    if index < 0 or index >= len(sql):
+        return True
+    ch = sql[index]
+    return not (ch.isalnum() or ch == "_")
+
+
+def _extract_select_items(sql: str) -> List[str]:
+    upper_sql = sql.upper()
+    select_match = re.search(r"\bSELECT\b", upper_sql)
+    if not select_match:
+        return []
+
+    start = select_match.end()
+    depth = 0
+    in_single_quote = False
+    in_double_quote = False
+    end = len(sql)
+    i = start
+    while i < len(sql):
+        ch = sql[i]
+        if in_single_quote:
+            if ch == "'" and i + 1 < len(sql) and sql[i + 1] == "'":
+                i += 2
+                continue
+            if ch == "'":
+                in_single_quote = False
+        elif in_double_quote:
+            if ch == '"':
+                in_double_quote = False
+        else:
+            if ch == "'":
+                in_single_quote = True
+            elif ch == '"':
+                in_double_quote = True
+            elif ch == "(":
+                depth += 1
+            elif ch == ")" and depth > 0:
+                depth -= 1
+            elif (
+                depth == 0
+                and upper_sql[i:i + 4] == "FROM"
+                and _is_word_boundary(sql, i - 1)
+                and _is_word_boundary(sql, i + 4)
+            ):
+                end = i
+                break
+        i += 1
+
+    select_body = sql[start:end].strip()
+    if not select_body:
+        return []
+
+    items: List[str] = []
+    current: List[str] = []
+    depth = 0
+    in_single_quote = False
+    in_double_quote = False
+    i = 0
+    while i < len(select_body):
+        ch = select_body[i]
+        if in_single_quote:
+            current.append(ch)
+            if ch == "'" and i + 1 < len(select_body) and select_body[i + 1] == "'":
+                current.append(select_body[i + 1])
+                i += 2
+                continue
+            if ch == "'":
+                in_single_quote = False
+        elif in_double_quote:
+            current.append(ch)
+            if ch == '"':
+                in_double_quote = False
+        else:
+            if ch == "'":
+                in_single_quote = True
+                current.append(ch)
+            elif ch == '"':
+                in_double_quote = True
+                current.append(ch)
+            elif ch == "(":
+                depth += 1
+                current.append(ch)
+            elif ch == ")" and depth > 0:
+                depth -= 1
+                current.append(ch)
+            elif ch == "," and depth == 0:
+                item = "".join(current).strip()
+                if item:
+                    items.append(item)
+                current = []
+            else:
+                current.append(ch)
+        i += 1
+
+    tail = "".join(current).strip()
+    if tail:
+        items.append(tail)
+    return items
+
+
+def _session_sql_expression_for_port(mapping: MappingInfo, instance_name: str, field_name: str) -> Optional[str]:
+    sq_transform = next(
+        (t for t in mapping.transformations if t.name == instance_name and "source qualifier" in t.type.lower()),
+        None,
+    )
+    if sq_transform is None:
+        return None
+
+    port_names = [p.name for p in sq_transform.ports]
+    if field_name not in port_names:
+        return None
+    field_index = port_names.index(field_name)
+
+    candidate_sqls: List[str] = []
+    candidate_sqls.extend(
+        override.attribute_value
+        for override in mapping.session_partition_overrides
+        if override.instance_name == instance_name
+        and override.attribute_name == "Sql Query"
+        and override.attribute_value
+    )
+    base_sql = sq_transform.table_attributes.get("Sql Query")
+    if base_sql:
+        candidate_sqls.append(base_sql)
+
+    seen = set()
+    derived_expressions: List[str] = []
+    for sql in candidate_sqls:
+        select_items = _extract_select_items(sql)
+        if field_index >= len(select_items):
+            continue
+        expression = _strip_sql_alias(select_items[field_index])
+        collapsed = " ".join(expression.split())
+        if not collapsed or collapsed.upper() == "NULL" or collapsed in seen:
+            continue
+        seen.add(collapsed)
+
+        simple_ref = _SIMPLE_COLUMN_REF_RE.fullmatch(expression.strip())
+        if simple_ref:
+            continue
+        derived_expressions.append(expression)
+
+    if not derived_expressions:
+        return None
+
+    if len(derived_expressions) == 1:
+        return derived_expressions[0]
+
+    return "session-specific SQL override:\n" + "\n---\n".join(derived_expressions)
+
+
+def _walk_backward(connectors, transformations, start_instance: str, start_field: str, is_stop, find_derived_expression=None):
     """Generic backward walk over one connector graph, shared by both the
     top-level mapping trace and the mapplet-internal trace below (they only
     differ in which connector/transformation lists they walk and what counts
@@ -127,6 +296,12 @@ def _walk_backward(connectors, transformations, start_instance: str, start_field
         if expr:
             rule = expr
             break
+
+        if find_derived_expression is not None:
+            derived_expr = find_derived_expression(instance, fld)
+            if derived_expr:
+                rule = derived_expr
+                break
 
         preds = incoming.get((instance, fld))
         if not preds:
@@ -215,8 +390,11 @@ def _trace_lineage(
             return True, None
         return False, None
 
+    def find_derived_expression(instance, field):
+        return _session_sql_expression_for_port(mapping, instance, field)
+
     hops, rule, stopped_at = _walk_backward(
-        mapping.connectors, mapping.transformations, start_instance, start_field, is_stop
+        mapping.connectors, mapping.transformations, start_instance, start_field, is_stop, find_derived_expression
     )
 
     if stopped_at in mapplet_names:

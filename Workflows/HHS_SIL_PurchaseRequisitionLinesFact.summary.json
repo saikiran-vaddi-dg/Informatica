@@ -49,108 +49,108 @@
   "field_lineage": [
     {
       "target_field": "W_INSERT_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.W_INSERT_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_W_INSERT_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.W_INSERT_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_W_INSERT_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_W_INSERT_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.W_INSERT_DT_OUT",
+      "transformation_rule": "IIF(UPDATE_FLG = 'I' OR UPDATE_FLG = 'B', SESSSTARTTIME, LKP_W_INSERT_DT)"
     },
     {
       "target_field": "W_UPDATE_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.W_UPDATE_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_W_UPDATE_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.W_UPDATE_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_W_UPDATE_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_W_UPDATE_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.W_UPDATE_DT_OUT",
+      "transformation_rule": "SESSSTARTTIME"
     },
     {
       "target_field": "TENANT_ID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.TENANT_ID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_TENANT_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.TENANT_ID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_TENANT_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_TENANT_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.TENANT_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.TENANT_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.TENANT_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'TENANT_ID' -> output port 'EXT_TENANT_ID' (no cleansing)"
     },
     {
       "target_field": "LOC_EXCHANGE_RATE",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.LOC_EXCHANGE_RATE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_LOC_EXCHANGE_RATE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.LOC_EXCHANGE_RATE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_LOC_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_LOC_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.LOC_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.LOC_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.LOC_EXCHANGE_RATE",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'LOC_EXCHANGE_RATE' -> output port 'EXT_LOC_EXCHANGE_RATE' (no cleansing)"
     },
     {
       "target_field": "GLOBAL1_EXCHANGE_RATE",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.GLOBAL1_EXCHANGE_RATE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_GLOBAL1_EXCHANGE_RATE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.GLOBAL1_EXCHANGE_RATE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_GLOBAL1_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_GLOBAL1_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.GLOBAL1_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.GLOBAL1_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.GLOBAL1_EXCHANGE_RATE",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'GLOBAL1_EXCHANGE_RATE' -> output port 'EXT_GLOBAL1_EXCHANGE_RATE' (no cleansing)"
     },
     {
       "target_field": "GLOBAL2_EXCHANGE_RATE",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.GLOBAL2_EXCHANGE_RATE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_GLOBAL2_EXCHANGE_RATE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.GLOBAL2_EXCHANGE_RATE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_GLOBAL2_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_GLOBAL2_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.GLOBAL2_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.GLOBAL2_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.GLOBAL2_EXCHANGE_RATE",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'GLOBAL2_EXCHANGE_RATE' -> output port 'EXT_GLOBAL2_EXCHANGE_RATE' (no cleansing)"
     },
     {
       "target_field": "GLOBAL3_EXCHANGE_RATE",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.GLOBAL3_EXCHANGE_RATE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_GLOBAL3_EXCHANGE_RATE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.GLOBAL3_EXCHANGE_RATE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_GLOBAL3_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_GLOBAL3_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.GLOBAL3_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.GLOBAL3_EXCHANGE_RATE <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.GLOBAL3_EXCHANGE_RATE",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'GLOBAL3_EXCHANGE_RATE' -> output port 'EXT_GLOBAL3_EXCHANGE_RATE' (no cleansing)"
     },
     {
       "target_field": "DOC_CURR_CODE",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.DOC_CURR_CODE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_DOC_CURR_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.DOC_CURR_CODE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_DOC_CURR_CODE <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_DOC_CURR_CODE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.DOC_CURR_CODE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.DOC_CURR_CODE <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.DOC_CURR_CODE",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'DOC_CURR_CODE' -> output port 'EXT_DOC_CURR_CODE' (no cleansing)"
     },
     {
       "target_field": "REQUESTOR_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.REQUESTOR_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_REQUESTOR_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.REQUESTOR_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_REQUESTOR_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_REQUESTOR_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.REQUESTOR_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.REQUESTOR_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.REQUESTOR_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'REQUESTOR_ID' -> output port 'EXT_REQUESTOR_WID' (no cleansing)"
     },
     {
       "target_field": "SUPPLIER_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.SUPPLIER_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_SUPPLIER_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.SUPPLIER_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_SUPPLIER_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_SUPPLIER_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.SUPPLIER_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.SUPPLIER_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.SUPPLIER_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'SUPPLIER_ID' -> output port 'EXT_SUPPLIER_WID' (no cleansing)"
     },
     {
       "target_field": "PRODUCT_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PRODUCT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PRODUCT_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PRODUCT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PRODUCT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_PRODUCT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.PRODUCT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Lkp_W_PRODUCT_D_Product_Wid.ROW_WID",
+      "transformation_rule": "Direct copy / passthrough"
     },
     {
       "target_field": "INVENTORY_PROD_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.INVENTORY_PROD_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_INVENTORY_PROD_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.INVENTORY_PROD_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_INVENTORY_PROD_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_INVENTORY_PROD_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.INVENTORY_PROD_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Lkp_W_Inventory_Product_D_Inventory_Prod_Wid.ROW_WID",
+      "transformation_rule": "Direct copy / passthrough"
     },
     {
       "target_field": "SUPPLIER_PROD_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.SUPPLIER_PROD_WID <- MPLT_LKP_W_SUPPLIER_PRODUCT_D.SUPPLIER_PROD_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'MPLT_LKP_W_SUPPLIER_PRODUCT_D' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.SUPPLIER_PROD_WID <- MPLT_LKP_W_SUPPLIER_PRODUCT_D.SUPPLIER_PROD_WID <- [MPLT_LKP_W_SUPPLIER_PRODUCT_D]OUTPUT.SUPPLIER_PROD_WID <- [MPLT_LKP_W_SUPPLIER_PRODUCT_D]EXPTRANS.SUPPLIER_PROD_WID",
+      "transformation_rule": "IIF(ISNULL(V_LKP_W_SUPPLIER_PRODUCT_D_PRIMARY), \nIIF(ISNULL(V_LKP_W_SUPPLIER_PRODUCT_D_2nd), \nIIF(ISNULL(V_LKP_W_SUPPLIER_PRODUCT_D_3rd), \nIIF(ISNULL(V_LKP_W_SUPPLIER_PRODUCT_D_4th),0, \nV_LKP_W_SUPPLIER_PRODUCT_D_4th), \nV_LKP_W_SUPPLIER_PRODUCT_D_3rd), \nV_LKP_W_SUPPLIER_PRODUCT_D_2nd), \nV_LKP_W_SUPPLIER_PRODUCT_D_PRIMARY)"
     },
     {
       "target_field": "PLANT_LOC_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PLANT_LOC_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PLANT_LOC_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PLANT_LOC_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PLANT_LOC_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_PLANT_LOC_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.PLANT_LOC_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.PLANT_LOC_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.PLANT_LOC_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'PLANT_LOC_ID' -> output port 'EXT_PLANT_LOC_WID' (no cleansing)"
     },
     {
       "target_field": "INVENTORY_ORG_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.INVENTORY_ORG_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_INVENTORY_ORG_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.INVENTORY_ORG_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_INVENTORY_ORG_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_INVENTORY_ORG_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.INVENTORY_ORG_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.INVENTORY_ORG_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.INVENTORY_ORG_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'INVENTORY_ORG_ID' -> output port 'EXT_INVENTORY_ORG_WID' (no cleansing)"
     },
     {
       "target_field": "RCPT_LOC_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.RCPT_LOC_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_RCPT_LOC_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.RCPT_LOC_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_RCPT_LOC_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_RCPT_LOC_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.RCPT_LOC_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.RCPT_LOC_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.RCPT_LOC_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'RCPT_LOC_ID' -> output port 'EXT_RCPT_LOC_WID' (no cleansing)"
     },
     {
       "target_field": "STORAGE_LOC_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.STORAGE_LOC_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_STORAGE_LOC_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.STORAGE_LOC_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_STORAGE_LOC_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_STORAGE_LOC_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.STORAGE_LOC_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.STORAGE_LOC_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.STORAGE_LOC_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'STORAGE_LOC_ID' -> output port 'EXT_STORAGE_LOC_WID' (no cleansing)"
     },
     {
       "target_field": "RQSTN_ORG_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.RQSTN_ORG_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_RQSTN_ORG_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.RQSTN_ORG_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_RQSTN_ORG_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_RQSTN_ORG_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.RQSTN_ORG_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.RQSTN_ORG_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.RQSTN_ORG_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'RQSTN_ORG_ID' -> output port 'EXT_RQSTN_ORG_WID' (no cleansing)"
     },
     {
       "target_field": "OPERATING_UNIT_ORG_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.OPERATING_UNIT_ORG_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_OPERATING_UNIT_ORG_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.OPERATING_UNIT_ORG_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_OPERATING_UNIT_ORG_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_OPERATING_UNIT_ORG_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.OPERATING_UNIT_ORG_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.OPERATING_UNIT_ORG_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.OPERATING_UNIT_ORG_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'OPERATING_UNIT_ORG_ID' -> output port 'EXT_OPERATING_UNIT_ORG_WID' (no cleansing)"
     },
     {
       "target_field": "APPROVAL_STATUS_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.APPROVAL_STATUS_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_APPROVAL_STATUS_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.APPROVAL_STATUS_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_APPROVAL_STATUS_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_APPROVAL_STATUS_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.APPROVAL_STATUS_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.APPROVAL_STATUS_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.APPROVAL_STATUS_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'APPROVAL_STATUS_ID' -> output port 'EXT_APPROVAL_STATUS_WID' (no cleansing)"
     },
     {
       "target_field": "CYCLE_STATUS_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.CYCLE_STATUS_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CYCLE_STATUS_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.CYCLE_STATUS_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CYCLE_STATUS_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_CYCLE_STATUS_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.CYCLE_STATUS_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.CYCLE_STATUS_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.CYCLE_STATUS_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'CYCLE_STATUS_ID' -> output port 'EXT_CYCLE_STATUS_WID' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE1",
@@ -539,18 +539,18 @@
     },
     {
       "target_field": "POH_PO_HEADER_ID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.POH_PO_HEADER_ID <- Fil_W_PURCH_RQSTN_LINE_F.POH_PO_HEADER_ID <- Exp_W_PURCH_RQSTN_LINE_F_Update_Flg.POH_PO_HEADER_ID <- Sq_W_PURCH_RQSTN_LINE_FS.POH_PO_HEADER_ID <- W_PURCH_RQSTN_LINE_FS.POH_PO_HEADER_ID",
-      "transformation_rule": "Direct copy / passthrough"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.POH_PO_HEADER_ID <- Fil_W_PURCH_RQSTN_LINE_F.POH_PO_HEADER_ID <- Exp_W_PURCH_RQSTN_LINE_F_Update_Flg.POH_PO_HEADER_ID <- Sq_W_PURCH_RQSTN_LINE_FS.POH_PO_HEADER_ID",
+      "transformation_rule": "/*04-16-2022 Added new field POL_PO_HEADER_ID"
     },
     {
       "target_field": "LEDGER_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.LEDGER_WID <- Fil_W_PURCH_RQSTN_LINE_F.LEDGER_WID <- Exp_W_PURCH_RQSTN_LINE_F_Update_Flg.LEDGER_WID <- Sq_W_PURCH_RQSTN_LINE_FS.LEDGER_WID <- W_PURCH_RQSTN_LINE_FS.POH_PO_HEADER_ID",
-      "transformation_rule": "Direct copy / passthrough"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.LEDGER_WID <- Fil_W_PURCH_RQSTN_LINE_F.LEDGER_WID <- Exp_W_PURCH_RQSTN_LINE_F_Update_Flg.LEDGER_WID <- Sq_W_PURCH_RQSTN_LINE_FS.LEDGER_WID",
+      "transformation_rule": "LEDGER_WID*/\r\nNVL(W_PURCH_RQSTN_LINE_FS.POH_PO_HEADER_ID,0)"
     },
     {
       "target_field": "POL_PO_LINE_ID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.POL_PO_LINE_ID <- Fil_W_PURCH_RQSTN_LINE_F.POL_PO_LINE_ID <- Exp_W_PURCH_RQSTN_LINE_F_Update_Flg.POL_PO_LINE_ID <- Sq_W_PURCH_RQSTN_LINE_FS.POL_PO_LINE_ID <- W_PURCH_RQSTN_LINE_FS.POL_PO_LINE_ID",
-      "transformation_rule": "Direct copy / passthrough"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.POL_PO_LINE_ID <- Fil_W_PURCH_RQSTN_LINE_F.POL_PO_LINE_ID <- Exp_W_PURCH_RQSTN_LINE_F_Update_Flg.POL_PO_LINE_ID <- Sq_W_PURCH_RQSTN_LINE_FS.POL_PO_LINE_ID",
+      "transformation_rule": "CASE when W_PURCH_RQSTN_LINE_FS.OPERATING_UNIT_ORG_ID = 81\tTHEN 6004\r\nwhen W_PURCH_RQSTN_LINE_FS.OPERATING_UNIT_ORG_ID = 1290\t\tTHEN  6005         \r\nwhen W_PURCH_RQSTN_LINE_FS.OPERATING_UNIT_ORG_ID = 2937      THEN 6001\r\nwhen W_PURCH_RQSTN_LINE_FS.OPERATING_UNIT_ORG_ID = 3977      THEN 6002\r\n ELSE 0 END"
     },
     {
       "target_field": "POR_ATTRIBUTE7",
@@ -674,8 +674,8 @@
     },
     {
       "target_field": "PORH_REQUISITION_HEADER_ID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PORH_REQUISITION_HEADER_ID <- Exp_Custom.PORH_REQUISITION_HEADER_ID <- Fil_W_PURCH_RQSTN_LINE_F.PORH_REQUISITION_HEADER_ID <- Sq_W_PURCH_RQSTN_LINE_FS.PORH_REQUISITION_HEADER_ID <- W_PURCH_RQSTN_LINE_FS.PORH_REQUISITION_HEADER_ID",
-      "transformation_rule": "Direct copy / passthrough"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PORH_REQUISITION_HEADER_ID <- Exp_Custom.PORH_REQUISITION_HEADER_ID <- Fil_W_PURCH_RQSTN_LINE_F.PORH_REQUISITION_HEADER_ID <- Sq_W_PURCH_RQSTN_LINE_FS.PORH_REQUISITION_HEADER_ID",
+      "transformation_rule": "NVL(W_PURCH_RQSTN_LINE_FS.PORH_REQUISITION_HEADER_ID,0)"
     },
     {
       "target_field": "PORH_ATTRIBUTE_CATEGORY",
@@ -724,33 +724,33 @@
     },
     {
       "target_field": "RECEIVED_ON_DT_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.RECEIVED_ON_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_RECEIVED_ON_DT_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.RECEIVED_ON_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_RECEIVED_ON_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_RECEIVED_ON_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.RECEIVED_ON_DT_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(RECEIVED_ON_DT), NULL, TO_INTEGER(TO_CHAR(RECEIVED_ON_DT,'YYYYMMDD')))"
     },
     {
       "target_field": "NEEDED_BY_DT_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.NEEDED_BY_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_NEEDED_BY_DT_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.NEEDED_BY_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_NEEDED_BY_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_NEEDED_BY_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.NEEDED_BY_DT_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(NEEDED_BY_DT), NULL, TO_INTEGER(TO_CHAR(NEEDED_BY_DT,'YYYYMMDD')))"
     },
     {
       "target_field": "NEEDED_BY_TM_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.NEEDED_BY_TM_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_NEEDED_BY_TM_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.NEEDED_BY_TM_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_NEEDED_BY_TM_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_NEEDED_BY_TM_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.NEEDED_BY_TM_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(NEEDED_BY_DT), NULL, TO_INTEGER(TO_CHAR(NEEDED_BY_DT,'HH24MISS')))"
     },
     {
       "target_field": "DUE_ON_DT_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.DUE_ON_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_DUE_ON_DT_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.DUE_ON_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_DUE_ON_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_DUE_ON_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.DUE_ON_DT_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(DUE_ON_DT), NULL, TO_INTEGER(TO_CHAR(DUE_ON_DT,'YYYYMMDD')))"
     },
     {
       "target_field": "CREATED_ON_TM_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.CREATED_ON_TM_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CREATED_ON_TM_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.CREATED_ON_TM_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CREATED_ON_TM_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_CREATED_ON_TM_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.CREATED_ON_TM_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(CREATED_ON_DT), NULL, TO_INTEGER(TO_CHAR(CREATED_ON_DT,'HH24MISS')))"
     },
     {
       "target_field": "REQUESTED_QTY",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.REQUESTED_QTY <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_REQUESTED_QTY",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.REQUESTED_QTY <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_REQUESTED_QTY <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_REQUESTED_QTY <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.REQUESTED_QTY <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.REQUESTED_QTY <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.REQUESTED_QTY",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'REQUESTED_QTY' -> output port 'EXT_REQUESTED_QTY' (no cleansing)"
     },
     {
       "target_field": "UNIT_STD_COST",
@@ -759,13 +759,13 @@
     },
     {
       "target_field": "UNIT_PRICE",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.UNIT_PRICE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_UNIT_PRICE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.UNIT_PRICE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_UNIT_PRICE <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_UNIT_PRICE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.UNIT_PRICE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.UNIT_PRICE <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.UNIT_PRICE",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'UNIT_PRICE' -> output port 'EXT_UNIT_PRICE' (no cleansing)"
     },
     {
       "target_field": "LINE_AMT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.LINE_AMT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_LINE_AMT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.LINE_AMT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_LINE_AMT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_LINE_AMT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.LINE_AMT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.LINE_AMT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.LINE_AMT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'LINE_AMT' -> output port 'EXT_LINE_AMT' (no cleansing)"
     },
     {
       "target_field": "STD_COST_AMT",
@@ -774,8 +774,8 @@
     },
     {
       "target_field": "UOM_CODE",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.UOM_CODE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_UOM_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.UOM_CODE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_UOM_CODE <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_UOM_CODE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.UOM_CODE_OUT",
+      "transformation_rule": "IIF(ISNULL(LKP_UOM_CODE),\nIIF(ISNULL(UOM_CODE), $$SOURCE_CODE_NOT_SUPPLIED, UOM_CODE),\nLKP_UOM_CODE)"
     },
     {
       "target_field": "PORH_CREATION_DATE",
@@ -824,233 +824,233 @@
     },
     {
       "target_field": "XACT_TYPE_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.XACT_TYPE_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_XACT_TYPE_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.XACT_TYPE_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_XACT_TYPE_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_XACT_TYPE_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.XACT_TYPE_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.XACT_TYPE_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.XACT_TYPE_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'XACT_TYPE_ID' -> output port 'EXT_XACT_TYPE_WID' (no cleansing)"
     },
     {
       "target_field": "SUBMITTED_ON_DT_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.SUBMITTED_ON_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_SUBMITTED_ON_DT_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.SUBMITTED_ON_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_SUBMITTED_ON_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_SUBMITTED_ON_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.SUBMITTED_ON_DT_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(SUBMITTED_ON_DT), NULL, TO_INTEGER(TO_CHAR(SUBMITTED_ON_DT,'YYYYMMDD')))"
     },
     {
       "target_field": "SUBMITTED_ON_TM_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.SUBMITTED_ON_TM_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_SUBMITTED_ON_TM_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.SUBMITTED_ON_TM_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_SUBMITTED_ON_TM_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_SUBMITTED_ON_TM_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.SUBMITTED_ON_TM_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(SUBMITTED_ON_DT), NULL, TO_INTEGER(TO_CHAR(SUBMITTED_ON_DT,'HH24MISS')))"
     },
     {
       "target_field": "RESUBMITTED_ON_DT_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.RESUBMITTED_ON_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_RESUBMITTED_ON_DT_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.RESUBMITTED_ON_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_RESUBMITTED_ON_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_RESUBMITTED_ON_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.RESUBMITTED_ON_DT_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(RESUBMITTED_ON_DT), NULL, TO_INTEGER(TO_CHAR(RESUBMITTED_ON_DT,'YYYYMMDD')))"
     },
     {
       "target_field": "RESUBMITTED_ON_TM_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.RESUBMITTED_ON_TM_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_RESUBMITTED_ON_TM_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.RESUBMITTED_ON_TM_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_RESUBMITTED_ON_TM_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_RESUBMITTED_ON_TM_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.RESUBMITTED_ON_TM_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(RESUBMITTED_ON_DT), NULL, TO_INTEGER(TO_CHAR(RESUBMITTED_ON_DT,'HH24MISS')))"
     },
     {
       "target_field": "APPROVED_ON_DT_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.APPROVED_ON_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_APPROVED_ON_DT_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.APPROVED_ON_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_APPROVED_ON_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_APPROVED_ON_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.APPROVED_ON_DT_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(APPROVED_ON_DT), NULL, TO_INTEGER(TO_CHAR(APPROVED_ON_DT,'YYYYMMDD')))"
     },
     {
       "target_field": "APPROVED_ON_TM_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.APPROVED_ON_TM_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_APPROVED_ON_TM_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.APPROVED_ON_TM_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_APPROVED_ON_TM_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_APPROVED_ON_TM_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.APPROVED_ON_TM_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(APPROVED_ON_DT), NULL, TO_INTEGER(TO_CHAR(APPROVED_ON_DT,'HH24MISS')))"
     },
     {
       "target_field": "ORDERED_ON_DT_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.ORDERED_ON_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_ORDERED_ON_DT_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.ORDERED_ON_DT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_ORDERED_ON_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_ORDERED_ON_DT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.ORDERED_ON_DT_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(ORDERED_ON_DT), NULL, TO_INTEGER(TO_CHAR(ORDERED_ON_DT,'YYYYMMDD')))"
     },
     {
       "target_field": "PURCH_RQSTN_NUM",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PURCH_RQSTN_NUM <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PURCH_RQSTN_NUM",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PURCH_RQSTN_NUM <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PURCH_RQSTN_NUM <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_PURCH_RQSTN_NUM <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.PURCH_RQSTN_NUM <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.PURCH_RQSTN_NUM <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.PURCH_RQSTN_NUM",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'PURCH_RQSTN_NUM' -> output port 'EXT_PURCH_RQSTN_NUM' (no cleansing)"
     },
     {
       "target_field": "PURCH_RQSTN_ITEM",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PURCH_RQSTN_ITEM <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PURCH_RQSTN_ITEM",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PURCH_RQSTN_ITEM <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PURCH_RQSTN_ITEM <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_PURCH_RQSTN_ITEM <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.PURCH_RQSTN_ITEM <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.PURCH_RQSTN_ITEM <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.PURCH_RQSTN_ITEM",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'PURCH_RQSTN_ITEM' -> output port 'EXT_PURCH_RQSTN_ITEM' (no cleansing)"
     },
     {
       "target_field": "LINE_TEXT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.LINE_TEXT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_LINE_TEXT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.LINE_TEXT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_LINE_TEXT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_LINE_TEXT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.LINE_TEXT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.LINE_TEXT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.LINE_TEXT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'LINE_TEXT' -> output port 'EXT_LINE_TEXT' (no cleansing)"
     },
     {
       "target_field": "LINE_TYPE_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.LINE_TYPE_WID <- mplt_SIL_PurchaseRequisitionLinesFact.LINE_TYPE_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.LINE_TYPE_WID <- mplt_SIL_PurchaseRequisitionLinesFact.LINE_TYPE_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.LINE_TYPE_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.LINE_TYPE_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.LINE_TYPE_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.LINE_TYPE_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'LINE_TYPE_ID' -> output port 'LINE_TYPE_WID' (no cleansing)"
     },
     {
       "target_field": "STANDARD_UOM_CONV_RATE",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.STANDARD_UOM_CONVERSION_RATE <- MPLT_GET_UOM_CONVERSIONS.STANDARD_UOM_CONVERSION_RATE",
-      "transformation_rule": "resolved inside reusable mapplet 'MPLT_GET_UOM_CONVERSIONS' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.STANDARD_UOM_CONVERSION_RATE <- MPLT_GET_UOM_CONVERSIONS.STANDARD_UOM_CONVERSION_RATE <- [MPLT_GET_UOM_CONVERSIONS]OUTPUT.STANDARD_UOM_CONVERSION_RATE <- [MPLT_GET_UOM_CONVERSIONS]EXP_OUTPUT.STANDARD_UOM_CONVERSION_RATE",
+      "transformation_rule": "V_STANDARD_UOM_CONVERSION_RATE_ITEM_LVL"
     },
     {
       "target_field": "STANDARD_UOM_CODE",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.STANDARD_UOM_CODE <- MPLT_GET_UOM_CONVERSIONS.STANDARD_UOM_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'MPLT_GET_UOM_CONVERSIONS' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.STANDARD_UOM_CODE <- MPLT_GET_UOM_CONVERSIONS.STANDARD_UOM_CODE <- [MPLT_GET_UOM_CONVERSIONS]OUTPUT.STANDARD_UOM_CODE <- [MPLT_GET_UOM_CONVERSIONS]EXP_OUTPUT.STANDARD_UOM_CODE",
+      "transformation_rule": "V_STANDARD_UOM_CODE"
     },
     {
       "target_field": "PRIMARY_UOM_CONV_RATE",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PRIMARY_UOM_CONVERSION_RATE <- MPLT_GET_UOM_CONVERSIONS.PRIMARY_UOM_CONVERSION_RATE",
-      "transformation_rule": "resolved inside reusable mapplet 'MPLT_GET_UOM_CONVERSIONS' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PRIMARY_UOM_CONVERSION_RATE <- MPLT_GET_UOM_CONVERSIONS.PRIMARY_UOM_CONVERSION_RATE <- [MPLT_GET_UOM_CONVERSIONS]OUTPUT.PRIMARY_UOM_CONVERSION_RATE <- [MPLT_GET_UOM_CONVERSIONS]EXP_OUTPUT.PRIMARY_UOM_CONVERSION_RATE",
+      "transformation_rule": "IIF(ISNULL(INV_PRIMARY_UOM_CONVERSION_RATE_ITEM_LVL), IIF(ISNULL(INV_PRIMARY_UOM_CONVERSION_RATE),IIF(ISNULL(IN_PRIMARY_UOM_CONVERSION_RATE_ITEM_LVL), IIF(ISNULL(IN_PRIMARY_UOM_CONVERSION_RATE),V_STANDARD_UOM_CONVERSION_RATE_ITEM_LVL, IN_PRIMARY_UOM_CONVERSION_RATE), IN_PRIMARY_UOM_CONVERSION_RATE_ITEM_LVL), INV_PRIMARY_UOM_CONVERSION_RATE), INV_PRIMARY_UOM_CONVERSION_RATE_ITEM_LVL)"
     },
     {
       "target_field": "PRIMARY_UOM_CODE",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PRIMARY_UOM_CODE <- MPLT_GET_UOM_CONVERSIONS.PRIMARY_UOM_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'MPLT_GET_UOM_CONVERSIONS' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.PRIMARY_UOM_CODE <- MPLT_GET_UOM_CONVERSIONS.PRIMARY_UOM_CODE <- [MPLT_GET_UOM_CONVERSIONS]OUTPUT.PRIMARY_UOM_CODE <- [MPLT_GET_UOM_CONVERSIONS]EXP_OUTPUT.PRIMARY_UOM_CODE",
+      "transformation_rule": "IIF(ISNULL(INV_PRIMARY_UOM_CONVERSION_RATE_ITEM_LVL), IIF(ISNULL(INV_PRIMARY_UOM_CONVERSION_RATE),\nIIF(ISNULL(IN_PRIMARY_UOM_CONVERSION_RATE_ITEM_LVL), IIF(ISNULL(IN_PRIMARY_UOM_CONVERSION_RATE), V_STANDARD_UOM_CODE, IN_PRIMARY_UOM_CODE), IN_PRIMARY_UOM_CODE_ITEM_LVL), INV_PRIMARY_UOM_CODE), INV_PRIMARY_UOM_CODE_ITEM_LVL)"
     },
     {
       "target_field": "CANCELLED_LINE_QTY",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_CANCELLED_LINE_QTY <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CANCELLED_LINE_QTY",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_CANCELLED_LINE_QTY <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CANCELLED_LINE_QTY <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_CANCELLED_LINE_QTY <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.CANCELLED_LINE_QTY <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.CANCELLED_LINE_QTY <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.CANCELLED_LINE_QTY",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'CANCELLED_LINE_QTY' -> output port 'EXT_CANCELLED_LINE_QTY' (no cleansing)"
     },
     {
       "target_field": "CANCELLED_LINE_AMT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_CANCELLED_LINE_AMT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CANCELLED_LINE_AMT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_CANCELLED_LINE_AMT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CANCELLED_LINE_AMT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_CANCELLED_LINE_AMT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.CANCELLED_LINE_AMT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.CANCELLED_LINE_AMT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.CANCELLED_LINE_AMT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'CANCELLED_LINE_AMT' -> output port 'EXT_CANCELLED_LINE_AMT' (no cleansing)"
     },
     {
       "target_field": "URGENT_FLAG",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_URGENT_FLAG <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_URGENT_FLAG",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_URGENT_FLAG <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_URGENT_FLAG <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_URGENT_FLAG <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.URGENT_FLAG <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.URGENT_FLAG <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.URGENT_FLAG",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'URGENT_FLAG' -> output port 'EXT_URGENT_FLAG' (no cleansing)"
     },
     {
       "target_field": "PO_REVISIONS",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_REVISIONS <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_REVISIONS",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_REVISIONS <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_REVISIONS <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_PO_REVISIONS <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.PO_REVISIONS <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.PO_REVISIONS <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.PO_REVISIONS",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'PO_REVISIONS' -> output port 'EXT_PO_REVISIONS' (no cleansing)"
     },
     {
       "target_field": "SUBMITTED_ON_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_SUBMITTED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_SUBMITTED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_SUBMITTED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_SUBMITTED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_SUBMITTED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.SUBMITTED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.SUBMITTED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.SUBMITTED_ON_DT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'SUBMITTED_ON_DT' -> output port 'EXT_SUBMITTED_ON_DT' (no cleansing)"
     },
     {
       "target_field": "APPROVED_ON_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_APPROVED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_APPROVED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_APPROVED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_APPROVED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_APPROVED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.APPROVED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.APPROVED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.APPROVED_ON_DT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'APPROVED_ON_DT' -> output port 'EXT_APPROVED_ON_DT' (no cleansing)"
     },
     {
       "target_field": "ORDERED_ON_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_ORDERED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_ORDERED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_ORDERED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_ORDERED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_ORDERED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.ORDERED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.ORDERED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.ORDERED_ON_DT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'ORDERED_ON_DT' -> output port 'EXT_ORDERED_ON_DT' (no cleansing)"
     },
     {
       "target_field": "RECEIVED_ON_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_RECEIVED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_RECEIVED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_RECEIVED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_RECEIVED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_RECEIVED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.RECEIVED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.RECEIVED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.RECEIVED_ON_DT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'RECEIVED_ON_DT' -> output port 'EXT_RECEIVED_ON_DT' (no cleansing)"
     },
     {
       "target_field": "NEEDED_BY_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_NEEDED_BY_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_NEEDED_BY_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_NEEDED_BY_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_NEEDED_BY_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_NEEDED_BY_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.NEEDED_BY_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.NEEDED_BY_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.NEEDED_BY_DT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'NEEDED_BY_DT' -> output port 'EXT_NEEDED_BY_DT' (no cleansing)"
     },
     {
       "target_field": "PO_APPROVED_ON_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_APPROVED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_APPROVED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_APPROVED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_APPROVED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_PO_APPROVED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.PO_APPROVED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.PO_APPROVED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.PO_APPROVED_ON_DT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'PO_APPROVED_ON_DT' -> output port 'EXT_PO_APPROVED_ON_DT' (no cleansing)"
     },
     {
       "target_field": "PO_APPROVED_ON_DT_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_APPROVED_ON_DT_WID_OUT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_APPROVED_ON_DT_WID_OUT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_APPROVED_ON_DT_WID_OUT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_APPROVED_ON_DT_WID_OUT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_PO_APPROVED_ON_DT_WID_OUT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.PO_APPROVED_ON_DT_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(PO_APPROVED_ON_DT), NULL, TO_INTEGER(TO_CHAR(PO_APPROVED_ON_DT,'YYYYMMDD')))"
     },
     {
       "target_field": "PO_SUBMIT_ON_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_SUBMIT_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_SUBMIT_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_SUBMIT_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_SUBMIT_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_PO_SUBMIT_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.PO_SUBMIT_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.PO_SUBMIT_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.PO_SUBMIT_ON_DT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'PO_SUBMIT_ON_DT' -> output port 'EXT_PO_SUBMIT_ON_DT' (no cleansing)"
     },
     {
       "target_field": "PO_SUBMIT_ON_DT_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_SUBMIT_ON_DT_WID_OUT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_SUBMIT_ON_DT_WID_OUT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_SUBMIT_ON_DT_WID_OUT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_SUBMIT_ON_DT_WID_OUT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_PO_SUBMIT_ON_DT_WID_OUT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.PO_SUBMIT_ON_DT_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(PO_SUBMIT_ON_DT), NULL, TO_INTEGER(TO_CHAR(PO_SUBMIT_ON_DT,'YYYYMMDD')))"
     },
     {
       "target_field": "FULFILLMENT_STATUS_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_FULFILLMENT_STATUS_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_FULFILLMENT_STATUS_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_FULFILLMENT_STATUS_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_FULFILLMENT_STATUS_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_FULFILLMENT_STATUS_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.FULFILLMENT_STATUS_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.FULFILLMENT_STATUS_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.FULFILLMENT_STATUS_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'FULFILLMENT_STATUS_ID' -> output port 'EXT_FULFILLMENT_STATUS_WID' (no cleansing)"
     },
     {
       "target_field": "PO_CREATION_METHOD_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_CREATION_METHOD_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_CREATION_METHOD_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_CREATION_METHOD_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_CREATION_METHOD_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_PO_CREATION_METHOD_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.PO_CREATION_METHOD_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.PO_CREATION_METHOD_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.PO_CREATION_METHOD_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'PO_CREATION_METHOD_ID' -> output port 'EXT_PO_CREATION_METHOD_WID' (no cleansing)"
     },
     {
       "target_field": "PO_APPROVED_ON_TM_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_APPROVED_ON_TM_WID_OUT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_APPROVED_ON_TM_WID_OUT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_APPROVED_ON_TM_WID_OUT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_APPROVED_ON_TM_WID_OUT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_PO_APPROVED_ON_TM_WID_OUT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.PO_APPROVED_ON_TM_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(PO_APPROVED_ON_DT), NULL, TO_INTEGER(TO_CHAR(PO_APPROVED_ON_DT,'HH24MISS')))"
     },
     {
       "target_field": "PO_SUBMIT_ON_TM_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_SUBMIT_ON_TM_WID_OUT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_SUBMIT_ON_TM_WID_OUT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.EXT_PO_SUBMIT_ON_TM_WID_OUT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_PO_SUBMIT_ON_TM_WID_OUT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_PO_SUBMIT_ON_TM_WID_OUT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.PO_SUBMIT_ON_TM_WID_OUT",
+      "transformation_rule": "IIF(ISNULL(PO_SUBMIT_ON_DT), NULL, TO_INTEGER(TO_CHAR(PO_SUBMIT_ON_DT,'HH24MISS')))"
     },
     {
       "target_field": "SUPPLIER_ACCOUNT_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.SUPPLIER_ACCOUNT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_SUPPLIER_ACCOUNT_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.SUPPLIER_ACCOUNT_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_SUPPLIER_ACCOUNT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_SUPPLIER_ACCOUNT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.SUPPLIER_ACCOUNT_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.SUPPLIER_ACCOUNT_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.SUPPLIER_ACCOUNT_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'SUPPLIER_ACCOUNT_ID' -> output port 'EXT_SUPPLIER_ACCOUNT_WID' (no cleansing)"
     },
     {
       "target_field": "INTEGRATION_ID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.INTEGRATION_ID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_INTEGRATION_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.INTEGRATION_ID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_INTEGRATION_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_INTEGRATION_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.INTEGRATION_ID_OUT",
+      "transformation_rule": "INTEGRATION_ID"
     },
     {
       "target_field": "DATASOURCE_NUM_ID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.DATASOURCE_NUM_ID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_DATASOURCE_NUM_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.DATASOURCE_NUM_ID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_DATASOURCE_NUM_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_DATASOURCE_NUM_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.DATASOURCE_NUM_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.DATASOURCE_NUM_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.DATASOURCE_NUM_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'DATASOURCE_NUM_ID' -> output port 'EXT_DATASOURCE_NUM_ID' (no cleansing)"
     },
     {
       "target_field": "CREATED_ON_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.CREATED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CREATED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.CREATED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CREATED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_CREATED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.CREATED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.CREATED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.CREATED_ON_DT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'CREATED_ON_DT' -> output port 'EXT_CREATED_ON_DT' (no cleansing)"
     },
     {
       "target_field": "CHANGED_ON_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.CHANGED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CHANGED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.CHANGED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.CHANGED_ON_DT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'CHANGED_ON_DT' -> output port 'EXT_CHANGED_ON_DT' (no cleansing)"
     },
     {
       "target_field": "ETL_PROC_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.ETL_PROC_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_ETL_PROC_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.ETL_PROC_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_ETL_PROC_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_ETL_PROC_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.ETL_PROC_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.ETL_PROC_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.ETL_PROC_WID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'ETL_PROC_WID' -> output port 'EXT_ETL_PROC_WID' (no cleansing)"
     },
     {
       "target_field": "AUX1_CHANGED_ON_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.AUX1_CHANGED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_AUX1_CHANGED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.AUX1_CHANGED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_AUX1_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_AUX1_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.AUX1_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.AUX1_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.AUX1_CHANGED_ON_DT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'AUX1_CHANGED_ON_DT' -> output port 'EXT_AUX1_CHANGED_ON_DT' (no cleansing)"
     },
     {
       "target_field": "AUX2_CHANGED_ON_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.AUX2_CHANGED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_AUX2_CHANGED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.AUX2_CHANGED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_AUX2_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_AUX2_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.AUX2_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.AUX2_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.AUX2_CHANGED_ON_DT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'AUX2_CHANGED_ON_DT' -> output port 'EXT_AUX2_CHANGED_ON_DT' (no cleansing)"
     },
     {
       "target_field": "AUX3_CHANGED_ON_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.AUX3_CHANGED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_AUX3_CHANGED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.AUX3_CHANGED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_AUX3_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_AUX3_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.AUX3_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.AUX3_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.AUX3_CHANGED_ON_DT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'AUX3_CHANGED_ON_DT' -> output port 'EXT_AUX3_CHANGED_ON_DT' (no cleansing)"
     },
     {
       "target_field": "AUX4_CHANGED_ON_DT",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.AUX4_CHANGED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_AUX4_CHANGED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.AUX4_CHANGED_ON_DT <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_AUX4_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_AUX4_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.AUX4_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.AUX4_CHANGED_ON_DT <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.AUX4_CHANGED_ON_DT",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'AUX4_CHANGED_ON_DT' -> output port 'EXT_AUX4_CHANGED_ON_DT' (no cleansing)"
     },
     {
       "target_field": "DELETE_FLG",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.DELETE_FLG <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_DELETE_FLG",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.DELETE_FLG <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_DELETE_FLG <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_DELETE_FLG <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.DELETE_FLG_OUT",
+      "transformation_rule": "IIF(UPDATE_FLG = 'D' OR UPDATE_FLG = 'B','Y','N')"
     },
     {
       "target_field": "CREATED_BY_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.CREATED_BY_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CREATED_BY_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.CREATED_BY_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CREATED_BY_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_CREATED_BY_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.CREATED_BY_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.CREATED_BY_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.CREATED_BY_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'CREATED_BY_ID' -> output port 'EXT_CREATED_BY_WID' (no cleansing)"
     },
     {
       "target_field": "LOC_CURR_CODE",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.LOC_CURR_CODE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_LOC_CURR_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.LOC_CURR_CODE <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_LOC_CURR_CODE <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_LOC_CURR_CODE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.LOC_CURR_CODE <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.LOC_CURR_CODE <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.LOC_CURR_CODE",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'LOC_CURR_CODE' -> output port 'EXT_LOC_CURR_CODE' (no cleansing)"
     },
     {
       "target_field": "X_CUSTOM",
@@ -1059,8 +1059,8 @@
     },
     {
       "target_field": "CHANGED_BY_WID",
-      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.CHANGED_BY_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CHANGED_BY_WID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SIL_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd.CHANGED_BY_WID <- mplt_SIL_PurchaseRequisitionLinesFact.EXT_CHANGED_BY_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Output.EXT_CHANGED_BY_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Transform.CHANGED_BY_WID <- [mplt_SIL_PurchaseRequisitionLinesFact]Exp_W_PURCH_RQSTN_LINE_F_Validate.CHANGED_BY_ID <- [mplt_SIL_PurchaseRequisitionLinesFact]Input.CHANGED_BY_ID",
+      "transformation_rule": "renamed inside mapplet 'mplt_SIL_PurchaseRequisitionLinesFact': input port 'CHANGED_BY_ID' -> output port 'EXT_CHANGED_BY_WID' (no cleansing)"
     }
   ],
   "shared_object_refs": [
@@ -1103,7 +1103,32 @@
       "description": ""
     }
   ],
-  "session_partition_overrides": [],
+  "session_partition_overrides": [
+    {
+      "session_name": "HHS_SIL_PurchaseRequisitionLinesFact",
+      "instance_name": "Sq_W_PURCH_RQSTN_LINE_FS",
+      "transformation_type": "Source Qualifier",
+      "partition_name": "",
+      "attribute_name": "Sql Query",
+      "attribute_value": "SELECT \r\nW_EMPLOYEE_D_REQUESTOR_WID.ROW_WID AS REQUESTOR_ID, \r\nW_PARTY_ORG_D_SUPPLIER_WID.ROW_WID AS SUPPLIER_ID, \r\nW_PURCH_RQSTN_LINE_FS.PRODUCT_ID, \r\nW_PURCH_RQSTN_LINE_FS.INVENTORY_PROD_ID, \r\nW_PURCH_RQSTN_LINE_FS.SUPPLIER_PROD_ID1, \r\nW_PURCH_RQSTN_LINE_FS.SUPPLIER_PROD_ID2, \r\nW_PURCH_RQSTN_LINE_FS.SUPPLIER_PROD_ID3, \r\nW_PURCH_RQSTN_LINE_FS.SUPPLIER_PROD_ID4, \r\nW_BUSN_LOCATION_D_PLANT.ROW_WID AS PLANT_LOC_ID, \r\nW_INT_ORG_D_INVENTORY_ORG_WID.ROW_WID AS INVENTORY_ORG_ID, \r\nW_BUSN_LOCATION_D_RCPT_LOC_WID.ROW_WID AS RCPT_LOC_ID, \r\nW_BUSN_LOCATION_D_STORAGE.ROW_WID AS STORAGE_LOC_ID, \r\nW_INT_ORG_D_RQSTN_ORG_WID.ROW_WID AS RQSTN_ORG_ID, \r\nW_INT_ORG_D_OU.ROW_WID AS OPERATING_UNIT_ORG_ID, \r\nW_STATUS_D_APPROVAL_STATUS_WID.ROW_WID AS APPROVAL_STATUS_ID, \r\nW_STATUS_D_CYCLE_STATUS_WID.ROW_WID AS CYCLE_STATUS_ID, \r\nW_XACT_TYPE_D_XACT_TYPE_WID.ROW_WID AS XACT_TYPE_ID, \r\nW_PURCH_RQSTN_LINE_FS.SUBMITTED_ON_DT, \r\nW_PURCH_RQSTN_LINE_FS.RESUBMITTED_ON_DT, \r\nW_PURCH_RQSTN_LINE_FS.APPROVED_ON_DT, \r\nW_PURCH_RQSTN_LINE_FS.ORDERED_ON_DT, \r\nW_PURCH_RQSTN_LINE_FS.RECEIVED_ON_DT, \r\nW_PURCH_RQSTN_LINE_FS.NEEDED_BY_DT, \r\nW_PURCH_RQSTN_LINE_FS.DUE_ON_DT, \r\nW_PURCH_RQSTN_LINE_FS.REQUESTED_QTY, \r\nW_PURCH_RQSTN_LINE_FS.UNIT_STD_COST, \r\nW_PURCH_RQSTN_LINE_FS.UNIT_PRICE, \r\nW_PURCH_RQSTN_LINE_FS.LINE_AMT, \r\nW_PURCH_RQSTN_LINE_FS.STD_COST_AMT, \r\nW_PURCH_RQSTN_LINE_FS.UOM_CODE, \r\nW_PURCH_RQSTN_LINE_FS.PURCH_RQSTN_NUM, \r\nW_PURCH_RQSTN_LINE_FS.PURCH_RQSTN_ITEM, \r\nW_PURCH_RQSTN_LINE_FS.LINE_TEXT, \r\nW_PURCH_RQSTN_LINE_FS.DELETE_FLG, \r\nW_PURCH_RQSTN_LINE_FS.REJECT_FLG, \r\nW_PURCH_RQSTN_LINE_FS.DOC_CURR_CODE, \r\nW_PURCH_RQSTN_LINE_FS.LOC_CURR_CODE, \r\nW_PURCH_RQSTN_LINE_FS.LOC_EXCH_RATE_TYPE, \r\nW_PURCH_RQSTN_LINE_FS.LOC_EXCHANGE_RATE, \r\nW_PURCH_RQSTN_LINE_FS.EXCHANGE_DT, \r\nW_USER_D_CREATED_BY_WID.ROW_WID AS CREATED_BY_ID, \r\nW_USER_D_CHANGED_BY_WID.ROW_WID AS CHANGED_BY_ID, \r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT, \r\nW_PURCH_RQSTN_LINE_FS.CHANGED_ON_DT, \r\nW_PURCH_RQSTN_LINE_FS.AUX1_CHANGED_ON_DT, \r\nW_PURCH_RQSTN_LINE_FS.AUX2_CHANGED_ON_DT, \r\nW_PURCH_RQSTN_LINE_FS.AUX3_CHANGED_ON_DT, \r\nW_PURCH_RQSTN_LINE_FS.AUX4_CHANGED_ON_DT, \r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID, \r\nW_PURCH_RQSTN_LINE_FS.INTEGRATION_ID, \r\nW_PURCH_RQSTN_LINE_FS.TENANT_ID, \r\nW_PURCH_RQSTN_LINE_FS.X_CUSTOM, \r\nW_XACT_TYPE_D_LINE_TYPE_WID.ROW_WID AS LINE_TYPE_ID, \r\nW_SUPPLIER_ACCOUNT_D_SUPP_ACC.ROW_WID AS SUPPLIER_ACCOUNT_ID, \r\nW_PURCH_RQSTN_LINE_FS.CANCELLED_LINE_QTY, \r\nW_PURCH_RQSTN_LINE_FS.CANCELLED_LINE_AMT, \r\nW_PURCH_RQSTN_LINE_FS.URGENT_FLAG, \r\nW_XACT_TYPE_D_PO_CREATION.ROW_WID AS PO_CREATION_METHOD_ID, \r\nW_PURCH_RQSTN_LINE_FS.PO_REVISIONS, \r\nW_PURCH_RQSTN_LINE_FS.PO_SUBMIT_ON_DT, \r\nW_PURCH_RQSTN_LINE_FS.PO_APPROVED_ON_DT, \r\nW_STATUS_D_FULFILLMENT.ROW_WID AS FULFILLMENT_STATUS_ID, \r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE1,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE2,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE3,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE5,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE6,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE7,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE10,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE11,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE12,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE13,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE14,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE15,\r\n/* 04-12-2022 Default to 0*/\r\nNVL(W_PURCH_RQSTN_LINE_FS.PORH_REQUISITION_HEADER_ID,0),\r\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE_CATEGORY,\r\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE1,\r\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE2,\r\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE3,\r\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE4,\r\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE5,\r\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE6,\r\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE7,\r\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE8,\r\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE11,\r\nW_PURCH_RQSTN_LINE_FS.PORH_DESCRIPTION, \r\nW_PURCH_RQSTN_LINE_FS.PORH_CREATION_DATE, \r\nW_PURCH_RQSTN_LINE_FS.PORL_CLOSED_CODE,\r\nW_PURCH_RQSTN_LINE_FS.PORL_CLOSED_REASON,\r\nW_PURCH_RQSTN_LINE_FS.PORL_CLOSED_DATE,\r\nW_PURCH_RQSTN_LINE_FS.PORL_CANCEL_FLAG,\r\nW_PURCH_RQSTN_LINE_FS.PORL_CANCEL_DATE,\r\nW_PURCH_RQSTN_LINE_FS.PORL_CANCEL_REASON, \r\nW_PURCH_RQSTN_LINE_FS.PORH_APPROVED_DATE, \r\nW_PURCH_RQSTN_LINE_FS.PORH_CLOSED_CODE,\r\nW_PURCH_RQSTN_LINE_FS.PORH_CANCEL_FLAG,\r\nW_PURCH_RQSTN_LINE_FS.PORL_ENCUMBERED_FLAG,\r\nW_PURCH_RQSTN_LINE_FS.PORL_LINE_LOCATION_ID,\r\nW_PURCH_RQSTN_LINE_FS.POH_CLOSED_CODE,\r\nW_PURCH_RQSTN_LINE_FS.POH_CANCEL_FLAG,\r\nW_PURCH_RQSTN_LINE_FS.POH_CLOSED_DATE,\r\nW_PURCH_RQSTN_LINE_FS.POH_AUTHORIZATION_STATUS,\r\nW_PURCH_RQSTN_LINE_FS.POL_UNIT_PRICE,\r\nW_PURCH_RQSTN_LINE_FS.POL_ITEM_DESCRIPTION,\r\nW_PURCH_RQSTN_LINE_FS.POH_PURCH_ORDER_NUM,\r\nW_PURCH_RQSTN_LINE_FS.POH_TYPE_LOOKUP_CODE,\r\nW_PURCH_RQSTN_LINE_FS.POL_CANCEL_FLAG,\r\nW_PURCH_RQSTN_LINE_FS.POL_CLOSED_CODE,\r\nW_PURCH_RQSTN_LINE_FS.PORH_CREATED_BY,\r\nW_PURCH_RQSTN_LINE_FS.PORH_PREPARER_ID,\r\nW_PURCH_RQSTN_LINE_FS.PORL_ATTRIBUTE1,\r\nW_PURCH_RQSTN_LINE_FS.POLL_RCPT_FLG,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ACCRUE_RCPT_FLG,\r\nW_PURCH_RQSTN_LINE_FS.POL_ATTRIBUTE15,\r\nW_PURCH_RQSTN_LINE_FS.PORL_ATTRIBUTE15,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE1,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE2,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE3,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE4,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE5,\r\nW_PURCH_RQSTN_LINE_FS.POH_INTERFACE_CD,\r\n\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE4,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE8,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE9,\r\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE_CATEGORY,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE6,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE7,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE8,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE9,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE10,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE11,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE12,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE13,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE14,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE15,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE16,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE17,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE18,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE19,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE20,\r\nW_PURCH_RQSTN_LINE_FS.POH_GLOBAL_ATTRIBUTE_CATEGORY,\r\nW_PURCH_RQSTN_LINE_FS.POH_TAX_ATTRIBUTE_UPDATE_CODE,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE1,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE2,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE3,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE4,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE5,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE6,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE7,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE8,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE9,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE10,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE11,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE12,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE13,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE14,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE15,\r\nW_PURCH_RQSTN_LINE_FS.POLL_ATTRIBUTE_CATEGORY,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE1,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE2,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE3,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE4,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE5,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE6,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE7,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE8,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE9,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE10,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE11,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE12,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE13,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE14,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE15,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE16,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE17,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE18,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE19,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE20,\r\nW_PURCH_RQSTN_LINE_FS.POLL_GLOBAL_ATTRIBUTE_CATEGORY,\r\nW_PURCH_RQSTN_LINE_FS.POLL_TAX_ATTRIBUTE_UPDATE_CODE,\r\n\r\n/*04-16-2022 Added new field POL_PO_HEADER_ID, LEDGER_WID*/\r\nNVL(W_PURCH_RQSTN_LINE_FS.POH_PO_HEADER_ID,0) AS POH_PO_HEADER_ID,\r\nCASE when W_PURCH_RQSTN_LINE_FS.OPERATING_UNIT_ORG_ID = 81\tTHEN 6004\r\nwhen W_PURCH_RQSTN_LINE_FS.OPERATING_UNIT_ORG_ID = 1290\t\tTHEN  6005         \r\nwhen W_PURCH_RQSTN_LINE_FS.OPERATING_UNIT_ORG_ID = 2937      THEN 6001\r\nwhen W_PURCH_RQSTN_LINE_FS.OPERATING_UNIT_ORG_ID = 3977      THEN 6002\r\n ELSE 0 END AS LEDGER_WID,\r\nW_PURCH_RQSTN_LINE_FS.POL_PO_LINE_ID,\r\nW_PURCH_RQSTN_LINE_FS.POR_ATTRIBUTE7,\r\nW_PURCH_RQSTN_LINE_FS.RECREATE_DEMAND_FLAG\r\n\r\nFROM\r\nW_PURCH_RQSTN_LINE_FS,\r\nW_BUSN_LOCATION_D W_BUSN_LOCATION_D_PLANT,\r\nW_BUSN_LOCATION_D W_BUSN_LOCATION_D_RCPT_LOC_WID,\r\nW_BUSN_LOCATION_D W_BUSN_LOCATION_D_STORAGE,\r\nW_EMPLOYEE_D W_EMPLOYEE_D_REQUESTOR_WID,\r\nW_STATUS_D W_STATUS_D_APPROVAL_STATUS_WID,\r\nW_STATUS_D W_STATUS_D_CYCLE_STATUS_WID,\r\nW_STATUS_D W_STATUS_D_FULFILLMENT,\r\nW_XACT_TYPE_D W_XACT_TYPE_D_LINE_TYPE_WID,\r\nW_XACT_TYPE_D W_XACT_TYPE_D_PO_CREATION,\r\nW_XACT_TYPE_D W_XACT_TYPE_D_XACT_TYPE_WID,\r\nW_INT_ORG_D W_INT_ORG_D_INVENTORY_ORG_WID,\r\nW_INT_ORG_D W_INT_ORG_D_OU,\r\nW_INT_ORG_D W_INT_ORG_D_RQSTN_ORG_WID,\r\nW_PARTY_ORG_D W_PARTY_ORG_D_SUPPLIER_WID,\r\nW_SUPPLIER_ACCOUNT_D W_SUPPLIER_ACCOUNT_D_SUPP_ACC,\r\nW_USER_D W_USER_D_CHANGED_BY_WID,\r\nW_USER_D W_USER_D_CREATED_BY_WID\r\nWHERE\r\n{\r\nW_PURCH_RQSTN_LINE_FS\r\nLEFT OUTER JOIN W_BUSN_LOCATION_D_PLANT ON\r\nW_PURCH_RQSTN_LINE_FS.PLANT_LOC_ID = W_BUSN_LOCATION_D_PLANT.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_BUSN_LOCATION_D_PLANT.DATASOURCE_NUM_ID AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_BUSN_LOCATION_D_PLANT.EFFECTIVE_FROM_DT AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_BUSN_LOCATION_D_PLANT.EFFECTIVE_TO_DT \r\n\r\nLEFT OUTER JOIN W_BUSN_LOCATION_D_RCPT_LOC_WID ON\r\nW_PURCH_RQSTN_LINE_FS.RCPT_LOC_ID = W_BUSN_LOCATION_D_RCPT_LOC_WID.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_BUSN_LOCATION_D_RCPT_LOC_WID.DATASOURCE_NUM_ID AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_BUSN_LOCATION_D_RCPT_LOC_WID.EFFECTIVE_FROM_DT AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_BUSN_LOCATION_D_RCPT_LOC_WID.EFFECTIVE_TO_DT \r\n\r\nLEFT OUTER JOIN W_BUSN_LOCATION_D_STORAGE ON\r\nW_PURCH_RQSTN_LINE_FS.STORAGE_LOC_ID = W_BUSN_LOCATION_D_STORAGE.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_BUSN_LOCATION_D_STORAGE.DATASOURCE_NUM_ID AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_BUSN_LOCATION_D_STORAGE.EFFECTIVE_FROM_DT AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_BUSN_LOCATION_D_STORAGE.EFFECTIVE_TO_DT \r\n\r\nLEFT OUTER JOIN W_EMPLOYEE_D_REQUESTOR_WID ON\r\nW_PURCH_RQSTN_LINE_FS.REQUESTOR_ID =  W_EMPLOYEE_D_REQUESTOR_WID.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID =  W_EMPLOYEE_D_REQUESTOR_WID.DATASOURCE_NUM_ID AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_EMPLOYEE_D_REQUESTOR_WID.EFFECTIVE_FROM_DT AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_EMPLOYEE_D_REQUESTOR_WID.EFFECTIVE_TO_DT \r\n\r\nLEFT OUTER JOIN W_STATUS_D_APPROVAL_STATUS_WID ON\r\nW_PURCH_RQSTN_LINE_FS.APPROVAL_STATUS_ID = W_STATUS_D_APPROVAL_STATUS_WID.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_STATUS_D_APPROVAL_STATUS_WID.DATASOURCE_NUM_ID \r\n\r\nLEFT OUTER JOIN W_STATUS_D_CYCLE_STATUS_WID ON\r\nW_PURCH_RQSTN_LINE_FS.CYCLE_STATUS_ID = W_STATUS_D_CYCLE_STATUS_WID.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_STATUS_D_CYCLE_STATUS_WID.DATASOURCE_NUM_ID \r\n\r\nLEFT OUTER JOIN W_STATUS_D_FULFILLMENT ON\r\nW_PURCH_RQSTN_LINE_FS.FULFILLMENT_STATUS_ID = W_STATUS_D_FULFILLMENT.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_STATUS_D_FULFILLMENT.DATASOURCE_NUM_ID \r\n\r\nLEFT OUTER JOIN W_XACT_TYPE_D_LINE_TYPE_WID ON\r\nW_PURCH_RQSTN_LINE_FS.LINE_TYPE_ID =  W_XACT_TYPE_D_LINE_TYPE_WID.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_XACT_TYPE_D_LINE_TYPE_WID.DATASOURCE_NUM_ID \r\n\r\nLEFT OUTER JOIN W_XACT_TYPE_D_PO_CREATION ON\r\nW_PURCH_RQSTN_LINE_FS.PO_CREATION_METHOD_ID =  W_XACT_TYPE_D_PO_CREATION.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_XACT_TYPE_D_PO_CREATION.DATASOURCE_NUM_ID \r\n\r\nLEFT OUTER JOIN W_XACT_TYPE_D_XACT_TYPE_WID ON\r\nW_PURCH_RQSTN_LINE_FS.XACT_TYPE_ID =  W_XACT_TYPE_D_XACT_TYPE_WID.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_XACT_TYPE_D_XACT_TYPE_WID.DATASOURCE_NUM_ID \r\n\r\nLEFT OUTER JOIN W_INT_ORG_D_INVENTORY_ORG_WID ON\r\nW_PURCH_RQSTN_LINE_FS.INVENTORY_ORG_ID =  W_INT_ORG_D_INVENTORY_ORG_WID.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_INT_ORG_D_INVENTORY_ORG_WID.DATASOURCE_NUM_ID AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_INT_ORG_D_INVENTORY_ORG_WID.EFFECTIVE_FROM_DT AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_INT_ORG_D_INVENTORY_ORG_WID.EFFECTIVE_TO_DT \r\n\r\nLEFT OUTER JOIN W_INT_ORG_D_OU ON\r\nW_PURCH_RQSTN_LINE_FS.OPERATING_UNIT_ORG_ID =  W_INT_ORG_D_OU.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_INT_ORG_D_OU.DATASOURCE_NUM_ID AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_INT_ORG_D_OU.EFFECTIVE_FROM_DT AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_INT_ORG_D_OU.EFFECTIVE_TO_DT \r\n\r\nLEFT OUTER JOIN W_INT_ORG_D_RQSTN_ORG_WID ON\r\nW_PURCH_RQSTN_LINE_FS.RQSTN_ORG_ID =  W_INT_ORG_D_RQSTN_ORG_WID.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_INT_ORG_D_RQSTN_ORG_WID.DATASOURCE_NUM_ID AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_INT_ORG_D_RQSTN_ORG_WID.EFFECTIVE_FROM_DT AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_INT_ORG_D_RQSTN_ORG_WID.EFFECTIVE_TO_DT \r\n\r\nLEFT OUTER JOIN W_PARTY_ORG_D_SUPPLIER_WID ON\r\nW_PURCH_RQSTN_LINE_FS.SUPPLIER_ID = W_PARTY_ORG_D_SUPPLIER_WID.SUPPLIER_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID =  W_PARTY_ORG_D_SUPPLIER_WID.DATASOURCE_NUM_ID AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_PARTY_ORG_D_SUPPLIER_WID.EFFECTIVE_FROM_DT AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_PARTY_ORG_D_SUPPLIER_WID.EFFECTIVE_TO_DT AND\r\nW_PARTY_ORG_D_SUPPLIER_WID.SUPPLIER_FLG = 'Y' \r\n\r\nLEFT OUTER JOIN W_SUPPLIER_ACCOUNT_D_SUPP_ACC ON\r\nW_PURCH_RQSTN_LINE_FS.SUPPLIER_ACCOUNT_ID = W_SUPPLIER_ACCOUNT_D_SUPP_ACC.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID =  W_SUPPLIER_ACCOUNT_D_SUPP_ACC.DATASOURCE_NUM_ID AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_SUPPLIER_ACCOUNT_D_SUPP_ACC.EFFECTIVE_FROM_DT AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_SUPPLIER_ACCOUNT_D_SUPP_ACC.EFFECTIVE_TO_DT \r\n\r\nLEFT OUTER JOIN W_USER_D_CHANGED_BY_WID ON\r\nW_PURCH_RQSTN_LINE_FS.CHANGED_BY_ID =  W_USER_D_CHANGED_BY_WID.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_USER_D_CHANGED_BY_WID.DATASOURCE_NUM_ID AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_USER_D_CHANGED_BY_WID.EFFECTIVE_FROM_DT AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_USER_D_CHANGED_BY_WID.EFFECTIVE_TO_DT \r\n\r\nLEFT OUTER JOIN W_USER_D_CREATED_BY_WID ON\r\nW_PURCH_RQSTN_LINE_FS.CREATED_BY_ID =  W_USER_D_CREATED_BY_WID.INTEGRATION_ID AND\r\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_USER_D_CREATED_BY_WID.DATASOURCE_NUM_ID AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_USER_D_CREATED_BY_WID.EFFECTIVE_FROM_DT AND\r\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_USER_D_CREATED_BY_WID.EFFECTIVE_TO_DT \r\n}"
+    },
+    {
+      "session_name": "HHS_SIL_PurchaseRequisitionLinesFact",
+      "instance_name": "mplt_SIL_PurchaseRequisitionLinesFact.Lkp_W_PRODUCT_D_Product_Wid",
+      "transformation_type": "Lookup Procedure",
+      "partition_name": "",
+      "attribute_name": "Lookup Sql Override",
+      "attribute_value": "SELECT \nLOOKUP_TABLE.ROW_WID as ROW_WID, \nLOOKUP_TABLE.INTEGRATION_ID as INTEGRATION_ID, \nLOOKUP_TABLE.DATASOURCE_NUM_ID as DATASOURCE_NUM_ID, \nLOOKUP_TABLE.EFFECTIVE_FROM_DT as EFFECTIVE_FROM_DT, \nLOOKUP_TABLE.EFFECTIVE_TO_DT as EFFECTIVE_TO_DT \nFROM \nW_PRODUCT_D LOOKUP_TABLE,  W_PURCH_RQSTN_LINE_FS TARGET_STAGE\nWHERE \nLOOKUP_TABLE.INTEGRATION_ID = TARGET_STAGE.PRODUCT_ID AND \nLOOKUP_TABLE.DATASOURCE_NUM_ID = TARGET_STAGE.DATASOURCE_NUM_ID\nORDER BY \nLOOKUP_TABLE.DATASOURCE_NUM_ID,\nLOOKUP_TABLE.INTEGRATION_ID,\nLOOKUP_TABLE.EFFECTIVE_FROM_DT,\nLOOKUP_TABLE.EFFECTIVE_TO_DT,\nLOOKUP_TABLE.ROW_WID --"
+    },
+    {
+      "session_name": "HHS_SIL_PurchaseRequisitionLinesFact",
+      "instance_name": "mplt_SIL_PurchaseRequisitionLinesFact.Lkp_W_Inventory_Product_D_Inventory_Prod_Wid",
+      "transformation_type": "Lookup Procedure",
+      "partition_name": "",
+      "attribute_name": "Lookup Sql Override",
+      "attribute_value": "SELECT \nLOOKUP_TABLE.ROW_WID as ROW_WID, \nLOOKUP_TABLE.INTEGRATION_ID as INTEGRATION_ID, \nLOOKUP_TABLE.DATASOURCE_NUM_ID as DATASOURCE_NUM_ID, \nLOOKUP_TABLE.EFFECTIVE_FROM_DT as EFFECTIVE_FROM_DT, \nLOOKUP_TABLE.EFFECTIVE_TO_DT as EFFECTIVE_TO_DT \nFROM \nW_INVENTORY_PRODUCT_D LOOKUP_TABLE,  W_PURCH_RQSTN_LINE_FS TARGET_STAGE\nWHERE \nLOOKUP_TABLE.INTEGRATION_ID = TARGET_STAGE.INVENTORY_PROD_ID AND \nLOOKUP_TABLE.DATASOURCE_NUM_ID = TARGET_STAGE.DATASOURCE_NUM_ID\nORDER BY \nLOOKUP_TABLE.DATASOURCE_NUM_ID,\nLOOKUP_TABLE.INTEGRATION_ID,\nLOOKUP_TABLE.EFFECTIVE_FROM_DT,\nLOOKUP_TABLE.EFFECTIVE_TO_DT,\nLOOKUP_TABLE.ROW_WID --"
+    }
+  ],
   "transformation_logic": [
     {
       "transformation": "Sq_W_PURCH_RQSTN_LINE_FS",
@@ -1111,7 +1136,9 @@
       "attributes": {
         "Sql Query": "SELECT \nW_EMPLOYEE_D_REQUESTOR_WID.ROW_WID AS REQUESTOR_ID, \nW_PARTY_ORG_D_SUPPLIER_WID.ROW_WID AS SUPPLIER_ID, \nW_PURCH_RQSTN_LINE_FS.PRODUCT_ID, \nW_PURCH_RQSTN_LINE_FS.INVENTORY_PROD_ID, \nW_PURCH_RQSTN_LINE_FS.SUPPLIER_PROD_ID1, \nW_PURCH_RQSTN_LINE_FS.SUPPLIER_PROD_ID2, \nW_PURCH_RQSTN_LINE_FS.SUPPLIER_PROD_ID3, \nW_PURCH_RQSTN_LINE_FS.SUPPLIER_PROD_ID4, \nW_BUSN_LOCATION_D_PLANT.ROW_WID AS PLANT_LOC_ID, \nW_INT_ORG_D_INVENTORY_ORG_WID.ROW_WID AS INVENTORY_ORG_ID, \nW_BUSN_LOCATION_D_RCPT_LOC_WID.ROW_WID AS RCPT_LOC_ID, \nW_BUSN_LOCATION_D_STORAGE.ROW_WID AS STORAGE_LOC_ID, \nW_INT_ORG_D_RQSTN_ORG_WID.ROW_WID AS RQSTN_ORG_ID, \nW_INT_ORG_D_OU.ROW_WID AS OPERATING_UNIT_ORG_ID, \nW_STATUS_D_APPROVAL_STATUS_WID.ROW_WID AS APPROVAL_STATUS_ID, \nW_STATUS_D_CYCLE_STATUS_WID.ROW_WID AS CYCLE_STATUS_ID, \nW_XACT_TYPE_D_XACT_TYPE_WID.ROW_WID AS XACT_TYPE_ID, \nW_PURCH_RQSTN_LINE_FS.SUBMITTED_ON_DT, \nW_PURCH_RQSTN_LINE_FS.RESUBMITTED_ON_DT, \nW_PURCH_RQSTN_LINE_FS.APPROVED_ON_DT, \nW_PURCH_RQSTN_LINE_FS.ORDERED_ON_DT, \nW_PURCH_RQSTN_LINE_FS.RECEIVED_ON_DT, \nW_PURCH_RQSTN_LINE_FS.NEEDED_BY_DT, \nW_PURCH_RQSTN_LINE_FS.DUE_ON_DT, \nW_PURCH_RQSTN_LINE_FS.REQUESTED_QTY, \nW_PURCH_RQSTN_LINE_FS.UNIT_STD_COST, \nW_PURCH_RQSTN_LINE_FS.UNIT_PRICE, \nW_PURCH_RQSTN_LINE_FS.LINE_AMT, \nW_PURCH_RQSTN_LINE_FS.STD_COST_AMT, \nW_PURCH_RQSTN_LINE_FS.UOM_CODE, \nW_PURCH_RQSTN_LINE_FS.PURCH_RQSTN_NUM, \nW_PURCH_RQSTN_LINE_FS.PURCH_RQSTN_ITEM, \nW_PURCH_RQSTN_LINE_FS.LINE_TEXT, \nW_PURCH_RQSTN_LINE_FS.DELETE_FLG, \nW_PURCH_RQSTN_LINE_FS.REJECT_FLG, \nW_PURCH_RQSTN_LINE_FS.DOC_CURR_CODE, \nW_PURCH_RQSTN_LINE_FS.LOC_CURR_CODE, \nW_PURCH_RQSTN_LINE_FS.LOC_EXCH_RATE_TYPE, \nW_PURCH_RQSTN_LINE_FS.LOC_EXCHANGE_RATE, \nW_PURCH_RQSTN_LINE_FS.EXCHANGE_DT, \nW_USER_D_CREATED_BY_WID.ROW_WID AS CREATED_BY_ID, \nW_USER_D_CHANGED_BY_WID.ROW_WID AS CHANGED_BY_ID, \nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT, \nW_PURCH_RQSTN_LINE_FS.CHANGED_ON_DT, \nW_PURCH_RQSTN_LINE_FS.AUX1_CHANGED_ON_DT, \nW_PURCH_RQSTN_LINE_FS.AUX2_CHANGED_ON_DT, \nW_PURCH_RQSTN_LINE_FS.AUX3_CHANGED_ON_DT, \nW_PURCH_RQSTN_LINE_FS.AUX4_CHANGED_ON_DT, \nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID, \nW_PURCH_RQSTN_LINE_FS.INTEGRATION_ID, \nW_PURCH_RQSTN_LINE_FS.TENANT_ID, \nW_PURCH_RQSTN_LINE_FS.X_CUSTOM, \nW_XACT_TYPE_D_LINE_TYPE_WID.ROW_WID AS LINE_TYPE_ID, \nW_SUPPLIER_ACCOUNT_D_SUPP_ACC.ROW_WID AS SUPPLIER_ACCOUNT_ID, \nW_PURCH_RQSTN_LINE_FS.CANCELLED_LINE_QTY, \nW_PURCH_RQSTN_LINE_FS.CANCELLED_LINE_AMT, \nW_PURCH_RQSTN_LINE_FS.URGENT_FLAG, \nW_XACT_TYPE_D_PO_CREATION.ROW_WID AS PO_CREATION_METHOD_ID, \nW_PURCH_RQSTN_LINE_FS.PO_REVISIONS, \nW_PURCH_RQSTN_LINE_FS.PO_SUBMIT_ON_DT, \nW_PURCH_RQSTN_LINE_FS.PO_APPROVED_ON_DT, \nW_STATUS_D_FULFILLMENT.ROW_WID AS FULFILLMENT_STATUS_ID, \nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE1,\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE2,\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE3,\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE5,\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE6,\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE7,\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE10,\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE11,\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE12,\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE13,\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE14,\nW_PURCH_RQSTN_LINE_FS.POH_ATTRIBUTE15,\nW_PURCH_RQSTN_LINE_FS.PORH_REQUISITION_HEADER_ID,\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE_CATEGORY,\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE1,\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE2,\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE3,\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE4,\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE5,\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE6,\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE7,\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE8,\nW_PURCH_RQSTN_LINE_FS.PORH_ATTRIBUTE11,\nW_PURCH_RQSTN_LINE_FS.PORH_DESCRIPTION, \nW_PURCH_RQSTN_LINE_FS.PORH_CREATION_DATE, \nW_PURCH_RQSTN_LINE_FS.PORL_CLOSED_CODE,\nW_PURCH_RQSTN_LINE_FS.PORL_CLOSED_REASON,\nW_PURCH_RQSTN_LINE_FS.PORL_CLOSED_DATE,\nW_PURCH_RQSTN_LINE_FS.PORL_CANCEL_FLAG,\nW_PURCH_RQSTN_LINE_FS.PORL_CANCEL_DATE,\nW_PURCH_RQSTN_LINE_FS.PORL_CANCEL_REASON, \nW_PURCH_RQSTN_LINE_FS.PORH_APPROVED_DATE, \nW_PURCH_RQSTN_LINE_FS.PORH_CLOSED_CODE,\nW_PURCH_RQSTN_LINE_FS.PORH_CANCEL_FLAG,\nW_PURCH_RQSTN_LINE_FS.PORL_ENCUMBERED_FLAG,\nW_PURCH_RQSTN_LINE_FS.PORL_LINE_LOCATION_ID,\nW_PURCH_RQSTN_LINE_FS.POH_CLOSED_CODE,\nW_PURCH_RQSTN_LINE_FS.POH_CANCEL_FLAG,\nW_PURCH_RQSTN_LINE_FS.POH_CLOSED_DATE,\nW_PURCH_RQSTN_LINE_FS.POH_AUTHORIZATION_STATUS,\nW_PURCH_RQSTN_LINE_FS.POL_UNIT_PRICE,\nW_PURCH_RQSTN_LINE_FS.POL_ITEM_DESCRIPTION,\nW_PURCH_RQSTN_LINE_FS.POH_PURCH_ORDER_NUM,\nW_PURCH_RQSTN_LINE_FS.POH_TYPE_LOOKUP_CODE,\nW_PURCH_RQSTN_LINE_FS.POL_CANCEL_FLAG,\nW_PURCH_RQSTN_LINE_FS.POL_CLOSED_CODE,\nW_PURCH_RQSTN_LINE_FS.PORH_CREATED_BY,\nW_PURCH_RQSTN_LINE_FS.PORH_PREPARER_ID,\nW_PURCH_RQSTN_LINE_FS.PORL_ATTRIBUTE1,\nW_PURCH_RQSTN_LINE_FS.POLL_RCPT_FLG,\nW_PURCH_RQSTN_LINE_FS.POLL_ACCRUE_RCPT_FLG,\nW_PURCH_RQSTN_LINE_FS.POL_ATTRIBUTE15,\nW_PURCH_RQSTN_LINE_FS.PORL_ATTRIBUTE15,\n\nFROM\nW_PURCH_RQSTN_LINE_FS,\nW_BUSN_LOCATION_D W_BUSN_LOCATION_D_PLANT,\nW_BUSN_LOCATION_D W_BUSN_LOCATION_D_RCPT_LOC_WID,\nW_BUSN_LOCATION_D W_BUSN_LOCATION_D_STORAGE,\nW_EMPLOYEE_D W_EMPLOYEE_D_REQUESTOR_WID,\nW_STATUS_D W_STATUS_D_APPROVAL_STATUS_WID,\nW_STATUS_D W_STATUS_D_CYCLE_STATUS_WID,\nW_STATUS_D W_STATUS_D_FULFILLMENT,\nW_XACT_TYPE_D W_XACT_TYPE_D_LINE_TYPE_WID,\nW_XACT_TYPE_D W_XACT_TYPE_D_PO_CREATION,\nW_XACT_TYPE_D W_XACT_TYPE_D_XACT_TYPE_WID,\nW_INT_ORG_D W_INT_ORG_D_INVENTORY_ORG_WID,\nW_INT_ORG_D W_INT_ORG_D_OU,\nW_INT_ORG_D W_INT_ORG_D_RQSTN_ORG_WID,\nW_PARTY_ORG_D W_PARTY_ORG_D_SUPPLIER_WID,\nW_SUPPLIER_ACCOUNT_D W_SUPPLIER_ACCOUNT_D_SUPP_ACC,\nW_USER_D W_USER_D_CHANGED_BY_WID,\nW_USER_D W_USER_D_CREATED_BY_WID\nWHERE\n{\nW_PURCH_RQSTN_LINE_FS\nLEFT OUTER JOIN W_BUSN_LOCATION_D_PLANT ON\nW_PURCH_RQSTN_LINE_FS.PLANT_LOC_ID = W_BUSN_LOCATION_D_PLANT.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_BUSN_LOCATION_D_PLANT.DATASOURCE_NUM_ID AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_BUSN_LOCATION_D_PLANT.EFFECTIVE_FROM_DT AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_BUSN_LOCATION_D_PLANT.EFFECTIVE_TO_DT \n\nLEFT OUTER JOIN W_BUSN_LOCATION_D_RCPT_LOC_WID ON\nW_PURCH_RQSTN_LINE_FS.RCPT_LOC_ID = W_BUSN_LOCATION_D_RCPT_LOC_WID.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_BUSN_LOCATION_D_RCPT_LOC_WID.DATASOURCE_NUM_ID AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_BUSN_LOCATION_D_RCPT_LOC_WID.EFFECTIVE_FROM_DT AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_BUSN_LOCATION_D_RCPT_LOC_WID.EFFECTIVE_TO_DT \n\nLEFT OUTER JOIN W_BUSN_LOCATION_D_STORAGE ON\nW_PURCH_RQSTN_LINE_FS.STORAGE_LOC_ID = W_BUSN_LOCATION_D_STORAGE.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_BUSN_LOCATION_D_STORAGE.DATASOURCE_NUM_ID AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_BUSN_LOCATION_D_STORAGE.EFFECTIVE_FROM_DT AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_BUSN_LOCATION_D_STORAGE.EFFECTIVE_TO_DT \n\nLEFT OUTER JOIN W_EMPLOYEE_D_REQUESTOR_WID ON\nW_PURCH_RQSTN_LINE_FS.REQUESTOR_ID =  W_EMPLOYEE_D_REQUESTOR_WID.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID =  W_EMPLOYEE_D_REQUESTOR_WID.DATASOURCE_NUM_ID AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_EMPLOYEE_D_REQUESTOR_WID.EFFECTIVE_FROM_DT AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_EMPLOYEE_D_REQUESTOR_WID.EFFECTIVE_TO_DT \n\nLEFT OUTER JOIN W_STATUS_D_APPROVAL_STATUS_WID ON\nW_PURCH_RQSTN_LINE_FS.APPROVAL_STATUS_ID = W_STATUS_D_APPROVAL_STATUS_WID.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_STATUS_D_APPROVAL_STATUS_WID.DATASOURCE_NUM_ID \n\nLEFT OUTER JOIN W_STATUS_D_CYCLE_STATUS_WID ON\nW_PURCH_RQSTN_LINE_FS.CYCLE_STATUS_ID = W_STATUS_D_CYCLE_STATUS_WID.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_STATUS_D_CYCLE_STATUS_WID.DATASOURCE_NUM_ID \n\nLEFT OUTER JOIN W_STATUS_D_FULFILLMENT ON\nW_PURCH_RQSTN_LINE_FS.FULFILLMENT_STATUS_ID = W_STATUS_D_FULFILLMENT.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_STATUS_D_FULFILLMENT.DATASOURCE_NUM_ID \n\nLEFT OUTER JOIN W_XACT_TYPE_D_LINE_TYPE_WID ON\nW_PURCH_RQSTN_LINE_FS.LINE_TYPE_ID =  W_XACT_TYPE_D_LINE_TYPE_WID.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_XACT_TYPE_D_LINE_TYPE_WID.DATASOURCE_NUM_ID \n\nLEFT OUTER JOIN W_XACT_TYPE_D_PO_CREATION ON\nW_PURCH_RQSTN_LINE_FS.PO_CREATION_METHOD_ID =  W_XACT_TYPE_D_PO_CREATION.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_XACT_TYPE_D_PO_CREATION.DATASOURCE_NUM_ID \n\nLEFT OUTER JOIN W_XACT_TYPE_D_XACT_TYPE_WID ON\nW_PURCH_RQSTN_LINE_FS.XACT_TYPE_ID =  W_XACT_TYPE_D_XACT_TYPE_WID.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_XACT_TYPE_D_XACT_TYPE_WID.DATASOURCE_NUM_ID \n\nLEFT OUTER JOIN W_INT_ORG_D_INVENTORY_ORG_WID ON\nW_PURCH_RQSTN_LINE_FS.INVENTORY_ORG_ID =  W_INT_ORG_D_INVENTORY_ORG_WID.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_INT_ORG_D_INVENTORY_ORG_WID.DATASOURCE_NUM_ID AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_INT_ORG_D_INVENTORY_ORG_WID.EFFECTIVE_FROM_DT AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_INT_ORG_D_INVENTORY_ORG_WID.EFFECTIVE_TO_DT \n\nLEFT OUTER JOIN W_INT_ORG_D_OU ON\nW_PURCH_RQSTN_LINE_FS.OPERATING_UNIT_ORG_ID =  W_INT_ORG_D_OU.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_INT_ORG_D_OU.DATASOURCE_NUM_ID AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_INT_ORG_D_OU.EFFECTIVE_FROM_DT AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_INT_ORG_D_OU.EFFECTIVE_TO_DT \n\nLEFT OUTER JOIN W_INT_ORG_D_RQSTN_ORG_WID ON\nW_PURCH_RQSTN_LINE_FS.RQSTN_ORG_ID =  W_INT_ORG_D_RQSTN_ORG_WID.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_INT_ORG_D_RQSTN_ORG_WID.DATASOURCE_NUM_ID AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_INT_ORG_D_RQSTN_ORG_WID.EFFECTIVE_FROM_DT AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_INT_ORG_D_RQSTN_ORG_WID.EFFECTIVE_TO_DT \n\nLEFT OUTER JOIN W_PARTY_ORG_D_SUPPLIER_WID ON\nW_PURCH_RQSTN_LINE_FS.SUPPLIER_ID = W_PARTY_ORG_D_SUPPLIER_WID.SUPPLIER_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID =  W_PARTY_ORG_D_SUPPLIER_WID.DATASOURCE_NUM_ID AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_PARTY_ORG_D_SUPPLIER_WID.EFFECTIVE_FROM_DT AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_PARTY_ORG_D_SUPPLIER_WID.EFFECTIVE_TO_DT AND\nW_PARTY_ORG_D_SUPPLIER_WID.SUPPLIER_FLG = 'Y' \n\nLEFT OUTER JOIN W_SUPPLIER_ACCOUNT_D_SUPP_ACC ON\nW_PURCH_RQSTN_LINE_FS.SUPPLIER_ACCOUNT_ID = W_SUPPLIER_ACCOUNT_D_SUPP_ACC.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID =  W_SUPPLIER_ACCOUNT_D_SUPP_ACC.DATASOURCE_NUM_ID AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_SUPPLIER_ACCOUNT_D_SUPP_ACC.EFFECTIVE_FROM_DT AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_SUPPLIER_ACCOUNT_D_SUPP_ACC.EFFECTIVE_TO_DT \n\nLEFT OUTER JOIN W_USER_D_CHANGED_BY_WID ON\nW_PURCH_RQSTN_LINE_FS.CHANGED_BY_ID =  W_USER_D_CHANGED_BY_WID.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_USER_D_CHANGED_BY_WID.DATASOURCE_NUM_ID AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_USER_D_CHANGED_BY_WID.EFFECTIVE_FROM_DT AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_USER_D_CHANGED_BY_WID.EFFECTIVE_TO_DT \n\nLEFT OUTER JOIN W_USER_D_CREATED_BY_WID ON\nW_PURCH_RQSTN_LINE_FS.CREATED_BY_ID =  W_USER_D_CREATED_BY_WID.INTEGRATION_ID AND\nW_PURCH_RQSTN_LINE_FS.DATASOURCE_NUM_ID = W_USER_D_CREATED_BY_WID.DATASOURCE_NUM_ID AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT >= W_USER_D_CREATED_BY_WID.EFFECTIVE_FROM_DT AND\nW_PURCH_RQSTN_LINE_FS.CREATED_ON_DT < W_USER_D_CREATED_BY_WID.EFFECTIVE_TO_DT \n}"
       },
-      "group_conditions": []
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": null
     },
     {
       "transformation": "Lkp_W_PURCH_RQSTN_LINE_F",
@@ -1124,7 +1151,9 @@
         "Insert Else Update": "NO",
         "Update Else Insert": "NO"
       },
-      "group_conditions": []
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": null
     },
     {
       "transformation": "Upd_W_PURCH_RQSTN_LINE_F_Ins_Upd",
@@ -1132,7 +1161,9 @@
       "attributes": {
         "Update Strategy Expression": "IIF(UPDATE_FLG = 'I' OR UPDATE_FLG = 'B', DD_INSERT, \nIIF(UPDATE_FLG = 'D' OR UPDATE_FLG = 'U', DD_UPDATE, DD_REJECT))"
       },
-      "group_conditions": []
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": null
     },
     {
       "transformation": "Fil_W_PURCH_RQSTN_LINE_F",
@@ -1140,9 +1171,575 @@
       "attributes": {
         "Filter Condition": "IIF(UPDATE_FLG = 'X', FALSE, TRUE)"
       },
-      "group_conditions": []
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": null
+    },
+    {
+      "transformation": "Exp_Custom",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "PORL_ATTRIBUTE15",
+          "expression": "TO_DECIMAL(in_PORL_ATTRIBUTE15)"
+        },
+        {
+          "port": "out_PORH_CREATION_DATE",
+          "expression": "IIF(ISNULL(PORH_CREATION_DATE), NULL, TO_INTEGER(TO_CHAR(PORH_CREATION_DATE,'YYYYMMDD')))"
+        }
+      ],
+      "mapplet": null
+    },
+    {
+      "transformation": "EXP_STD_COST_AMT",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "UNIT_STD_COST",
+          "expression": "UNIT_STD_COST_IN * PRIMARY_UOM_CONVERSION_RATE"
+        },
+        {
+          "port": "STD_COST_AMT",
+          "expression": "STD_COST_AMT_IN * PRIMARY_UOM_CONVERSION_RATE"
+        }
+      ],
+      "mapplet": null
+    },
+    {
+      "transformation": "Exp_W_PURCH_RQSTN_LINE_F_Update_Flg",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "INSERT_ONLY_FLG",
+          "expression": "$$INSERT_ONLY_FLG"
+        },
+        {
+          "port": "SYSTEMS_COLS_DIFF",
+          "expression": "IIF(DECODE(CHANGED_ON_DT, NULL, SESSSTARTTIME, CHANGED_ON_DT) != \nDECODE(LKP_CHANGED_ON_DT, NULL, SESSSTARTTIME, LKP_CHANGED_ON_DT), 'Y',\nIIF(DECODE(AUX1_CHANGED_ON_DT, NULL, SESSSTARTTIME, AUX1_CHANGED_ON_DT) != \nDECODE(LKP_AUX1_CHANGED_ON_DT, NULL, SESSSTARTTIME, LKP_AUX1_CHANGED_ON_DT), 'Y',\nIIF(DECODE(AUX2_CHANGED_ON_DT, NULL, SESSSTARTTIME, AUX2_CHANGED_ON_DT) != \nDECODE(LKP_AUX2_CHANGED_ON_DT, NULL, SESSSTARTTIME, LKP_AUX2_CHANGED_ON_DT), 'Y',\nIIF(DECODE(AUX3_CHANGED_ON_DT,NULL, SESSSTARTTIME, AUX3_CHANGED_ON_DT) != \nDECODE(LKP_AUX3_CHANGED_ON_DT, NULL, SESSSTARTTIME, LKP_AUX3_CHANGED_ON_DT), 'Y',\nIIF(DECODE(AUX4_CHANGED_ON_DT, NULL, SESSSTARTTIME, AUX4_CHANGED_ON_DT) != \nDECODE(LKP_AUX4_CHANGED_ON_DT, NULL, SESSSTARTTIME, LKP_AUX4_CHANGED_ON_DT), 'Y','N'\n)))))"
+        },
+        {
+          "port": "UPDATE_FLG",
+          "expression": "IIF(LKP_ETL_PROC_WID = ETL_PROC_WID, 'X', \nIIF(REJECT_FLG = 'Y','X',\nIIF(ISNULL(LKP_ETL_PROC_WID),\nIIF(DELETE_FLG = 'Y','B','I'),\nIIF(INSERT_ONLY_FLG = 'Y', 'X',\nIIF(DELETE_FLG = 'Y',\nIIF(LKP_DELETE_FLG = 'Y', 'X', 'D'),\nIIF(SYSTEMS_COLS_DIFF = 'Y', 'U','X'))))))"
+        }
+      ],
+      "mapplet": null
+    },
+    {
+      "transformation": "EXP_Constant_for_Lookup",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "CONSTANT_1",
+          "expression": "1"
+        }
+      ],
+      "mapplet": "MPLT_GET_ETL_PROC_WID"
+    },
+    {
+      "transformation": "Exp_Decide_Etl_Proc_Wid",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "ETL_PROC_WID_OUT",
+          "expression": "IIF($$ETL_PROC_WID = 0, LKP_ETL_PROC_WID, $$ETL_PROC_WID)"
+        }
+      ],
+      "mapplet": "MPLT_GET_ETL_PROC_WID"
+    },
+    {
+      "transformation": "LKP_W_EXCH_RATE",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup Sql Override": "SELECT\n     W_EXCH_RATE_G.EXCH_RATE AS EXCH_RATE,\n     W_EXCH_RATE_G.FROM_CURCY_CD AS FROM_CURCY_CD,\n     W_EXCH_RATE_G.TO_CURCY_CD AS TO_CURCY_CD,\n     W_EXCH_RATE_G.START_DT AS START_DT,\n     W_EXCH_RATE_G.END_DT AS END_DT,\n     W_EXCH_RATE_G.RATE_TYPE AS RATE_TYPE,\n     W_EXCH_RATE_G.DATASOURCE_NUM_ID AS DATASOURCE_NUM_ID\nFROM\n     W_EXCH_RATE_G,\n     (\n     SELECT \n          GLOBAL1_CURR_CODE REQUIRED_TO_CURR, \n          GLOBAL1_RATE_TYPE REQUIRED_RATE_TYPE, \n          DATASOURCE_NUM_ID DSN \n     FROM \n          W_GLOBAL_CURR_G \n     UNION \n     SELECT \n          GLOBAL2_CURR_CODE REQUIRED_TO_CURR, \n          GLOBAL2_RATE_TYPE REQUIRED_RATE_TYPE, \n          DATASOURCE_NUM_ID DSN \n     FROM \n          W_GLOBAL_CURR_G \n     UNION \n     SELECT \n          GLOBAL3_CURR_CODE REQUIRED_TO_CURR, \n          GLOBAL3_RATE_TYPE REQUIRED_RATE_TYPE, \n          DATASOURCE_NUM_ID DSN \n      FROM \n          W_GLOBAL_CURR_G\n     ) GLOBAL_CURR \nWHERE \n     W_EXCH_RATE_G.TO_CURCY_CD = GLOBAL_CURR.REQUIRED_TO_CURR AND \n     W_EXCH_RATE_G.RATE_TYPE = GLOBAL_CURR.REQUIRED_RATE_TYPE AND \n     W_EXCH_RATE_G.DATASOURCE_NUM_ID = GLOBAL_CURR.DSN",
+        "Lookup table name": "W_EXCH_RATE_G",
+        "Lookup condition": "FROM_CURCY_CD = IN_FROM_CURCY_CD AND TO_CURCY_CD = IN_TO_CURCY_CD AND START_DT <= IN_EXCH_DT AND END_DT > IN_EXCH_DT AND RATE_TYPE = IN_RATE_TYPE AND DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_CURCY_CONVERSION_RATES_ToGlobalCurrenciesOnly"
+    },
+    {
+      "transformation": "EXP_EXCH_RATES_VALIDATE",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "TENANT_ID_OUT",
+          "expression": "IIF(ISNULL(TENANT_ID_IN), 'DEFAULT', TENANT_ID_IN)"
+        }
+      ],
+      "mapplet": "MPLT_CURCY_CONVERSION_RATES_ToGlobalCurrenciesOnly"
+    },
+    {
+      "transformation": "EXPT_CALC_EXCH_RATES",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "LOC_RATE_TYPE_VAR",
+          "expression": "IIF(ISNULL(LOC_RATE_TYPE), DEFAULT_LOC_RATE_TYPE, LOC_RATE_TYPE)"
+        },
+        {
+          "port": "DOC_TO_LOC_EXCH_RATE_VAR",
+          "expression": "IIF(ISNULL(DOC_TO_LOC_EXCH_RATE),\nIIF(LOC_CURR_CODE = DOC_CURR_CODE, 1.0, \nIIF(DOC_CURR_CODE = 'STAT', 1.0,\nIIF(ISNULL(LOC_CURR_CODE), NULL, :LKP.LKP_W_EXCH_RATE(DOC_CURR_CODE,LOC_CURR_CODE,EXCH_DT,LOC_RATE_TYPE_VAR,DATASOURCE_NUM_ID)))),\nDOC_TO_LOC_EXCH_RATE)\n"
+        },
+        {
+          "port": "DOC_TO_GLOBAL1_EXCH_RATE_VAR",
+          "expression": "IIF(ISNULL(GLOBAL1_CURR_CODE), NULL,\nIIF(GLOBAL1_CURR_CODE = DOC_CURR_CODE, 1.0,  \nIIF(DOC_CURR_CODE = 'STAT', 1.0,\nIIF(GLOBAL1_CURR_CODE = LOC_CURR_CODE, DOC_TO_LOC_EXCH_RATE_VAR,\n:LKP.LKP_W_EXCH_RATE(DOC_CURR_CODE, GLOBAL1_CURR_CODE, EXCH_DT,GLOBAL1_RATE_TYPE, DATASOURCE_NUM_ID)))))"
+        },
+        {
+          "port": "DOC_TO_GLOBAL2_EXCH_RATE_VAR",
+          "expression": "IIF(ISNULL(GLOBAL2_CURR_CODE), NULL,\nIIF(GLOBAL2_CURR_CODE = GLOBAL1_CURR_CODE, DOC_TO_GLOBAL1_EXCH_RATE_VAR,\nIIF(GLOBAL2_CURR_CODE = DOC_CURR_CODE, 1.0,\nIIF(DOC_CURR_CODE = 'STAT', 1.0,  \nIIF(GLOBAL2_CURR_CODE = LOC_CURR_CODE, DOC_TO_LOC_EXCH_RATE_VAR,\n:LKP.LKP_W_EXCH_RATE(DOC_CURR_CODE, GLOBAL2_CURR_CODE, EXCH_DT,GLOBAL2_RATE_TYPE, DATASOURCE_NUM_ID))))))"
+        },
+        {
+          "port": "DOC_TO_GLOBAL3_EXCH_RATE_VAR",
+          "expression": "IIF(ISNULL(GLOBAL3_CURR_CODE), NULL,\nIIF(GLOBAL3_CURR_CODE = GLOBAL1_CURR_CODE, DOC_TO_GLOBAL1_EXCH_RATE_VAR,\nIIF(GLOBAL3_CURR_CODE = GLOBAL2_CURR_CODE, DOC_TO_GLOBAL2_EXCH_RATE_VAR,\nIIF(GLOBAL3_CURR_CODE = DOC_CURR_CODE, 1.0, \nIIF(DOC_CURR_CODE = 'STAT', 1.0, \nIIF(GLOBAL3_CURR_CODE = LOC_CURR_CODE, DOC_TO_LOC_EXCH_RATE_VAR,\n:LKP.LKP_W_EXCH_RATE(DOC_CURR_CODE, GLOBAL3_CURR_CODE, EXCH_DT,GLOBAL3_RATE_TYPE, DATASOURCE_NUM_ID)))))))"
+        },
+        {
+          "port": "DOC_TO_LOC_EXCH_RATE_OUT",
+          "expression": "DOC_TO_LOC_EXCH_RATE_VAR"
+        },
+        {
+          "port": "DOC_TO_GLOBAL1_EXCH_RATE_OUT",
+          "expression": "DOC_TO_GLOBAL1_EXCH_RATE_VAR"
+        },
+        {
+          "port": "DOC_TO_GLOBAL2_EXCH_RATE_OUT",
+          "expression": "DOC_TO_GLOBAL2_EXCH_RATE_VAR"
+        },
+        {
+          "port": "DOC_TO_GLOBAL3_EXCH_RATE_OUT",
+          "expression": "DOC_TO_GLOBAL3_EXCH_RATE_VAR"
+        }
+      ],
+      "mapplet": "MPLT_CURCY_CONVERSION_RATES_ToGlobalCurrenciesOnly"
+    },
+    {
+      "transformation": "GET_GLOBAL_CURR_CODES_AND_RATE_TYPES",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_GLOBAL_CURR_G",
+        "Lookup condition": "DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID AND TENANT_ID = IN_TENANT_ID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_CURCY_CONVERSION_RATES_ToGlobalCurrenciesOnly"
+    },
+    {
+      "transformation": "LKP_W_INVENTORY_PRODUCT_D_PRIMARY_UOM",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_INVENTORY_PRODUCT_D",
+        "Lookup condition": "DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID AND INTEGRATION_ID = IN_INVPROD_INTEGRATION_ID AND CURRENT_FLG = IN_CURRENT_FLG",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "LKP_W_UOM_CONVERSION_G_RATES_STANDARD_UOM_INV",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_UOM_CONVERSION_G",
+        "Lookup condition": "INTEGRATION_ID = IN_INTEGRATION_ID AND DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "LKP_W_UOM_CONVERSION_G_ITEM_LEVEL_RATES_PRIMARY_UOM_INV",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_UOM_CONVERSION_G",
+        "Lookup condition": "DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID AND INTEGRATION_ID = IN_INTEGRATION_ID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "LKP_W_UOM_CONVERSION_G_ITEM_LEVEL_RATES_PRIMARY_UOM",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_UOM_CONVERSION_G",
+        "Lookup condition": "DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID AND INTEGRATION_ID = IN_INTEGRATION_ID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "LKP_W_UOM_CONVERSION_G_ITEM_LEVEL_RATES_STANDARD_UOM_INV",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_UOM_CONVERSION_G",
+        "Lookup condition": "INTEGRATION_ID = IN_INTEGRATION_ID AND DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "LKP_W_INVENTORY_PRODUCT_D_INVENTORY_ORG_ID",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_INVENTORY_PRODUCT_D",
+        "Lookup condition": "DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID AND INTEGRATION_ID = IN_INVPROD_INTEGRATION_ID AND CURRENT_FLG = IN_CURRENT_FLG",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "LKP_W_INT_ORG_D",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_INT_ORG_D",
+        "Lookup condition": "ROW_WID = IN_ROW_WID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "LKP_W_UOM_CONVERSION_G_RATES_STANDARD_UOM",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_UOM_CONVERSION_G",
+        "Lookup condition": "INTEGRATION_ID = IN_INTEGRATION_ID AND DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "EXP_OUTPUT",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "V_STANDARD_UOM_CONVERSION_RATE_ITEM_LVL",
+          "expression": "IIF(ISNULL(INV_STANDARD_UOM_CONVERSION_RATE_ITEM_LVL), IIF(ISNULL(INV_STANDARD_UOM_CONVERSION_RATE),IIF(ISNULL(IN_STANDARD_UOM_CONVERSION_RATE_ITEM_LVL), IIF(ISNULL(IN_STANDARD_UOM_CONVERSION_RATE),1.00,IN_STANDARD_UOM_CONVERSION_RATE), IN_STANDARD_UOM_CONVERSION_RATE_ITEM_LVL),INV_STANDARD_UOM_CONVERSION_RATE), INV_STANDARD_UOM_CONVERSION_RATE_ITEM_LVL)"
+        },
+        {
+          "port": "V_STANDARD_UOM_CODE",
+          "expression": "IIF(ISNULL(INV_STANDARD_UOM_CONVERSION_RATE_ITEM_LVL), IIF(ISNULL(INV_STANDARD_UOM_CONVERSION_RATE),IIF(ISNULL(IN_STANDARD_UOM_CONVERSION_RATE_ITEM_LVL), IIF(ISNULL(IN_STANDARD_UOM_CONVERSION_RATE),FROM_UOM_CODE,IN_STANDARD_UOM_CODE), IN_STANDARD_UOM_CODE_ITEM_LVL),INV_STANDARD_UOM_CODE), INV_STANDARD_UOM_CODE_ITEM_LVL)"
+        },
+        {
+          "port": "STANDARD_UOM_CONVERSION_RATE",
+          "expression": "V_STANDARD_UOM_CONVERSION_RATE_ITEM_LVL"
+        },
+        {
+          "port": "STANDARD_UOM_CODE",
+          "expression": "V_STANDARD_UOM_CODE"
+        },
+        {
+          "port": "PRIMARY_UOM_CONVERSION_RATE",
+          "expression": "IIF(ISNULL(INV_PRIMARY_UOM_CONVERSION_RATE_ITEM_LVL), IIF(ISNULL(INV_PRIMARY_UOM_CONVERSION_RATE),IIF(ISNULL(IN_PRIMARY_UOM_CONVERSION_RATE_ITEM_LVL), IIF(ISNULL(IN_PRIMARY_UOM_CONVERSION_RATE),V_STANDARD_UOM_CONVERSION_RATE_ITEM_LVL, IN_PRIMARY_UOM_CONVERSION_RATE), IN_PRIMARY_UOM_CONVERSION_RATE_ITEM_LVL), INV_PRIMARY_UOM_CONVERSION_RATE), INV_PRIMARY_UOM_CONVERSION_RATE_ITEM_LVL)"
+        },
+        {
+          "port": "PRIMARY_UOM_CODE",
+          "expression": "IIF(ISNULL(INV_PRIMARY_UOM_CONVERSION_RATE_ITEM_LVL), IIF(ISNULL(INV_PRIMARY_UOM_CONVERSION_RATE),\nIIF(ISNULL(IN_PRIMARY_UOM_CONVERSION_RATE_ITEM_LVL), IIF(ISNULL(IN_PRIMARY_UOM_CONVERSION_RATE), V_STANDARD_UOM_CODE, IN_PRIMARY_UOM_CODE), IN_PRIMARY_UOM_CODE_ITEM_LVL), INV_PRIMARY_UOM_CODE), INV_PRIMARY_UOM_CODE_ITEM_LVL)"
+        }
+      ],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "LKP_W_UOM_CONVERSION_G_RATES_PRIMARY_UOM_INV",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_UOM_CONVERSION_G",
+        "Lookup condition": "INTEGRATION_ID = IN_INTEGRATION_ID AND DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "LKP_W_UOM_CONVERSION_G_ITEM_LEVEL_RATES_STANDARD_UOM",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_UOM_CONVERSION_G",
+        "Lookup condition": "INTEGRATION_ID = IN_INTEGRATION_ID AND DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "LKP_W_UOM_CONVERSION_G_RATES_PRIMARY_UOM",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_UOM_CONVERSION_G",
+        "Lookup condition": "INTEGRATION_ID = IN_INTEGRATION_ID AND DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "LKP_W_PRODUCT_D_STD_UOM",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_PRODUCT_D",
+        "Lookup condition": "INTEGRATION_ID = IN_PROD_INTEGRATION_ID AND DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID AND CURRENT_FLG = IN_CURRENT_FLG",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "EXP_UOM_CONVERSIONS",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "DUMMY_PRODUCT_ID",
+          "expression": "0"
+        },
+        {
+          "port": "V_CURRENT_FLG",
+          "expression": "'Y'"
+        },
+        {
+          "port": "V_CATEGORY",
+          "expression": "'UOM'"
+        },
+        {
+          "port": "V_LANGUAGE_CODE",
+          "expression": "'US'"
+        },
+        {
+          "port": "LKP_STANDARD_UOM_CODE",
+          "expression": ":LKP.LKP_W_PRODUCT_D_STD_UOM(DATASOURCE_NUM_ID,PRODUCT_ID,V_CURRENT_FLG)"
+        },
+        {
+          "port": "LKP_PRIMARY_UOM_CODE",
+          "expression": ":LKP.LKP_W_INVENTORY_PRODUCT_D_PRIMARY_UOM(DATASOURCE_NUM_ID, INVENTORY_PRODUCT_ID,V_CURRENT_FLG)"
+        },
+        {
+          "port": "LKP_INVENTORY_ORG_WID",
+          "expression": ":LKP.LKP_W_INVENTORY_PRODUCT_D_INVENTORY_ORG_ID(DATASOURCE_NUM_ID, INVENTORY_PRODUCT_ID,V_CURRENT_FLG)"
+        },
+        {
+          "port": "LKP_INVENTORY_ORG_ID",
+          "expression": ":LKP.LKP_W_INT_ORG_D(LKP_INVENTORY_ORG_WID)"
+        },
+        {
+          "port": "INV_PRIM_ITEM_LVL_INTEGRATION_ID",
+          "expression": "LKP_INVENTORY_ORG_ID||'~'||PRODUCT_ID||'~'||LTRIM(RTRIM(FROM_UOM_CODE))||'~'||LTRIM(RTRIM(LKP_PRIMARY_UOM_CODE))"
+        },
+        {
+          "port": "INV_PRIM_NON_PRODUCT_INTEGRATION_ID",
+          "expression": "LKP_INVENTORY_ORG_ID||'~'||DUMMY_PRODUCT_ID||'~'||LTRIM(RTRIM(FROM_UOM_CODE))||'~'||LTRIM(RTRIM(LKP_PRIMARY_UOM_CODE))"
+        },
+        {
+          "port": "INV_STD_ITEM_LVL_INTEGRATION_ID",
+          "expression": "LKP_INVENTORY_ORG_ID||'~'||PRODUCT_ID||'~'||LTRIM(RTRIM(FROM_UOM_CODE))||'~'||LTRIM(RTRIM(LKP_STANDARD_UOM_CODE))"
+        },
+        {
+          "port": "INV_STD_NON_PRODUCT_INTEGRATION_ID",
+          "expression": "LKP_INVENTORY_ORG_ID||'~'||DUMMY_PRODUCT_ID||'~'||LTRIM(RTRIM(FROM_UOM_CODE))||'~'||LTRIM(RTRIM(LKP_STANDARD_UOM_CODE))"
+        },
+        {
+          "port": "PRIM_ITEM_LVL_INTEGRATION_ID",
+          "expression": "PRODUCT_ID||'~'||LTRIM(RTRIM(FROM_UOM_CODE))||'~'||LTRIM(RTRIM(LKP_PRIMARY_UOM_CODE))"
+        },
+        {
+          "port": "PRIM_NON_PRODUCT_INTEGRATION_ID",
+          "expression": "DUMMY_PRODUCT_ID||'~'||LTRIM(RTRIM(FROM_UOM_CODE))||'~'||LTRIM(RTRIM(LKP_PRIMARY_UOM_CODE))"
+        },
+        {
+          "port": "STD_ITEM_LVL_INTEGRATION_ID",
+          "expression": "PRODUCT_ID||'~'||LTRIM(RTRIM(FROM_UOM_CODE))||'~'||LTRIM(RTRIM(LKP_STANDARD_UOM_CODE))"
+        },
+        {
+          "port": "STD_NON_PRODUCT_INTEGRATION_ID",
+          "expression": "DUMMY_PRODUCT_ID||'~'||LTRIM(RTRIM(FROM_UOM_CODE))||'~'||LTRIM(RTRIM(LKP_STANDARD_UOM_CODE))"
+        }
+      ],
+      "mapplet": "MPLT_GET_UOM_CONVERSIONS"
+    },
+    {
+      "transformation": "EXPTRANS",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "V_LKP_W_SUPPLIER_PRODUCT_D_PRIMARY",
+          "expression": ":LKP.LKP_W_SUPPLIER_PRODUCT_D_PRIMARY(IN_DATASOURCE_NUM_ID,\nIN_SUPPLIER_PROD_ID1,IN_DATE)"
+        },
+        {
+          "port": "V_LKP_W_SUPPLIER_PRODUCT_D_2nd",
+          "expression": ":LKP.LKP_W_SUPPLIER_PRODUCT_D_2nd(IN_DATASOURCE_NUM_ID,IN_SUPPLIER_PROD_ID2,\nIN_DATE)"
+        },
+        {
+          "port": "V_LKP_W_SUPPLIER_PRODUCT_D_3rd",
+          "expression": ":LKP.LKP_W_SUPPLIER_PRODUCT_D_3rd(IN_DATASOURCE_NUM_ID,IN_SUPPLIER_PROD_ID3,\nIN_DATE)"
+        },
+        {
+          "port": "V_LKP_W_SUPPLIER_PRODUCT_D_4th",
+          "expression": ":LKP.LKP_W_SUPPLIER_PRODUCT_D_4th(IN_DATASOURCE_NUM_ID,IN_SUPPLIER_PROD_ID4, \nIN_DATE)"
+        },
+        {
+          "port": "SUPPLIER_PROD_WID",
+          "expression": "IIF(ISNULL(V_LKP_W_SUPPLIER_PRODUCT_D_PRIMARY), \nIIF(ISNULL(V_LKP_W_SUPPLIER_PRODUCT_D_2nd), \nIIF(ISNULL(V_LKP_W_SUPPLIER_PRODUCT_D_3rd), \nIIF(ISNULL(V_LKP_W_SUPPLIER_PRODUCT_D_4th),0, \nV_LKP_W_SUPPLIER_PRODUCT_D_4th), \nV_LKP_W_SUPPLIER_PRODUCT_D_3rd), \nV_LKP_W_SUPPLIER_PRODUCT_D_2nd), \nV_LKP_W_SUPPLIER_PRODUCT_D_PRIMARY)"
+        }
+      ],
+      "mapplet": "MPLT_LKP_W_SUPPLIER_PRODUCT_D"
+    },
+    {
+      "transformation": "Exp_W_PURCH_RQSTN_LINE_F_Transform",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "SUBMITTED_ON_DT_WID_OUT",
+          "expression": "IIF(ISNULL(SUBMITTED_ON_DT), NULL, TO_INTEGER(TO_CHAR(SUBMITTED_ON_DT,'YYYYMMDD')))"
+        },
+        {
+          "port": "SUBMITTED_ON_TM_WID_OUT",
+          "expression": "IIF(ISNULL(SUBMITTED_ON_DT), NULL, TO_INTEGER(TO_CHAR(SUBMITTED_ON_DT,'HH24MISS')))"
+        },
+        {
+          "port": "RESUBMITTED_ON_DT_WID_OUT",
+          "expression": "IIF(ISNULL(RESUBMITTED_ON_DT), NULL, TO_INTEGER(TO_CHAR(RESUBMITTED_ON_DT,'YYYYMMDD')))"
+        },
+        {
+          "port": "RESUBMITTED_ON_TM_WID_OUT",
+          "expression": "IIF(ISNULL(RESUBMITTED_ON_DT), NULL, TO_INTEGER(TO_CHAR(RESUBMITTED_ON_DT,'HH24MISS')))"
+        },
+        {
+          "port": "APPROVED_ON_DT_WID_OUT",
+          "expression": "IIF(ISNULL(APPROVED_ON_DT), NULL, TO_INTEGER(TO_CHAR(APPROVED_ON_DT,'YYYYMMDD')))"
+        },
+        {
+          "port": "APPROVED_ON_TM_WID_OUT",
+          "expression": "IIF(ISNULL(APPROVED_ON_DT), NULL, TO_INTEGER(TO_CHAR(APPROVED_ON_DT,'HH24MISS')))"
+        },
+        {
+          "port": "ORDERED_ON_DT_WID_OUT",
+          "expression": "IIF(ISNULL(ORDERED_ON_DT), NULL, TO_INTEGER(TO_CHAR(ORDERED_ON_DT,'YYYYMMDD')))"
+        },
+        {
+          "port": "RECEIVED_ON_DT_WID_OUT",
+          "expression": "IIF(ISNULL(RECEIVED_ON_DT), NULL, TO_INTEGER(TO_CHAR(RECEIVED_ON_DT,'YYYYMMDD')))"
+        },
+        {
+          "port": "NEEDED_BY_DT_WID_OUT",
+          "expression": "IIF(ISNULL(NEEDED_BY_DT), NULL, TO_INTEGER(TO_CHAR(NEEDED_BY_DT,'YYYYMMDD')))"
+        },
+        {
+          "port": "NEEDED_BY_TM_WID_OUT",
+          "expression": "IIF(ISNULL(NEEDED_BY_DT), NULL, TO_INTEGER(TO_CHAR(NEEDED_BY_DT,'HH24MISS')))"
+        },
+        {
+          "port": "DUE_ON_DT_WID_OUT",
+          "expression": "IIF(ISNULL(DUE_ON_DT), NULL, TO_INTEGER(TO_CHAR(DUE_ON_DT,'YYYYMMDD')))"
+        },
+        {
+          "port": "CREATED_ON_TM_WID_OUT",
+          "expression": "IIF(ISNULL(CREATED_ON_DT), NULL, TO_INTEGER(TO_CHAR(CREATED_ON_DT,'HH24MISS')))"
+        },
+        {
+          "port": "UOM_CODE_OUT",
+          "expression": "IIF(ISNULL(LKP_UOM_CODE),\nIIF(ISNULL(UOM_CODE), $$SOURCE_CODE_NOT_SUPPLIED, UOM_CODE),\nLKP_UOM_CODE)"
+        },
+        {
+          "port": "DELETE_FLG_OUT",
+          "expression": "IIF(UPDATE_FLG = 'D' OR UPDATE_FLG = 'B','Y','N')"
+        },
+        {
+          "port": "W_INSERT_DT_OUT",
+          "expression": "IIF(UPDATE_FLG = 'I' OR UPDATE_FLG = 'B', SESSSTARTTIME, LKP_W_INSERT_DT)"
+        },
+        {
+          "port": "W_UPDATE_DT_OUT",
+          "expression": "SESSSTARTTIME"
+        },
+        {
+          "port": "INTEGRATION_ID_OUT",
+          "expression": "INTEGRATION_ID"
+        },
+        {
+          "port": "PO_APPROVED_ON_DT_WID_OUT",
+          "expression": "IIF(ISNULL(PO_APPROVED_ON_DT), NULL, TO_INTEGER(TO_CHAR(PO_APPROVED_ON_DT,'YYYYMMDD')))"
+        },
+        {
+          "port": "PO_APPROVED_ON_TM_WID_OUT",
+          "expression": "IIF(ISNULL(PO_APPROVED_ON_DT), NULL, TO_INTEGER(TO_CHAR(PO_APPROVED_ON_DT,'HH24MISS')))"
+        },
+        {
+          "port": "PO_SUBMIT_ON_DT_WID_OUT",
+          "expression": "IIF(ISNULL(PO_SUBMIT_ON_DT), NULL, TO_INTEGER(TO_CHAR(PO_SUBMIT_ON_DT,'YYYYMMDD')))"
+        },
+        {
+          "port": "PO_SUBMIT_ON_TM_WID_OUT",
+          "expression": "IIF(ISNULL(PO_SUBMIT_ON_DT), NULL, TO_INTEGER(TO_CHAR(PO_SUBMIT_ON_DT,'HH24MISS')))"
+        }
+      ],
+      "mapplet": "mplt_SIL_PurchaseRequisitionLinesFact"
     }
   ],
   "source_file_hash": "1f6b514dc9b72fbbd17241eebc8bb9846c41db612d5d12e3846f79d55e6d2f1c",
-  "schema_version": 3
+  "schema_version": 5
 }

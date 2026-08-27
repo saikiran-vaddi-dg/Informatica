@@ -8,7 +8,7 @@
 version: 1
 
 dataflow:
-  container: "Base"     # DataOps container/project new dataflows get created in
+  container: "HHS_client_Poc_container"     # DataOps container/project new dataflows get created in
   engine: "168_AN"
   folder: "Dataflow"
   # What a newly built dataflow should do:
@@ -22,7 +22,17 @@ dataflow:
 #   default - use the variable's own DEFAULTVALUE from the workflow XML, if present (default if unset)
 parameter_defaults:
   resolution: default
-  overrides: {}
+  overrides:
+    $$GTAS_FISCAL_YR_PSC_EXT: "2026"
+    $$GTAS_FISCAL_YR_CDC_EXT: "2026"
+    $$GTAS_FISCAL_YR_FDA_EXT: "2026"
+    $$GTAS_FISCAL_YR_IHS_EXT: "2026"
+    $$DATASOURCE_NUM_ID: "4"
+    $$TYPE2_FLG: "N"
+    # $$LAST_EXTRACT_DATE (HHS_SDE_ORA_BankDimension,
+    # HHS_SDE_ORA_ProgramActivity_Dimension) resolves dynamically to the
+    # last successful run date, not a fixed value — left unset so it falls
+    # through to on_unresolved / the workflow's own DEFAULTVALUE.
     # $$DATA_ACT_REPORTING_PERIOD: "202401"
   # What to do if resolution above still finds nothing (no override, no
   # workflow DEFAULTVALUE either):
@@ -36,4 +46,4 @@ parameter_defaults:
 # the project default above.
 workflow_overrides: {}
   # HHS_SIL_ProgramActivity_Dimension:
-  #   container: "some-other-container"
+  #   container: "HHS_client_Poc_container"

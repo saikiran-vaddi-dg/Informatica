@@ -23,168 +23,168 @@
   "field_lineage": [
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE16",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE16 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE16",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE16 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE16 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE16 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE16 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE16 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE16",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE15",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE15",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE15",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE14",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE14 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE14",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE14 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE14",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE13",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE13 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE13",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE13 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE13",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_PO_HEADER_ID",
-      "source_lineage": "X_CUSTOM.POH_PO_HEADER_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_PO_HEADER_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_PO_HEADER_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_PO_HEADER_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_PO_HEADER_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_PO_HEADER_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_PO_HEADER_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.PO_HEADER_ID",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POL_PO_LINE_ID",
-      "source_lineage": "X_CUSTOM.POL_PO_LINE_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_PO_LINE_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POL_PO_LINE_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_PO_LINE_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POL_PO_LINE_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POL_PO_LINE_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POL_PO_LINE_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINES_ALL.PO_LINE_ID",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POR_ATTRIBUTE7",
-      "source_lineage": "X_CUSTOM.POR_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POR_ATTRIBUTE7",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POR_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POR_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POR_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POR_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POR_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_RELEASES_ALL.ATTRIBUTE7",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "RECREATE_DEMAND_FLAG",
-      "source_lineage": "Exp_W_PURCH_RQSTN_LINE_FS_Integration_Id.RECREATE_DEMAND_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.RECREATE_DEMAND_FLAG",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "Exp_W_PURCH_RQSTN_LINE_FS_Integration_Id.RECREATE_DEMAND_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.RECREATE_DEMAND_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.RECREATE_DEMAND_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]EXP_BCI_PURCH_RQLNS.RECREATE_DEMAND_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.RECREATE_DEMAND_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.RECREATE_DEMAND_FLAG",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORL_CANCEL_FLAG",
-      "source_lineage": "X_CUSTOM.OUT_CANCEL_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.OUT_CANCEL_FLAG",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.OUT_CANCEL_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.OUT_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.OUT_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]EXP_BCI_PURCH_RQLNS.OUT_CANCEL_FLAG",
+      "transformation_rule": "INP_CANCEL_FLAG"
     },
     {
       "target_field": "POH_ATTRIBUTE_CATEGORY",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_ATTRIBUTE_CATEGORY",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE_CATEGORY",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORL_CLOSED_DATE",
-      "source_lineage": "X_CUSTOM.PORL_CLOSED_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_CLOSED_DATE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.PORL_CLOSED_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_CLOSED_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.PORL_CLOSED_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.PORL_CLOSED_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.PORL_CLOSED_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_LINES_ALL.CLOSED_DATE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORL_CANCEL_DATE",
-      "source_lineage": "X_CUSTOM.PORL_CANCEL_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_CANCEL_DATE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.PORL_CANCEL_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_CANCEL_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.PORL_CANCEL_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.PORL_CANCEL_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.PORL_CANCEL_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_LINES_ALL.CANCEL_DATE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "SUPPLIER_ACCOUNT_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_ACCOUNT_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_ACCOUNT_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_SUPPLIER_ACCOUNT_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_SUPPLIER_ACCOUNT_ID",
+      "transformation_rule": "TO_CHAR(INP_VENDOR_SITE_ID)"
     },
     {
       "target_field": "CANCELLED_LINE_QTY",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CANCELLED_LINE_QTY",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CANCELLED_LINE_QTY <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_CANCELLED_LINE_QTY <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_CANCELLED_LINE_QTY",
+      "transformation_rule": "INP_CANCELLED_LINE_QTY"
     },
     {
       "target_field": "CANCELLED_LINE_AMT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CANCELLED_LINE_AMT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CANCELLED_LINE_AMT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_CANCELLED_LINE_AMT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_CANCELLED_LINE_AMT",
+      "transformation_rule": "INP_CANCELLED_LINE_AMT"
     },
     {
       "target_field": "URGENT_FLAG",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_URGENT_FLAG",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_URGENT_FLAG <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_URGENT_FLAG <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_URGENT_FLAG",
+      "transformation_rule": "INP_URGENT_FLAG"
     },
     {
       "target_field": "PO_CREATION_METHOD_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PO_CREATION_METHOD_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PO_CREATION_METHOD_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_PO_CREATION_METHOD_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_PO_CREATION_METHOD_ID",
+      "transformation_rule": "INP_PO_CREATION_METHOD_ID"
     },
     {
       "target_field": "PO_REVISIONS",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PO_REVISIONS",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PO_REVISIONS <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_PO_REVISIONS <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_PO_REVISIONS",
+      "transformation_rule": "INP_PO_REVISIONS"
     },
     {
       "target_field": "PO_SUBMIT_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PO_SUBMIT_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PO_SUBMIT_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_PO_SUBMIT_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_PO_SUBMIT_ON_DT",
+      "transformation_rule": "INP_PO_SUBMIT_ON_DT"
     },
     {
       "target_field": "RCPT_LOC_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_RCPT_LOC_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_RCPT_LOC_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_RCPT_LOC_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_RCPT_LOC_ID",
+      "transformation_rule": "'RECIPIENT_LOC' || '~' || INP_RCPT_LOC_ID"
     },
     {
       "target_field": "PLANT_LOC_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PLANT_LOC_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PLANT_LOC_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_PLANT_LOC_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_PLANT_LOC_ID",
+      "transformation_rule": "'PLANT~' || TO_CHAR(INP_DESTINATION_ORG_ID)"
     },
     {
       "target_field": "XACT_TYPE_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_XACT_TYPE_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_XACT_TYPE_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_XACT_TYPE_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_XACT_TYPE_ID",
+      "transformation_rule": "'PURCH_RQLNS'||'~'||'REQUISITION'||'~'|| INP_XACT_TYPE_ID||'~'|| TO_CHAR(INP_RQSN_ORG_ID)\n"
     },
     {
       "target_field": "CYCLE_STATUS_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CYCLE_STATUS_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CYCLE_STATUS_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_CYCLE_STATUS_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_CYCLE_STATUS_ID",
+      "transformation_rule": "IIF(ISNULL(INP_CYCLE_STATUS_ID), 'PURCH_CYCLE~OPEN~OPEN',\n'PURCH_CYCLE' || '~' || INP_CYCLE_STATUS_ID)"
     },
     {
       "target_field": "PO_APPROVED_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PO_APPROVED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PO_APPROVED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_PO_APPROVED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_PO_APPROVED_ON_DT",
+      "transformation_rule": "INP_PO_APPROVED_ON_DT"
     },
     {
       "target_field": "FULFILLMENT_STATUS_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_FULFILLMENT_STATUS_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_FULFILLMENT_STATUS_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_FULFILLMENT_STATUS_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_FULFILLMENT_STATUS_ID",
+      "transformation_rule": "INP_FULFILLMENT_STATUS_ID"
     },
     {
       "target_field": "PRODUCT_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PRODUCT_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PRODUCT_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_PRODUCT_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_PRODUCT_ID",
+      "transformation_rule": "IIF(ISNULL(INP_PRODUCT_ID), 'NONINVENTORY~'|| TO_CHAR(CATEGORY_ID), INP_PRODUCT_ID)"
     },
     {
       "target_field": "DUE_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_DUE_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_DUE_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_DUE_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_DUE_ON_DT",
+      "transformation_rule": "INP_DUE_ON_DT"
     },
     {
       "target_field": "NEEDED_BY_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_NEEDED_BY_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_NEEDED_BY_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_NEEDED_BY_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_NEEDED_BY_DT",
+      "transformation_rule": "INP_NEEDED_BY_DT"
     },
     {
       "target_field": "RECEIVED_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_RECEIVED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_RECEIVED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_RECEIVED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_RECEIVED_ON_DT",
+      "transformation_rule": "INP_RECEIVED_ON_DT"
     },
     {
       "target_field": "ORDERED_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_ORDERED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_ORDERED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_ORDERED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_ORDERED_ON_DT",
+      "transformation_rule": "INP_ORDERED_ON_DT"
     },
     {
       "target_field": "APPROVED_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_APPROVED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_APPROVED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_APPROVED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_APPROVED_ON_DT",
+      "transformation_rule": "INP_APPROVED_ON_DT"
     },
     {
       "target_field": "RESUBMITTED_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_RESUBMITTED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_RESUBMITTED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_RESUBMITTED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_RESUBMITTED_ON_DT",
+      "transformation_rule": "INP_RESUBMITTED_ON_DT"
     },
     {
       "target_field": "PORL_ATTRIBUTE1",
-      "source_lineage": "X_CUSTOM.PORL_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_ATTRIBUTE1",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.PORL_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.PORL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.PORL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.PORL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_LINES_ALL.ATTRIBUTE1",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORL_ATTRIBUTE15",
@@ -193,523 +193,523 @@
     },
     {
       "target_field": "POL_ATTRIBUTE15",
-      "source_lineage": "X_CUSTOM.POL_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_ATTRIBUTE15",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POL_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_RELEASES_ALL.ATTRIBUTE15",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ACCRUE_RCPT_FLG",
-      "source_lineage": "X_CUSTOM.POLL_ACCRUE_RCPT_FLG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POLL_ACCRUE_RCPT_FLG",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ACCRUE_RCPT_FLG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POLL_ACCRUE_RCPT_FLG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POLL_ACCRUE_RCPT_FLG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ACCRUE_RCPT_FLG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ACCRUE_RCPT_FLG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ACCRUE_ON_RECEIPT_FLAG",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_RCPT_FLG",
-      "source_lineage": "X_CUSTOM.POLL_RCPT_FLG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POLL_RCPT_FLG",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_RCPT_FLG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POLL_RCPT_FLG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POLL_RCPT_FLG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]EXP_BCI_PURCH_RQLNS.POLL_RCPT_FLG",
+      "transformation_rule": "INP_RECEIPT_REQUIRED_FLAG"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE1",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE1",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE1",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE2",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE2",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE2",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE3",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE3",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE3",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE4",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE4",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE4",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE5",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE5",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_GLOBAL_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE5",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_INTERFACE_CD",
-      "source_lineage": "X_CUSTOM.POH_INTERFACE_CD <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_INTERFACE_CD",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_INTERFACE_CD <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_INTERFACE_CD <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_INTERFACE_CD <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_INTERFACE_CD <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.INTERFACE_SOURCE_CODE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "AUX4_CHANGED_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_AUX4_CHANGED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_AUX4_CHANGED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_AUX4_CHANGED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_AUX4_CHANGED_ON_DT",
+      "transformation_rule": "INP_AUX4_CHANGED_ON_DT"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE12",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE12 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE12",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE12 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE12",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE11",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE11",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE11",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE10",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE10 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE10",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE10 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE10",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE9",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE9 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE9",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE9 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE9",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE8",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE8",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE8",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE7",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE7",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE7",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE6",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE6",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE6",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE5",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE5",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE5",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE4",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE4",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE4",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE3",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE3",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE3",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE2",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE2",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE2",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE1",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE1",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE1",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE_CATEGORY",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE_CATEGORY",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE_CATEGORY",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE15",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE15",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE15",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE14",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE14 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE14",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE14 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE14",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE13",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE13 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE13",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE13 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE13",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE12",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE12 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE12",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE12 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE12",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE11",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE11",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE11",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE10",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE10 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE10",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE10 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE10",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE9",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE9 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE9",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE9 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE9",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE8",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE8",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE8",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE7",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE7",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE7",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE6",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE6",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE6",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE5",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE5",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE5",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE4",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE4",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE4",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE3",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE3",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE3",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE2",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE2",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE2",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_ATTRIBUTE1",
-      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE1",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ATTRIBUTE1",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_TAX_ATTRIBUTE_UPDATE_CODE",
-      "source_lineage": "X_CUSTOM.POH_TAX_ATTRIBUTE_UPDATE_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_TAX_ATTRIBUTE_UPDATE_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_TAX_ATTRIBUTE_UPDATE_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_TAX_ATTRIBUTE_UPDATE_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_TAX_ATTRIBUTE_UPDATE_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_TAX_ATTRIBUTE_UPDATE_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_TAX_ATTRIBUTE_UPDATE_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.TAX_ATTRIBUTE_UPDATE_CODE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE_CATEGORY",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE_CATEGORY",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE_CATEGORY",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE20",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE20 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE20",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE20 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE20 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE20 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE20 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE20 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE20",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE19",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE19 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE19",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE19 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE19 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE19 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE19 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE19 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE19",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE18",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE18 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE18",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE18 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE18 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE18 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE18 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE18 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE18",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE17",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE17 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE17",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE17 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE17 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE17 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE17 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE17 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE17",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE16",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE16 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE16",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE16 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE16 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE16 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE16 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE16 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE16",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE15",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE15",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE15",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE14",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE14 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE14",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE14 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE14",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE13",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE13 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE13",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE13 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE13",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE12",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE12 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE12",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE12 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE12",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE11",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE11",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE11",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE10",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE10 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE10",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE10 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE10",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE9",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE9 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE9",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE9 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE9",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE8",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE8",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE8",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE7",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE7",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE7",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_GLOBAL_ATTRIBUTE6",
-      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE6",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_GLOBAL_ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POH_GLOBAL_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POH_GLOBAL_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_GLOBAL_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_GLOBAL_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.GLOBAL_ATTRIBUTE6",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "LOC_EXCHANGE_RATE",
-      "source_lineage": "MPLT_CURCY_CONVERSION_RATES_All.EXT_DOC_TO_LOC_EXCH_RATE",
-      "transformation_rule": "resolved inside reusable mapplet 'MPLT_CURCY_CONVERSION_RATES_All' (see shared-object cache)"
+      "source_lineage": "MPLT_CURCY_CONVERSION_RATES_All.EXT_DOC_TO_LOC_EXCH_RATE <- [MPLT_CURCY_CONVERSION_RATES_All]OUTPUT.EXT_DOC_TO_LOC_EXCH_RATE <- [MPLT_CURCY_CONVERSION_RATES_All]EXPT_CALC_EXCH_RATES.DOC_TO_LOC_EXCH_RATE_OUT",
+      "transformation_rule": "DOC_TO_LOC_EXCH_RATE_VAR"
     },
     {
       "target_field": "X_CUSTOM",
-      "source_lineage": "X_CUSTOM.X_CUSTOM <- mplt_BC_ORA_PurchaseRequisitionLinesFact.X_CUSTOM",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.X_CUSTOM <- mplt_BC_ORA_PurchaseRequisitionLinesFact.X_CUSTOM <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.X_CUSTOM <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.X_CUSTOM <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.X_CUSTOM <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.ENCUMBERED_FLAG",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE1",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE1",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE1",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE10",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE10 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE10",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE10 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE10 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE10",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE11",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE11",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE11",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE12",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE12 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE12",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE12 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE12 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE12",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE13",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE13 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE13",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE13 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE13 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE13",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE14",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE14 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE14",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE14 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE14 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE14",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE15",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE15",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE15 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE15 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE15",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE2",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE2",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE2",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE3",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE3",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE3",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE5",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE5",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE5",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE6",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE6",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE6",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE7",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE7",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE7",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_REQUISITION_HEADER_ID",
-      "source_lineage": "X_CUSTOM.REQUISITION_HEADER_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.REQUISITION_HEADER_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.REQUISITION_HEADER_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.REQUISITION_HEADER_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.REQUISITION_HEADER_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.REQUISITION_HEADER_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.REQUISITION_HEADER_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.REQUISITION_HEADER_ID",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_ATTRIBUTE_CATEGORY",
-      "source_lineage": "X_CUSTOM.ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE_CATEGORY",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.ATTRIBUTE_CATEGORY",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_ATTRIBUTE1",
-      "source_lineage": "X_CUSTOM.ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE1",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.ATTRIBUTE1 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.ATTRIBUTE1 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.ATTRIBUTE1",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_ATTRIBUTE2",
-      "source_lineage": "X_CUSTOM.ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE2",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.ATTRIBUTE2 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.ATTRIBUTE2 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.ATTRIBUTE2",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_ATTRIBUTE3",
-      "source_lineage": "X_CUSTOM.ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE3",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.ATTRIBUTE3 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.ATTRIBUTE3 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.ATTRIBUTE3",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_ATTRIBUTE4",
-      "source_lineage": "X_CUSTOM.ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE4",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.ATTRIBUTE4",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_ATTRIBUTE5",
-      "source_lineage": "X_CUSTOM.ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE5",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.ATTRIBUTE5 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.ATTRIBUTE5 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.ATTRIBUTE5",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_ATTRIBUTE6",
-      "source_lineage": "X_CUSTOM.ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE6",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.ATTRIBUTE6 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.ATTRIBUTE6 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.ATTRIBUTE6",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_ATTRIBUTE7",
-      "source_lineage": "X_CUSTOM.ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE7",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.ATTRIBUTE7 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.ATTRIBUTE7 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.ATTRIBUTE7",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_ATTRIBUTE8",
-      "source_lineage": "X_CUSTOM.ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE8",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.ATTRIBUTE8",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_ATTRIBUTE11",
-      "source_lineage": "X_CUSTOM.ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE11",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.ATTRIBUTE11 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.ATTRIBUTE11 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.ATTRIBUTE11",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_DESCRIPTION",
-      "source_lineage": "X_CUSTOM.DESCRIPTION <- mplt_BC_ORA_PurchaseRequisitionLinesFact.DESCRIPTION",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.DESCRIPTION <- mplt_BC_ORA_PurchaseRequisitionLinesFact.DESCRIPTION <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.DESCRIPTION <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.DESCRIPTION <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.DESCRIPTION <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.DESCRIPTION",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_CREATION_DATE",
-      "source_lineage": "X_CUSTOM.PORH_CREATION_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_CREATION_DATE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.PORH_CREATION_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_CREATION_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.PORH_CREATION_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.PORH_CREATION_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.PORH_CREATION_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.CREATION_DATE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_APPROVED_DATE",
-      "source_lineage": "X_CUSTOM.PORH_APPROVED_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_APPROVED_DATE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.PORH_APPROVED_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_APPROVED_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.PORH_APPROVED_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.PORH_APPROVED_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.PORH_APPROVED_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.APPROVED_DATE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "LINE_TYPE_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LINE_TYPE_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LINE_TYPE_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_LINE_TYPE_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_LINE_TYPE_ID",
+      "transformation_rule": "'PO_LINE_TYPE'||'~'|| TO_CHAR(TO_INTEGER(INP_LINE_TYPE_ID))\n"
     },
     {
       "target_field": "SUPPLIER_PROD_ID4",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_PROD_ID4",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_PROD_ID4 <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_SUPPLIER_PROD_ID4 <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_SUPPLIER_PROD_ID4",
+      "transformation_rule": "INP_PRODUCT_ID||'~'||INP_SUPPLIER_ID||'~G~' ||TO_CHAR(INP_RQSN_ORG_ID)||'~'"
     },
     {
       "target_field": "CREATED_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CREATED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CREATED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_CREATED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_CREATED_ON_DT",
+      "transformation_rule": "INP_CREATED_ON_DT"
     },
     {
       "target_field": "SUBMITTED_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUBMITTED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUBMITTED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_SUBMITTED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_SUBMITTED_ON_DT",
+      "transformation_rule": "INP_SUBMITTED_ON_DT"
     },
     {
       "target_field": "CHANGED_BY_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CHANGED_BY_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CHANGED_BY_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_CHANGED_BY_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_CHANGED_BY_ID",
+      "transformation_rule": "INP_CHANGED_BY_ID"
     },
     {
       "target_field": "CREATED_BY_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CREATED_BY_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CREATED_BY_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_CREATED_BY_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_CREATED_BY_ID",
+      "transformation_rule": "INP_CREATED_BY_ID"
     },
     {
       "target_field": "SUPPLIER_PROD_ID3",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_PROD_ID3",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_PROD_ID3 <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_SUPPLIER_PROD_ID3 <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_SUPPLIER_PROD_ID3",
+      "transformation_rule": "INP_PRODUCT_ID||'~'||INP_SUPPLIER_ID||'~G~' ||TO_CHAR(INP_RQSN_ORG_ID)||'~'||INP_VENDOR_SITE_ID"
     },
     {
       "target_field": "SUPPLIER_PROD_ID2",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_PROD_ID2",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_PROD_ID2 <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_SUPPLIER_PROD_ID2 <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_SUPPLIER_PROD_ID2",
+      "transformation_rule": "INP_PRODUCT_ID||'~'||INP_SUPPLIER_ID||'~L~' ||TO_CHAR(INP_DESTINATION_ORG_ID)||'~'"
     },
     {
       "target_field": "SUPPLIER_PROD_ID1",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_PROD_ID1",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_PROD_ID1 <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_SUPPLIER_PROD_ID1 <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_SUPPLIER_PROD_ID1",
+      "transformation_rule": "INP_PRODUCT_ID||'~'||INP_SUPPLIER_ID||'~L~' ||TO_CHAR(INP_DESTINATION_ORG_ID)||'~'||INP_VENDOR_SITE_ID"
     },
     {
       "target_field": "AUX3_CHANGED_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_AUX3_CHANGED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_AUX3_CHANGED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_AUX3_CHANGED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_AUX3_CHANGED_ON_DT",
+      "transformation_rule": "INP_AUX3_CHANGED_ON_DT"
     },
     {
       "target_field": "AUX2_CHANGED_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_AUX2_CHANGED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_AUX2_CHANGED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_AUX2_CHANGED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_AUX2_CHANGED_ON_DT",
+      "transformation_rule": "INP_AUX2_CHANGED_ON_DT"
     },
     {
       "target_field": "AUX1_CHANGED_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_AUX1_CHANGED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_AUX1_CHANGED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_AUX1_CHANGED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_AUX1_CHANGED_ON_DT",
+      "transformation_rule": "INP_AUX1_CHANGED_ON_DT"
     },
     {
       "target_field": "DATASOURCE_NUM_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_DATASOURCE_NUM_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_DATASOURCE_NUM_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_DATASOURCE_NUM_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_DATASOURCE_NUM_ID",
+      "transformation_rule": "INP_DATASOURCE_NUM_ID"
     },
     {
       "target_field": "INTEGRATION_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_INTEGRATION_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_INTEGRATION_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_INTEGRATION_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_INTEGRATION_ID",
+      "transformation_rule": "INP_INTEGRATION_ID"
     },
     {
       "target_field": "LINE_TEXT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LINE_TEXT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LINE_TEXT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_LINE_TEXT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_LINE_TEXT",
+      "transformation_rule": "INP_LINE_TEXT"
     },
     {
       "target_field": "LOC_CURR_CODE",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LOC_CURR_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LOC_CURR_CODE <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_LOC_CURR_CODE <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_LOC_CURR_CODE",
+      "transformation_rule": ":LKP.LKP_LOC_CURRENCY(VAR_SETS_OF_BOOK_ID,INP_DATASOURCE_NUM_ID)"
     },
     {
       "target_field": "DOC_CURR_CODE",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_DOC_CURR_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_DOC_CURR_CODE <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_DOC_CURR_CODE <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_DOC_CURR_CODE",
+      "transformation_rule": "INP_DOC_CURR_CODE"
     },
     {
       "target_field": "UOM_CODE",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_UOM_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_UOM_CODE <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_UOM_CODE <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_UOM_CODE",
+      "transformation_rule": ":LKP.LKP_UOM_CODE(INP_UOM_CODE ) "
     },
     {
       "target_field": "CHANGED_ON_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CHANGED_ON_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_CHANGED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_CHANGED_ON_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_CHANGED_ON_DT",
+      "transformation_rule": "INP_CHANGED_ON_DT"
     },
     {
       "target_field": "SUPPLIER_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_SUPPLIER_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_SUPPLIER_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_SUPPLIER_ID",
+      "transformation_rule": "TO_CHAR(INP_SUPPLIER_ID)"
     },
     {
       "target_field": "REQUESTOR_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_REQUESTOR_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_REQUESTOR_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_REQUESTOR_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_REQUESTOR_ID",
+      "transformation_rule": "INP_REQUESTOR_ID"
     },
     {
       "target_field": "STD_COST_AMT",
@@ -723,218 +723,218 @@
     },
     {
       "target_field": "EXCHANGE_DT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_EXCHANGE_DT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_EXCHANGE_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_EXCHANGE_DT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_EXCHANGE_DT",
+      "transformation_rule": "INP_CREATED_ON_DT"
     },
     {
       "target_field": "LOC_EXCH_RATE_TYPE",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LOC_EXCH_RATE_TYPE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LOC_EXCH_RATE_TYPE <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_LOC_EXCH_RATE_TYPE <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_LOC_EXCH_RATE_TYPE",
+      "transformation_rule": "INP_LOC_EXCH_RATE_TYPE"
     },
     {
       "target_field": "REJECT_FLG",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_REJECT_FLG",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_REJECT_FLG <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_REJECT_FLG <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_REJECT_FLG",
+      "transformation_rule": "INP_REJECT_FLG"
     },
     {
       "target_field": "STORAGE_LOC_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_STORAGE_LOC_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_STORAGE_LOC_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_STORAGE_LOC_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_STORAGE_LOC_ID",
+      "transformation_rule": "INP_STORAGE_LOC_ID"
     },
     {
       "target_field": "OPERATING_UNIT_ORG_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_OPERATING_UNIT_ORG_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_OPERATING_UNIT_ORG_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_OPERATING_UNIT_ORG_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_OPERATING_UNIT_ORG_ID",
+      "transformation_rule": "TO_CHAR(INP_RQSN_ORG_ID)"
     },
     {
       "target_field": "INVENTORY_ORG_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_INVENTORY_ORG_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_INVENTORY_ORG_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_INVENTORY_ORG_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_INVENTORY_ORG_ID",
+      "transformation_rule": "TO_CHAR(INP_DESTINATION_ORG_ID)"
     },
     {
       "target_field": "DELETE_FLG",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_DELETE_FLAG",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_DELETE_FLAG <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_DELETE_FLAG <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_DELETE_FLAG",
+      "transformation_rule": " IIF(ISNULL(INP_INTEGRATION_ID) AND ISNULL(INP_DATASOURCE_NUM_ID) ,'Y' ,IIF(INP_MODIFIED_BY_AGENT_FLAG='Y','Y', 'N'))"
     },
     {
       "target_field": "PURCH_RQSTN_ITEM",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PURCH_RQSN_ITEM",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PURCH_RQSN_ITEM <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_PURCH_RQSN_ITEM <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_PURCH_RQSN_ITEM",
+      "transformation_rule": "INP_PURCH_RQSN_ITEM"
     },
     {
       "target_field": "PURCH_RQSTN_NUM",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PURCH_RQSN_NUM",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_PURCH_RQSN_NUM <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_PURCH_RQSN_NUM <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_PURCH_RQSN_NUM",
+      "transformation_rule": "INP_PURCH_RQSN_NUM"
     },
     {
       "target_field": "REQUESTED_QTY",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_QUANTITY",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_QUANTITY <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_QUANTITY <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_QUANTITY",
+      "transformation_rule": "INP_QUANTITY"
     },
     {
       "target_field": "UNIT_PRICE",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_UNIT_PRICE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_UNIT_PRICE <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_UNIT_PRICE <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_UNIT_PRICE",
+      "transformation_rule": "INP_UNIT_DOC_PRICE"
     },
     {
       "target_field": "LINE_AMT",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LINE_AMT",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_LINE_AMT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_LINE_AMT <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_LINE_AMT",
+      "transformation_rule": "INP_LINE_DOC_AMT"
     },
     {
       "target_field": "RQSTN_ORG_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_RQSN_ORG_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_RQSN_ORG_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_RQSN_ORG_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_RQSN_ORG_ID",
+      "transformation_rule": "INP_RQSN_ORG_ID"
     },
     {
       "target_field": "APPROVAL_STATUS_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_APPROVE_STATUS_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_APPROVE_STATUS_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_APPROVE_STATUS_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_APPROVE_STATUS_ID",
+      "transformation_rule": "IIF(ISNULL(INP_APPROVE_STATUS_ID), 'PURCH_APPROVE~INCOMPLETE',\n'PURCH_APPROVE~' || INP_APPROVE_STATUS_ID)"
     },
     {
       "target_field": "INVENTORY_PROD_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_MFG_PROD_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_MFG_PROD_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_MFG_PROD_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_MFG_PROD_ID",
+      "transformation_rule": "INP_MFG_PROD_ID || '~' || TO_CHAR(INP_DESTINATION_ORG_ID)"
     },
     {
       "target_field": "TENANT_ID",
-      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_TENANT_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_SA_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "mplt_SA_ORA_PurchaseRequisitionLinesFact.EXT_TENANT_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]MAPO_SAI_PURCH_RQLNS.EXT_TENANT_ID <- [mplt_SA_ORA_PurchaseRequisitionLinesFact]EXP_SAI_PURCH_RQLNS.EXT_TENANT_ID",
+      "transformation_rule": "INP_TENANT_ID"
     },
     {
       "target_field": "PORH_CLOSED_CODE",
-      "source_lineage": "X_CUSTOM.PORH_CLOSED_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_CLOSED_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.PORH_CLOSED_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.PORH_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.PORH_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.PORH_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.CLOSED_CODE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_CANCEL_FLAG",
-      "source_lineage": "X_CUSTOM.PORH_CANCEL_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_CANCEL_FLAG",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.PORH_CANCEL_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.PORH_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.PORH_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.PORH_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.CANCEL_FLAG",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORL_ENCUMBERED_FLAG",
-      "source_lineage": "X_CUSTOM.PORL_ENCUMBERED_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_ENCUMBERED_FLAG",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.PORL_ENCUMBERED_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_ENCUMBERED_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.PORL_ENCUMBERED_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.PORL_ENCUMBERED_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.PORL_ENCUMBERED_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_LINES_ALL.ENCUMBERED_FLAG",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORL_LINE_LOCATION_ID",
-      "source_lineage": "X_CUSTOM.PORL_LINE_LOCATION_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_LINE_LOCATION_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.PORL_LINE_LOCATION_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_LINE_LOCATION_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.PORL_LINE_LOCATION_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.PORL_LINE_LOCATION_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.PORL_LINE_LOCATION_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_LINES_ALL.LINE_LOCATION_ID",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_CLOSED_CODE",
-      "source_lineage": "X_CUSTOM.POH_CLOSED_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_CLOSED_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_CLOSED_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.CLOSED_CODE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_CANCEL_FLAG",
-      "source_lineage": "X_CUSTOM.POH_CANCEL_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_CANCEL_FLAG",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_CANCEL_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.CANCEL_FLAG",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_CLOSED_DATE",
-      "source_lineage": "X_CUSTOM.POH_CLOSED_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_CLOSED_DATE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_CLOSED_DATE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_CLOSED_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_CLOSED_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_CLOSED_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_CLOSED_DATE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.CLOSED_DATE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_AUTHORIZATION_STATUS",
-      "source_lineage": "X_CUSTOM.POH_AUTHORIZATION_STATUS <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_AUTHORIZATION_STATUS",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_AUTHORIZATION_STATUS <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_AUTHORIZATION_STATUS <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_AUTHORIZATION_STATUS <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_AUTHORIZATION_STATUS <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_AUTHORIZATION_STATUS <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.AUTHORIZATION_STATUS",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POL_UNIT_PRICE",
-      "source_lineage": "X_CUSTOM.POL_UNIT_PRICE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_UNIT_PRICE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POL_UNIT_PRICE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_UNIT_PRICE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POL_UNIT_PRICE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POL_UNIT_PRICE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POL_UNIT_PRICE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINES_ALL.UNIT_PRICE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POL_ITEM_DESCRIPTION",
-      "source_lineage": "X_CUSTOM.POL_ITEM_DESCRIPTION <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_ITEM_DESCRIPTION",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POL_ITEM_DESCRIPTION <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_ITEM_DESCRIPTION <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POL_ITEM_DESCRIPTION <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POL_ITEM_DESCRIPTION <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POL_ITEM_DESCRIPTION <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINES_ALL.ITEM_DESCRIPTION",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_PURCH_ORDER_NUM",
-      "source_lineage": "X_CUSTOM.POH_PURCH_ORDER_NUM <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_PURCH_ORDER_NUM",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_PURCH_ORDER_NUM <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_PURCH_ORDER_NUM <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_PURCH_ORDER_NUM <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_PURCH_ORDER_NUM <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_PURCH_ORDER_NUM <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.SEGMENT1",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_TYPE_LOOKUP_CODE",
-      "source_lineage": "X_CUSTOM.POH_TYPE_LOOKUP_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_TYPE_LOOKUP_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_TYPE_LOOKUP_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_TYPE_LOOKUP_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_TYPE_LOOKUP_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_TYPE_LOOKUP_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_TYPE_LOOKUP_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.TYPE_LOOKUP_CODE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POL_CANCEL_FLAG",
-      "source_lineage": "X_CUSTOM.POL_CANCEL_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_CANCEL_FLAG",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POL_CANCEL_FLAG <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POL_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POL_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POL_CANCEL_FLAG <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINES_ALL.CANCEL_FLAG",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE4",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE4",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE4 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE4 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE4",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE9",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE9 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE9",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE9 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE9 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE9",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POH_ATTRIBUTE8",
-      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE8",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POH_ATTRIBUTE8 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POH_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POH_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POH_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POH_ATTRIBUTE8 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_HEADERS_ALL.ATTRIBUTE8",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POL_CLOSED_CODE",
-      "source_lineage": "X_CUSTOM.POL_CLOSED_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_CLOSED_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POL_CLOSED_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.POL_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.POL_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POL_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POL_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINES_ALL.CLOSED_CODE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_CREATED_BY",
-      "source_lineage": "X_CUSTOM.PORH_CREATED_BY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_CREATED_BY",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.PORH_CREATED_BY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_CREATED_BY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.PORH_CREATED_BY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.PORH_CREATED_BY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.PORH_CREATED_BY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.CREATED_BY",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_TAX_ATTRIBUTE_UPDATE_CODE",
-      "source_lineage": "X_CUSTOM.POLL_TAX_ATTRIBUTE_UPDATE_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_TAX_ATTRIBUTE_UPDATE_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_TAX_ATTRIBUTE_UPDATE_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_TAX_ATTRIBUTE_UPDATE_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_TAX_ATTRIBUTE_UPDATE_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_TAX_ATTRIBUTE_UPDATE_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_TAX_ATTRIBUTE_UPDATE_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.TAX_ATTRIBUTE_UPDATE_CODE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORH_PREPARER_ID",
-      "source_lineage": "X_CUSTOM.PORH_PREPARER_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_PREPARER_ID",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.PORH_PREPARER_ID <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORH_PREPARER_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.PORH_PREPARER_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.PORH_PREPARER_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.PORH_PREPARER_ID <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_HEADERS_ALL.PREPARER_ID",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORL_CLOSED_CODE",
-      "source_lineage": "X_CUSTOM.PORL_CLOSED_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_CLOSED_CODE",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.PORL_CLOSED_CODE <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.PORL_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.PORL_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.PORL_CLOSED_CODE <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_LINES_ALL.CLOSED_CODE",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "PORL_CLOSED_REASON",
-      "source_lineage": "X_CUSTOM.PORL_CLOSED_REASON <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_CLOSED_REASON",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.PORL_CLOSED_REASON <- mplt_BC_ORA_PurchaseRequisitionLinesFact.PORL_CLOSED_REASON <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.PORL_CLOSED_REASON <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.PORL_CLOSED_REASON <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.PORL_CLOSED_REASON <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_REQUISITION_LINES_ALL.CLOSED_REASON",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE_CATEGORY",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE_CATEGORY",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE_CATEGORY <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE_CATEGORY <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE_CATEGORY",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE20",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE20 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE20",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE20 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE20 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE20 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE20 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE20 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE20",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE19",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE19 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE19",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE19 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE19 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE19 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE19 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE19 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE19",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE18",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE18 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE18",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE18 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE18 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE18 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE18 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE18 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE18",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     },
     {
       "target_field": "POLL_GLOBAL_ATTRIBUTE17",
-      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE17 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE17",
-      "transformation_rule": "resolved inside reusable mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (see shared-object cache)"
+      "source_lineage": "X_CUSTOM.POLL_GLOBAL_ATTRIBUTE17 <- mplt_BC_ORA_PurchaseRequisitionLinesFact.o_POLL_GLOBAL_ATTRIBUTE17 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]MAPO_BCI_PURCH_RQLNS.o_POLL_GLOBAL_ATTRIBUTE17 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]X_CUSTOM.POLL_GLOBAL_ATTRIBUTE17 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]SQ_BCI_PURCH_RQLNS.POLL_GLOBAL_ATTRIBUTE17 <- [mplt_BC_ORA_PurchaseRequisitionLinesFact]PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE17",
+      "transformation_rule": "passthrough from source inside mapplet 'mplt_BC_ORA_PurchaseRequisitionLinesFact' (no cleansing)"
     }
   ],
   "shared_object_refs": [
@@ -982,8 +982,593 @@
       "description": ""
     }
   ],
-  "session_partition_overrides": [],
-  "transformation_logic": [],
+  "session_partition_overrides": [
+    {
+      "session_name": "HHS_SDE_ORA_PurchaseRequisitionLinesFact",
+      "instance_name": "mplt_BC_ORA_PurchaseRequisitionLinesFact.SQ_BCI_PURCH_RQLNS",
+      "transformation_type": "Source Qualifier",
+      "partition_name": "",
+      "attribute_name": "Sql Query",
+      "attribute_value": "WITH CURRENCY_LST AS\r\n     (SELECT NVL(FSP.ORG_ID, -99) ORG_ID,\r\n             GSB.CURRENCY_CODE\r\n     FROM    FINANCIALS_SYSTEM_PARAMS_ALL FSP,\r\n             GL_SETS_OF_BOOKS GSB\r\n     WHERE   FSP.SET_OF_BOOKS_ID = GSB.SET_OF_BOOKS_ID\r\n     )\r\n     ,\r\n     PR_DATE AS\r\n     (SELECT  PO_ACTION_HISTORY.OBJECT_ID,\r\n              MAX(\r\n                       CASE\r\n                                WHEN PO_ACTION_HISTORY.ACTION_CODE = 'APPROVE'\r\n                                THEN PO_ACTION_HISTORY.LAST_UPDATE_DATE\r\n                       END) LAST_APPROVED_DATE,\r\n              MIN(\r\n                       CASE\r\n                                WHEN PO_ACTION_HISTORY.ACTION_CODE = 'SUBMIT'\r\n                                THEN PO_ACTION_HISTORY.LAST_UPDATE_DATE\r\n                                WHEN PO_ACTION_HISTORY.ACTION_CODE = 'IMPORT'\r\n                                THEN PO_ACTION_HISTORY.LAST_UPDATE_DATE\r\n                       END) LAST_SUBMIT_DATE\r\n     FROM     PO_ACTION_HISTORY\r\n     WHERE    PO_ACTION_HISTORY.OBJECT_TYPE_CODE = 'REQUISITION'\r\n     AND      PO_ACTION_HISTORY.ACTION_CODE IN ('APPROVE',\r\n                                                'SUBMIT' ,\r\n                                                'IMPORT')\r\n     GROUP BY OBJECT_ID\r\n     )\r\nSELECT\r\n        PO_REQUISITION_LINES_ALL.TO_PERSON_ID                                            ,\r\n       PO_REQUISITION_LINES_ALL.VENDOR_SITE_ID                                          ,\r\n       PO_REQUISITION_LINES_ALL.ITEM_ID                                                 ,\r\n       PO_REQUISITION_HEADERS_ALL.AUTHORIZATION_STATUS                                  ,\r\n       PO_REQUISITION_LINES_ALL.CLOSED_CODE                                             ,\r\n       PO_REQUISITION_HEADERS_ALL.TYPE_LOOKUP_CODE                                      ,\r\n       PO_REQUISITION_LINES_ALL.DELIVER_TO_LOCATION_ID                                  ,\r\n       PO_REQUISITION_LINES_ALL.ORG_ID                                                  ,\r\n       PO_REQUISITION_LINES_ALL.CREATED_BY                                              ,\r\n       PO_REQUISITION_LINES_ALL.LAST_UPDATED_BY                                         ,\r\n       PO_LINE_LOCATIONS_ALL.CREATION_DATE    as CREATION_DATE1                                          ,\r\n       NVL(PO_LINE_LOCATIONS_ALL.PROMISED_DATE, NVL(PO_LINE_LOCATIONS_ALL.NEED_BY_DATE, PO_REQUISITION_LINES_ALL.NEED_BY_DATE)) AS NEED_BY_DATE        ,\r\n       PO_REQUISITION_LINES_ALL.CREATION_DATE                          AS CREATION_DATE,\r\n       PO_REQUISITION_LINES_ALL.LAST_UPDATE_DATE                                        ,\r\n       PO_REQUISITION_LINES_ALL.QUANTITY                                                ,\r\n       NVL(PO_REQUISITION_LINES_ALL.CURRENCY_UNIT_PRICE, PO_REQUISITION_LINES_ALL.UNIT_PRICE) UNIT_PRICE                                         ,\r\n       PO_REQUISITION_LINES_ALL.UNIT_MEAS_LOOKUP_CODE                                   ,\r\n       NVL(PO_REQUISITION_LINES_ALL.CURRENCY_CODE, CURRENCY_LST.CURRENCY_CODE) AS PR_DOC_CURR                                                    ,\r\n       PO_REQUISITION_LINES_ALL.RATE                                                    ,\r\n       PO_REQUISITION_HEADERS_ALL.SEGMENT1                                              ,\r\n       PO_REQUISITION_LINES_ALL.LINE_NUM                                                ,\r\n       PO_REQUISITION_LINES_ALL.ITEM_DESCRIPTION                                        ,\r\n       PO_REQUISITION_LINES_ALL.REQUISITION_LINE_ID AS INTEGRATION_ID                   ,\r\n       PO_REQUISITION_LINES_ALL.DESTINATION_ORGANIZATION_ID                             ,\r\n       PR_DATE.LAST_SUBMIT_DATE                                                  AS SUBMIT_DATE                                          ,\r\n       NVL(PO_REQUISITION_HEADERS_ALL.APPROVED_DATE, PR_DATE.LAST_APPROVED_DATE)    APPROVAL_DATE                                        ,\r\n       PO_REQUISITION_LINES_ALL.VENDOR_ID                                       ,\r\n       PO_REQUISITION_LINES_ALL.CANCEL_FLAG                                     ,\r\n       PO_REQUISITION_HEADERS_ALL.LAST_UPDATE_DATE AS AUX1_CHANGED_ON_DT         ,\r\n       PO_LINE_LOCATIONS_ALL.LAST_UPDATE_DATE         AUX2_CHANGED_ON_DT         ,\r\n       PO_REQUISITION_LINES_ALL.LINE_TYPE_ID                                    ,\r\n       PO_REQUISITION_LINES_ALL.CATEGORY_ID                                     ,\r\n       PO_REQUISITION_LINES_ALL.MODIFIED_BY_AGENT_FLAG                          ,\r\n       PO_REQUISITION_LINES_ALL.MATCHING_BASIS                                  ,\r\n       PO_REQUISITION_LINES_ALL.AMOUNT                                          ,\r\n       '0' AS X_CUSTOM ,\r\n       PO_REQUISITION_LINES_ALL.ON_RFQ_FLAG                                     ,\r\n       PO_REQUISITION_LINES_ALL.AUCTION_HEADER_ID                               ,\r\n       PO_REQUISITION_LINES_ALL.REQS_IN_POOL_FLAG                               ,\r\n       PO_REQUISITION_LINES_ALL.AT_SOURCING_FLAG                                ,\r\n       PO_REQUISITION_LINES_ALL.URGENT_FLAG                                     ,\r\n       PO_REQUISITION_LINES_ALL.LINE_LOCATION_ID                                ,\r\n       PO_LINE_LOCATIONS_ALL.LINE_LOCATION_ID LINE_LOCATION_ID_PO                 ,\r\n       PO_LINE_LOCATIONS_ALL.APPROVED_FLAG                                      ,\r\n       PO_LINE_LOCATIONS_ALL.RECEIPT_REQUIRED_FLAG                              ,\r\n       PO_LINES_ALL.MATCHING_BASIS AS MATCHING_BASIS_PO                           ,\r\n       PO_LINE_LOCATIONS_ALL.INSPECTION_REQUIRED_FLAG                           ,\r\n       PO_LINE_LOCATIONS_ALL.SHIPMENT_CLOSED_DATE                               ,\r\n       PO_LINE_LOCATIONS_ALL.CLOSED_FOR_RECEIVING_DATE                          ,\r\n       PO_LINE_LOCATIONS_ALL.CLOSED_FOR_INVOICE_DATE                            ,\r\n       PO_LINE_LOCATIONS_ALL.CONSIGNED_FLAG                                     ,\r\n       PO_LINE_LOCATIONS_ALL.VMI_FLAG                                           ,\r\n       PO_DOC_STYLE_HEADERS.PROGRESS_PAYMENT_FLAG                               ,\r\n       PO_REQUISITION_LINES_ALL.QUANTITY_CANCELLED                              ,\r\n        DECODE(PO_LINE_LOCATIONS_ALL.APPROVED_FLAG,\r\n        'Y',\r\n        PO_LINE_LOCATIONS_ALL.APPROVED_DATE,\r\n        NULL) PO_APPROVED_ON_DT,\r\n        DECODE(PO_LINE_LOCATIONS_ALL.PO_RELEASE_ID,\r\n        NULL,\r\n        PO_HEADERS_ALL.SUBMIT_DATE,\r\n        PO_RELEASES_ALL.SUBMIT_DATE) PO_SUBMIT_ON_DT,\r\n        DECODE(PO_LINE_LOCATIONS_ALL.PO_RELEASE_ID,\r\n        NULL,\r\n        PO_HEADERS_ALL.DOCUMENT_CREATION_METHOD,\r\n        PO_RELEASES_ALL.DOCUMENT_CREATION_METHOD) PO_CREATION_METHOD_ID,\r\n        DECODE(PO_LINE_LOCATIONS_ALL.PO_RELEASE_ID,\r\n        NULL,\r\n        PO_HEADERS_ALL.REVISION_NUM,\r\n        PO_RELEASES_ALL.REVISION_NUM) PO_REVISIONS,\r\n\tPO_HEADERS_ALL.RATE_TYPE,\r\nPO_HEADERS_ALL.ATTRIBUTE1,\r\n       PO_HEADERS_ALL.ATTRIBUTE2,\r\n       PO_HEADERS_ALL.ATTRIBUTE3,\r\n       PO_HEADERS_ALL.ATTRIBUTE4,\r\n       PO_HEADERS_ALL.ATTRIBUTE5,\r\n       PO_HEADERS_ALL.ATTRIBUTE6,\r\n       PO_HEADERS_ALL.ATTRIBUTE7,\r\n       PO_HEADERS_ALL.ATTRIBUTE8,\r\n       PO_HEADERS_ALL.ATTRIBUTE9,\r\n       PO_HEADERS_ALL.ATTRIBUTE10,\r\n       PO_HEADERS_ALL.ATTRIBUTE11,\r\n       PO_HEADERS_ALL.ATTRIBUTE12,\r\n       PO_HEADERS_ALL.ATTRIBUTE13,\r\n       PO_HEADERS_ALL.ATTRIBUTE14,\r\n       PO_HEADERS_ALL.ATTRIBUTE15,\r\n       PO_REQUISITION_HEADERS_ALL.REQUISITION_HEADER_ID,\r\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE_CATEGORY,\r\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE1,\r\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE2,\r\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE3,\r\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE4,\r\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE5,\r\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE6,\r\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE7,\r\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE8,\r\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE11,\r\n       PO_REQUISITION_HEADERS_ALL.DESCRIPTION, \r\n       PO_REQUISITION_HEADERS_ALL.CREATION_DATE,\r\n       PO_REQUISITION_HEADERS_ALL.APPROVED_DATE,\r\n       PO_REQUISITION_HEADERS_ALL.CLOSED_CODE,\r\n       PO_REQUISITION_HEADERS_ALL.CANCEL_FLAG,\r\n       PO_REQUISITION_LINES_ALL.CLOSED_CODE,\r\n       PO_REQUISITION_LINES_ALL.CLOSED_REASON,\r\n       PO_REQUISITION_LINES_ALL.CLOSED_DATE,\r\n      -- PO_REQUISITION_LINES_ALL.CANCEL_FLAG,\r\n       PO_REQUISITION_LINES_ALL.CANCEL_DATE,\r\n       PO_REQUISITION_LINES_ALL.CANCEL_REASON,       \r\n       PO_REQUISITION_LINES_ALL.ENCUMBERED_FLAG,\r\n       PO_REQUISITION_LINES_ALL.LINE_LOCATION_ID,\r\n       PO_HEADERS_ALL.CLOSED_CODE,\r\n       PO_HEADERS_ALL.CANCEL_FLAG,\r\n       PO_HEADERS_ALL.CLOSED_DATE,\r\n       PO_HEADERS_ALL.AUTHORIZATION_STATUS,\r\n       PO_LINES_ALL.UNIT_PRICE,\r\n       PO_LINES_ALL.ITEM_DESCRIPTION,\r\n       PO_LINES_ALL.CANCEL_FLAG,\r\n       PO_LINES_ALL.CLOSED_CODE,\r\n       PO_HEADERS_ALL.SEGMENT1,\r\n       PO_HEADERS_ALL.TYPE_LOOKUP_CODE,\r\n       PO_REQUISITION_HEADERS_ALL.CREATED_BY,\r\n       PO_REQUISITION_HEADERS_ALL.PREPARER_ID,\r\n\t   PO_REQUISITION_LINES_ALL.ATTRIBUTE1,\r\n\t   PO_REQUISITION_LINES_ALL.ATTRIBUTE15,\r\n\t   PO_RELEASES_ALL.ATTRIBUTE15,\r\n       PO_LINE_LOCATIONS_ALL.ACCRUE_ON_RECEIPT_FLAG,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE1 AS POH_GLOBAL_ATTRIBUTE1,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE2 AS POH_GLOBAL_ATTRIBUTE2,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE3 AS POH_GLOBAL_ATTRIBUTE3,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE4 AS POH_GLOBAL_ATTRIBUTE4,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE5 AS POH_GLOBAL_ATTRIBUTE5,\r\n       PO_HEADERS_ALL.LAST_UPDATE_DATE AS AUX3_CHANGED_ON_DT,\r\n       PO_HEADERS_ALL.INTERFACE_SOURCE_CODE AS POH_INTERFACE_CD,\r\n\t   \r\n       PO_HEADERS_ALL.ATTRIBUTE_CATEGORY as POH_ATTRIBUTE_CATEGORY,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE6 as POH_GLOBAL_ATTRIBUTE6,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE7 as POH_GLOBAL_ATTRIBUTE7,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE8 as POH_GLOBAL_ATTRIBUTE8,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE9 as POH_GLOBAL_ATTRIBUTE9,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE10 as POH_GLOBAL_ATTRIBUTE10,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE11 as POH_GLOBAL_ATTRIBUTE11,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE12 as POH_GLOBAL_ATTRIBUTE12,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE13 as POH_GLOBAL_ATTRIBUTE13,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE14 as POH_GLOBAL_ATTRIBUTE14,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE15 as POH_GLOBAL_ATTRIBUTE15,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE16 as POH_GLOBAL_ATTRIBUTE16,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE17 as POH_GLOBAL_ATTRIBUTE17,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE18 as POH_GLOBAL_ATTRIBUTE18,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE19 as POH_GLOBAL_ATTRIBUTE19,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE20 as POH_GLOBAL_ATTRIBUTE20,\r\n       PO_HEADERS_ALL.GLOBAL_ATTRIBUTE_CATEGORY as POH_GLOBAL_ATTRIBUTE_CATEGORY,\r\n       PO_HEADERS_ALL.TAX_ATTRIBUTE_UPDATE_CODE as POH_TAX_ATTRIBUTE_UPDATE_CODE,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE1 as POLL_ATTRIBUTE1,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE2 as POLL_ATTRIBUTE2,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE3 as POLL_ATTRIBUTE3,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE4 as POLL_ATTRIBUTE4,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE5 as POLL_ATTRIBUTE5,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE6 as POLL_ATTRIBUTE6,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE7 as POLL_ATTRIBUTE7,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE8 as POLL_ATTRIBUTE8,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE9 as POLL_ATTRIBUTE9,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE10 as POLL_ATTRIBUTE10,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE11 as POLL_ATTRIBUTE11,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE12 as POLL_ATTRIBUTE12,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE13 as POLL_ATTRIBUTE13,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE14 as POLL_ATTRIBUTE14,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE15 as POLL_ATTRIBUTE15,\r\n       PO_LINE_LOCATIONS_ALL.ATTRIBUTE_CATEGORY as POLL_ATTRIBUTE_CATEGORY,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE1 as POLL_GLOBAL_ATTRIBUTE1,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE2 as POLL_GLOBAL_ATTRIBUTE2,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE3 as POLL_GLOBAL_ATTRIBUTE3,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE4 as POLL_GLOBAL_ATTRIBUTE4,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE5 as POLL_GLOBAL_ATTRIBUTE5,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE6 as POLL_GLOBAL_ATTRIBUTE6,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE7 as POLL_GLOBAL_ATTRIBUTE7,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE8 as POLL_GLOBAL_ATTRIBUTE8,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE9 as POLL_GLOBAL_ATTRIBUTE9,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE10 as POLL_GLOBAL_ATTRIBUTE10,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE11 as POLL_GLOBAL_ATTRIBUTE11,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE12 as POLL_GLOBAL_ATTRIBUTE12,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE13 as POLL_GLOBAL_ATTRIBUTE13,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE14 as POLL_GLOBAL_ATTRIBUTE14,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE15 as POLL_GLOBAL_ATTRIBUTE15,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE16 as POLL_GLOBAL_ATTRIBUTE16,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE17 as POLL_GLOBAL_ATTRIBUTE17,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE18 as POLL_GLOBAL_ATTRIBUTE18,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE19 as POLL_GLOBAL_ATTRIBUTE19,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE20 as POLL_GLOBAL_ATTRIBUTE20,\r\n       PO_LINE_LOCATIONS_ALL.GLOBAL_ATTRIBUTE_CATEGORY as POLL_GLOBAL_ATTRIBUTE_CATEGORY,\r\n       PO_LINE_LOCATIONS_ALL.TAX_ATTRIBUTE_UPDATE_CODE as POLL_TAX_ATTRIBUTE_UPDATE_CODE,\r\n\t   PO_HEADERS_ALL.PO_HEADER_ID as POH_PO_HEADER_ID,\r\n\t   PO_LINES_ALL.PO_LINE_ID as POL_PO_LINE_ID,\r\n\t   PO_RELEASES_ALL.ATTRIBUTE7 as POR_ATTRIBUTE7,\r\nPO_RELEASES_ALL.LAST_UPDATE_DATE as POR_LAST_UPDATE_DATE,\r\nPO_LINE_LOCATIONS_ALL.RECREATE_DEMAND_FLAG\r\n\t   \r\n       FROM \r\n\t (\r\n\t    (SELECT\r\n\t\t    LINES_ALL.ROWID RW\r\n\t    FROM    PO_REQUISITION_LINES_ALL LINES_ALL,\r\n\t\t    PO_REQUISITION_HEADERS_ALL HEADERS_ALL\r\n\t    WHERE   LINES_ALL.REQUISITION_HEADER_ID = HEADERS_ALL.REQUISITION_HEADER_ID\r\n\t    AND     HEADERS_ALL.LAST_UPDATE_DATE   >= TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\r\n\t    \r\n\t    UNION ALL\r\n\t    \r\n\t    SELECT\r\n\t\t   LINES_ALL.ROWID RW\r\n\t    FROM   PO_REQUISITION_LINES_ALL LINES_ALL,\r\n\t\t   PO_REQUISITION_HEADERS_ALL HEADERS_ALL\r\n\t    WHERE  LINES_ALL.REQUISITION_HEADER_ID = HEADERS_ALL.REQUISITION_HEADER_ID\r\n\t    AND    HEADERS_ALL.LAST_UPDATE_DATE    < TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\r\n\t    AND    LINES_ALL.LAST_UPDATE_DATE     >= TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\r\n\t    )\r\n\t \r\n\t UNION\r\n\t \r\n\t SELECT\r\n\t\tLINES_ALL.ROWID RW\r\n\t FROM   (\t \r\n\t \r\n\t SELECT\r\n\t        LOCATIONS_ALL.LINE_LOCATION_ID\r\n\t FROM   PO_LINE_LOCATIONS_ALL LOCATIONS_ALL,\r\n\t\tPO_RELEASES_ALL\r\n\t WHERE  LOCATIONS_ALL.PO_RELEASE_ID       = PO_RELEASES_ALL.PO_RELEASE_ID\r\n\t AND    LOCATIONS_ALL.LAST_UPDATE_DATE    < TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\r\n\t AND    PO_RELEASES_ALL.LAST_UPDATE_DATE >= TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\r\n\t \r\n\t UNION ALL\r\n\t \r\n\t SELECT\r\n\t        LOCATIONS_ALL.LINE_LOCATION_ID\r\n\t FROM   PO_LINE_LOCATIONS_ALL LOCATIONS_ALL,\r\n\t\tPO_HEADERS_ALL                     ,\r\n\t\tPO_LINES_ALL\r\n\t WHERE  LOCATIONS_ALL.PO_LINE_ID  = PO_LINES_ALL.PO_LINE_ID\r\n\t AND    PO_LINES_ALL.PO_HEADER_ID = PO_HEADERS_ALL.PO_HEADER_ID\r\n\t AND\r\n\t\t(\r\n\t\t       PO_HEADERS_ALL.LAST_UPDATE_DATE >= TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\r\n\t\tAND    LOCATIONS_ALL.LAST_UPDATE_DATE   < TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\r\n\t\t)\r\n\t \r\n\t UNION ALL\r\n\t \r\n\t SELECT\r\n\t        LOCATIONS_ALL.LINE_LOCATION_ID\r\n\t FROM   PO_LINE_LOCATIONS_ALL LOCATIONS_ALL\r\n\t WHERE  LOCATIONS_ALL.LAST_UPDATE_DATE >= TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\r\n\t\t)\r\n\t\tLOCATIONS_TMP,\r\n\t\tPO_REQUISITION_LINES_ALL LINES_ALL\r\n\t WHERE  \r\n\t LINES_ALL.LAST_UPDATE_DATE  < TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\r\n\t AND   LINES_ALL.LINE_LOCATION_ID = LOCATIONS_TMP.LINE_LOCATION_ID\r\n\t ) TMP, \r\n PO_REQUISITION_LINES_ALL, \r\n PO_LINE_LOCATIONS_ALL, \r\n PO_RELEASES_ALL, \r\n PO_LINES_ALL, \r\n PO_HEADERS_ALL, \r\n PO_REQUISITION_HEADERS_ALL , \r\n PR_DATE, \r\n CURRENCY_LST,\r\n PO_DOC_STYLE_HEADERS\r\n WHERE \r\n PO_REQUISITION_LINES_ALL.LINE_LOCATION_ID = PO_LINE_LOCATIONS_ALL.LINE_LOCATION_ID(+)\r\n AND PO_REQUISITION_LINES_ALL.REQUISITION_HEADER_ID = PR_DATE.OBJECT_ID(+)\r\n AND PO_LINE_LOCATIONS_ALL.PO_LINE_ID               = PO_LINES_ALL.PO_LINE_ID(+)\r\n AND PO_LINE_LOCATIONS_ALL.PO_RELEASE_ID            = PO_RELEASES_ALL.PO_RELEASE_ID(+)\r\n AND PO_LINES_ALL.PO_HEADER_ID                      = PO_HEADERS_ALL.PO_HEADER_ID(+)\r\n AND PO_REQUISITION_LINES_ALL.REQUISITION_HEADER_ID = PO_REQUISITION_HEADERS_ALL.REQUISITION_HEADER_ID\r\n AND PO_REQUISITION_LINES_ALL.ROWID                 = TMP.RW\r\n AND CURRENCY_LST.ORG_ID                            = NVL(PO_REQUISITION_LINES_ALL.ORG_ID,-99)\r\n AND PO_HEADERS_ALL.STYLE_ID                        = PO_DOC_STYLE_HEADERS.STYLE_ID(+)"
+    }
+  ],
+  "transformation_logic": [
+    {
+      "transformation": "LOC_TO_DOC",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "LOC_TO_DOC_EXCH_RATE_VAR",
+          "expression": "IIF(ISNULL(EXT_DOC_TO_LOC_EXCH_RATE) OR EXT_DOC_TO_LOC_EXCH_RATE = 0, NULL, 1/EXT_DOC_TO_LOC_EXCH_RATE)"
+        },
+        {
+          "port": "EXT_UNIT_LOC_STD_COST_OUT",
+          "expression": "EXT_UNIT_LOC_STD_COST * LOC_TO_DOC_EXCH_RATE_VAR"
+        },
+        {
+          "port": "EXT_STD_COST_LOC_AMT_OUT",
+          "expression": "EXT_STD_COST_LOC_AMT * LOC_TO_DOC_EXCH_RATE_VAR"
+        }
+      ],
+      "mapplet": null
+    },
+    {
+      "transformation": "Exp_W_PURCH_RQSTN_LINE_FS_Integration_Id",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "STATUS_ID_OUT",
+          "expression": "LTRIM(RTRIM(STATUS_ID)) || '~' || LTRIM(RTRIM(CLOSED_CODE))"
+        },
+        {
+          "port": "SUBMITTED_ON_DT",
+          "expression": "CREATED_ON_DT"
+        },
+        {
+          "port": "LINE_DOC_AMT",
+          "expression": "IIF(MATCHING_BASIS='AMOUNT', AMOUNT, UNIT_DOC_PRICE  *  QUANTITY)"
+        },
+        {
+          "port": "DELETE_FLAG",
+          "expression": "'N'"
+        },
+        {
+          "port": "INTEGRATION_ID",
+          "expression": "TO_CHAR(REQUISITION_LINE_ID)"
+        },
+        {
+          "port": "DATASOURCE_NUM_ID",
+          "expression": "$$DATASOURCE_NUM_ID"
+        },
+        {
+          "port": "TENANT_ID",
+          "expression": "IIF(ISNULL(INP_TENANT_ID),$$TENANT_ID,INP_TENANT_ID)"
+        },
+        {
+          "port": "CANCELLED_LINE_AMT",
+          "expression": "IIF(MATCHING_BASIS='AMOUNT', NULL, UNIT_DOC_PRICE  *  CANCELLED_LINE_QTY)"
+        }
+      ],
+      "mapplet": null
+    },
+    {
+      "transformation": "X_CUSTOM",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "EXT_PORL_ATTRIBUTE15",
+          "expression": "IIF(ISNULL(PORL_ATTRIBUTE15) OR PORL_ATTRIBUTE15='PRISM','0',PORL_ATTRIBUTE15)"
+        }
+      ],
+      "mapplet": null
+    },
+    {
+      "transformation": "LKP_W_EXCH_RATE",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup Sql Override": "SELECT\n     W_EXCH_RATE_G.EXCH_RATE AS EXCH_RATE,\n     W_EXCH_RATE_G.FROM_CURCY_CD AS FROM_CURCY_CD,\n     W_EXCH_RATE_G.TO_CURCY_CD AS TO_CURCY_CD,\n     W_EXCH_RATE_G.START_DT AS START_DT,\n     W_EXCH_RATE_G.END_DT AS END_DT,\n     W_EXCH_RATE_G.RATE_TYPE AS RATE_TYPE,\n     W_EXCH_RATE_G.DATASOURCE_NUM_ID AS DATASOURCE_NUM_ID\nFROM\n     W_EXCH_RATE_G",
+        "Lookup table name": "W_EXCH_RATE_G",
+        "Lookup condition": "FROM_CURCY_CD = IN_FROM_CURCY_CD AND TO_CURCY_CD = IN_TO_CURCY_CD AND START_DT <= IN_EXCH_DT AND END_DT > IN_EXCH_DT AND RATE_TYPE = IN_RATE_TYPE AND DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_CURCY_CONVERSION_RATES_All"
+    },
+    {
+      "transformation": "EXPT_CALC_EXCH_RATES",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "LOC_RATE_TYPE_VAR",
+          "expression": "IIF(ISNULL(LOC_RATE_TYPE), DEFAULT_LOC_RATE_TYPE, LOC_RATE_TYPE)"
+        },
+        {
+          "port": "DOC_TO_LOC_EXCH_RATE_VAR",
+          "expression": "IIF(ISNULL(DOC_TO_LOC_EXCH_RATE),\nIIF(LOC_CURR_CODE = DOC_CURR_CODE, 1.0, \nIIF(DOC_CURR_CODE = 'STAT', 1.0,\nIIF(ISNULL(LOC_CURR_CODE), NULL, :LKP.LKP_W_EXCH_RATE(DOC_CURR_CODE,LOC_CURR_CODE,EXCH_DT,LOC_RATE_TYPE_VAR,DATASOURCE_NUM_ID)))),\nDOC_TO_LOC_EXCH_RATE)\n\n"
+        },
+        {
+          "port": "DOC_TO_GLOBAL1_EXCH_RATE_VAR",
+          "expression": "IIF(ISNULL(GLOBAL1_CURR_CODE), NULL,\nIIF(GLOBAL1_CURR_CODE = DOC_CURR_CODE, 1.0,  \nIIF(DOC_CURR_CODE = 'STAT', 1.0,\nIIF(GLOBAL1_CURR_CODE = LOC_CURR_CODE, DOC_TO_LOC_EXCH_RATE_VAR,\n:LKP.LKP_W_EXCH_RATE(DOC_CURR_CODE, GLOBAL1_CURR_CODE, EXCH_DT,GLOBAL1_RATE_TYPE, DATASOURCE_NUM_ID)))))"
+        },
+        {
+          "port": "DOC_TO_GLOBAL2_EXCH_RATE_VAR",
+          "expression": "IIF(ISNULL(GLOBAL2_CURR_CODE), NULL,\nIIF(GLOBAL2_CURR_CODE = GLOBAL1_CURR_CODE, IIF(GLOBAL1_RATE_TYPE = GLOBAL2_RATE_TYPE , DOC_TO_GLOBAL1_EXCH_RATE_VAR,:LKP.LKP_W_EXCH_RATE(DOC_CURR_CODE, GLOBAL2_CURR_CODE, EXCH_DT,GLOBAL2_RATE_TYPE, DATASOURCE_NUM_ID)),\nIIF(GLOBAL2_CURR_CODE = DOC_CURR_CODE, 1.0, \nIIF(DOC_CURR_CODE = 'STAT', 1.0, \nIIF(GLOBAL2_CURR_CODE = LOC_CURR_CODE, DOC_TO_LOC_EXCH_RATE_VAR,\n:LKP.LKP_W_EXCH_RATE(DOC_CURR_CODE, GLOBAL2_CURR_CODE, EXCH_DT,GLOBAL2_RATE_TYPE, DATASOURCE_NUM_ID))))))"
+        },
+        {
+          "port": "DOC_TO_GLOBAL3_EXCH_RATE_VAR",
+          "expression": "IIF(ISNULL(GLOBAL3_CURR_CODE), NULL,\nIIF(GLOBAL3_CURR_CODE = GLOBAL1_CURR_CODE, IIF(GLOBAL3_RATE_TYPE = GLOBAL1_RATE_TYPE , DOC_TO_GLOBAL1_EXCH_RATE_VAR,:LKP.LKP_W_EXCH_RATE(DOC_CURR_CODE, GLOBAL3_CURR_CODE, EXCH_DT,GLOBAL3_RATE_TYPE, DATASOURCE_NUM_ID)),\nIIF(GLOBAL3_CURR_CODE = GLOBAL2_CURR_CODE, IIF(GLOBAL3_RATE_TYPE = GLOBAL2_RATE_TYPE , DOC_TO_GLOBAL2_EXCH_RATE_VAR,:LKP.LKP_W_EXCH_RATE(DOC_CURR_CODE, GLOBAL3_CURR_CODE, EXCH_DT,GLOBAL3_RATE_TYPE, DATASOURCE_NUM_ID)),\nIIF(GLOBAL3_CURR_CODE = DOC_CURR_CODE, 1.0, \nIIF(DOC_CURR_CODE = 'STAT', 1.0,  \nIIF(GLOBAL3_CURR_CODE = LOC_CURR_CODE, DOC_TO_LOC_EXCH_RATE_VAR,\n:LKP.LKP_W_EXCH_RATE(DOC_CURR_CODE, GLOBAL3_CURR_CODE, EXCH_DT,GLOBAL3_RATE_TYPE, DATASOURCE_NUM_ID)))))))"
+        },
+        {
+          "port": "DOC_TO_LOC_EXCH_RATE_OUT",
+          "expression": "DOC_TO_LOC_EXCH_RATE_VAR"
+        },
+        {
+          "port": "DOC_TO_GLOBAL1_EXCH_RATE_OUT",
+          "expression": "DOC_TO_GLOBAL1_EXCH_RATE_VAR"
+        },
+        {
+          "port": "DOC_TO_GLOBAL2_EXCH_RATE_OUT",
+          "expression": "DOC_TO_GLOBAL2_EXCH_RATE_VAR"
+        },
+        {
+          "port": "DOC_TO_GLOBAL3_EXCH_RATE_OUT",
+          "expression": "DOC_TO_GLOBAL3_EXCH_RATE_VAR"
+        }
+      ],
+      "mapplet": "MPLT_CURCY_CONVERSION_RATES_All"
+    },
+    {
+      "transformation": "EXP_EXCH_RATES_VALIDATE",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "TENANT_ID_OUT",
+          "expression": "IIF(ISNULL(TENANT_ID_IN), 'DEFAULT', TENANT_ID_IN)"
+        }
+      ],
+      "mapplet": "MPLT_CURCY_CONVERSION_RATES_All"
+    },
+    {
+      "transformation": "GET_GLOBAL_CURR_CODES_AND_RATE_TYPES",
+      "type": "Lookup Procedure",
+      "attributes": {
+        "Lookup table name": "W_GLOBAL_CURR_G",
+        "Lookup condition": "DATASOURCE_NUM_ID = IN_DATASOURCE_NUM_ID AND TENANT_ID = IN_TENANT_ID",
+        "Update Dynamic Cache Condition": "TRUE",
+        "Insert Else Update": "NO",
+        "Update Else Insert": "NO"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "MPLT_CURCY_CONVERSION_RATES_All"
+    },
+    {
+      "transformation": "EXP_BCI_PURCH_RQLNS",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "TO_PERSON_ID_OUT",
+          "expression": "TO_CHAR(TO_PERSON_ID_IN)"
+        },
+        {
+          "port": "VENDOR_SITE_ID_OUT",
+          "expression": "TO_CHAR(VENDOR_SITE_ID_IN)"
+        },
+        {
+          "port": "ITEM_ID_OUT",
+          "expression": "TO_CHAR(ITEM_ID_IN)"
+        },
+        {
+          "port": "CLOSED_CODE",
+          "expression": "IIF(ISNULL(INP_CLOSED_CODE), \n   IIF(INP_CANCEL_FLAG='Y', \n      'OPEN~CANCELLED',\n      'OPEN~OPEN'),\n   IIF(INP_CANCEL_FLAG='Y', \n      INP_CLOSED_CODE||'~CANCELLED',\n      INP_CLOSED_CODE|| '~'  ||INP_CLOSED_CODE)\n)"
+        },
+        {
+          "port": "DELIVER_TO_LOCATION_ID_OUT",
+          "expression": "TO_CHAR(DELIVER_TO_LOCATION_ID_IN)"
+        },
+        {
+          "port": "ORG_ID_OUT",
+          "expression": "TO_CHAR(ORG_ID_IN)"
+        },
+        {
+          "port": "CREATED_BY_OUT",
+          "expression": "TO_CHAR(CREATED_BY_IN)"
+        },
+        {
+          "port": "LAST_UPDATED_BY_OUT",
+          "expression": "TO_CHAR(LAST_UPDATED_BY_IN)"
+        },
+        {
+          "port": "DESTINATION_ORGANIZATION_ID_OUT",
+          "expression": "TO_CHAR(DESTINATION_ORGANIZATION_ID)"
+        },
+        {
+          "port": "VENDOR_ID_OUT",
+          "expression": "TO_CHAR(VENDOR_ID)"
+        },
+        {
+          "port": "OUT_CANCEL_FLAG",
+          "expression": "INP_CANCEL_FLAG"
+        },
+        {
+          "port": "PO_CREATION_METHOD_ID_OUT",
+          "expression": "'PURCH_RQLNS~'||INP_PO_CREATION_METHOD_ID"
+        },
+        {
+          "port": "APPLICABLE_FLAG",
+          "expression": "IIF(\n\tIIF(ISNULL(MODIFIED_BY_AGENT_FLAG), 'N', MODIFIED_BY_AGENT_FLAG) = 'Y'  \n     OR \n      IIF(ISNULL(INP_CANCEL_FLAG), 'N', INP_CANCEL_FLAG) = 'Y'\n     OR \n     IIF(ISNULL(AUTHORIZATION_STATUS),'999',AUTHORIZATION_STATUS) = 'CANCELLED' \n     OR \n    TYPE_LOOKUP_CODE = 'INTERNAL',\n      'N',\n      'Y'\n     )"
+        },
+        {
+          "port": "REQ_APPROVED_FLAG",
+          "expression": "IIF( \n        IIF(ISNULL(MODIFIED_BY_AGENT_FLAG),'N',MODIFIED_BY_AGENT_FLAG ) ='N'\n        AND\n       IIF(ISNULL(INP_CANCEL_FLAG),'N',INP_CANCEL_FLAG)='N'\n       AND\n      TYPE_LOOKUP_CODE != 'INTERNAL'\n      AND\n       IIF(ISNULL(AUTHORIZATION_STATUS), '999', AUTHORIZATION_STATUS)\n              ='APPROVED'\n       AND \n       NOT ISNULL(APPROVAL_DT)\n        , 'Y'\n       , 'N'\n       )"
+        },
+        {
+          "port": "FULFILLMENT_TRACKING_FLG",
+          "expression": "IIF(\n      IIF(ISNULL(INP_LINE_LOCATION_ID_PO), MATCHING_BASIS, INP_MATCHING_BASIS_PO) = 'AMOUNT' --Amt based\n     OR\n      IIF(ISNULL(INP_CONSIGNED_FLAG), 'N', INP_CONSIGNED_FLAG) ='Y' --Consigned Flag\n     OR\n     IIF(ISNULL(INP_VMI_FLAG),'N',INP_VMI_FLAG) ='Y'  --VMI Flag\n     OR\n     IIF(ISNULL(INP_PROGRESS_PAYMENT_FLAG),'N',INP_PROGRESS_PAYMENT_FLAG) = 'Y'    --CWP\n     ,'N'\n     ,'Y'\n     )"
+        },
+        {
+          "port": "SOURCING_FLG",
+          "expression": "IIF( ISNULL(INP_LINE_LOCATION_ID),\n\t\tIIF(INP_AT_SOURCING_FLAG ='Y'\n       \t\tOR\n            \t\t (INP_REQS_IN_POOL_FLAG='Y'\n              \tAND IIF(ISNULL(INP_ON_RFQ_FLAG),'N' ,INP_ON_RFQ_FLAG) ='Y'\n               AND ISNULL(INP_AUCTION_HEADER_ID))\n     \t\t  ,'Y'\n       ,IIF(INP_REQS_IN_POOL_FLAG='Y','N','P')\n      \t), NULL)"
+        },
+        {
+          "port": "RECEIVED_ON_DT",
+          "expression": "IIF(IIF(ISNULL(INP_APPROVED_FLAG),'N',INP_APPROVED_FLAG) = 'Y'\n     ,IIF(\n              IIF(ISNULL(INP_RECEIPT_REQUIRED_FLAG), 'N',  INP_RECEIPT_REQUIRED_FLAG) ='N'\n              AND\n              IIF(ISNULL(INP_INSPECTION_REQUIRED_FLAG), 'N', INP_INSPECTION_REQUIRED_FLAG) ='N'\n              ,LEAST(IIF(ISNULL(INP_SHIPMENT_CLOSED_DATE)\n                                       ,INP_CLOSED_FOR_INVOICE_DATE\n                                       ,INP_SHIPMENT_CLOSED_DATE)\n                               , INP_CLOSED_FOR_INVOICE_DATE)\n             ,LEAST(IIF(ISNULL(INP_SHIPMENT_CLOSED_DATE)\n                                       ,INP_CLOSED_FOR_RECEIVING_DATE\n                                       ,INP_SHIPMENT_CLOSED_DATE)\n                              , INP_CLOSED_FOR_RECEIVING_DATE)\n             )\n       )"
+        },
+        {
+          "port": "OUT_RECEIVED_ON_DT",
+          "expression": "RECEIVED_ON_DT"
+        },
+        {
+          "port": "FULFILLMENT_STATUS_ID_V",
+          "expression": "'PURCH_RQLNS~FULFILLMENT~'||\n--Not applicable\nIIF(APPLICABLE_FLAG='N'\n       ,'NOT_APPLICABLE'\n       --UnApproved\n      ,IIF(REQ_APPROVED_FLAG='N'\n              AND APPLICABLE_FLAG='Y'\n              ,'UNAPPROVED~NOT_APPLICABLE'\n             --Approved, Unprocessed\n             ,IIF(REQ_APPROVED_FLAG='Y' AND ISNULL(PO_APPROVED_ON_DT)\n                     ,'UNPROCESSED~'||\n                                                                 IIF(ISNULL(CREATION_DATE1) AND SOURCING_FLG != 'P'\n                       \t                                            ,IIF(SOURCING_FLG = 'N','PENDING_BUYER_WORKBENCH','PENDING_SOURCING')\n                                                                     ,IIF(ISNULL(PO_SUBMIT_ON_DT) ,'PENDING_BUYER_SUBMIT'\n                                                                 ,IIF(ISNULL(PO_APPROVED_ON_DT),'PENDING_PO_APPROVAL')\n                                                                      )\n                                                                 )\n                    ,IIF(REQ_APPROVED_FLAG ='Y' AND NOT(ISNULL(PO_APPROVED_ON_DT)) --Processed\n                    ,IIF(FULFILLMENT_TRACKING_FLG = 'Y'\n                        ,IIF(ISNULL(RECEIVED_ON_DT),'UNFULFILLED~FULFILLMENT_TRACKED','FULFILLED~NOT_APPLICABLE')           \n                        ,'UNFULFILLED~FULFILLMENT_NOT_TRACKED'\n                        )\n                    ,'NOT_APPLICABLE'\n                    )\n                    \n                    )\n             )\n\n)"
+        },
+        {
+          "port": "FULFILLMENT_STATUS_ID",
+          "expression": "IIF (INP_CLOSED_CODE = 'FINALLY CLOSED',\n IIF(FULFILLMENT_STATUS_ID_V = 'PURCH_RQLNS~FULFILLMENT~FULFILLED~NOT_APPLICABLE',FULFILLMENT_STATUS_ID_V,'PURCH_RQLNS~FULFILLMENT~NOT_APPLICABLE'), FULFILLMENT_STATUS_ID_V)"
+        },
+        {
+          "port": "POLL_RCPT_FLG",
+          "expression": "INP_RECEIPT_REQUIRED_FLAG"
+        }
+      ],
+      "mapplet": "mplt_BC_ORA_PurchaseRequisitionLinesFact"
+    },
+    {
+      "transformation": "SQ_BCI_PURCH_RQLNS",
+      "type": "Source Qualifier",
+      "attributes": {
+        "Sql Query": "WITH CURRENCY_LST AS\n     (SELECT NVL(FSP.ORG_ID, -99) ORG_ID,\n             GSB.CURRENCY_CODE\n     FROM    FINANCIALS_SYSTEM_PARAMS_ALL FSP,\n             GL_SETS_OF_BOOKS GSB\n     WHERE   FSP.SET_OF_BOOKS_ID = GSB.SET_OF_BOOKS_ID\n     )\n     ,\n     PR_DATE AS\n     (SELECT  PO_ACTION_HISTORY.OBJECT_ID,\n              MAX(\n                       CASE\n                                WHEN PO_ACTION_HISTORY.ACTION_CODE = 'APPROVE'\n                                THEN PO_ACTION_HISTORY.LAST_UPDATE_DATE\n                       END) LAST_APPROVED_DATE,\n              MIN(\n                       CASE\n                                WHEN PO_ACTION_HISTORY.ACTION_CODE = 'SUBMIT'\n                                THEN PO_ACTION_HISTORY.LAST_UPDATE_DATE\n                                WHEN PO_ACTION_HISTORY.ACTION_CODE = 'IMPORT'\n                                THEN PO_ACTION_HISTORY.LAST_UPDATE_DATE\n                       END) LAST_SUBMIT_DATE\n     FROM     PO_ACTION_HISTORY\n     WHERE    PO_ACTION_HISTORY.OBJECT_TYPE_CODE = 'REQUISITION'\n     AND      PO_ACTION_HISTORY.ACTION_CODE IN ('APPROVE',\n                                                'SUBMIT' ,\n                                                'IMPORT')\n     GROUP BY OBJECT_ID\n     )\nSELECT\n        PO_REQUISITION_LINES_ALL.TO_PERSON_ID                                            ,\n       PO_REQUISITION_LINES_ALL.VENDOR_SITE_ID                                          ,\n       PO_REQUISITION_LINES_ALL.ITEM_ID                                                 ,\n       PO_REQUISITION_HEADERS_ALL.AUTHORIZATION_STATUS                                  ,\n       PO_REQUISITION_LINES_ALL.CLOSED_CODE                                             ,\n       PO_REQUISITION_HEADERS_ALL.TYPE_LOOKUP_CODE                                      ,\n       PO_REQUISITION_LINES_ALL.DELIVER_TO_LOCATION_ID                                  ,\n       PO_REQUISITION_LINES_ALL.ORG_ID                                                  ,\n       PO_REQUISITION_LINES_ALL.CREATED_BY                                              ,\n       PO_REQUISITION_LINES_ALL.LAST_UPDATED_BY                                         ,\n       PO_LINE_LOCATIONS_ALL.CREATION_DATE    as CREATION_DATE1                                          ,\n       NVL(PO_LINE_LOCATIONS_ALL.PROMISED_DATE, NVL(PO_LINE_LOCATIONS_ALL.NEED_BY_DATE, PO_REQUISITION_LINES_ALL.NEED_BY_DATE)) AS NEED_BY_DATE        ,\n       PO_REQUISITION_LINES_ALL.CREATION_DATE                          AS CREATION_DATE,\n       PO_REQUISITION_LINES_ALL.LAST_UPDATE_DATE                                        ,\n       PO_REQUISITION_LINES_ALL.QUANTITY                                                ,\n       NVL(PO_REQUISITION_LINES_ALL.CURRENCY_UNIT_PRICE, PO_REQUISITION_LINES_ALL.UNIT_PRICE) UNIT_PRICE                                         ,\n       PO_REQUISITION_LINES_ALL.UNIT_MEAS_LOOKUP_CODE                                   ,\n       NVL(PO_REQUISITION_LINES_ALL.CURRENCY_CODE, CURRENCY_LST.CURRENCY_CODE) AS PR_DOC_CURR                                                    ,\n       PO_REQUISITION_LINES_ALL.RATE                                                    ,\n       PO_REQUISITION_HEADERS_ALL.SEGMENT1                                              ,\n       PO_REQUISITION_LINES_ALL.LINE_NUM                                                ,\n       PO_REQUISITION_LINES_ALL.ITEM_DESCRIPTION                                        ,\n       PO_REQUISITION_LINES_ALL.REQUISITION_LINE_ID AS INTEGRATION_ID                   ,\n       PO_REQUISITION_LINES_ALL.DESTINATION_ORGANIZATION_ID                             ,\n       PR_DATE.LAST_SUBMIT_DATE                                                  AS SUBMIT_DATE                                          ,\n       NVL(PO_REQUISITION_HEADERS_ALL.APPROVED_DATE, PR_DATE.LAST_APPROVED_DATE)    APPROVAL_DATE                                        ,\n       PO_REQUISITION_LINES_ALL.VENDOR_ID                                       ,\n       PO_REQUISITION_LINES_ALL.CANCEL_FLAG                                     ,\n       PO_REQUISITION_HEADERS_ALL.LAST_UPDATE_DATE AS AUX1_CHANGED_ON_DT         ,\n       PO_LINE_LOCATIONS_ALL.LAST_UPDATE_DATE         AUX2_CHANGED_ON_DT         ,\n       PO_REQUISITION_LINES_ALL.LINE_TYPE_ID                                    ,\n       PO_REQUISITION_LINES_ALL.CATEGORY_ID                                     ,\n       PO_REQUISITION_LINES_ALL.MODIFIED_BY_AGENT_FLAG                          ,\n       PO_REQUISITION_LINES_ALL.MATCHING_BASIS                                  ,\n       PO_REQUISITION_LINES_ALL.AMOUNT                                          ,\n       '0' AS X_CUSTOM ,\n       PO_REQUISITION_LINES_ALL.ON_RFQ_FLAG                                     ,\n       PO_REQUISITION_LINES_ALL.AUCTION_HEADER_ID                               ,\n       PO_REQUISITION_LINES_ALL.REQS_IN_POOL_FLAG                               ,\n       PO_REQUISITION_LINES_ALL.AT_SOURCING_FLAG                                ,\n       PO_REQUISITION_LINES_ALL.URGENT_FLAG                                     ,\n       PO_REQUISITION_LINES_ALL.LINE_LOCATION_ID                                ,\n       PO_LINE_LOCATIONS_ALL.LINE_LOCATION_ID LINE_LOCATION_ID_PO                 ,\n       PO_LINE_LOCATIONS_ALL.APPROVED_FLAG                                      ,\n       PO_LINE_LOCATIONS_ALL.RECEIPT_REQUIRED_FLAG                              ,\n       PO_LINES_ALL.MATCHING_BASIS AS MATCHING_BASIS_PO                           ,\n       PO_LINE_LOCATIONS_ALL.INSPECTION_REQUIRED_FLAG                           ,\n       PO_LINE_LOCATIONS_ALL.SHIPMENT_CLOSED_DATE                               ,\n       PO_LINE_LOCATIONS_ALL.CLOSED_FOR_RECEIVING_DATE                          ,\n       PO_LINE_LOCATIONS_ALL.CLOSED_FOR_INVOICE_DATE                            ,\n       PO_LINE_LOCATIONS_ALL.CONSIGNED_FLAG                                     ,\n       PO_LINE_LOCATIONS_ALL.VMI_FLAG                                           ,\n       PO_DOC_STYLE_HEADERS.PROGRESS_PAYMENT_FLAG                               ,\n       PO_REQUISITION_LINES_ALL.QUANTITY_CANCELLED                              ,\n        DECODE(PO_LINE_LOCATIONS_ALL.APPROVED_FLAG,\n        'Y',\n        PO_LINE_LOCATIONS_ALL.APPROVED_DATE,\n        NULL) PO_APPROVED_ON_DT,\n        DECODE(PO_LINE_LOCATIONS_ALL.PO_RELEASE_ID,\n        NULL,\n        PO_HEADERS_ALL.SUBMIT_DATE,\n        PO_RELEASES_ALL.SUBMIT_DATE) PO_SUBMIT_ON_DT,\n        DECODE(PO_LINE_LOCATIONS_ALL.PO_RELEASE_ID,\n        NULL,\n        PO_HEADERS_ALL.DOCUMENT_CREATION_METHOD,\n        PO_RELEASES_ALL.DOCUMENT_CREATION_METHOD) PO_CREATION_METHOD_ID,\n        DECODE(PO_LINE_LOCATIONS_ALL.PO_RELEASE_ID,\n        NULL,\n        PO_HEADERS_ALL.REVISION_NUM,\n        PO_RELEASES_ALL.REVISION_NUM) PO_REVISIONS,\n\tPO_HEADERS_ALL.RATE_TYPE,\nPO_HEADERS_ALL.ATTRIBUTE1,\n       PO_HEADERS_ALL.ATTRIBUTE2,\n       PO_HEADERS_ALL.ATTRIBUTE3,\n       PO_HEADERS_ALL.ATTRIBUTE4,\n       PO_HEADERS_ALL.ATTRIBUTE5,\n       PO_HEADERS_ALL.ATTRIBUTE6,\n       PO_HEADERS_ALL.ATTRIBUTE7,\n       PO_HEADERS_ALL.ATTRIBUTE8,\n       PO_HEADERS_ALL.ATTRIBUTE9,\n       PO_HEADERS_ALL.ATTRIBUTE10,\n       PO_HEADERS_ALL.ATTRIBUTE11,\n       PO_HEADERS_ALL.ATTRIBUTE12,\n       PO_HEADERS_ALL.ATTRIBUTE13,\n       PO_HEADERS_ALL.ATTRIBUTE14,\n       PO_HEADERS_ALL.ATTRIBUTE15,\n       PO_REQUISITION_HEADERS_ALL.REQUISITION_HEADER_ID,\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE_CATEGORY,\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE1,\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE2,\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE3,\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE4,\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE5,\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE6,\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE7,\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE8,\n       PO_REQUISITION_HEADERS_ALL.ATTRIBUTE11,\n       PO_REQUISITION_HEADERS_ALL.DESCRIPTION, \n       PO_REQUISITION_HEADERS_ALL.CREATION_DATE,\n       PO_REQUISITION_HEADERS_ALL.APPROVED_DATE,\n       PO_REQUISITION_HEADERS_ALL.CLOSED_CODE,\n       PO_REQUISITION_HEADERS_ALL.CANCEL_FLAG,\n       PO_REQUISITION_LINES_ALL.CLOSED_CODE,\n       PO_REQUISITION_LINES_ALL.CLOSED_REASON,\n       PO_REQUISITION_LINES_ALL.CLOSED_DATE,\n      -- PO_REQUISITION_LINES_ALL.CANCEL_FLAG,\n       PO_REQUISITION_LINES_ALL.CANCEL_DATE,\n       PO_REQUISITION_LINES_ALL.CANCEL_REASON,       \n       PO_REQUISITION_LINES_ALL.ENCUMBERED_FLAG,\n       PO_REQUISITION_LINES_ALL.LINE_LOCATION_ID,\n       PO_HEADERS_ALL.CLOSED_CODE,\n       PO_HEADERS_ALL.CANCEL_FLAG,\n       PO_HEADERS_ALL.CLOSED_DATE,\n       PO_HEADERS_ALL.AUTHORIZATION_STATUS,\n       PO_LINES_ALL.UNIT_PRICE,\n       PO_LINES_ALL.ITEM_DESCRIPTION,\n       PO_LINES_ALL.CANCEL_FLAG,\n       PO_LINES_ALL.CLOSED_CODE,\n       PO_HEADERS_ALL.SEGMENT1,\n       PO_HEADERS_ALL.TYPE_LOOKUP_CODE,\n       PO_REQUISITION_HEADERS_ALL.CREATED_BY,\n       PO_REQUISITION_HEADERS_ALL.PREPARER_ID,\n\t   PO_REQUISITION_LINES_ALL.ATTRIBUTE1,\n\t   PO_REQUISITION_LINES_ALL.ATTRIBUTE15,\n\t   PO_RELEASES_ALL.ATTRIBUTE15,\nPO_LINE_LOCATIONS_ALL.ACCRUE_ON_RECEIPT_FLAG\n       FROM \n\t (\n\t    (SELECT\n\t\t    LINES_ALL.ROWID RW\n\t    FROM    PO_REQUISITION_LINES_ALL LINES_ALL,\n\t\t    PO_REQUISITION_HEADERS_ALL HEADERS_ALL\n\t    WHERE   LINES_ALL.REQUISITION_HEADER_ID = HEADERS_ALL.REQUISITION_HEADER_ID\n\t    AND     HEADERS_ALL.LAST_UPDATE_DATE   >= TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\n\t    \n\t    UNION ALL\n\t    \n\t    SELECT\n  \t\t   LINES_ALL.ROWID RW\n\t    FROM   PO_REQUISITION_LINES_ALL LINES_ALL,\n\t\t   PO_REQUISITION_HEADERS_ALL HEADERS_ALL\n\t    WHERE  LINES_ALL.REQUISITION_HEADER_ID = HEADERS_ALL.REQUISITION_HEADER_ID\n\t    AND    HEADERS_ALL.LAST_UPDATE_DATE    < TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\n\t    AND    LINES_ALL.LAST_UPDATE_DATE     >= TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\n\t    )\n\t \n\t UNION\n\t \n\t SELECT\n  \t\tLINES_ALL.ROWID RW\n\t FROM   (\t \n\t \n\t SELECT\n\t        LOCATIONS_ALL.LINE_LOCATION_ID\n\t FROM   PO_LINE_LOCATIONS_ALL LOCATIONS_ALL,\n\t\tPO_RELEASES_ALL\n\t WHERE  LOCATIONS_ALL.PO_RELEASE_ID       = PO_RELEASES_ALL.PO_RELEASE_ID\n\t AND    LOCATIONS_ALL.LAST_UPDATE_DATE    < TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\n\t AND    PO_RELEASES_ALL.LAST_UPDATE_DATE >= TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\n\t \n\t UNION ALL\n\t \n\t SELECT\n\t        LOCATIONS_ALL.LINE_LOCATION_ID\n\t FROM   PO_LINE_LOCATIONS_ALL LOCATIONS_ALL,\n\t\tPO_HEADERS_ALL                     ,\n\t\tPO_LINES_ALL\n\t WHERE  LOCATIONS_ALL.PO_LINE_ID  = PO_LINES_ALL.PO_LINE_ID\n\t AND    PO_LINES_ALL.PO_HEADER_ID = PO_HEADERS_ALL.PO_HEADER_ID\n\t AND\n\t\t(\n\t\t       PO_HEADERS_ALL.LAST_UPDATE_DATE >= TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\n\t\tAND    LOCATIONS_ALL.LAST_UPDATE_DATE   < TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\n\t\t)\n\t \n\t UNION ALL\n\t \n\t SELECT\n\t        LOCATIONS_ALL.LINE_LOCATION_ID\n\t FROM   PO_LINE_LOCATIONS_ALL LOCATIONS_ALL\n\t WHERE  LOCATIONS_ALL.LAST_UPDATE_DATE >= TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\n\t\t)\n\t\tLOCATIONS_TMP,\n\t\tPO_REQUISITION_LINES_ALL LINES_ALL\n\t WHERE  \n\t LINES_ALL.LAST_UPDATE_DATE  < TO_DATE('$$LAST_EXTRACT_DATE','MM/DD/YYYY HH24:MI:SS')\n\t AND   LINES_ALL.LINE_LOCATION_ID = LOCATIONS_TMP.LINE_LOCATION_ID\n\t ) TMP, \n PO_REQUISITION_LINES_ALL, \n PO_LINE_LOCATIONS_ALL, \n PO_RELEASES_ALL, \n PO_LINES_ALL, \n PO_HEADERS_ALL, \n PO_REQUISITION_HEADERS_ALL , \n PR_DATE, \n CURRENCY_LST,\n PO_DOC_STYLE_HEADERS\n WHERE \n PO_REQUISITION_LINES_ALL.LINE_LOCATION_ID = PO_LINE_LOCATIONS_ALL.LINE_LOCATION_ID(+)\n AND PO_REQUISITION_LINES_ALL.REQUISITION_HEADER_ID = PR_DATE.OBJECT_ID(+)\n AND PO_LINE_LOCATIONS_ALL.PO_LINE_ID               = PO_LINES_ALL.PO_LINE_ID(+)\n AND PO_LINE_LOCATIONS_ALL.PO_RELEASE_ID            = PO_RELEASES_ALL.PO_RELEASE_ID(+)\n AND PO_LINES_ALL.PO_HEADER_ID                      = PO_HEADERS_ALL.PO_HEADER_ID(+)\n AND PO_REQUISITION_LINES_ALL.REQUISITION_HEADER_ID = PO_REQUISITION_HEADERS_ALL.REQUISITION_HEADER_ID\n AND PO_REQUISITION_LINES_ALL.ROWID                 = TMP.RW\n AND CURRENCY_LST.ORG_ID                            = NVL(PO_REQUISITION_LINES_ALL.ORG_ID,-99)\n AND PO_HEADERS_ALL.STYLE_ID                        = PO_DOC_STYLE_HEADERS.STYLE_ID(+)"
+      },
+      "group_conditions": [],
+      "port_expressions": [],
+      "mapplet": "mplt_BC_ORA_PurchaseRequisitionLinesFact"
+    },
+    {
+      "transformation": "EXP_TEST_VERIFY_TRIM_DESCRIPTION",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "OUT_ITEM_DESCRIPTION_TRIMMED",
+          "expression": "TRIM(IN_ITEM_DESCRIPTION)"
+        }
+      ],
+      "mapplet": "mplt_BC_ORA_PurchaseRequisitionLinesFact"
+    },
+    {
+      "transformation": "EXP_SAI_PURCH_RQLNS",
+      "type": "Expression",
+      "attributes": {},
+      "group_conditions": [],
+      "port_expressions": [
+        {
+          "port": "EXT_DOC_TO_LOC_XRATE",
+          "expression": "INP_RATE"
+        },
+        {
+          "port": "EXT_REQUESTOR_ID",
+          "expression": "INP_REQUESTOR_ID"
+        },
+        {
+          "port": "EXT_SUPPLIER_ID",
+          "expression": "TO_CHAR(INP_SUPPLIER_ID)"
+        },
+        {
+          "port": "EXT_COST_CENTER_ID",
+          "expression": "INP_COST_CENTER_ID"
+        },
+        {
+          "port": "EXT_PRODUCT_ID",
+          "expression": "IIF(ISNULL(INP_PRODUCT_ID), 'NONINVENTORY~'|| TO_CHAR(CATEGORY_ID), INP_PRODUCT_ID)"
+        },
+        {
+          "port": "EXT_MFG_PROD_ID",
+          "expression": "INP_MFG_PROD_ID || '~' || TO_CHAR(INP_DESTINATION_ORG_ID)"
+        },
+        {
+          "port": "EXT_SUPPLIER_PROD_ID1",
+          "expression": "INP_PRODUCT_ID||'~'||INP_SUPPLIER_ID||'~L~' ||TO_CHAR(INP_DESTINATION_ORG_ID)||'~'||INP_VENDOR_SITE_ID"
+        },
+        {
+          "port": "EXT_SUPPLIER_PROD_ID2",
+          "expression": "INP_PRODUCT_ID||'~'||INP_SUPPLIER_ID||'~L~' ||TO_CHAR(INP_DESTINATION_ORG_ID)||'~'"
+        },
+        {
+          "port": "EXT_SUPPLIER_PROD_ID3",
+          "expression": "INP_PRODUCT_ID||'~'||INP_SUPPLIER_ID||'~G~' ||TO_CHAR(INP_RQSN_ORG_ID)||'~'||INP_VENDOR_SITE_ID"
+        },
+        {
+          "port": "EXT_SUPPLIER_PROD_ID4",
+          "expression": "INP_PRODUCT_ID||'~'||INP_SUPPLIER_ID||'~G~' ||TO_CHAR(INP_RQSN_ORG_ID)||'~'"
+        },
+        {
+          "port": "VAR_ITEM_VEND_ORG_SITE",
+          "expression": "TO_CHAR(INP_PRODUCT_ID) || '~' ||  TO_CHAR(INP_SUPPLIER_ID) || '~' || TO_CHAR(INP_DESTINATION_ORG_ID) || '~' || TO_CHAR(INP_VENDOR_SITE_ID)"
+        },
+        {
+          "port": "VAR_ITEM_VEND_ORG",
+          "expression": "TO_CHAR(INP_PRODUCT_ID) || '~' ||  TO_CHAR(INP_SUPPLIER_ID )|| '~' || TO_CHAR(INP_DESTINATION_ORG_ID)|| '~'\n"
+        },
+        {
+          "port": "EXT_APPROVE_STATUS_ID",
+          "expression": "IIF(ISNULL(INP_APPROVE_STATUS_ID), 'PURCH_APPROVE~INCOMPLETE',\n'PURCH_APPROVE~' || INP_APPROVE_STATUS_ID)"
+        },
+        {
+          "port": "EXT_CYCLE_STATUS_ID",
+          "expression": "IIF(ISNULL(INP_CYCLE_STATUS_ID), 'PURCH_CYCLE~OPEN~OPEN',\n'PURCH_CYCLE' || '~' || INP_CYCLE_STATUS_ID)"
+        },
+        {
+          "port": "EXT_XACT_TYPE_ID",
+          "expression": "'PURCH_RQLNS'||'~'||'REQUISITION'||'~'|| INP_XACT_TYPE_ID||'~'|| TO_CHAR(INP_RQSN_ORG_ID)\n"
+        },
+        {
+          "port": "EXT_LINE_TYPE_ID",
+          "expression": "'PO_LINE_TYPE'||'~'|| TO_CHAR(TO_INTEGER(INP_LINE_TYPE_ID))\n"
+        },
+        {
+          "port": "EXT_PLANT_LOC_ID",
+          "expression": "'PLANT~' || TO_CHAR(INP_DESTINATION_ORG_ID)"
+        },
+        {
+          "port": "EXT_STORAGE_LOC_ID",
+          "expression": "INP_STORAGE_LOC_ID"
+        },
+        {
+          "port": "EXT_REJECT_FLG",
+          "expression": "INP_REJECT_FLG"
+        },
+        {
+          "port": "EXT_LOC_EXCH_RATE_TYPE",
+          "expression": "INP_LOC_EXCH_RATE_TYPE"
+        },
+        {
+          "port": "EXT_INVENTORY_ORG_ID",
+          "expression": "TO_CHAR(INP_DESTINATION_ORG_ID)"
+        },
+        {
+          "port": "EXT_OPERATING_UNIT_ORG_ID",
+          "expression": "TO_CHAR(INP_RQSN_ORG_ID)"
+        },
+        {
+          "port": "EXT_RCPT_LOC_ID",
+          "expression": "'RECIPIENT_LOC' || '~' || INP_RCPT_LOC_ID"
+        },
+        {
+          "port": "EXT_RQSN_ORG_ID",
+          "expression": "INP_RQSN_ORG_ID"
+        },
+        {
+          "port": "EXT_CREATED_BY_ID",
+          "expression": "INP_CREATED_BY_ID"
+        },
+        {
+          "port": "EXT_CHANGED_BY_ID",
+          "expression": "INP_CHANGED_BY_ID"
+        },
+        {
+          "port": "EXT_SUBMITTED_ON_DT",
+          "expression": "INP_SUBMITTED_ON_DT"
+        },
+        {
+          "port": "EXT_RESUBMITTED_ON_DT",
+          "expression": "INP_RESUBMITTED_ON_DT"
+        },
+        {
+          "port": "EXT_APPROVED_ON_DT",
+          "expression": "INP_APPROVED_ON_DT"
+        },
+        {
+          "port": "EXT_ORDERED_ON_DT",
+          "expression": "INP_ORDERED_ON_DT"
+        },
+        {
+          "port": "EXT_RECEIVED_ON_DT",
+          "expression": "INP_RECEIVED_ON_DT"
+        },
+        {
+          "port": "EXT_HOLD_TILL_DT",
+          "expression": "INP_HOLD_TILL_DT"
+        },
+        {
+          "port": "EXT_NEEDED_BY_DT",
+          "expression": "INP_NEEDED_BY_DT"
+        },
+        {
+          "port": "EXT_DUE_ON_DT",
+          "expression": "INP_DUE_ON_DT"
+        },
+        {
+          "port": "EXT_CREATED_ON_DT",
+          "expression": "INP_CREATED_ON_DT"
+        },
+        {
+          "port": "EXT_CHANGED_ON_DT",
+          "expression": "INP_CHANGED_ON_DT"
+        },
+        {
+          "port": "EXT_QUANTITY",
+          "expression": "INP_QUANTITY"
+        },
+        {
+          "port": "VAR_STD_COST_ID",
+          "expression": "TO_CHAR(INP_PRODUCT_ID) || '~' ||\nTO_CHAR(INP_DESTINATION_ORG_ID)"
+        },
+        {
+          "port": "EXT_STD_COST_ID",
+          "expression": "VAR_STD_COST_ID"
+        },
+        {
+          "port": "VAR_UNIT_STD_COST",
+          "expression": ":LKP.LKP_STD_COST(VAR_STD_COST_ID,INP_DATASOURCE_NUM_ID,INP_CREATED_ON_DT)"
+        },
+        {
+          "port": "EXT_UNIT_STD_COST",
+          "expression": "VAR_UNIT_STD_COST"
+        },
+        {
+          "port": "EXT_UNIT_PRICE",
+          "expression": "INP_UNIT_DOC_PRICE"
+        },
+        {
+          "port": "EXT_LINE_AMT",
+          "expression": "INP_LINE_DOC_AMT"
+        },
+        {
+          "port": "EXT_STD_COST_AMT",
+          "expression": "VAR_UNIT_STD_COST*INP_QUANTITY"
+        },
+        {
+          "port": "EXT_UOM_CODE",
+          "expression": ":LKP.LKP_UOM_CODE(INP_UOM_CODE ) "
+        },
+        {
+          "port": "EXT_DOC_CURR_CODE",
+          "expression": "INP_DOC_CURR_CODE"
+        },
+        {
+          "port": "VAR_SETS_OF_BOOK_ID",
+          "expression": ":LKP.LKP_STAGE_ORGS_COMPANY(to_char(INP_DESTINATION_ORG_ID),INP_DATASOURCE_NUM_ID)"
+        },
+        {
+          "port": "EXT_LOC_CURR_CODE",
+          "expression": ":LKP.LKP_LOC_CURRENCY(VAR_SETS_OF_BOOK_ID,INP_DATASOURCE_NUM_ID)"
+        },
+        {
+          "port": "EXT_PURCH_RQSN_NUM",
+          "expression": "INP_PURCH_RQSN_NUM"
+        },
+        {
+          "port": "EXT_PURCH_RQSN_ITEM",
+          "expression": "INP_PURCH_RQSN_ITEM"
+        },
+        {
+          "port": "EXT_LINE_TEXT",
+          "expression": "INP_LINE_TEXT"
+        },
+        {
+          "port": "EXT_DELIVER_TO_NAME",
+          "expression": "INP_DELIVER_TO_NAME"
+        },
+        {
+          "port": "EXT_SPLR_CATALOG_IND",
+          "expression": "INP_SPLR_CATALOG_IND"
+        },
+        {
+          "port": "EXT_DELETE_FLAG",
+          "expression": " IIF(ISNULL(INP_INTEGRATION_ID) AND ISNULL(INP_DATASOURCE_NUM_ID) ,'Y' ,IIF(INP_MODIFIED_BY_AGENT_FLAG='Y','Y', 'N'))"
+        },
+        {
+          "port": "EXT_INTEGRATION_ID",
+          "expression": "INP_INTEGRATION_ID"
+        },
+        {
+          "port": "EXT_EXCHANGE_DT",
+          "expression": "INP_CREATED_ON_DT"
+        },
+        {
+          "port": "EXT_DATASOURCE_NUM_ID",
+          "expression": "INP_DATASOURCE_NUM_ID"
+        },
+        {
+          "port": "EXT_AUX1_CHANGED_ON_DT",
+          "expression": "INP_AUX1_CHANGED_ON_DT"
+        },
+        {
+          "port": "EXT_AUX2_CHANGED_ON_DT",
+          "expression": "INP_AUX2_CHANGED_ON_DT"
+        },
+        {
+          "port": "EXT_AUX3_CHANGED_ON_DT",
+          "expression": "INP_AUX3_CHANGED_ON_DT"
+        },
+        {
+          "port": "EXT_AUX4_CHANGED_ON_DT",
+          "expression": "INP_AUX4_CHANGED_ON_DT"
+        },
+        {
+          "port": "EXT_TENANT_ID",
+          "expression": "INP_TENANT_ID"
+        },
+        {
+          "port": "EXT_X_CUSTOM",
+          "expression": "INP_X_CUSTOM"
+        },
+        {
+          "port": "EXT_SUPPLIER_ACCOUNT_ID",
+          "expression": "TO_CHAR(INP_VENDOR_SITE_ID)"
+        },
+        {
+          "port": "EXT_CANCELLED_LINE_QTY",
+          "expression": "INP_CANCELLED_LINE_QTY"
+        },
+        {
+          "port": "EXT_CANCELLED_LINE_AMT",
+          "expression": "INP_CANCELLED_LINE_AMT"
+        },
+        {
+          "port": "EXT_URGENT_FLAG",
+          "expression": "INP_URGENT_FLAG"
+        },
+        {
+          "port": "EXT_PO_CREATION_METHOD_ID",
+          "expression": "INP_PO_CREATION_METHOD_ID"
+        },
+        {
+          "port": "EXT_PO_REVISIONS",
+          "expression": "INP_PO_REVISIONS"
+        },
+        {
+          "port": "EXT_PO_SUBMIT_ON_DT",
+          "expression": "INP_PO_SUBMIT_ON_DT"
+        },
+        {
+          "port": "EXT_PO_APPROVED_ON_DT",
+          "expression": "INP_PO_APPROVED_ON_DT"
+        },
+        {
+          "port": "EXT_FULFILLMENT_STATUS_ID",
+          "expression": "INP_FULFILLMENT_STATUS_ID"
+        }
+      ],
+      "mapplet": "mplt_SA_ORA_PurchaseRequisitionLinesFact"
+    }
+  ],
   "source_file_hash": "c0b318eb5da79f45882bb327cc4fd4766167ae12bc818781026a7ccf86319eac",
-  "schema_version": 3
+  "schema_version": 5
 }

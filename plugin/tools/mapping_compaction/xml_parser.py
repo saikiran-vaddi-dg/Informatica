@@ -130,7 +130,7 @@ def _parse_session_partition_overrides(folder: ET.Element, mapping_name: str) ->
                         session_name=session_name,
                         instance_name=instance_name,
                         transformation_type=transformation_type,
-                        partition_name="",
+                        partition_name=attr.get("PARTITIONNAME", ""),
                         attribute_name=attr.get("NAME", ""),
                         attribute_value=value,
                     )
