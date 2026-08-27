@@ -23,6 +23,11 @@ dataflow:
 parameter_defaults:
   resolution: default
   overrides: {}
+  $$GTAS_FISCAL_YR_PSC_EXT: "2026"
+    $$GTAS_FISCAL_YR_CDC_EXT: "2026"
+    $$GTAS_FISCAL_YR_FDA_EXT: "2026"
+    $$GTAS_FISCAL_YR_IHS_EXT: "2026"
+    $$DATASOURCE_NUM_ID: "4"
     # $$DATA_ACT_REPORTING_PERIOD: "202401"
   # What to do if resolution above still finds nothing (no override, no
   # workflow DEFAULTVALUE either):
