@@ -35,7 +35,7 @@ def to_json(obj: Any, indent: int = 2) -> str:
 # addition to the content hash) so an unchanged XML whose cached summary
 # predates a schema change still gets reprocessed instead of silently
 # serving a stale shape forever.
-CURRENT_SCHEMA_VERSION = 4
+CURRENT_SCHEMA_VERSION = 5
 
 
 # ---------------------------------------------------------------------------
@@ -115,11 +115,12 @@ class MappingVariableInfo:
 
 @dataclass
 class PartitionSqlOverride:
-    """A per-partition attribute override (most commonly a `Sql Query` or
-    `Source Filter` override used for key-range partitioning) found on one
-    <PARTITION> child of a session's <SESSTRANSFORMATIONINST>. Only
-    partitions that actually carry a non-empty override are recorded —
-    plain pass-through partitions with no children produce nothing here."""
+    """A session transformation attribute override.
+
+    Most entries come from a <PARTITION> child of a session's
+    <SESSTRANSFORMATIONINST>, but some workflows place the effective override
+    directly on the <SESSTRANSFORMATIONINST> itself. In that case
+    `partition_name` is blank."""
     session_name: str
     instance_name: str
     transformation_type: str

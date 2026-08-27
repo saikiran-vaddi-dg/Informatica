@@ -107,12 +107,12 @@ def _parse_mapping_variables(mapping_el: ET.Element) -> List[MappingVariableInfo
 
 
 def _parse_session_partition_overrides(folder: ET.Element, mapping_name: str) -> List[PartitionSqlOverride]:
-    """Per-partition attribute overrides (typically a `Sql Query` or `Source
-    Filter` override used for key-range partitioning) from every <SESSION>
-    in the folder whose MAPPINGNAME matches this mapping. A <PARTITION> with
-    no child <ATTRIBUTE> elements (the common case — plain pass-through
-    partitioning) contributes nothing; only actual overrides are recorded,
-    so this stays empty for the vast majority of sessions."""
+    """Session transformation attribute overrides for this mapping.
+
+    Most workflows store SQL/filter overrides under
+    `SESSTRANSFORMATIONINST/PARTITION/ATTRIBUTE`, but some store them directly
+    under `SESSTRANSFORMATIONINST/ATTRIBUTE`. Record both forms so summaries
+    don't miss the effective runtime SQL."""
     overrides: List[PartitionSqlOverride] = []
     for session_el in folder.findall("SESSION"):
         if session_el.get("MAPPINGNAME", "") != mapping_name:
@@ -121,6 +121,20 @@ def _parse_session_partition_overrides(folder: ET.Element, mapping_name: str) ->
         for inst in session_el.findall("SESSTRANSFORMATIONINST"):
             instance_name = inst.get("SINSTANCENAME", "")
             transformation_type = inst.get("TRANSFORMATIONTYPE", "")
+            for attr in inst.findall("ATTRIBUTE"):
+                value = attr.get("VALUE", "")
+                if not value:
+                    continue
+                overrides.append(
+                    PartitionSqlOverride(
+                        session_name=session_name,
+                        instance_name=instance_name,
+                        transformation_type=transformation_type,
+                        partition_name="",
+                        attribute_name=attr.get("NAME", ""),
+                        attribute_value=value,
+                    )
+                )
             for partition in inst.findall("PARTITION"):
                 partition_name = partition.get("NAME", "")
                 for attr in partition.findall("ATTRIBUTE"):
