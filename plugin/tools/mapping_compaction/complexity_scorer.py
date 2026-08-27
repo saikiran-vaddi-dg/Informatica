@@ -77,6 +77,17 @@ def score_mapping(mapping: MappingInfo, mapplets: Dict[str, MappletInfo]) -> Com
                     if label not in nested_fns:
                         nested_fns.append(label)
 
+    for override in mapping.session_partition_overrides:
+        if override.attribute_name not in {"Sql Query", "Lookup Sql Override"}:
+            continue
+        if not override.attribute_value:
+            continue
+        score.sql_override_present = True
+        score.sql_override_join_count = max(
+            score.sql_override_join_count,
+            _count_sql_joins(override.attribute_value),
+        )
+
     score.nested_expression_functions = nested_fns
 
     # --- rule-based tiering -------------------------------------------------

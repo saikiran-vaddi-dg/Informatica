@@ -41,8 +41,25 @@
       "description": ""
     }
   ],
-  "session_partition_overrides": [],
+  "session_partition_overrides": [
+    {
+      "session_name": "HHS_SIL_ProgramActivity_Dimension_SoftDelete",
+      "instance_name": "WC_FBIS_DATA_ACT_CONTROL1",
+      "transformation_type": "Target Definition",
+      "partition_name": "",
+      "attribute_name": "Pre SQL",
+      "attribute_value": "update ufms_bi.WC_PROGRAM_ACTIVITY_D set delete_flg='Y'\r\nwhere integration_id in\r\n(\r\nSELECT INTEGRATION_ID FROM UFMS_BI.WC_PROGRAM_ACTIVITY_D where ledger_wid<>2 and delete_flg='N'\r\nMINUS\r\nSELECT    TO_CHAR (h.PRC_HEADER_ID)\r\n       || '~'\r\n       || TO_CHAR (d.PRC_DETAIL_ID)\r\n       || '~'\r\n       || TO_CHAR (a.PRC_ALLOC_ID)\r\n  FROM FV.FV_FACTS_PRC_HDR@rhhs1i        h,\r\n       FV.FV_FACTS_PRC_DTL@rhhs1i        d,\r\n       FV.FV_DACT_PRC_ALLOCATION@rhhs1i  a\r\nWHERE     h.PRC_HEADER_ID = d.PRC_HEADER_ID\r\n       AND d.PRC_DETAIL_ID = a.PRC_DETAIL_ID\r\n       AND h.CODE_TYPE = 'R'\r\n)\r\nand row_wid<>0"
+    },
+    {
+      "session_name": "HHS_SIL_ProgramActivity_Dimension_SoftDelete",
+      "instance_name": "SQ_WC_FBIS_DATA_ACT_CONTROL",
+      "transformation_type": "Source Qualifier",
+      "partition_name": "",
+      "attribute_name": "Source Filter",
+      "attribute_value": "1=2"
+    }
+  ],
   "transformation_logic": [],
   "source_file_hash": "af0606afd911870c79a33806efee8cd20989404910d32e54db69c6fa21832147",
-  "schema_version": 3
+  "schema_version": 5
 }

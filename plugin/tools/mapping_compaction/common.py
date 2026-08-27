@@ -119,7 +119,8 @@ class PartitionSqlOverride:
 
     Most entries come from a <PARTITION> child of a session's
     <SESSTRANSFORMATIONINST>, but some workflows place the effective override
-    directly on the <SESSTRANSFORMATIONINST> itself. In that case
+    directly on the <SESSTRANSFORMATIONINST> itself. Those direct attributes
+    sometimes still carry a `PARTITIONNAME` attribute; otherwise
     `partition_name` is blank."""
     session_name: str
     instance_name: str
